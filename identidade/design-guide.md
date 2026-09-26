@@ -10,7 +10,7 @@
 
 - **Fundo principal:**
 
-- **Cor de destaque / CTA:**
+- **Cor de destaque / CTA:** Azul claro
 
 - **Texto principal:**
 

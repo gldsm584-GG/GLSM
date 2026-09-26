@@ -5,8 +5,15 @@
 
 ## Tom de voz
 
+Ainda sem exemplo de escrita real pra calibrar. Vou aprendendo o tom com o tempo,
+conforme formos trabalhando junto. Por enquanto, escrever de forma direta e simples.
+
 ## O que evitar
 
+Nada específico registrado ainda.
+
 ## Estilo geral
+
+Em aberto — sem restrições fortes até o momento.
 
 ## Preferências adicionais

@@ -113,3 +113,37 @@ Quando o usuário pedir skill nova:
 4. Se a skill precisar de arquivos de apoio (templates, exemplos),
    criar dentro da pasta da skill
 5. Seguir o fluxo da skill-creator nativa do Claude Code
+
+---
+
+## Negócio: Gustavo — Freelancer
+
+> Preenchido pelo `/instalar`.
+
+Operação freelancer. Aqui ficam os clientes, briefings, entregas e
+prospecção do Gustavo.
+
+**Estrutura de pastas:**
+- `_memoria/` — quem sou, como falo, foco atual
+- `identidade/` — minha marca pessoal aplicada nas entregas (ainda sem
+  marca própria definida)
+- `clientes/` — uma subpasta por cliente/prospecção, autossuficiente
+  (ex: `clientes/Plavii/`)
+- `marketing/` — meu próprio conteúdo (Insta, LinkedIn, portfolio)
+- `saidas/` — emails, documentos pontuais
+- `dados/` — arquivos a analisar
+
+**Quem sou:** Gustavo, freelancer criando sites profissionais pra
+qualquer tipo de comércio. Ainda sem nicho fechado.
+
+**Meu serviço:** criação de sites.
+
+**Clientes ativos:** Plavii (em prospecção — mockup de site como
+abertura de conversa com o dono).
+
+**Regras do sistema:**
+- Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com
+  `briefing.md`
+- Logo e identidade visual de um cliente ficam dentro da pasta do
+  próprio cliente, não em `identidade/` (essa é reservada pra marca
+  pessoal do Gustavo)
