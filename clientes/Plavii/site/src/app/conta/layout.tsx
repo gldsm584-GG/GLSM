@@ -46,7 +46,7 @@ export default function ContaLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="mx-auto grid max-w-6xl gap-6 px-4 py-8 md:grid-cols-[15rem_1fr]">
-      <aside className="h-fit rounded-2xl bg-white p-3 shadow-sm ring-1 ring-black/5 md:sticky md:top-32">
+      <aside className="h-fit min-w-0 rounded-2xl bg-white p-3 shadow-sm ring-1 ring-black/5 md:sticky md:top-32">
         <div className="flex items-center gap-3 px-2 py-3">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-bold text-white">
             {initials}
@@ -57,7 +57,8 @@ export default function ContaLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
 
-        <nav className="mt-1 flex gap-1 overflow-x-auto border-t border-neutral-100 pt-2 md:flex-col md:overflow-visible">
+        {/* Celular: quebra em várias linhas, sem precisar arrastar pro lado */}
+        <nav className="mt-1 flex flex-wrap gap-1.5 border-t border-neutral-100 pt-2 md:flex-col md:flex-nowrap">
           {NAV.map((item) => {
             const active = pathname === item.href;
             return (

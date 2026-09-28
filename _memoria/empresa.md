@@ -9,7 +9,7 @@
 **Perfil:** Freelancer
 **Atende clientes:** Todo tipo de comércio (sem nicho específico definido ainda)
 **Equipe:** Só ele (Gustavo), sem equipe
-**Ferramentas:**
+**Ferramentas:** Next.js + Tailwind, Supabase (banco, login e fotos), Mercado Pago (pagamento), Claude Code
 **Principais entregas:** Sites
 
 ## Contexto adicional

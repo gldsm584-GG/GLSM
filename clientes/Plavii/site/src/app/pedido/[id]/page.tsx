@@ -57,6 +57,28 @@ export default function PedidoPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paymentId]);
 
+  const [paying, setPaying] = useState(false);
+  const [payError, setPayError] = useState(false);
+
+  // Gera um novo link de pagamento pro pedido que ficou aguardando
+  const handlePay = async () => {
+    setPaying(true);
+    setPayError(false);
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderId: id }),
+      });
+      const { initPoint } = await response.json();
+      if (!initPoint) throw new Error("Sem link de pagamento");
+      window.location.assign(initPoint);
+    } catch {
+      setPayError(true);
+      setPaying(false);
+    }
+  };
+
   if (error) {
     return (
       <div className="mx-auto max-w-md px-4 py-16 text-center">
@@ -119,12 +141,38 @@ export default function PedidoPage() {
         <p>{order.phone}</p>
       </div>
 
-      <Link
-        href="/"
-        className="mt-6 block rounded-full bg-brand py-3 text-center font-semibold text-white hover:bg-brand-dark"
-      >
-        Voltar pra loja
-      </Link>
+      {order.status === "pendente" ? (
+        <div className="mt-6 flex flex-col gap-3">
+          {payError && (
+            <p className="rounded-xl bg-red-50 p-3 text-center text-sm text-red-600">
+              Não deu pra iniciar o pagamento. Tenta de novo em instantes.
+            </p>
+          )}
+          {!checkingPayment && (
+            <button
+              type="button"
+              onClick={handlePay}
+              disabled={paying}
+              className="rounded-full bg-brand py-3 text-center font-semibold text-white hover:bg-brand-dark disabled:opacity-60"
+            >
+              {paying ? "Abrindo pagamento..." : "Finalizar compra"}
+            </button>
+          )}
+          <Link
+            href="/conta/compras"
+            className="rounded-full py-3 text-center font-semibold text-brand ring-1 ring-brand/30 transition-colors hover:bg-brand/5"
+          >
+            Voltar para a página de compras
+          </Link>
+        </div>
+      ) : (
+        <Link
+          href="/"
+          className="mt-6 block rounded-full bg-brand py-3 text-center font-semibold text-white hover:bg-brand-dark"
+        >
+          Voltar pra loja
+        </Link>
+      )}
     </div>
   );
 }

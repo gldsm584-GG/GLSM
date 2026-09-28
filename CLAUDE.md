@@ -138,8 +138,9 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 
 **Meu serviço:** criação de sites.
 
-**Clientes ativos:** Plavii (em prospecção — mockup de site como
-abertura de conversa com o dono).
+**Clientes ativos:** Plavii (em prospecção — loja Next.js funcional em
+`clientes/Plavii/site/`; falta domínio, pagamento em produção e
+apresentar ao dono).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com

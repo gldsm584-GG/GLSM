@@ -10,6 +10,7 @@ type ProductRow = {
   old_price: number | null;
   image: string;
   description: string;
+  is_promo: boolean;
 };
 
 const NO_IMAGE = "/sem-imagem.svg";
@@ -29,6 +30,7 @@ function mapRow(row: ProductRow): Product {
     oldPrice: row.old_price != null ? Number(row.old_price) : undefined,
     image: safeImageSrc(row.image),
     description: row.description,
+    isPromo: row.is_promo,
   };
 }
 
@@ -103,6 +105,16 @@ export async function updateProduct(id: string, input: ProductInput): Promise<vo
     .select("id");
   if (error) throw error;
   // Com RLS bloqueando, o Supabase não dá erro: só atualiza 0 linhas.
+  if (!data || data.length === 0) throw new Error("NO_PERMISSION");
+}
+
+export async function setProductPromo(id: string, isPromo: boolean): Promise<void> {
+  const { data, error } = await supabase
+    .from("products")
+    .update({ is_promo: isPromo })
+    .eq("id", id)
+    .select("id");
+  if (error) throw error;
   if (!data || data.length === 0) throw new Error("NO_PERMISSION");
 }
 

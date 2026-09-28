@@ -7,6 +7,7 @@ export type Product = {
   oldPrice?: number;
   image: string;
   description: string;
+  isPromo: boolean;
 };
 
 export type CartItem = {

@@ -99,6 +99,31 @@ export async function getMyOrders(userId: string): Promise<OrderWithItems[]> {
   return (data ?? []) as OrderWithItems[];
 }
 
+async function orderRequest(orderId: string, method: "PATCH" | "DELETE") {
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  if (!token) throw new Error("Entre na sua conta de novo pra continuar.");
+
+  const response = await fetch(`/api/orders/${orderId}`, {
+    method,
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!response.ok) {
+    const body = await response.json().catch(() => null);
+    throw new Error(body?.error ?? "Não deu certo. Tenta de novo em instantes.");
+  }
+}
+
+// Só pedido aguardando pagamento
+export function cancelOrder(orderId: string) {
+  return orderRequest(orderId, "PATCH");
+}
+
+// Só pedido aguardando pagamento ou cancelado — apaga de vez
+export function deleteOrder(orderId: string) {
+  return orderRequest(orderId, "DELETE");
+}
+
 export const ORDER_STATUSES = [
   "pendente",
   "confirmado",

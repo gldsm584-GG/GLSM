@@ -6,6 +6,8 @@ import FavoriteButton from "@/components/FavoriteButton";
 import TrackView from "@/components/TrackView";
 import LineIcon from "@/components/LineIcon";
 import ProductCard from "@/components/ProductCard";
+import ProductInlineEditor from "@/components/ProductInlineEditor";
+import ProductReviews from "@/components/ProductReviews";
 import { CATEGORIES, sameCategory } from "@/lib/categories";
 import {
   discountPercent,
@@ -30,6 +32,7 @@ export default async function ProductPage({
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <TrackView productId={product.id} />
+      <ProductInlineEditor product={product} />
       <nav className="mb-5 text-sm text-neutral-500">
         <Link href="/" className="hover:text-brand">
           Início
@@ -104,6 +107,8 @@ export default async function ProductPage({
         <h2 className="mb-2 text-lg font-bold text-neutral-800">Sobre o produto</h2>
         <p className="max-w-3xl leading-relaxed text-neutral-600">{product.description}</p>
       </section>
+
+      <ProductReviews productId={product.id} />
 
       {related.length > 0 && (
         <section className="mt-16">

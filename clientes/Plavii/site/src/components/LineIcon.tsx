@@ -31,6 +31,8 @@ const PATHS = {
   lock: "M6 11h12v9H6zM8 11V8a4 4 0 0 1 8 0v3",
   grid: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
   "chevron-down": "M6 9l6 6 6-6",
+  "chevron-left": "M15 18l-6-6 6-6",
+  "chevron-right": "M9 18l6-6-6-6",
   pin: "M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11zM12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z",
   minus: "M5 12h14",
   cart: "M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L21 7H6M9 20.5h.01M18 20.5h.01",
@@ -45,6 +47,7 @@ const PATHS = {
   truck: "M2 6h12v10H2zM14 9h4l4 4v3h-8M7 16.7a1.8 1.8 0 1 0 .01 0M18 16.7a1.8 1.8 0 1 0 .01 0",
   shield: "M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6zM9 12l2 2 4-4",
   store: "M4 9l1-5h14l1 5M4 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 6 0 2.5 2.5 0 0 0 5 0M5 12v8h14v-8M10 20v-5h4v5",
+  star: "M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z",
 } as const;
 
 export type IconName = keyof typeof PATHS;

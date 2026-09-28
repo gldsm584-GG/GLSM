@@ -61,7 +61,7 @@ export default function UserMenu() {
   };
 
   return (
-    <div ref={boxRef} className="relative">
+    <div ref={boxRef} className="relative justify-self-end">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

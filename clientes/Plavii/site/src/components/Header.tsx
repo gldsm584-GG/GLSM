@@ -49,7 +49,7 @@ export default function Header() {
         hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 md:flex-nowrap">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-2 px-4 py-3 md:flex md:gap-x-4">
         <Link href="/" className="shrink-0">
           <Image src="/logo.png" alt="Plavii" width={110} height={36} priority />
         </Link>
@@ -80,23 +80,26 @@ export default function Header() {
           </Link>
         )}
 
-        <SearchBar className="order-last w-full md:order-none md:w-auto md:min-w-0 md:flex-1" />
+        {/* Celular: busca (2 colunas) + conta na 2ª linha; carrinho na 1ª. Desktop: tudo numa linha só. */}
+        <SearchBar className="col-span-2 md:min-w-0 md:flex-1" />
 
-        <div className="ml-auto flex items-center gap-4 md:ml-0">
+        <div className="contents md:flex md:items-center md:gap-4">
           {user ? (
             <UserMenu />
           ) : (
             <Link
               href="/entrar"
-              className="hidden text-sm font-medium text-neutral-600 hover:text-brand sm:block"
+              className="flex items-center gap-1.5 justify-self-end whitespace-nowrap rounded-lg border border-brand bg-brand px-3 py-2 text-sm font-semibold text-white transition-colors hover:border-brand-dark hover:bg-brand-dark"
             >
+              <LineIcon name="user" className="h-5 w-5" />
               Entrar
             </Link>
           )}
 
           <Link
             href="/carrinho"
-            className="relative flex items-center gap-2 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
+            aria-label="Carrinho"
+            className="relative col-start-3 row-start-1 flex items-center justify-self-end rounded-full bg-brand px-3 py-2 text-white shadow-sm transition-colors hover:bg-brand-dark"
           >
             <svg
               viewBox="0 0 24 24"
@@ -112,7 +115,6 @@ export default function Header() {
               <circle cx="18" cy="20" r="1.5" />
               <path d="M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L21 7H6" />
             </svg>
-            Carrinho
             {totalItems > 0 && (
               <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
                 {totalItems}

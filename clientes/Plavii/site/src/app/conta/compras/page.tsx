@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import LineIcon from "@/components/LineIcon";
 import { useAuth } from "@/lib/auth-context";
-import { getMyOrders, type OrderWithItems } from "@/lib/orders";
+import { cancelOrder, deleteOrder, getMyOrders, type OrderWithItems } from "@/lib/orders";
 import { formatOrderDate, statusStyle } from "@/lib/order-status";
 import { formatPrice } from "@/lib/products";
 
@@ -21,6 +21,39 @@ export default function ComprasPage() {
       .catch(() => setError(true));
   }, [userId]);
 
+  const [busyId, setBusyId] = useState<string | null>(null);
+  const [actionError, setActionError] = useState("");
+
+  async function handleCancel(order: OrderWithItems) {
+    if (!confirm("Cancelar esse pedido? Ele ainda não foi pago.")) return;
+    setBusyId(order.id);
+    setActionError("");
+    try {
+      await cancelOrder(order.id);
+      setOrders((current) =>
+        current?.map((o) => (o.id === order.id ? { ...o, status: "cancelado" } : o)) ?? null
+      );
+    } catch (err) {
+      setActionError(err instanceof Error ? err.message : "Não deu certo. Tenta de novo.");
+    } finally {
+      setBusyId(null);
+    }
+  }
+
+  async function handleDelete(order: OrderWithItems) {
+    if (!confirm("Apagar esse pedido? Não dá pra desfazer.")) return;
+    setBusyId(order.id);
+    setActionError("");
+    try {
+      await deleteOrder(order.id);
+      setOrders((current) => current?.filter((o) => o.id !== order.id) ?? null);
+    } catch (err) {
+      setActionError(err instanceof Error ? err.message : "Não deu certo. Tenta de novo.");
+    } finally {
+      setBusyId(null);
+    }
+  }
+
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-extrabold tracking-tight text-neutral-800">Compras</h1>
@@ -29,6 +62,10 @@ export default function ComprasPage() {
         <p className="rounded-xl bg-red-50 p-4 text-sm text-red-600">
           Não deu pra carregar suas compras. Tenta de novo em instantes.
         </p>
+      )}
+
+      {actionError && (
+        <p className="rounded-xl bg-red-50 p-4 text-sm text-red-600">{actionError}</p>
       )}
 
       {!error && orders === null && (
@@ -55,6 +92,9 @@ export default function ComprasPage() {
 
       {orders?.map((order) => {
         const status = statusStyle(order.status);
+        const busy = busyId === order.id;
+        const canCancel = order.status === "pendente";
+        const canDelete = order.status === "pendente" || order.status === "cancelado";
         return (
           <div
             key={order.id}
@@ -92,12 +132,36 @@ export default function ComprasPage() {
               <p className="text-sm text-neutral-500">
                 Total <span className="text-lg font-extrabold text-brand">{formatPrice(order.total)}</span>
               </p>
-              <Link
-                href={`/pedido/${order.id}`}
-                className="rounded-md bg-brand/10 px-4 py-2 text-sm font-semibold text-brand transition-colors hover:bg-brand/20"
-              >
-                Ver detalhes
-              </Link>
+              <div className="flex flex-wrap items-center gap-2">
+                {canDelete && (
+                  <button
+                    type="button"
+                    onClick={() => handleDelete(order)}
+                    disabled={busy}
+                    title="Apagar pedido"
+                    aria-label="Apagar pedido"
+                    className="rounded-md p-2 text-neutral-400 transition-colors hover:bg-red-50 hover:text-red-500 disabled:opacity-50"
+                  >
+                    <LineIcon name="trash" className="h-5 w-5" />
+                  </button>
+                )}
+                {canCancel && (
+                  <button
+                    type="button"
+                    onClick={() => handleCancel(order)}
+                    disabled={busy}
+                    className="rounded-md px-4 py-2 text-sm font-semibold text-red-500 ring-1 ring-red-200 transition-colors hover:bg-red-50 disabled:opacity-50"
+                  >
+                    {busy ? "Aguarde..." : "Cancelar pedido"}
+                  </button>
+                )}
+                <Link
+                  href={`/pedido/${order.id}`}
+                  className="rounded-md bg-brand/10 px-4 py-2 text-sm font-semibold text-brand transition-colors hover:bg-brand/20"
+                >
+                  Ver detalhes
+                </Link>
+              </div>
             </div>
           </div>
         );

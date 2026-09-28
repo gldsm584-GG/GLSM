@@ -66,7 +66,7 @@ export default function SearchBar({ className = "" }: { className?: string }) {
   };
 
   return (
-    <div ref={boxRef} className={`relative ${className}`}>
+    <div ref={boxRef} className={`md:relative ${className}`}>
       <form
         onSubmit={handleSubmit}
         role="search"
@@ -100,7 +100,8 @@ export default function SearchBar({ className = "" }: { className?: string }) {
       </form>
 
       {showList && (
-        <div className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-black/10">
+        // Celular: a barra é estreita (a conta fica ao lado), então a lista abre na largura do cabeçalho
+        <div className="absolute left-4 right-4 top-[calc(100%-0.75rem)] z-50 mt-1 overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-black/10 md:left-0 md:right-0 md:top-full">
           {!products ? (
             <p className="px-4 py-3 text-sm text-neutral-500">Buscando…</p>
           ) : suggestions.length === 0 ? (

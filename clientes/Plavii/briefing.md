@@ -36,7 +36,8 @@ foco em promoção/urgência.
 
 ## Identidade visual
 
-- Cor de destaque: azul
+- Cor de destaque: azul (`#175291`); acento amarelo `#FFC83D` nas ofertas
+- Fonte: Inter; ícones de traço simples (sem emojis) — ver `site/src/components/LineIcon.tsx`
 - Logo: `clientes/Plavii/logo.png`
 
 ## Status
@@ -65,8 +66,27 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
 - [x] Pagamento (Mercado Pago Checkout Pro) — testado de ponta a ponta em
       modo teste em 2026-09-23: pagamento aprovado → pedido virou
       "confirmado" no banco. Falta só a produção (ver nota abaixo).
+- [x] Categorias (painel "Tudo" + barra), busca, cadastro completo,
+      endereços múltiplos, "Comprar agora" e painel do cliente (`/conta`)
+- [ ] Limpar dados de teste no `/admin`: Projetor HY300 com preço R$ 1,00
+      (gera selo -100%) e categoria errada (Pets); revisar produtos que
+      pareçam de teste (ex.: "blb")
+- [ ] Testar o checkout logado ponta a ponta (cartão de endereço em tela)
+- [x] Publicar num link de teste na Vercel — https://plavii.vercel.app
+      (deploy em 2026-09-26, com chaves de teste do Mercado Pago;
+      atualizado em 2026-09-27 com cabeçalho mobile novo e
+      cancelar/apagar pedido)
+- [ ] Ajustar "Site URL" do Supabase (Authentication → URL Configuration)
+      pra https://plavii.vercel.app, senão links de e-mail apontam pro
+      localhost
+- [ ] Testar o checkout de teste no link da Vercel (retorno automático +
+      webhook, que em localhost não funcionavam)
 - [ ] Preparar abordagem pro dono — rascunho em `abordagem.md`, falta
       atualizar pra referenciar o site funcional (não mais screenshots)
+- [ ] Publicar no plavii.vercel.app as novidades de 2026-09-27 (produto
+      editável na loja, páginas em branco, opiniões de produto, Hero em
+      carrossel, detalhes de cliente no admin) — rodar as migrações SQL
+      novas (006 a 014) antes de publicar
 
 ## Site
 
@@ -120,5 +140,73 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   quebrar a loja (`safeImageSrc` em `src/lib/products.ts`)
 - Carrinho via `src/lib/cart-context.tsx` (Context API + localStorage,
   produtos buscados do Supabase)
-- Cor de marca: azul `#175291`, fonte Inter (mesma linha visual do mockup)
+- Categorias: lista fixa de 20 em `src/lib/categories.ts` (nome, slug, ícone,
+  cor). O admin escolhe a categoria dessa lista; `/categoria/<slug>` filtra
+  por ela. Navegação: botão "Tudo" (painel lateral, `CategoryDrawer`) + barra
+  de atalhos no cabeçalho
+- Busca: barra no topo com sugestões (`SearchBar`) e página `/busca?q=`; busca
+  em nome, categoria e descrição, sem ligar pra acento (`src/lib/search.ts`)
+- Cadastro completo (`AuthForm`): nome, sobrenome, celular, 2º número,
+  endereço com CEP (ViaCEP) e senha com olhinho. Dados extras ficam no
+  `user_metadata` do Supabase Auth (sem tabela nova)
+- Endereços: lista por conta em `user_metadata.enderecos`
+  (`src/lib/addresses.ts`, estado em `address-context.tsx`). Botão de
+  localização no topo abre o seletor (`AddressPicker`: escolher, editar,
+  adicionar, remover); o checkout usa o endereço escolhido. Pedido grava o
+  endereço como texto (formato antigo, sem mudar `orders`)
+- Produto: "Comprar agora" (adiciona e vai pro checkout) e "Adicionar ao
+  carrinho"; layout enxuto estilo Mercado Livre
+- Painel do cliente em `/conta`: Visão geral, Compras (`getMyOrders`),
+  Histórico, Favoritos e Meus dados (nome, telefones, trocar senha). Menu do
+  usuário no topo (`UserMenu`) com "Entrar em outra conta" e "Sair".
+  Histórico e favoritos ficam no localStorage do navegador (não no banco)
+- Compras: o cliente cancela pedido pendente e apaga pedido pendente/cancelado
+  (`api/orders/[id]`, PATCH/DELETE). Apagar é bloqueado se o Mercado Pago já
+  aprovou pagamento
+- Cabeçalho some ao rolar pra baixo e volta ao rolar pra cima
+- Layout do cabeçalho (`Header.tsx`): no celular 2 linhas — logo + endereço +
+  carrinho em cima; busca + conta embaixo. No desktop, uma linha só. Carrinho
+  é só ícone em todos os tamanhos; "Entrar" é botão azul com ícone de pessoa
+  e texto branco
+- Cor de marca: azul `#175291`, acento `#FFC83D`, fonte Inter
 - Rodar localmente: `npm run dev` dentro de `site/` (porta 3000)
+- Hospedagem de teste: Vercel, projeto `glsmteste/plavii` (conta Glsmteste,
+  plano Hobby — só pra teste/demonstração; uso comercial exige Pro). URL:
+  https://plavii.vercel.app. Republicar: `npx vercel --prod` dentro de
+  `site/` (pasta já vinculada via `.vercel/`, ignorada pelo Git). As 5
+  variáveis do `.env.local` estão cadastradas no painel da Vercel só com as
+  chaves de TESTE do Mercado Pago — o token de produção não foi enviado;
+  trocar só no lançamento, junto com o domínio definitivo. Alternativa pra
+  produção: Hostinger com Node.js (o app não depende de disco local, tudo
+  fica no Supabase). O deploy sai direto da pasta local
+  (`npx vercel --prod --yes`); o projeto da Vercel não está ligado ao Git
+- Edição direto na loja (sem entrar no painel `/admin`), só pro admin logado:
+  botão flutuante "Editar produto" em cada página de produto (mesmo
+  formulário do painel); botão "Gerenciar Heroes" na home
+- Páginas em branco: 2 páginas (`/pagina/pagina-1`, `/pagina/pagina-2`) que o
+  admin preenche com título + texto formatado (negrito/itálico) + imagem,
+  direto pela própria página (botão "Editar página"). Aparecem sozinhas no
+  rodapé, com o título como nome do link. Tabela `site_pages`
+  (`supabase/008_site_content.sql`), bucket `site`
+  (`supabase/009_site_storage.sql`)
+- Opiniões de produto: nota média, estrelas, distribuição por nota, fotos
+  dos clientes e lista de avaliações em cada página de produto; cliente
+  logado avalia (1 avaliação por pessoa por produto, pode editar depois).
+  Tabela `reviews` (`supabase/006_reviews.sql`), bucket `avaliacoes`
+  (`supabase/007_reviews_storage.sql`)
+- Hero da home virou carrossel de imagens (setinha + bolinhas, desliza
+  suave, loop infinito sem "voltar"), gerenciado em "Gerenciar Heroes":
+  arrasta a imagem pra adicionar um slide; sem nenhum slide, cai no Hero
+  padrão de sempre. Editor por slide "estilo Canva": a imagem já vem pronta
+  de fora (sem texto do site sobreposto — só a imagem, tipo Rockstar Games),
+  com um botão flutuante opcional (texto, cor da letra, cor do fundo — os
+  dois com seletor de cor nativo) e destino configurável (vitrine, um
+  produto, uma categoria ou link personalizado). Tabela `hero_slides`
+  (`supabase/010` a `014_hero_button_style.sql`)
+- Painel Clientes do admin: cada cliente tem "Ver detalhes", que expande os
+  pedidos dele com status e produtos comprados; a coluna de localização
+  mostra endereço completo (rua/bairro, cidade, CEP), não só a cidade
+- ⚠️ Tudo isso (5 itens acima) está só local ainda — não foi publicado no
+  https://plavii.vercel.app. Rodar `npx vercel --prod --yes` dentro de
+  `site/` quando for publicar, depois de rodar as migrações SQL novas
+  (006 a 014) no Supabase, na ordem
