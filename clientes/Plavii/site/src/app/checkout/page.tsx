@@ -11,6 +11,7 @@ import { useCart } from "@/lib/cart-context";
 import { createOrder } from "@/lib/orders";
 import { formatPrice } from "@/lib/products";
 import { formatPhone } from "@/lib/profile";
+import { supabase } from "@/lib/supabase";
 
 const inputClass =
   "rounded-lg border border-neutral-200 px-3 py-2 outline-none focus:border-brand";
@@ -102,9 +103,16 @@ export default function CheckoutPage() {
         ...orderAddressFields(selected),
       });
 
+      const { data: session } = await supabase.auth.getSession();
+      const token = session.session?.access_token;
+      if (!token) throw new Error("Entre na sua conta de novo pra continuar.");
+
       const response = await fetch("/api/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({ orderId: order.id }),
       });
       const { initPoint } = await response.json();

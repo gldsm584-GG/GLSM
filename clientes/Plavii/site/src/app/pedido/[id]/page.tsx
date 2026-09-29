@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import LineIcon, { type IconName } from "@/components/LineIcon";
 import { getOrder, type OrderWithItems } from "@/lib/orders";
 import { formatPrice } from "@/lib/products";
+import { supabase } from "@/lib/supabase";
 
 const STATUS_INFO: Record<
   string,
@@ -65,9 +66,16 @@ export default function PedidoPage() {
     setPaying(true);
     setPayError(false);
     try {
+      const { data: session } = await supabase.auth.getSession();
+      const token = session.session?.access_token;
+      if (!token) throw new Error("Entre na sua conta de novo pra continuar.");
+
       const response = await fetch("/api/checkout", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({ orderId: id }),
       });
       const { initPoint } = await response.json();

@@ -4,6 +4,16 @@ import { mpClient } from "@/lib/mercadopago";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 
 export async function POST(request: Request) {
+  const token = request.headers.get("authorization")?.replace("Bearer ", "");
+  if (!token) {
+    return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  }
+
+  const { data: caller } = await supabaseAdmin.auth.getUser(token);
+  if (!caller.user) {
+    return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+  }
+
   const { orderId } = await request.json();
 
   if (!orderId) {
@@ -14,6 +24,7 @@ export async function POST(request: Request) {
     .from("orders")
     .select("*, order_items(*)")
     .eq("id", orderId)
+    .eq("user_id", caller.user.id)
     .single();
 
   if (error || !order) {
