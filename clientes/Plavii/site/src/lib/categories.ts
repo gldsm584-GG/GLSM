@@ -1,50 +1,82 @@
 import type { IconName } from "@/components/LineIcon";
+import { supabase } from "./supabase";
 
 export type Category = {
+  id: string;
   nome: string;
   slug: string;
   icon: IconName;
   cor: string; // gradiente Tailwind pros cartões da home
 };
 
-// Lista oficial de categorias da loja. `nome` é o valor gravado em
-// products.category — o admin escolhe daqui, e /categoria/[slug] filtra por ele.
-export const CATEGORIES: Category[] = [
-  { nome: "Eletrônicos", slug: "eletronicos", icon: "plug", cor: "from-blue-500 to-indigo-600" },
-  { nome: "Celulares e Acessórios", slug: "celulares-e-acessorios", icon: "phone", cor: "from-pink-500 to-rose-600" },
-  { nome: "Carregadores e Cabos", slug: "carregadores-e-cabos", icon: "battery", cor: "from-emerald-500 to-teal-600" },
-  { nome: "Áudio", slug: "audio", icon: "headphones", cor: "from-sky-500 to-cyan-600" },
-  { nome: "Informática", slug: "informatica", icon: "laptop", cor: "from-violet-500 to-purple-600" },
-  { nome: "Games", slug: "games", icon: "gamepad", cor: "from-fuchsia-500 to-purple-700" },
-  { nome: "Smartwatches e Pulseiras", slug: "smartwatches-e-pulseiras", icon: "watch", cor: "from-slate-500 to-slate-700" },
-  { nome: "Projetores e TV", slug: "projetores-e-tv", icon: "projector", cor: "from-indigo-500 to-blue-700" },
-  { nome: "Utilidades domésticas", slug: "utilidades-domesticas", icon: "home", cor: "from-amber-400 to-orange-500" },
-  { nome: "Cozinha", slug: "cozinha", icon: "pan", cor: "from-orange-400 to-red-500" },
-  { nome: "Copos e Garrafas", slug: "copos-e-garrafas", icon: "cup", cor: "from-cyan-400 to-blue-500" },
-  { nome: "Brinquedos", slug: "brinquedos", icon: "blocks", cor: "from-yellow-400 to-amber-500" },
-  { nome: "Bebês e Crianças", slug: "bebes-e-criancas", icon: "smile", cor: "from-rose-300 to-pink-500" },
-  { nome: "Beleza e Cuidados", slug: "beleza-e-cuidados", icon: "sparkles", cor: "from-pink-400 to-fuchsia-600" },
-  { nome: "Saúde e Bem-estar", slug: "saude-e-bem-estar", icon: "heart", cor: "from-green-400 to-emerald-600" },
-  { nome: "Ferramentas", slug: "ferramentas", icon: "wrench", cor: "from-stone-500 to-stone-700" },
-  { nome: "Automotivo", slug: "automotivo", icon: "car", cor: "from-red-500 to-rose-700" },
-  { nome: "Papelaria e Escritório", slug: "papelaria-e-escritorio", icon: "pencil", cor: "from-lime-400 to-green-600" },
-  { nome: "Esportes e Lazer", slug: "esportes-e-lazer", icon: "ball", cor: "from-teal-400 to-cyan-600" },
-  { nome: "Pets", slug: "pets", icon: "paw", cor: "from-orange-300 to-amber-600" },
-];
+// Combinações de cor prontas pro admin escolher ao criar uma categoria.
+// Precisa ser uma lista fixa aqui no código (não vinda do banco) porque o
+// Tailwind só gera o CSS das classes que ele enxerga nos arquivos — uma
+// cor digitada livremente em tempo de execução não funcionaria.
+export const COLOR_PRESETS = [
+  "from-blue-500 to-indigo-600",
+  "from-pink-500 to-rose-600",
+  "from-emerald-500 to-teal-600",
+  "from-sky-500 to-cyan-600",
+  "from-violet-500 to-purple-600",
+  "from-fuchsia-500 to-purple-700",
+  "from-slate-500 to-slate-700",
+  "from-indigo-500 to-blue-700",
+  "from-amber-400 to-orange-500",
+  "from-orange-400 to-red-500",
+  "from-cyan-400 to-blue-500",
+  "from-yellow-400 to-amber-500",
+  "from-rose-300 to-pink-500",
+  "from-pink-400 to-fuchsia-600",
+  "from-green-400 to-emerald-600",
+  "from-stone-500 to-stone-700",
+  "from-red-500 to-rose-700",
+  "from-lime-400 to-green-600",
+  "from-teal-400 to-cyan-600",
+  "from-orange-300 to-amber-600",
+] as const;
 
-// Atalhos que aparecem na barra de categorias (o resto fica no painel "Tudo")
-export const QUICK_CATEGORIES = CATEGORIES.filter((c) =>
-  [
-    "eletronicos",
-    "celulares-e-acessorios",
-    "audio",
-    "informatica",
-    "games",
-    "utilidades-domesticas",
-    "brinquedos",
-    "beleza-e-cuidados",
-  ].includes(c.slug),
-);
+type CategoryRow = {
+  id: string;
+  nome: string;
+  slug: string;
+  icon: string;
+  cor: string;
+};
+
+function mapRow(row: CategoryRow): Category {
+  return { id: row.id, nome: row.nome, slug: row.slug, icon: row.icon as IconName, cor: row.cor };
+}
+
+export async function getCategories(): Promise<Category[]> {
+  const { data, error } = await supabase.from("categories").select("*").order("created_at");
+  if (error) throw error;
+  return (data ?? []).map(mapRow);
+}
+
+export async function getCategoryBySlug(slug: string): Promise<Category | undefined> {
+  const { data, error } = await supabase
+    .from("categories")
+    .select("*")
+    .eq("slug", slug)
+    .maybeSingle();
+  if (error) throw error;
+  return data ? mapRow(data) : undefined;
+}
+
+export type CategoryInput = { nome: string; slug: string; icon: IconName; cor: string };
+
+export async function addCategory(input: CategoryInput): Promise<void> {
+  const { data, error } = await supabase.from("categories").insert(input).select("id");
+  if (error) throw error;
+  // Com RLS bloqueando, o Supabase não dá erro: só insere 0 linhas.
+  if (!data || data.length === 0) throw new Error("NO_PERMISSION");
+}
+
+export async function deleteCategory(id: string): Promise<void> {
+  const { error } = await supabase.from("categories").delete().eq("id", id);
+  if (error) throw error;
+}
 
 function normalize(text: string): string {
   return text
@@ -52,10 +84,6 @@ function normalize(text: string): string {
     .replace(/[̀-ͯ]/g, "")
     .trim()
     .toLowerCase();
-}
-
-export function getCategoryBySlug(slug: string): Category | undefined {
-  return CATEGORIES.find((c) => c.slug === slug);
 }
 
 export function sameCategory(productCategory: string, category: Category): boolean {

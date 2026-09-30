@@ -9,11 +9,15 @@ import UserMenu from "@/components/UserMenu";
 import LineIcon from "@/components/LineIcon";
 import { addressHeaderLabel } from "@/lib/addresses";
 import { useAddresses } from "@/lib/address-context";
-import { QUICK_CATEGORIES } from "@/lib/categories";
+import type { Category } from "@/lib/categories";
 import { useAuth } from "@/lib/auth-context";
 import { useCart } from "@/lib/cart-context";
 
-export default function Header() {
+// Só as N primeiras ficam sempre visíveis na barra; o resto fica no painel "Tudo"
+const QUICK_COUNT = 8;
+
+export default function Header({ categories }: { categories: Category[] }) {
+  const quickCategories = categories.slice(0, QUICK_COUNT);
   const { totalItems } = useCart();
   const { user } = useAuth();
   const { selected, openPicker } = useAddresses();
@@ -145,7 +149,7 @@ export default function Header() {
             Tudo
           </button>
           <nav className="flex items-center gap-1 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {QUICK_CATEGORIES.map((c) => (
+            {quickCategories.map((c) => (
               <Link
                 key={c.slug}
                 href={`/categoria/${c.slug}`}
@@ -158,7 +162,7 @@ export default function Header() {
         </div>
       </div>
     </header>
-    <CategoryDrawer open={menuOpen} onClose={closeMenu} />
+    <CategoryDrawer open={menuOpen} onClose={closeMenu} categories={categories} />
     </>
   );
 }

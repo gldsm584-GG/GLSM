@@ -3,14 +3,16 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import LineIcon from "@/components/LineIcon";
-import { CATEGORIES } from "@/lib/categories";
+import type { Category } from "@/lib/categories";
 
 export default function CategoryDrawer({
   open,
   onClose,
+  categories,
 }: {
   open: boolean;
   onClose: () => void;
+  categories: Category[];
 }) {
   useEffect(() => {
     if (!open) return;
@@ -71,7 +73,7 @@ export default function CategoryDrawer({
             Ofertas da semana
           </Link>
           <div className="mx-5 my-2 border-t border-black/5" />
-          {CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <Link
               key={c.slug}
               href={`/categoria/${c.slug}`}

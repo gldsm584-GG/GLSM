@@ -1,7 +1,7 @@
+import AdminMenu from "@/components/AdminMenu";
 import Hero from "@/components/Hero";
-import HeroEditor from "@/components/HeroEditor";
-import OfertasEditor from "@/components/OfertasEditor";
 import ProductCard from "@/components/ProductCard";
+import { getCategories, type Category } from "@/lib/categories";
 import { getHeroSlides, type HeroSlide } from "@/lib/hero";
 import { discountPercent, getAllProducts } from "@/lib/products";
 import { getSitePage } from "@/lib/site-content";
@@ -13,6 +13,9 @@ export default async function Home() {
   const heroSlides = await getHeroSlides().catch(() => [] as HeroSlide[]);
   // Idem pra linha "ofertas" do site_pages: sem ela, usa os textos padrão.
   const ofertasPage = await getSitePage("ofertas").catch(() => null);
+  // Idem pra categories: sem a migração 018 rodada, o painel de categorias
+  // fica vazio, mas o resto da home continua funcionando.
+  const categories = await getCategories().catch(() => [] as Category[]);
 
   // Vitrine do hero padrão: produtos com foto e desconto que faça sentido
   const destaques = products
@@ -38,8 +41,12 @@ export default async function Home() {
   return (
     <div>
       <Hero slides={heroSlides} destaques={destaques} />
-      <HeroEditor slides={heroSlides} />
-      <OfertasEditor products={products} page={ofertasPage} />
+      <AdminMenu
+        heroSlides={heroSlides}
+        products={products}
+        ofertasPage={ofertasPage}
+        categories={categories}
+      />
 
       {ofertas.length > 0 && (
         <section className="mx-auto mt-14 max-w-6xl px-4">

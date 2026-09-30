@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
-import { CATEGORIES } from "@/lib/categories";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { getCategories, type Category } from "@/lib/categories";
 import {
   createProduct,
   updateProduct,
@@ -56,6 +56,13 @@ export default function ProductForm({
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    getCategories()
+      .then(setCategories)
+      .catch(() => setCategories([]));
+  }, []);
 
   const handleNameChange = (name: string) => {
     setForm((f) => ({
@@ -148,10 +155,10 @@ export default function ProductForm({
             <option value="" disabled>
               Escolha…
             </option>
-            {form.category && !CATEGORIES.some((c) => c.nome === form.category) && (
+            {form.category && !categories.some((c) => c.nome === form.category) && (
               <option value={form.category}>{form.category}</option>
             )}
-            {CATEGORIES.map((c) => (
+            {categories.map((c) => (
               <option key={c.slug} value={c.nome}>
                 {c.nome}
               </option>

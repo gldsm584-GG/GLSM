@@ -8,7 +8,7 @@ import LineIcon from "@/components/LineIcon";
 import ProductCard from "@/components/ProductCard";
 import ProductInlineEditor from "@/components/ProductInlineEditor";
 import ProductReviews from "@/components/ProductReviews";
-import { CATEGORIES, sameCategory } from "@/lib/categories";
+import { getCategories, sameCategory } from "@/lib/categories";
 import {
   discountPercent,
   formatPrice,
@@ -27,7 +27,8 @@ export default async function ProductPage({
 
   const off = discountPercent(product);
   const related = await getRelatedProducts(product);
-  const category = CATEGORIES.find((c) => sameCategory(product.category, c));
+  const categories = await getCategories().catch(() => []);
+  const category = categories.find((c) => sameCategory(product.category, c));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">

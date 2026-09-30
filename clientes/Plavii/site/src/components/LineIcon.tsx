@@ -30,6 +30,7 @@ const PATHS = {
   swap: "M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7",
   lock: "M6 11h12v9H6zM8 11V8a4 4 0 0 1 8 0v3",
   grid: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+  menu: "M4 6h16M4 12h16M4 18h16",
   "chevron-down": "M6 9l6 6 6-6",
   "chevron-left": "M15 18l-6-6 6-6",
   "chevron-right": "M9 18l6-6-6-6",
@@ -51,6 +52,7 @@ const PATHS = {
 } as const;
 
 export type IconName = keyof typeof PATHS;
+export const ICON_NAMES = Object.keys(PATHS) as IconName[];
 
 export default function LineIcon({
   name,

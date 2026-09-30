@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import LineIcon from "@/components/LineIcon";
-import { CATEGORIES } from "@/lib/categories";
+import { getCategories, type Category } from "@/lib/categories";
 import { getAllProducts } from "@/lib/products";
 import { updateHeroSlideButtons, type HeroButton, type HeroSlide } from "@/lib/hero";
 import type { Product } from "@/lib/types";
@@ -71,6 +71,7 @@ export default function HeroSlideEditor({
   const [linkCustom, setLinkCustom] = useState("");
   const [linkProductSearch, setLinkProductSearch] = useState("");
   const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -78,6 +79,9 @@ export default function HeroSlideEditor({
     getAllProducts()
       .then(setProducts)
       .catch(() => setProducts([]));
+    getCategories()
+      .then(setCategories)
+      .catch(() => setCategories([]));
   }, []);
 
   // Troca de botão selecionado: recarrega o "pra onde leva" desse botão
@@ -353,7 +357,7 @@ export default function HeroSlideEditor({
                   <option value="" disabled>
                     Escolhe a categoria…
                   </option>
-                  {CATEGORIES.map((c) => (
+                  {categories.map((c) => (
                     <option key={c.slug} value={c.slug}>
                       {c.nome}
                     </option>

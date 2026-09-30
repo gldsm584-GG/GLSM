@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LineIcon from "@/components/LineIcon";
 import ProductCard from "@/components/ProductCard";
-import { CATEGORIES } from "@/lib/categories";
+import { getCategories } from "@/lib/categories";
 import { getAllProducts } from "@/lib/products";
 import { searchProducts } from "@/lib/search";
 
@@ -13,6 +13,7 @@ export default async function SearchPage({
   const { q } = await searchParams;
   const term = (Array.isArray(q) ? q[0] : q)?.trim() ?? "";
   const results = term ? searchProducts(await getAllProducts(), term) : [];
+  const categories = await getCategories().catch(() => []);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
@@ -45,7 +46,7 @@ export default async function SearchPage({
               : "Pesquise por nome do produto ou categoria."}
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
-            {CATEGORIES.slice(0, 8).map((c) => (
+            {categories.slice(0, 8).map((c) => (
               <Link
                 key={c.slug}
                 href={`/categoria/${c.slug}`}
