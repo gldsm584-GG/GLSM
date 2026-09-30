@@ -62,7 +62,7 @@ export default function Footer({ pages }: { pages: SitePage[] }) {
           )}
         </div>
         <p className="mt-8 border-t border-white/10 pt-6 text-xs text-neutral-500">
-          © 2026 Plavii — CNPJ 36.036.237/0001-70
+          © 2026 Plavii
         </p>
       </div>
     </footer>
