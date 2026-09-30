@@ -16,7 +16,7 @@ type PanelKey = "heroes" | "ofertas" | "categorias";
 
 const ITEMS: { key: PanelKey; label: string; icon: IconName }[] = [
   { key: "heroes", label: "Gerenciar Heroes", icon: "blocks" },
-  { key: "ofertas", label: "Gerenciar Ofertas relâmpago", icon: "bolt" },
+  { key: "ofertas", label: "Gerenciar Oferta", icon: "bolt" },
   { key: "categorias", label: "Gerenciar Categorias", icon: "grid" },
 ];
 

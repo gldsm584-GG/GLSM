@@ -64,7 +64,8 @@ export default function OfertasEditor({
     ? products.filter((p) => p.name.toLowerCase().includes(search.trim().toLowerCase()))
     : products;
 
-  const selecionados = products.filter((p) => p.isPromo).length;
+  const selecionadosList = products.filter((p) => p.isPromo);
+  const selecionados = selecionadosList.length;
 
   const handleToggle = async (product: Product) => {
     setSavingId(product.id);
@@ -134,6 +135,38 @@ export default function OfertasEditor({
             ? `${selecionados} selecionado${selecionados > 1 ? "s" : ""} agora.`
             : "Sem nenhum marcado, a home mostra os produtos com maior desconto automaticamente."}
         </p>
+
+        {selecionados > 0 && (
+          <div className="flex flex-col gap-2 rounded-xl border border-neutral-200 p-3">
+            <p className="text-sm font-medium text-neutral-700">Na oferta agora</p>
+            <ul className="flex flex-col gap-2">
+              {selecionadosList.map((product) => (
+                <li
+                  key={product.id}
+                  className="flex items-center gap-3 rounded-xl border border-neutral-200 p-2"
+                >
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-neutral-100">
+                    <Image src={product.image} alt="" fill className="object-contain p-1" sizes="56px" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium text-neutral-700">{product.name}</p>
+                    <p className="text-xs text-neutral-500">{formatPrice(product.price)}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleToggle(product)}
+                    disabled={savingId === product.id}
+                    title="Tirar da oferta"
+                    aria-label={`Tirar ${product.name} da oferta`}
+                    className="rounded-md p-2 text-neutral-400 transition-colors hover:bg-red-50 hover:text-red-500 disabled:opacity-50"
+                  >
+                    <LineIcon name="trash" className="h-4 w-4" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         <input
           value={search}
