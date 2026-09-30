@@ -22,19 +22,22 @@ export default function ComprasPage() {
   }, [userId]);
 
   const [busyId, setBusyId] = useState<string | null>(null);
-  const [actionError, setActionError] = useState("");
+  const [actionError, setActionError] = useState<{ id: string; message: string } | null>(null);
 
   async function handleCancel(order: OrderWithItems) {
     if (!confirm("Cancelar esse pedido? Ele ainda não foi pago.")) return;
     setBusyId(order.id);
-    setActionError("");
+    setActionError(null);
     try {
       await cancelOrder(order.id);
       setOrders((current) =>
         current?.map((o) => (o.id === order.id ? { ...o, status: "cancelado" } : o)) ?? null
       );
     } catch (err) {
-      setActionError(err instanceof Error ? err.message : "Não deu certo. Tenta de novo.");
+      setActionError({
+        id: order.id,
+        message: err instanceof Error ? err.message : "Não deu certo. Tenta de novo.",
+      });
     } finally {
       setBusyId(null);
     }
@@ -43,12 +46,15 @@ export default function ComprasPage() {
   async function handleDelete(order: OrderWithItems) {
     if (!confirm("Apagar esse pedido? Não dá pra desfazer.")) return;
     setBusyId(order.id);
-    setActionError("");
+    setActionError(null);
     try {
       await deleteOrder(order.id);
       setOrders((current) => current?.filter((o) => o.id !== order.id) ?? null);
     } catch (err) {
-      setActionError(err instanceof Error ? err.message : "Não deu certo. Tenta de novo.");
+      setActionError({
+        id: order.id,
+        message: err instanceof Error ? err.message : "Não deu certo. Tenta de novo.",
+      });
     } finally {
       setBusyId(null);
     }
@@ -62,10 +68,6 @@ export default function ComprasPage() {
         <p className="rounded-xl bg-red-50 p-4 text-sm text-red-600">
           Não deu pra carregar suas compras. Tenta de novo em instantes.
         </p>
-      )}
-
-      {actionError && (
-        <p className="rounded-xl bg-red-50 p-4 text-sm text-red-600">{actionError}</p>
       )}
 
       {!error && orders === null && (
@@ -163,6 +165,12 @@ export default function ComprasPage() {
                 </Link>
               </div>
             </div>
+
+            {actionError?.id === order.id && (
+              <p className="border-t border-neutral-100 bg-red-50 px-5 py-3 text-sm text-red-600">
+                {actionError.message}
+              </p>
+            )}
           </div>
         );
       })}
