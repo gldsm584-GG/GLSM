@@ -16,21 +16,37 @@ está aprendendo isso.
 
 Objetivo imediato: apresentar a loja funcional da Plavii (loja
 multicategoria — eletrônicos, acessórios, utilidades — hoje em
-WordPress/WooCommerce) ao dono e fechar o cliente. O site em Next.js já
-está pronto, publicado em teste (https://plavii.vercel.app) e o pagamento
-foi testado em modo teste. Em 2026-09-27 entraram vários recursos novos
-(produto editável direto na loja, páginas em branco, opiniões de produto,
-Hero em carrossel, detalhes de cliente no admin — ver
-`clientes/Plavii/briefing.md`), ainda só locais. Falta: publicar essas
-novidades no ar, limpar os dados de teste, atualizar a `abordagem.md`.
+WordPress/WooCommerce) ao dono e fechar o cliente. O site em Next.js está
+publicado em produção (https://plavii.vercel.app, projeto Vercel próprio
+do Gustavo) com os recursos novos de 2026-09-27 (produto editável direto
+na loja, páginas em branco, opiniões de produto, Hero em carrossel com
+botões flutuantes arrastáveis, painel de Ofertas relâmpago com produtos
+escolhidos à mão, detalhes de cliente no admin — ver
+`clientes/Plavii/briefing.md`). Falta: tirar o botão de teste ("t") que
+ficou no Hero em produção, configurar domínio próprio, colocar o Mercado
+Pago em modo produção de verdade (hoje ainda em teste) e atualizar a
+`abordagem.md` (ela ainda descreve o mockup estático antigo, não a loja
+funcional publicada).
 
-Pendência técnica: criar um repositório privado próprio no GitHub e
-trocar o `origin` (hoje aponta pra `mazzeoia/MazyOS`, que não é do
-Gustavo). O trabalho está só num commit local (`ac00c1e`).
+Pendência técnica resolvida em 2026-09-27: repositório próprio criado
+(github.com/gldsm584-GG/GLSM) e projeto Vercel próprio (time
+`glsmteste`) publicando em plavii.vercel.app. O repositório e o projeto
+Vercel antigos (`mazzeoia/MazyOS` e o time Vercel original) ficaram pra
+trás — a conta do Gustavo não tem acesso a eles.
+
+Entre 2026-09-28 e 2026-09-30, mais rodadas de ajuste na loja: corrigida
+uma falha de segurança no checkout (pedido só podia ser pago pelo
+próprio dono), menu do admin consolidado num botão só ("Editar site"),
+categorias viraram editáveis pelo admin (antes eram lista fixa no
+código), painel `/admin` ganhou um dashboard financeiro com gráficos
+(receita ao longo do tempo, pedidos por status, mais vendidos, tudo com
+seletor de período), rodapé com ícones de Instagram/Facebook e favicon
+trocado pro logo real da Plavii.
 
 ## O que pode esperar
 
-Definir nome de marca própria / identidade visual pessoal.
+Nome de marca própria já definido (GLSM, 2026-09-28). Falta a identidade
+visual pessoal (cores, tipografia, logo) — isso pode esperar.
 
 ## Contexto com prazo
 

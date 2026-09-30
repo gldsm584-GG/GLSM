@@ -1,9 +1,10 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
-import { getAllOrders, PAID_STATUSES, type OrderWithItems } from "@/lib/orders";
+import { getAllOrders, type OrderWithItems } from "@/lib/orders";
 import { formatOrderDate, statusStyle } from "@/lib/order-status";
 import { formatPrice } from "@/lib/products";
+import { paidAmount } from "@/lib/stats";
 import { supabase } from "@/lib/supabase";
 
 async function fetchEmails(): Promise<Record<string, string>> {
@@ -35,7 +36,7 @@ function groupCustomers(orders: OrderWithItems[]): Customer[] {
 
   // pedidos vêm do mais novo pro mais antigo: o primeiro de cada cliente é o mais recente
   for (const order of orders) {
-    const paid = PAID_STATUSES.includes(order.status) ? Number(order.total) : 0;
+    const paid = paidAmount(order);
     const existing = map.get(order.user_id);
     if (existing) {
       existing.orders.push(order);

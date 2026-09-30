@@ -5,14 +5,21 @@
 
 **Nome:** Gustavo
 **Negócio:** Freelancer
-**O que faz:** Cria sites profissionais para qualquer tipo de comércio
+**O que faz:** Serviço de marketing digital — não é "só fazer um site",
+é ampliar o alcance de vendas do comércio no digital. O site é o veículo
+principal, mas o valor vendido é presença/performance digital.
 **Perfil:** Freelancer
-**Atende clientes:** Todo tipo de comércio (sem nicho específico definido ainda)
+**Atende clientes:** Todo tipo de comércio, por decisão — genérico de
+propósito, não por falta de definição (confirmado em 2026-09-28)
 **Equipe:** Só ele (Gustavo), sem equipe
-**Ferramentas:** Next.js + Tailwind, Supabase (banco, login e fotos), Mercado Pago (pagamento), Claude Code
-**Principais entregas:** Sites
+**Ferramentas:** Next.js + Tailwind, Supabase (banco, login e fotos), Mercado Pago (pagamento), Claude Code, GitHub (conta própria `gldsm584-GG`, repo dos sites: github.com/gldsm584-GG/GLSM), Vercel (conta própria, time `glsmteste` — onde os sites são publicados em produção)
+**Principais entregas:** Sites com foco em marketing digital / alcance
+de vendas (loja online rápida e autoeditável é o formato principal hoje)
+**Frase de venda (tagline):** "Sua loja vendendo mesmo com a porta fechada."
 
 ## Contexto adicional
 
-Ainda não tem nome de marca/estúdio definido — usando "Gustavo" por enquanto.
+**Marca própria:** GLSM (definido em 2026-09-28). Ainda falta a identidade
+visual (cores, tipografia, logo) — ver `identidade/design-guide.md`,
+ainda em branco.
 Ainda aprendendo aspectos técnicos de construção de sites (ver estrategia.md).
