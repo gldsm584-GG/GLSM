@@ -15,11 +15,7 @@ export default function Footer({ pages }: { pages: SitePage[] }) {
           </div>
           <div>
             <p className="font-semibold text-white">Atendimento</p>
-            <p className="mt-2">
-              Seg-Sex 9:30-19h · Sáb 9:30-18h
-              <br />
-              (61) 99233-2876
-            </p>
+            <p className="mt-2">Seg-Sex 9:30-19h · Sáb 9:30-18h</p>
           </div>
           <div>
             <p className="font-semibold text-white">Loja física</p>
