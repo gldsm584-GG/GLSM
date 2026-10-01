@@ -41,7 +41,14 @@ categorias viraram editáveis pelo admin (antes eram lista fixa no
 código), painel `/admin` ganhou um dashboard financeiro com gráficos
 (receita ao longo do tempo, pedidos por status, mais vendidos, tudo com
 seletor de período), rodapé com ícones de Instagram/Facebook e favicon
-trocado pro logo real da Plavii.
+trocado pro logo real da Plavii. Em 2026-09-30, foi criada a Política de
+Privacidade (`/politica-de-privacidade`) e tirado o CNPJ do rodapé (a
+Plavii ainda não é cliente fechado).
+
+Checklist completo do que falta antes do lançamento de verdade, e a
+decisão de modelo comercial (venda única R$ 4-5 mil, contas transferidas
+pro dono depois, que passa a pagar as assinaturas) estão detalhados em
+`clientes/Plavii/briefing.md`.
 
 ## O que pode esperar
 

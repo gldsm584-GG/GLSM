@@ -206,7 +206,54 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
 - Painel Clientes do admin: cada cliente tem "Ver detalhes", que expande os
   pedidos dele com status e produtos comprados; a coluna de localização
   mostra endereço completo (rua/bairro, cidade, CEP), não só a cidade
-- ⚠️ Tudo isso (5 itens acima) está só local ainda — não foi publicado no
-  https://plavii.vercel.app. Rodar `npx vercel --prod --yes` dentro de
-  `site/` quando for publicar, depois de rodar as migrações SQL novas
-  (006 a 014) no Supabase, na ordem
+- ✅ Publicado em produção em plavii.vercel.app (deploy automático via
+  GitHub → Vercel, reconectado em 2026-09-29 depois de ter caído). Os 5
+  itens acima e mais o que vem depois nessa lista já estão no ar
+
+## Checklist antes de lançar de verdade (levantado em 2026-09-30)
+
+O que pode dar problema se esse site for pro ar valendo com cliente de
+verdade, por gravidade:
+
+**Grave**
+- [x] Token do Mercado Pago em uso — confirmado com o Gustavo que é de
+      teste, não de produção (2026-09-30)
+- [x] Sem política de privacidade/termos — criada em
+      `/politica-de-privacidade`, cobrindo os pontos da LGPD (falta só
+      preencher razão social/CNPJ e o email de contato quando fechar
+      com o dono)
+- [ ] Plavii ainda não é cliente fechado — CNPJ tirado do rodapé por
+      enquanto; falta formalizar o acordo por escrito antes de tráfego
+      real
+
+**Importante**
+- [ ] Conta do Supabase é do Gustavo, não da Plavii — resolve na hora de
+      fechar com o Supabase "Transfer project" (não precisa recriar o
+      SQL do zero)
+- [ ] Hospedagem no plano Hobby da Vercel não é pra uso comercial —
+      precisa virar Pro (~US$20/mês) antes do lançamento de verdade
+- [ ] Confirmação de email desligada no Supabase — precisa configurar
+      SMTP (Resend, plano grátis já serve) antes de religar
+- [ ] Projeto Supabase free pausa sozinho por inatividade — resolve
+      junto com a migração pro plano pago
+- [ ] Nenhum monitoramento de erro/uptime — ninguém é avisado se o site
+      cair em produção
+
+**Pra limpar antes de mostrar pro dono**
+- [ ] Produto de teste no catálogo (ex: "blb", Power Bank a R$ 1,00)
+- [ ] Pedidos de teste criados durante os testes de hoje, misturados no
+      banco de pedidos real
+
+## Decisão comercial (2026-09-30)
+
+Modelo escolhido: venda única (não mensalidade) — pedir R$ 5.000, aceita
+negociar até R$ 4.000 se o dono pedir desconto. Depois da venda, todas as
+contas (Vercel, Supabase, Mercado Pago, domínio) passam pro nome/email
+do próprio dono, que paga as assinaturas dele — Gustavo não fica preso
+operando a infraestrutura do cliente. Qualquer alteração futura vira
+serviço cobrado à parte.
+
+Custo mensal estimado das ferramentas (plano pago, fica por conta do
+dono depois da transferência): ~US$45/mês (Vercel Pro + Supabase Pro)
++ domínio .com.br (~R$40/ano) + taxa variável do Mercado Pago por venda
+(sem mensalidade).
