@@ -61,9 +61,12 @@ export default function Footer({ pages }: { pages: SitePage[] }) {
             </div>
           )}
         </div>
-        <p className="mt-8 border-t border-white/10 pt-6 text-xs text-neutral-500">
-          © 2026 Plavii
-        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-neutral-500">
+          <p>© 2026 Plavii</p>
+          <Link href="/politica-de-privacidade" className="hover:text-white">
+            Política de Privacidade
+          </Link>
+        </div>
       </div>
     </footer>
   );
