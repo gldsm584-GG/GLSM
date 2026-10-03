@@ -71,6 +71,13 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   // pontas (array `extended` não tem slide ali) antes do teleporte do
   // `handleTransitionEnd` rodar — a home mostrava um slide em branco preso.
   const isAnimating = useRef(false);
+  // Arraste (mouse ou dedo): `dragOffset` é quantos px o slide já seguiu o
+  // ponteiro; só começa de verdade depois de 5px de movimento, pra um clique
+  // parado num botão do Hero continuar sendo clique.
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const drag = useRef({ startX: 0, startTime: 0, active: false, moved: false, width: 0 });
+  const suppressClick = useRef(false);
   // Progresso (0 a 1) da contagem de 10s até o próximo slide automático.
   // Controlado por requestAnimationFrame em vez de CSS puro pra conseguir
   // pausar/retomar sem perder o tempo já decorrido.
@@ -113,7 +120,61 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
     isAnimating.current = false;
   };
 
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (isAnimating.current) return;
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    drag.current = {
+      startX: e.clientX,
+      startTime: performance.now(),
+      active: true,
+      moved: false,
+      width: e.currentTarget.offsetWidth,
+    };
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const d = drag.current;
+    if (!d.active) return;
+    const dx = e.clientX - d.startX;
+    if (!d.moved) {
+      if (Math.abs(dx) < 5) return;
+      // O autoplay pode ter começado uma troca entre o toque e o movimento.
+      if (isAnimating.current) {
+        d.active = false;
+        return;
+      }
+      d.moved = true;
+      e.currentTarget.setPointerCapture(e.pointerId);
+      setIsDragging(true);
+      setWithTransition(false);
+    }
+    setDragOffset(Math.max(-d.width, Math.min(d.width, dx)));
+  };
+
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>, cancelled: boolean) => {
+    const d = drag.current;
+    if (!d.active) return;
+    d.active = false;
+    if (!d.moved) return;
+    suppressClick.current = true;
+    setTimeout(() => {
+      suppressClick.current = false;
+    }, 0);
+    const dx = e.clientX - d.startX;
+    const velocity = Math.abs(dx) / Math.max(performance.now() - d.startTime, 1);
+    const commit =
+      !cancelled && (Math.abs(dx) > d.width * 0.15 || (Math.abs(dx) > 30 && velocity > 0.4));
+    setIsDragging(false);
+    setWithTransition(true);
+    if (commit) {
+      if (dx < 0) goNext();
+      else goPrev();
+    }
+    setDragOffset(0);
+  };
+
   const AUTOPLAY_MS = 10000;
+  const paused = isPaused || isDragging;
 
   // Passa pro próximo sozinho depois de 10s de progresso acumulado. Só um
   // efeito (não dois) de propósito: precisa saber, no mesmo lugar, se essa
@@ -126,7 +187,7 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
       elapsedRef.current = 0;
       setProgress(0);
     }
-    if (isPaused) return;
+    if (paused) return;
 
     frameStartRef.current = performance.now();
     const tick = (now: number) => {
@@ -149,16 +210,26 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
       elapsedRef.current += performance.now() - frameStartRef.current;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeIndex, isPaused]);
+  }, [activeIndex, paused]);
 
   return (
     <section className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 sm:aspect-[16/9] md:aspect-[21/9]">
       <div
         onTransitionEnd={handleTransitionEnd}
-        className={`flex h-full w-full ${
-          withTransition ? "transition-transform duration-700 ease-out" : ""
-        }`}
-        style={{ transform: `translateX(-${position * 100}%)` }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={(e) => endDrag(e, false)}
+        onPointerCancel={(e) => endDrag(e, true)}
+        onClickCapture={(e) => {
+          if (suppressClick.current) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }}
+        className={`flex h-full w-full touch-pan-y select-none ${
+          isDragging ? "cursor-grabbing" : "cursor-grab"
+        } ${withTransition ? "transition-transform duration-700 ease-out" : ""}`}
+        style={{ transform: `translateX(calc(-${position * 100}% + ${dragOffset}px))` }}
       >
         {extended.map((slide, i) => (
           <div key={`${slide.id}-${i}`} className="relative h-full w-full shrink-0">
@@ -167,6 +238,7 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
               alt="Plavii"
               fill
               priority={i === 1}
+              draggable={false}
               className="object-cover"
               sizes="100vw"
             />
@@ -174,23 +246,6 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
           </div>
         ))}
       </div>
-
-      <button
-        type="button"
-        onClick={goPrev}
-        aria-label="Hero anterior"
-        className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-lg transition-colors hover:bg-white"
-      >
-        <LineIcon name="chevron-left" className="h-5 w-5" />
-      </button>
-      <button
-        type="button"
-        onClick={goNext}
-        aria-label="Próximo Hero"
-        className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-neutral-700 shadow-lg transition-colors hover:bg-white"
-      >
-        <LineIcon name="chevron-right" className="h-5 w-5" />
-      </button>
 
       <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2.5">
         <button
