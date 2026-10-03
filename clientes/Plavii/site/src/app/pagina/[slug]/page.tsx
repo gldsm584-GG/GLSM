@@ -8,6 +8,10 @@ import { getSitePage } from "@/lib/site-content";
 // direto aqui na loja, sem precisar ir no painel.
 const KNOWN_SLUGS = ["pagina-1", "pagina-2"];
 
+// Mesma razão do page.tsx da home: sem isso, o Next.js congela a página no
+// build e o texto editado pelo admin não aparece até o próximo deploy.
+export const dynamic = "force-dynamic";
+
 export default async function SitePage({
   params,
 }: {

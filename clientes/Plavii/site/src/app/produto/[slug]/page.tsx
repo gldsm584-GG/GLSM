@@ -16,6 +16,11 @@ import {
   getRelatedProducts,
 } from "@/lib/products";
 
+// Mesma razão do page.tsx da home: sem isso, o Next.js congela a página no
+// build e edições do admin (preço, promoção, avaliações) não aparecem até
+// o próximo deploy.
+export const dynamic = "force-dynamic";
+
 export default async function ProductPage({
   params,
 }: {

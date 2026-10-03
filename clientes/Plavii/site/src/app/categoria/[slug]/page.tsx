@@ -5,6 +5,11 @@ import ProductCard from "@/components/ProductCard";
 import { getCategoryBySlug, sameCategory } from "@/lib/categories";
 import { getAllProducts } from "@/lib/products";
 
+// Mesma razão do page.tsx da home: sem isso, o Next.js congela a página no
+// build e edições do admin (produto novo, categoria editada) não aparecem
+// até o próximo deploy.
+export const dynamic = "force-dynamic";
+
 export default async function CategoryPage({
   params,
 }: {

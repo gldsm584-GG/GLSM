@@ -6,6 +6,11 @@ import { getHeroSlides, type HeroSlide } from "@/lib/hero";
 import { discountPercent, getAllProducts } from "@/lib/products";
 import { getSitePage } from "@/lib/site-content";
 
+// Sem isso, o Next.js congela essa página como estática no build e só
+// atualiza no próximo deploy — mudanças feitas no admin (produtos, ofertas,
+// hero, categorias) não apareceriam até o site ser republicado.
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const products = await getAllProducts();
   // Se o hero_slides ainda não existir (migração não rodada), a home
