@@ -271,9 +271,10 @@ verdade, por gravidade:
       cair em produção
 
 **Pra limpar antes de mostrar pro dono**
-- [ ] Produto de teste no catálogo (ex: "blb", Power Bank a R$ 1,00)
-- [ ] Pedidos de teste criados durante os testes de hoje, misturados no
-      banco de pedidos real
+- [x] Produto de teste no catálogo (ex: "blb", Power Bank a R$ 1,00) —
+      removido em 2026-10-03
+- [x] Pedidos de teste criados durante os testes de hoje, misturados no
+      banco de pedidos real — removidos em 2026-10-03
 
 ## Decisão comercial (2026-09-30)
 

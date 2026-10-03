@@ -16,8 +16,8 @@
 O dono vai abrir o link, então o site tem que estar apresentável. Pendências
 do `briefing.md` que aparecem pra ele:
 
-- [ ] Remover o produto de teste do catálogo (ex: "blb", Power Bank a R$ 1,00)
-- [ ] Limpar os pedidos de teste do banco de pedidos
+- [x] Remover o produto de teste do catálogo (ex: "blb", Power Bank a R$ 1,00)
+- [x] Limpar os pedidos de teste do banco de pedidos
 - [ ] Conferir o carrinho e o Hero no celular de verdade (arraste e lixeira
       foram testados só em emulador)
 - [ ] Tirar prints novos: home (celular), página de produto, carrinho
