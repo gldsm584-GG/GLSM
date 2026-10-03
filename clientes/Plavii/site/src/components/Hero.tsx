@@ -26,14 +26,19 @@ export default function Hero({
   return <HeroCarousel slides={slides} />;
 }
 
-// No celular o Hero mostra a imagem inteira, com a altura da proporção dela
-// (sem cortar); de `sm` pra cima segue a moldura larga fixa de sempre, que
-// corta com object-cover. A proporção real só é conhecida depois que a
-// imagem carrega, por isso começa em 4/3.
+// No celular a altura do Hero acompanha a proporção da imagem, mas nunca
+// mais larga que 3:2 — imagens bem largas (banner) ficam com a moldura
+// mais alta e perdem só uma faixa pequena das laterais (object-cover);
+// imagens quadradas/verticais aparecem inteiras. De `sm` pra cima segue a
+// moldura larga fixa de sempre. A proporção real só é conhecida depois que
+// a imagem carrega, por isso começa em 4/3.
 const DEFAULT_RATIO = 4 / 3;
+const MAX_MOBILE_RATIO = 3 / 2;
+const mobileRatio = (ratio: number | undefined) =>
+  Math.min(ratio ?? DEFAULT_RATIO, MAX_MOBILE_RATIO);
 const FRAME_CLASS =
   "relative w-full aspect-(--hero-ratio) overflow-hidden bg-neutral-100 sm:aspect-[16/9] md:aspect-[21/9]";
-const IMAGE_CLASS = "object-contain sm:object-cover";
+const IMAGE_CLASS = "object-cover";
 
 function useImageRatios() {
   const [ratios, setRatios] = useState<Record<string, number>>({});
@@ -51,7 +56,7 @@ function HeroSingle({ slide }: { slide: HeroSlide }) {
   return (
     <section
       className={FRAME_CLASS}
-      style={{ "--hero-ratio": ratios[slide.id] ?? DEFAULT_RATIO } as React.CSSProperties}
+      style={{ "--hero-ratio": mobileRatio(ratios[slide.id]) } as React.CSSProperties}
     >
       <Image
         src={slide.image_url}
@@ -252,7 +257,7 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   return (
     <section
       className={FRAME_CLASS}
-      style={{ "--hero-ratio": ratios[slides[activeIndex].id] ?? DEFAULT_RATIO } as React.CSSProperties}
+      style={{ "--hero-ratio": mobileRatio(ratios[slides[activeIndex].id]) } as React.CSSProperties}
     >
       <div
         onTransitionEnd={handleTransitionEnd}
