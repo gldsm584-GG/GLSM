@@ -217,6 +217,13 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   não dava pra perceber porque o modo dev sempre busca dado fresco.
   Resolvido com `export const dynamic = "force-dynamic"` nas 4 páginas,
   forçando busca nova no Supabase a cada visita
+- 🐛 Corrigido em 2026-10-03: clicar/tocar rápido demais nas setas do Hero
+  travava o carrossel numa tela em branco. Causa: o loop infinito clona o
+  primeiro/último slide nas pontas e só teleporta de volta pro slide real
+  quando a transição de 700ms termina (`onTransitionEnd`); clique novo
+  antes disso empurrava a posição além do clone, pra um índice que não
+  existe. Resolvido travando novo clique/toque enquanto a transição ainda
+  roda (`src/components/Hero.tsx`)
 
 ## Checklist antes de lançar de verdade (levantado em 2026-09-30)
 
