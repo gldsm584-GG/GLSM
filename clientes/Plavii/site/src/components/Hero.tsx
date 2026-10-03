@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LineIcon from "@/components/LineIcon";
 import { formatPrice } from "@/lib/products";
 import type { HeroSlide } from "@/lib/hero";
@@ -65,13 +65,23 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   const extended = [slides[n - 1], ...slides, slides[0]];
   const [position, setPosition] = useState(1);
   const [withTransition, setWithTransition] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
   // Trava clique/arraste novo enquanto a animação de 700ms ainda roda. Sem
   // isso, clicar rápido demais empurrava `position` além do clone extra nas
   // pontas (array `extended` não tem slide ali) antes do teleporte do
   // `handleTransitionEnd` rodar — a home mostrava um slide em branco preso.
   const isAnimating = useRef(false);
+  // Progresso (0 a 1) da contagem de 10s até o próximo slide automático.
+  // Controlado por requestAnimationFrame em vez de CSS puro pra conseguir
+  // pausar/retomar sem perder o tempo já decorrido.
+  const [progress, setProgress] = useState(0);
+  const rafRef = useRef<number | null>(null);
+  const frameStartRef = useRef(0);
+  const elapsedRef = useRef(0);
+  const lastUpdateRef = useRef(0);
 
   const activeIndex = (((position - 1) % n) + n) % n;
+  const prevActiveIndexRef = useRef(activeIndex);
 
   const goNext = () => {
     if (isAnimating.current) return;
@@ -102,6 +112,44 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
     }
     isAnimating.current = false;
   };
+
+  const AUTOPLAY_MS = 10000;
+
+  // Passa pro próximo sozinho depois de 10s de progresso acumulado. Só um
+  // efeito (não dois) de propósito: precisa saber, no mesmo lugar, se essa
+  // execução é "mudou de slide" (zera a contagem) ou só "pausou/retomou"
+  // (mantém o que já tinha decorrido) — separar isso em dois efeitos criava
+  // uma corrida entre o reset e o acúmulo do tempo decorrido.
+  useEffect(() => {
+    if (prevActiveIndexRef.current !== activeIndex) {
+      prevActiveIndexRef.current = activeIndex;
+      elapsedRef.current = 0;
+      setProgress(0);
+    }
+    if (isPaused) return;
+
+    frameStartRef.current = performance.now();
+    const tick = (now: number) => {
+      const elapsed = elapsedRef.current + (now - frameStartRef.current);
+      const pct = Math.min(elapsed / AUTOPLAY_MS, 1);
+      if (now - lastUpdateRef.current > 50 || pct >= 1) {
+        lastUpdateRef.current = now;
+        setProgress(pct);
+      }
+      if (pct >= 1 && !isAnimating.current) {
+        goNext();
+        return;
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    };
+    rafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      elapsedRef.current += performance.now() - frameStartRef.current;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex, isPaused]);
 
   return (
     <section className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 sm:aspect-[16/9] md:aspect-[21/9]">
@@ -144,18 +192,38 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
         <LineIcon name="chevron-right" className="h-5 w-5" />
       </button>
 
-      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
-        {slides.map((s, i) => (
-          <button
-            key={s.id}
-            type="button"
-            onClick={() => goTo(i)}
-            aria-label={`Ir pro Hero ${i + 1}`}
-            className={`h-2 w-2 rounded-full transition-colors ${
-              i === activeIndex ? "bg-white" : "bg-white/50"
-            }`}
-          />
-        ))}
+      <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2.5">
+        <button
+          type="button"
+          onClick={() => setIsPaused((p) => !p)}
+          aria-label={isPaused ? "Retomar troca automática" : "Pausar troca automática"}
+          className="flex h-5 w-5 items-center justify-center text-white/85 transition-colors hover:text-white"
+        >
+          <LineIcon name={isPaused ? "play" : "pause"} className="h-3 w-3" filled={isPaused} />
+        </button>
+        <div className="flex items-center gap-1.5">
+          {slides.map((s, i) =>
+            i === activeIndex ? (
+              <div
+                key={s.id}
+                className="relative h-2 w-8 overflow-hidden rounded-full bg-white/40"
+              >
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full bg-white"
+                  style={{ width: `${progress * 100}%` }}
+                />
+              </div>
+            ) : (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Ir pro Hero ${i + 1}`}
+                className="h-2 w-2 rounded-full bg-white/50 transition-colors hover:bg-white/80"
+              />
+            )
+          )}
+        </div>
       </div>
     </section>
   );

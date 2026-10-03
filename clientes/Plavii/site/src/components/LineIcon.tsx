@@ -34,6 +34,8 @@ const PATHS = {
   "chevron-down": "M6 9l6 6 6-6",
   "chevron-left": "M15 18l-6-6 6-6",
   "chevron-right": "M9 18l6-6-6-6",
+  play: "M7 4l12 8-12 8z",
+  pause: "M8 5v14M16 5v14",
   pin: "M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11zM12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z",
   minus: "M5 12h14",
   cart: "M2 3h3l2.6 12.4a1 1 0 0 0 1 .8h9.3a1 1 0 0 0 1-.8L21 7H6M9 20.5h.01M18 20.5h.01",
