@@ -209,6 +209,14 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
 - ✅ Publicado em produção em plavii.vercel.app (deploy automático via
   GitHub → Vercel, reconectado em 2026-09-29 depois de ter caído). Os 5
   itens acima e mais o que vem depois nessa lista já estão no ar
+- 🐛 Corrigido em 2026-10-02: home, categoria, produto e página (`/pagina/<slug>`)
+  eram geradas como estáticas no build do Next.js e só atualizavam no
+  próximo deploy — edição feita no admin direto no site em produção
+  (ofertas, categoria, preço, texto de página) salvava no Supabase
+  certinho, mas não aparecia pro visitante até novo deploy. Em localhost
+  não dava pra perceber porque o modo dev sempre busca dado fresco.
+  Resolvido com `export const dynamic = "force-dynamic"` nas 4 páginas,
+  forçando busca nova no Supabase a cada visita
 
 ## Checklist antes de lançar de verdade (levantado em 2026-09-30)
 
