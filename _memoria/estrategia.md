@@ -22,11 +22,10 @@ do Gustavo) com os recursos novos de 2026-09-27 (produto editável direto
 na loja, páginas em branco, opiniões de produto, Hero em carrossel com
 botões flutuantes arrastáveis, painel de Ofertas relâmpago com produtos
 escolhidos à mão, detalhes de cliente no admin — ver
-`clientes/Plavii/briefing.md`). Falta: tirar o botão de teste ("t") que
-ficou no Hero em produção, configurar domínio próprio, colocar o Mercado
-Pago em modo produção de verdade (hoje ainda em teste) e atualizar a
-`abordagem.md` (ela ainda descreve o mockup estático antigo, não a loja
-funcional publicada).
+`clientes/Plavii/briefing.md`). Falta: configurar domínio próprio, colocar
+o Mercado Pago em modo produção de verdade (hoje ainda em teste) e
+atualizar a `abordagem.md` (ela ainda descreve o mockup estático antigo,
+não a loja funcional publicada).
 
 Pendência técnica resolvida em 2026-09-27: repositório próprio criado
 (github.com/gldsm584-GG/GLSM) e projeto Vercel próprio (time
