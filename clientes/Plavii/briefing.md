@@ -203,6 +203,11 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   dois com seletor de cor nativo) e destino configurável (vitrine, um
   produto, uma categoria ou link personalizado). Tabela `hero_slides`
   (`supabase/010` a `014_hero_button_style.sql`)
+- Hero passa de slide sozinho a cada 10s (estilo Rockstar Games): a bolinha
+  do slide ativo vira uma barrinha que enche até trocar; botão de play/pause
+  do lado pausa/retoma sem perder o tempo já decorrido (progresso controlado
+  via `requestAnimationFrame`, não CSS puro). Reaproveita a trava de clique
+  rápido do carrossel — adicionado em 2026-10-03 em `Hero.tsx`
 - Painel Clientes do admin: cada cliente tem "Ver detalhes", que expande os
   pedidos dele com status e produtos comprados; a coluna de localização
   mostra endereço completo (rua/bairro, cidade, CEP), não só a cidade
