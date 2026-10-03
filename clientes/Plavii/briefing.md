@@ -194,8 +194,8 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   logado avalia (1 avaliação por pessoa por produto, pode editar depois).
   Tabela `reviews` (`supabase/006_reviews.sql`), bucket `avaliacoes`
   (`supabase/007_reviews_storage.sql`)
-- Hero da home virou carrossel de imagens (setinha + bolinhas, desliza
-  suave, loop infinito sem "voltar"), gerenciado em "Gerenciar Heroes":
+- Hero da home virou carrossel de imagens (bolinhas, arrasta com mouse ou
+  dedo, desliza suave, loop infinito sem "voltar"), gerenciado em "Gerenciar Heroes":
   arrasta a imagem pra adicionar um slide; sem nenhum slide, cai no Hero
   padrão de sempre. Editor por slide "estilo Canva": a imagem já vem pronta
   de fora (sem texto do site sobreposto — só a imagem, tipo Rockstar Games),
@@ -208,6 +208,16 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   do lado pausa/retoma sem perder o tempo já decorrido (progresso controlado
   via `requestAnimationFrame`, não CSS puro). Reaproveita a trava de clique
   rápido do carrossel — adicionado em 2026-10-03 em `Hero.tsx`
+- Hero sem setas: navega arrastando o slide com mouse (computador) ou dedo
+  (celular), via Pointer Events. Troca se arrastar mais de 15% da largura
+  ou com deslize rápido; senão volta pro lugar. O autoplay pausa enquanto
+  arrasta, clique parado num botão do Hero continua abrindo o link e
+  arrastar sobre o botão não abre — publicado em 2026-10-03 (PR #2).
+  ⚠️ Testado só no Chromium com toque emulado; falta conferir num celular
+  de verdade
+- Carrinho: cada item tem um botão de lixeira visível à direita pro
+  cliente remover o produto (antes era só um link "Remover" pequeno embaixo
+  do nome) — publicado em 2026-10-03 (PR #1, `carrinho/page.tsx`)
 - Painel Clientes do admin: cada cliente tem "Ver detalhes", que expande os
   pedidos dele com status e produtos comprados; a coluna de localização
   mostra endereço completo (rua/bairro, cidade, CEP), não só a cidade
@@ -223,6 +233,7 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   Resolvido com `export const dynamic = "force-dynamic"` nas 4 páginas,
   forçando busca nova no Supabase a cada visita
 - 🐛 Corrigido em 2026-10-03: clicar/tocar rápido demais nas setas do Hero
+  (hoje removidas, o carrossel navega por arraste e mantém a mesma trava)
   travava o carrossel numa tela em branco. Causa: o loop infinito clona o
   primeiro/último slide nas pontas e só teleporta de volta pro slide real
   quando a transição de 700ms termina (`onTransitionEnd`); clique novo
