@@ -73,14 +73,6 @@ export default function CarrinhoPage() {
                   <p className="mt-0.5 text-sm text-neutral-500">
                     {formatPrice(product.price)} un.
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => removeItem(item.productId)}
-                    className="mt-2 flex items-center gap-1 text-xs font-medium text-neutral-400 transition-colors hover:text-red-500"
-                  >
-                    <LineIcon name="trash" className="h-3.5 w-3.5" />
-                    Remover
-                  </button>
                 </div>
 
                 <div className="flex items-center rounded-full border border-neutral-200 bg-neutral-50">
@@ -106,6 +98,16 @@ export default function CarrinhoPage() {
                 <span className="w-24 text-right text-lg font-extrabold text-neutral-800">
                   {formatPrice(product.price * item.quantity)}
                 </span>
+
+                <button
+                  type="button"
+                  onClick={() => removeItem(item.productId)}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-neutral-400 transition-colors hover:bg-red-50 hover:text-red-500"
+                  aria-label={`Remover ${product.name} do carrinho`}
+                  title="Remover do carrinho"
+                >
+                  <LineIcon name="trash" className="h-5 w-5" />
+                </button>
               </div>
             );
           })}
