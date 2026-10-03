@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import LineIcon from "@/components/LineIcon";
 import { formatPrice } from "@/lib/products";
 import type { HeroSlide } from "@/lib/hero";
@@ -65,18 +65,29 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   const extended = [slides[n - 1], ...slides, slides[0]];
   const [position, setPosition] = useState(1);
   const [withTransition, setWithTransition] = useState(true);
+  // Trava clique/arraste novo enquanto a animação de 700ms ainda roda. Sem
+  // isso, clicar rápido demais empurrava `position` além do clone extra nas
+  // pontas (array `extended` não tem slide ali) antes do teleporte do
+  // `handleTransitionEnd` rodar — a home mostrava um slide em branco preso.
+  const isAnimating = useRef(false);
 
   const activeIndex = (((position - 1) % n) + n) % n;
 
   const goNext = () => {
+    if (isAnimating.current) return;
+    isAnimating.current = true;
     setWithTransition(true);
     setPosition((p) => p + 1);
   };
   const goPrev = () => {
+    if (isAnimating.current) return;
+    isAnimating.current = true;
     setWithTransition(true);
     setPosition((p) => p - 1);
   };
   const goTo = (i: number) => {
+    if (isAnimating.current || i === activeIndex) return;
+    isAnimating.current = true;
     setWithTransition(true);
     setPosition(i + 1);
   };
@@ -89,6 +100,7 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
       setWithTransition(false);
       setPosition(1);
     }
+    isAnimating.current = false;
   };
 
   return (
