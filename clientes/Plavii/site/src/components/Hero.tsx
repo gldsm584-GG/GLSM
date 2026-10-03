@@ -20,15 +20,51 @@ export default function Hero({
   }
 
   if (slides.length === 1) {
-    return (
-      <section className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 sm:aspect-[16/9] md:aspect-[21/9]">
-        <Image src={slides[0].image_url} alt="Plavii" fill priority className="object-cover" sizes="100vw" />
-        <HeroButtons slide={slides[0]} />
-      </section>
-    );
+    return <HeroSingle slide={slides[0]} />;
   }
 
   return <HeroCarousel slides={slides} />;
+}
+
+// No celular o Hero mostra a imagem inteira, com a altura da proporção dela
+// (sem cortar); de `sm` pra cima segue a moldura larga fixa de sempre, que
+// corta com object-cover. A proporção real só é conhecida depois que a
+// imagem carrega, por isso começa em 4/3.
+const DEFAULT_RATIO = 4 / 3;
+const FRAME_CLASS =
+  "relative w-full aspect-(--hero-ratio) overflow-hidden bg-neutral-100 sm:aspect-[16/9] md:aspect-[21/9]";
+const IMAGE_CLASS = "object-contain sm:object-cover";
+
+function useImageRatios() {
+  const [ratios, setRatios] = useState<Record<string, number>>({});
+  const onLoad = (id: string) => (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth, naturalHeight } = e.currentTarget;
+    if (!naturalWidth || !naturalHeight) return;
+    const ratio = naturalWidth / naturalHeight;
+    setRatios((prev) => (prev[id] === ratio ? prev : { ...prev, [id]: ratio }));
+  };
+  return { ratios, onLoad };
+}
+
+function HeroSingle({ slide }: { slide: HeroSlide }) {
+  const { ratios, onLoad } = useImageRatios();
+  return (
+    <section
+      className={FRAME_CLASS}
+      style={{ "--hero-ratio": ratios[slide.id] ?? DEFAULT_RATIO } as React.CSSProperties}
+    >
+      <Image
+        src={slide.image_url}
+        alt="Plavii"
+        fill
+        priority
+        onLoad={onLoad(slide.id)}
+        className={IMAGE_CLASS}
+        sizes="100vw"
+      />
+      <HeroButtons slide={slide} />
+    </section>
+  );
 }
 
 // Os elementos clicáveis sobre a imagem (a imagem em si já vem pronta de
@@ -74,6 +110,7 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   // Arraste (mouse ou dedo): `dragOffset` é quantos px o slide já seguiu o
   // ponteiro; só começa de verdade depois de 5px de movimento, pra um clique
   // parado num botão do Hero continuar sendo clique.
+  const { ratios, onLoad } = useImageRatios();
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const drag = useRef({ startX: 0, startTime: 0, active: false, moved: false, width: 0 });
@@ -213,7 +250,10 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
   }, [activeIndex, paused]);
 
   return (
-    <section className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 sm:aspect-[16/9] md:aspect-[21/9]">
+    <section
+      className={FRAME_CLASS}
+      style={{ "--hero-ratio": ratios[slides[activeIndex].id] ?? DEFAULT_RATIO } as React.CSSProperties}
+    >
       <div
         onTransitionEnd={handleTransitionEnd}
         onPointerDown={handlePointerDown}
@@ -239,7 +279,8 @@ function HeroCarousel({ slides }: { slides: HeroSlide[] }) {
               fill
               priority={i === 1}
               draggable={false}
-              className="object-cover"
+              onLoad={onLoad(slide.id)}
+              className={IMAGE_CLASS}
               sizes="100vw"
             />
             <HeroButtons slide={slide} />
