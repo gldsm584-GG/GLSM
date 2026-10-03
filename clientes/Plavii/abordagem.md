@@ -73,12 +73,19 @@ Dicas:
 
 Resposta pronta:
 
-> Faço como projeto fechado, pagamento único, não é mensalidade. Fica
-> R$ 5.000 e inclui o site completo, o painel pra você editar e eu passo
-> todas as contas pro seu nome (hospedagem, banco de dados, pagamento,
-> domínio), então você é dono de tudo.
+> Faço como projeto fechado, não é mensalidade. Fica R$ 4.000 no Pix, ou
+> 3x de R$ 1.500 no cartão. Inclui o site completo, o painel pra você
+> editar e eu passo todas as contas pro seu nome (hospedagem, banco de
+> dados, pagamento, domínio), então você é dono de tudo.
 
-- Piso interno: R$ 4.000. **Não revelar**; só ceder se ele pedir desconto.
+- Duas opções: **R$ 4.000 no Pix** (à vista) ou **3x de R$ 1.500** (R$ 4.500
+  no total). O parcelado custa R$ 500 a mais, o que incentiva o Pix.
+- Esse já é o menor valor: não tem desconto adicional. Se ele pedir mais,
+  segurar o preço e oferecer algo no lugar (ex: um ajuste pequeno depois da
+  entrega) em vez de baixar.
+- Parcelado: cobrar no **cartão de crédito** (link do Mercado Pago), pra o
+  risco de calote não ser seu. Passar as contas pro nome dele só depois do
+  pagamento completo.
 - Se perguntar de custo mensal: depois da transferência, as ferramentas ficam
   por conta dele, em torno de US$ 45/mês (Vercel Pro + Supabase Pro), mais o
   domínio .com.br (~R$ 40/ano) e a taxa do Mercado Pago por venda (sem
@@ -88,9 +95,9 @@ Resposta pronta:
 ## Respostas pras objeções
 
 - **"Tá caro."** → "Entendo. Pensa que é pagamento único: não tem mensalidade
-  minha. Compara com o que você paga hoje de plataforma e comissão. Se
-  fizer sentido, a gente vê um formato que caiba." (aqui entra a negociação
-  até o piso)
+  minha. Compara com o que você paga hoje de plataforma e comissão. Dá
+  pra dividir em 3x no cartão pra pesar menos." (não baixar o preço; a
+  flexibilidade é o parcelamento)
 - **"Já tenho site (WordPress)."** → "Vi, e o seu funciona. A diferença é que
   esse é mais rápido, você edita sozinho sem plugin, e não tem produto
   duplicado como aparece no atual." (usar o ponto dos produtos "(cópia)"

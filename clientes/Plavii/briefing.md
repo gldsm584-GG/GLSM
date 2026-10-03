@@ -277,8 +277,10 @@ verdade, por gravidade:
 
 ## Decisão comercial (2026-09-30)
 
-Modelo escolhido: venda única (não mensalidade) — pedir R$ 5.000, aceita
-negociar até R$ 4.000 se o dono pedir desconto. Depois da venda, todas as
+Modelo escolhido: venda única (não mensalidade) — R$ 4.000 no Pix ou 3x de
+R$ 1.500 no cartão (R$ 4.500), sem desconto adicional (atualizado em
+2026-10-03; antes era R$ 5.000 aceitando até R$ 4.000). Parcelado só no
+cartão, e as contas só passam pro dono depois do pagamento completo. Depois da venda, todas as
 contas (Vercel, Supabase, Mercado Pago, domínio) passam pro nome/email
 do próprio dono, que paga as assinaturas dele — Gustavo não fica preso
 operando a infraestrutura do cliente. Qualquer alteração futura vira
