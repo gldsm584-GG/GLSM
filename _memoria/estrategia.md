@@ -22,10 +22,13 @@ do Gustavo) com os recursos novos de 2026-09-27 (produto editável direto
 na loja, páginas em branco, opiniões de produto, Hero em carrossel com
 botões flutuantes arrastáveis, painel de Ofertas relâmpago com produtos
 escolhidos à mão, detalhes de cliente no admin — ver
-`clientes/Plavii/briefing.md`). Falta: configurar domínio próprio, colocar
-o Mercado Pago em modo produção de verdade (hoje ainda em teste) e
-atualizar a `abordagem.md` (ela ainda descreve o mockup estático antigo,
-não a loja funcional publicada).
+`clientes/Plavii/briefing.md`). A `abordagem.md` foi reescrita em 2026-10-03
+pra loja funcional (mensagem de abertura, roteiro de demonstração,
+objeções e preço). Antes de mandar o link ao dono falta: limpar o produto
+de teste ("blb") e os pedidos de teste, conferir o Hero (arraste) e a
+lixeira do carrinho num celular de verdade e tirar prints novos. Depois
+do sim falta: configurar domínio próprio e colocar o Mercado Pago em modo
+produção de verdade (hoje ainda em teste).
 
 Pendência técnica resolvida em 2026-09-27: repositório próprio criado
 (github.com/gldsm584-GG/GLSM) e projeto Vercel próprio (time
@@ -45,8 +48,9 @@ Privacidade (`/politica-de-privacidade`) e tirado o CNPJ do rodapé (a
 Plavii ainda não é cliente fechado).
 
 Checklist completo do que falta antes do lançamento de verdade, e a
-decisão de modelo comercial (venda única R$ 4-5 mil, contas transferidas
-pro dono depois, que passa a pagar as assinaturas) estão detalhados em
+decisão de modelo comercial (venda única: R$ 4.000 no Pix ou 3x de
+R$ 1.500 no cartão, sem desconto adicional; contas transferidas pro dono
+depois do pagamento completo, que passa a pagar as assinaturas) estão detalhados em
 `clientes/Plavii/briefing.md`.
 
 ## O que pode esperar
