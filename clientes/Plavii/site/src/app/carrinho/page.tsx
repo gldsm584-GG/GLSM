@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import LineIcon from "@/components/LineIcon";
 import { userDisplay } from "@/components/UserMenu";
 import { useAuth } from "@/lib/auth-context";
@@ -13,13 +12,11 @@ import { buildCartWhatsappUrl } from "@/lib/whatsapp";
 export default function CarrinhoPage() {
   const { items, products, setQuantity, removeItem, totalPrice } = useCart();
   const { user } = useAuth();
-  // Nome que vai na mensagem do WhatsApp: o que a pessoa digitou ou, se ela
-  // estiver logada e ainda não digitou nada, o nome da conta.
-  const [typedName, setTypedName] = useState<string | null>(null);
-  // userDisplay cai pro email quando a conta não tem nome — nesse caso não pré-preenche.
+  // O nome na mensagem do WhatsApp vem só do cadastro (conta logada). Sem
+  // cadastro, a mensagem sai sem nome. userDisplay cai pro email quando a
+  // conta não tem nome — nesse caso também não manda nome.
   const account = user ? userDisplay(user.user_metadata, user.email) : null;
-  const accountName = account?.nome ? account.full : "";
-  const customerName = typedName ?? accountName;
+  const customerName = account?.nome ? account.full : "";
 
   if (items.length === 0) {
     return (
@@ -146,18 +143,6 @@ export default function CarrinhoPage() {
             </span>
           </div>
 
-          <label className="flex flex-col gap-1 text-sm font-medium text-neutral-600">
-            Seu nome (opcional)
-            <input
-              type="text"
-              value={customerName}
-              onChange={(e) => setTypedName(e.target.value)}
-              maxLength={60}
-              autoComplete="name"
-              placeholder="Como podemos te chamar?"
-              className="rounded-lg border border-neutral-200 px-3 py-2.5 text-base font-normal text-neutral-800 outline-none transition-colors focus:border-brand"
-            />
-          </label>
           <a
             href={buildCartWhatsappUrl(items, products, totalPrice, customerName)}
             target="_blank"
