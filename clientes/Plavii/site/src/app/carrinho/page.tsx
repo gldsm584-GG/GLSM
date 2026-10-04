@@ -3,12 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import LineIcon from "@/components/LineIcon";
+import { userDisplay } from "@/components/UserMenu";
+import { useAuth } from "@/lib/auth-context";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/products";
 import { buildCartWhatsappUrl } from "@/lib/whatsapp";
 
 export default function CarrinhoPage() {
   const { items, products, setQuantity, removeItem, totalPrice } = useCart();
+  const { user } = useAuth();
+  // O nome na mensagem do WhatsApp vem só do cadastro (conta logada). Sem
+  // cadastro, a mensagem sai sem nome. userDisplay cai pro email quando a
+  // conta não tem nome — nesse caso também não manda nome.
+  const account = user ? userDisplay(user.user_metadata, user.email) : null;
+  const customerName = account?.nome ? account.full : "";
 
   if (items.length === 0) {
     return (
@@ -136,7 +144,7 @@ export default function CarrinhoPage() {
           </div>
 
           <a
-            href={buildCartWhatsappUrl(items, products, totalPrice)}
+            href={buildCartWhatsappUrl(items, products, totalPrice, customerName)}
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center justify-center gap-2 rounded-full bg-brand py-3 text-center text-lg font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
