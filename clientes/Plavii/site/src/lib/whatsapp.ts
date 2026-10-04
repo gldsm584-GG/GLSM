@@ -8,7 +8,8 @@ export const WHATSAPP_NUMBER = "5561991918921";
 export function buildCartWhatsappUrl(
   items: CartItem[],
   products: Product[],
-  totalPrice: number
+  totalPrice: number,
+  customerName?: string
 ): string {
   const lines = items
     .map((item) => {
@@ -18,8 +19,9 @@ export function buildCartWhatsappUrl(
     })
     .filter((line): line is string => line !== null);
 
+  const name = customerName?.replace(/\s+/g, " ").trim().slice(0, 60);
   const message = [
-    "Olá! Quero comprar:",
+    name ? `Olá! Meu nome é ${name}. Quero comprar:` : "Olá! Quero comprar:",
     "",
     ...lines,
     "",
