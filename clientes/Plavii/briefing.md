@@ -87,6 +87,12 @@ de cliente quando o telefone bate.
 `user_id`/endereço nulo em `orders` e a policy de insert pro admin) —
 "Nova venda" testado de ponta a ponta, salva certinho.
 
+Ajustes visuais e de texto (2026-10-04): selo de desconto dos cards agora
+verde (igual ao "% OFF" da página do produto); "frete grátis" removido do
+carrinho, rodapé, Hero padrão, título/descrição do site (SEO) e da Política
+de Privacidade — a loja não promete frete grátis por enquanto (a entrega é
+combinada com a atendente pelo WhatsApp); dá pra recolocar depois.
+
 Limpeza pós-mudança de rumo (2026-10-04, achada ao testar o build): as
 páginas `/conta` e `/conta/compras` ainda apontavam pra `/pedido/<id>`
 (rota removida → 404) e ofereciam "Cancelar/Apagar pedido" (chamavam a

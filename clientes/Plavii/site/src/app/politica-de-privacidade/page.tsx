@@ -80,7 +80,7 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc pl-5">
             <li>Criar e gerenciar sua conta</li>
             <li>Processar, entregar e dar suporte aos seus pedidos</li>
-            <li>Calcular frete e preencher seu endereço automaticamente a partir do CEP</li>
+            <li>Preencher seu endereço automaticamente a partir do CEP</li>
             <li>Mostrar suas avaliações públicas nos produtos</li>
             <li>Cumprir obrigações legais e fiscais</li>
             <li>Melhorar o funcionamento do site</li>

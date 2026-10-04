@@ -11,7 +11,7 @@ export default function Footer({ pages }: { pages: SitePage[] }) {
             <p className="font-semibold text-white">Plavii</p>
             <p className="mt-2">
               Loja multicategoria em Sobradinho/DF — eletrônicos, acessórios,
-              brinquedos e utilidades com frete grátis e garantia de verdade.
+              brinquedos e utilidades com garantia de verdade.
             </p>
             <div className="mt-3 flex gap-3">
               <a
