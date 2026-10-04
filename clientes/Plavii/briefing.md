@@ -44,6 +44,89 @@ foco em promoção/urgência.
 
 Prospecção — ainda não é cliente fechado.
 
+## Mudança de rumo (2026-10-04): catálogo + WhatsApp
+
+Decisão do Gustavo antes de levar pro dono: o site tava virando loja
+completa demais (checkout, Mercado Pago, endereço salvo) sem nunca ter
+confirmado com o dono se ele entrega fora da cidade, qual método de
+pagamento usa etc. — risco de o cliente não fechar por parecer complexo
+demais. Mudança: o site vira vitrine/pré-visualização; quem fecha a
+venda (forma de pagamento, entrega ou retirada) é a atendente, por
+WhatsApp, fora do site.
+
+Removido: pagamento (Mercado Pago inteiro — lib, 3 rotas de API,
+dependência no `package.json`), página `/checkout`, página de
+confirmação `/pedido/[id]`, rota `api/orders/[id]` (cancelar/apagar
+pedido pendente), e o botão "Entregar em" do cabeçalho (seletor de
+endereço salvo — não era GPS real, só CEP com ViaCEP). O carrinho
+continua existindo; "Finalizar no WhatsApp" (`src/app/carrinho/page.tsx`)
+monta a lista de itens + total num link `wa.me` (`src/lib/whatsapp.ts`).
+**Número de WhatsApp ainda é placeholder** (`5561999999999` em
+`src/lib/whatsapp.ts`) — trocar pelo número real da loja antes de
+mostrar pro dono.
+
+Painel admin: só o Dashboard saiu do menu (`AdminSidebar.tsx`) — as
+métricas de receita não fazem mais sentido sem checkout automático, mas
+a página continua no código, acessível direto por `/admin`. Pedidos e
+Clientes continuam no menu (atualizado em 2026-10-04): como não existe
+mais pedido automático, o admin lança a venda na mão depois de fechar no
+WhatsApp, pelo botão "+ Nova venda" em `/admin/pedidos`
+(`NewOrderModal.tsx` → `createManualOrder` em `src/lib/orders.ts`) —
+escolhe os produtos do catálogo, quantidade e status; nome/telefone do
+cliente, sem conta nem endereço (`user_id` null). `/admin/clientes`
+agora agrupa pedido por **telefone**, não mais por conta de usuário
+(`order.user_id`), pra conta real e venda manual caírem na mesma lista
+de cliente quando o telefone bate.
+
+`site/supabase/019_manual_orders.sql` já foi rodada no Supabase (libera
+`user_id`/endereço nulo em `orders` e a policy de insert pro admin) —
+"Nova venda" testado de ponta a ponta, salva certinho.
+
+`/admin/clientes` (2026-10-04) também lista quem só criou conta e ainda
+não comprou — antes só aparecia cliente com pedido, e toda conta nova
+cadastrada em `/cadastro` sumia da tela. Rota `/api/admin/customers`
+(antigo `/api/admin/emails`, renomeada e expandida) usa
+`supabaseAdmin.auth.admin.listUsers()` pra trazer todas as contas
+(nome/telefone/endereço do `user_metadata`), e `admin/clientes/page.tsx`
+junta isso com os pedidos — conta sem pedido aparece como "Sem pedido,
+cadastrou em [data]".
+
+Corrigido em 2026-10-04 (2ª rodada): a 1ª versão agrupava por **telefone**,
+e duas contas DIFERENTES com o mesmo telefone (ex: conta de teste reusando
+o telefone da conta real) caíam na mesma linha, apagando uma da tela —
+foi exatamente o que aconteceu testando (`test@gmail.com` sumiu, fundida
+sem avisar na linha de `gldsm584@gmail.com`, mesmo telefone). Virou:
+`buildCustomers` em `admin/clientes/page.tsx` agora pelo **id da conta**
+primeiro — toda conta cadastrada sempre vira sua própria linha, nunca se
+mistura com outra. Telefone só entra pra ligar pedido manual (sem
+`user_id`, vendido pelo WhatsApp) na conta certa quando o telefone bate;
+sem conta correspondente, o pedido manual vira linha própria por telefone,
+como antes.
+
+Também corrigido: `fetchAccounts()` engolia qualquer erro em silêncio
+(`if (!response.ok) return []`) — por isso a tela parecia "funcionar" mesmo
+quando a busca de contas falhava. Agora lança erro e a tela mostra um aviso
+vermelho explicando a causa mais provável. Causa real descoberta testando:
+Supabase guarda **uma sessão só por navegador** (chave fixa no
+`localStorage`, sincronizada entre abas) — como admin loga pela mesma tela
+`/entrar` que qualquer cliente, criar/entrar numa conta de cliente no MESMO
+navegador onde o admin tava logado substitui a sessão ali (log automático
+na conta nova é padrão do Supabase). **Pra testar conta de cliente sem
+perder o login de admin: usa aba anônima ou outro navegador.**
+
+Login/cadastro/conta do cliente (`/entrar`, `/cadastro`, `/conta/*`)
+continuam — decisão de manter por enquanto, mesmo sem checkout usando
+isso. `/conta/compras` ("Compras") e o cartão de "última compra" em
+`/conta` ficam permanentemente vazios (nada mais cria pedido), mas isso
+é inofensivo — são blocos condicionais, não quebram.
+
+Página de produto (`src/app/produto/[slug]/page.tsx`) redesenhada estilo
+Mercado Livre, a pedido do Gustavo (referência: site da Thiago Imports):
+foto isolada numa moldura própria (borda + fundo cinza claro, selo de
+desconto no canto), e do lado categoria + título + descrição + preço +
+comprar tudo junto numa coluna só — tirou a caixa separada "Sobre o
+produto" que ficava embaixo.
+
 ## Objetivo
 
 Construir a loja funcional de verdade pra Plavii (Next.js), evoluindo em
@@ -73,7 +156,8 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
       pareçam de teste (ex.: "blb"). Em 2026-10-04: preços corrigidos
       (projetor R$ 189,00; Power Bank com desconto de -46%) e "blb"
       removido; categoria "Pets" do projetor corrigida também
-- [ ] Testar o checkout logado ponta a ponta (cartão de endereço em tela)
+- ~~[ ] Testar o checkout logado ponta a ponta~~ — obsoleto, checkout
+      removido em 2026-10-04 (ver "Mudança de rumo")
 - [x] Publicar num link de teste na Vercel — https://plavii.vercel.app
       (deploy em 2026-09-26, com chaves de teste do Mercado Pago;
       atualizado em 2026-09-27 com cabeçalho mobile novo e
@@ -81,8 +165,10 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
 - [ ] Ajustar "Site URL" do Supabase (Authentication → URL Configuration)
       pra https://plavii.vercel.app, senão links de e-mail apontam pro
       localhost
-- [ ] Testar o checkout de teste no link da Vercel (retorno automático +
-      webhook, que em localhost não funcionavam)
+- ~~[ ] Testar o checkout de teste no link da Vercel~~ — obsoleto, checkout
+      removido em 2026-10-04 (ver "Mudança de rumo")
+- [ ] Pegar o número de WhatsApp real da loja e trocar o placeholder em
+      `src/lib/whatsapp.ts` (`WHATSAPP_NUMBER`)
 - [ ] Preparar abordagem pro dono — rascunho em `abordagem.md`, falta
       atualizar pra referenciar o site funcional (não mais screenshots)
 - [ ] Publicar no plavii.vercel.app as novidades de 2026-09-27 (produto
@@ -101,40 +187,25 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
 - Chaves de conexão em `site/.env.local` (não versionado no Git)
 - Login de cliente via Supabase Auth (email/senha), em `src/lib/auth-context.tsx`
   — páginas `/entrar` e `/cadastro`
-- Checkout em `/checkout` (exige login) → salva pedido nas tabelas `orders` +
-  `order_items` (schema em `site/supabase/002_orders.sql`) → confirmação em
-  `/pedido/[id]`. Cada pessoa só vê os próprios pedidos (RLS)
+- ~~Checkout em `/checkout`~~ — removido em 2026-10-04 (ver "Mudança de
+  rumo"). Tabelas `orders`/`order_items` (`site/supabase/002_orders.sql`)
+  continuam no banco, só não recebem mais pedido novo
 - Painel admin em `/admin` (exige login + email na lista de admin em
   `src/lib/admin.ts`) — barra lateral escura (layout em `app/admin/layout.tsx`,
-  esconde o cabeçalho/rodapé da loja via `StoreChrome`) com Dashboard
-  (receita, pedidos, produtos, clientes), Pedidos, Produtos e Clientes
-  (derivado dos pedidos); cadastra/edita/apaga produtos, vê e muda status de
-  TODOS os pedidos. Permissões de escrita liberadas via RLS só pro email
-  admin (`site/supabase/003_admin.sql`). Admin de teste hoje:
-  `gustest@gmail.com` (lista em `src/lib/admin.ts`; policies recriadas por
-  `site/supabase/005_admin_gustest.sql`) — trocar pro email real quando definir
+  esconde o cabeçalho/rodapé da loja via `StoreChrome`). Desde 2026-10-04
+  só tem Produtos no menu (cadastra/edita/apaga produtos); Dashboard,
+  Pedidos e Clientes saíram do menu mas o código continua (ver "Mudança
+  de rumo"). Admin de teste hoje: `gustest@gmail.com` (lista em
+  `src/lib/admin.ts`; policies recriadas por `site/supabase/005_admin_gustest.sql`)
+  — trocar pro email real quando definir
 - ⚠️ "Confirm email" está DESATIVADO no Supabase (Authentication → Providers
   → Email) só pra facilitar teste. Reativar (ou configurar SMTP próprio)
   antes de lançar o site pra clientes de verdade — senão qualquer email
   falso consegue criar conta
-- Pagamento via Mercado Pago (Checkout Pro): `/api/checkout` cria a
-  cobrança e redireciona; `/api/mercadopago/verify` confirma quando o
-  cliente volta (funciona em localhost, sem precisar de URL pública);
-  `/api/mercadopago/webhook` é a versão "de produção" (precisa de domínio
-  público pra o Mercado Pago conseguir chamar). Credenciais de teste em
-  `.env.local` (`MERCADOPAGO_ACCESS_TOKEN`); o token de produção fica
-  comentado no mesmo arquivo pra trocar quando for lançar
-  - Lição: o botão "Pagar" ficava cinza porque vendedor e comprador eram
-    a MESMA conta (o token de teste e o usuário de teste tinham o mesmo
-    id 3707201207). O Mercado Pago bloqueia isso sem mostrar erro. Pra
-    testar, o comprador tem que ser OUTRA conta de teste (Contas de
-    teste → criar um 2º comprador). Em produção, quem paga não pode ser
-    a conta dona do token
-  - Em localhost o Mercado Pago não mostra botão "voltar ao site" nem
-    chama o webhook; a volta é simulada abrindo
-    `/pedido/<id>?payment_id=<id do pagamento>`, que dispara o verify
-  - Pendente pro lançamento: domínio público (pra webhook e retorno
-    automático) e trocar pro token de produção
+- ~~Pagamento via Mercado Pago (Checkout Pro)~~ — removido em 2026-10-04,
+  junto com o checkout (ver "Mudança de rumo"). A dependência `mercadopago`
+  saiu do `package.json`; `.env.local` ainda tem as chaves de teste
+  comentadas/sobrando, sem efeito
 - Fotos de produto: as 5 originais ficam em `site/public/produtos/`; as novas
   são enviadas pelo painel admin pro Supabase Storage (bucket público
   `produtos`, só admin envia — `site/supabase/004_storage.sql`, precisa rodar
@@ -152,24 +223,25 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   endereço com CEP (ViaCEP) e senha com olhinho. Dados extras ficam no
   `user_metadata` do Supabase Auth (sem tabela nova)
 - Endereços: lista por conta em `user_metadata.enderecos`
-  (`src/lib/addresses.ts`, estado em `address-context.tsx`). Botão de
-  localização no topo abre o seletor (`AddressPicker`: escolher, editar,
-  adicionar, remover); o checkout usa o endereço escolhido. Pedido grava o
-  endereço como texto (formato antigo, sem mudar `orders`)
-- Produto: "Comprar agora" (adiciona e vai pro checkout) e "Adicionar ao
-  carrinho"; layout enxuto estilo Mercado Livre
+  (`src/lib/addresses.ts`, estado em `address-context.tsx`). O botão
+  "Entregar em" saiu do cabeçalho em 2026-10-04 (ver "Mudança de rumo");
+  o seletor (`AddressPicker`) continua acessível pelo menu da conta
+  ("Endereços") pra quem já tinha endereço salvo
+- Produto: "Comprar agora" (adiciona e vai pro carrinho) e "Adicionar ao
+  carrinho"; layout enxuto estilo Mercado Livre. Carrinho finaliza no
+  WhatsApp, não mais em checkout próprio (ver "Mudança de rumo")
 - Painel do cliente em `/conta`: Visão geral, Compras (`getMyOrders`),
   Histórico, Favoritos e Meus dados (nome, telefones, trocar senha). Menu do
   usuário no topo (`UserMenu`) com "Entrar em outra conta" e "Sair".
   Histórico e favoritos ficam no localStorage do navegador (não no banco)
-- Compras: o cliente cancela pedido pendente e apaga pedido pendente/cancelado
-  (`api/orders/[id]`, PATCH/DELETE). Apagar é bloqueado se o Mercado Pago já
-  aprovou pagamento
+- ~~Compras: o cliente cancela/apaga pedido pendente~~ — rota `api/orders/[id]`
+  removida em 2026-10-04 junto com o checkout; a tela `/conta/compras`
+  continua existindo mas fica sempre vazia (nada mais cria pedido)
 - Cabeçalho some ao rolar pra baixo e volta ao rolar pra cima
-- Layout do cabeçalho (`Header.tsx`): no celular 2 linhas — logo + endereço +
-  carrinho em cima; busca + conta embaixo. No desktop, uma linha só. Carrinho
-  é só ícone em todos os tamanhos; "Entrar" é botão azul com ícone de pessoa
-  e texto branco
+- Layout do cabeçalho (`Header.tsx`): no celular, logo + conta + carrinho em
+  cima, busca embaixo (flexbox com `order`, sem endereço desde 2026-10-04).
+  No desktop, uma linha só. Carrinho é só ícone em todos os tamanhos;
+  "Entrar" é botão azul com ícone de pessoa e texto branco
 - Cor de marca: azul `#175291`, acento `#FFC83D`, fonte Inter
 - Rodar localmente: `npm run dev` dentro de `site/` (porta 3000)
 - Hospedagem de teste: Vercel, projeto `glsmteste/plavii` (conta Glsmteste,

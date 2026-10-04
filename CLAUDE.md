@@ -140,8 +140,8 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 
 **Clientes ativos:** Plavii (em prospecção — loja Next.js funcional em
 `clientes/Plavii/site/`, publicada em produção em plavii.vercel.app;
-falta domínio próprio, Mercado Pago em modo produção e apresentar ao
-dono).
+catálogo + WhatsApp (sem Mercado Pago desde 2026-10-04); falta trocar o
+número de WhatsApp placeholder, domínio próprio e apresentar ao dono).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com

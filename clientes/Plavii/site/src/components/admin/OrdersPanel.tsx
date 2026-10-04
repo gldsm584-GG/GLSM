@@ -91,11 +91,17 @@ export default function OrdersPanel() {
                   <span>{formatPrice(item.unit_price * item.quantity)}</span>
                 </div>
               ))}
-              <p className="mt-3 font-medium text-neutral-800">Entrega</p>
-              <p>{order.address}</p>
-              <p>
-                {order.city} — CEP {order.cep}
-              </p>
+              <p className="mt-3 font-medium text-neutral-800">Contato</p>
+              {order.address ? (
+                <>
+                  <p>{order.address}</p>
+                  <p>
+                    {order.city} — CEP {order.cep}
+                  </p>
+                </>
+              ) : (
+                <p className="text-neutral-400">Sem endereço (venda manual — combinado por fora)</p>
+              )}
               <p>{order.phone}</p>
             </div>
           )}

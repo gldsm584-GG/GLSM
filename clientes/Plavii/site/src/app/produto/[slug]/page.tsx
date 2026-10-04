@@ -57,7 +57,8 @@ export default async function ProductPage({
 
       <div className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5 md:p-6">
         <div className="grid gap-6 md:grid-cols-[minmax(0,26rem)_1fr] md:gap-10">
-          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-lg md:max-w-none">
+          {/* Só a foto, isolada numa moldura própria */}
+          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 md:max-w-none">
             <Image
               src={product.image}
               alt={product.name}
@@ -66,8 +67,14 @@ export default async function ProductPage({
               sizes="(max-width: 768px) 90vw, 416px"
               priority
             />
+            {off && off < 100 && (
+              <span className="absolute left-3 top-3 rounded-full bg-green-600 px-2.5 py-1 text-xs font-bold text-white">
+                {off}% OFF
+              </span>
+            )}
           </div>
 
+          {/* Categoria, título, descrição, preço e compra — tudo junto, estilo Mercado Livre */}
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between gap-3">
               {category && (
@@ -85,6 +92,8 @@ export default async function ProductPage({
             <h1 className="text-xl font-bold leading-snug text-neutral-800 md:text-2xl">
               {product.name}
             </h1>
+
+            <p className="leading-relaxed text-neutral-600">{product.description}</p>
 
             <div>
               {product.oldPrice && (
@@ -108,11 +117,6 @@ export default async function ProductPage({
           </div>
         </div>
       </div>
-
-      <section className="mt-4 rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5 md:p-6">
-        <h2 className="mb-2 text-lg font-bold text-neutral-800">Sobre o produto</h2>
-        <p className="max-w-3xl leading-relaxed text-neutral-600">{product.description}</p>
-      </section>
 
       <ProductReviews productId={product.id} />
 

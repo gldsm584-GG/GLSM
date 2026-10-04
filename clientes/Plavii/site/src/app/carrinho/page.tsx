@@ -5,6 +5,7 @@ import Link from "next/link";
 import LineIcon from "@/components/LineIcon";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/products";
+import { buildCartWhatsappUrl } from "@/lib/whatsapp";
 
 export default function CarrinhoPage() {
   const { items, products, setQuantity, removeItem, totalPrice } = useCart();
@@ -134,12 +135,15 @@ export default function CarrinhoPage() {
             </span>
           </div>
 
-          <Link
-            href="/checkout"
-            className="block w-full rounded-full bg-brand py-3 text-center text-lg font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
+          <a
+            href={buildCartWhatsappUrl(items, products, totalPrice)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-brand py-3 text-center text-lg font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
           >
-            Finalizar compra
-          </Link>
+            <LineIcon name="phone" className="h-5 w-5" />
+            Finalizar no WhatsApp
+          </a>
           <Link
             href="/"
             className="text-center text-sm font-medium text-neutral-500 transition-colors hover:text-brand"

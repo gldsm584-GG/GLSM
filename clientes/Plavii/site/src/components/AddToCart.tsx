@@ -19,7 +19,7 @@ export default function AddToCart({ productId }: { productId: string }) {
 
   const handleBuyNow = () => {
     addItem(productId, quantity);
-    router.push("/checkout");
+    router.push("/carrinho");
   };
 
   return (

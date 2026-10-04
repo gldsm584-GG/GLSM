@@ -12,7 +12,7 @@ principal, mas o valor vendido é presença/performance digital.
 **Atende clientes:** Todo tipo de comércio, por decisão — genérico de
 propósito, não por falta de definição (confirmado em 2026-09-28)
 **Equipe:** Só ele (Gustavo), sem equipe
-**Ferramentas:** Next.js + Tailwind, Supabase (banco, login e fotos), Mercado Pago (pagamento), Claude Code, GitHub (conta própria `gldsm584-GG`, repo dos sites: github.com/gldsm584-GG/GLSM), Vercel (conta própria, time `glsmteste` — onde os sites são publicados em produção)
+**Ferramentas:** Next.js + Tailwind, Supabase (banco, login e fotos), WhatsApp (link direto do carrinho — substituiu Mercado Pago em 2026-10-04, ver estrategia.md), Claude Code, GitHub (conta própria `gldsm584-GG`, repo dos sites: github.com/gldsm584-GG/GLSM), Vercel (conta própria, time `glsmteste` — onde os sites são publicados em produção)
 **Principais entregas:** Sites com foco em marketing digital / alcance
 de vendas (loja online rápida e autoeditável é o formato principal hoje)
 **Frase de venda (tagline):** "Sua loja vendendo mesmo com a porta fechada."

@@ -27,11 +27,25 @@ pra loja funcional (mensagem de abertura, roteiro de demonstração,
 objeções e preço). O produto de teste ("blb") e os pedidos de teste já
 foram removidos (2026-10-03). O Hero (arraste, altura no celular) e a
 lixeira do carrinho já foram conferidos num celular de verdade, e os prints
-de home, produtos e carrinho estão tirados (2026-10-04). Antes de mandar o
-link ao dono não falta mais nada: a categoria "Pets" do Projetor HY300 foi
-corrigida e os prints foram aprovados como estão (2026-10-04) — o próximo
-passo é mandar a mensagem de abertura. Depois do sim falta: configurar domínio próprio e colocar o Mercado Pago em modo
-produção de verdade (hoje ainda em teste).
+de home, produtos e carrinho estão tirados (2026-10-04). A categoria
+"Pets" do Projetor HY300 foi corrigida e os prints foram aprovados como
+estão (2026-10-04).
+
+Mudança de rumo em 2026-10-04 (decisão do Gustavo antes de levar ao
+dono): a loja tava virando complexa demais (checkout, Mercado Pago,
+endereço salvo) sem nunca ter confirmado com o dono como ele realmente
+entrega/recebe pagamento — risco de o cliente não fechar por parecer
+complicado demais. O site virou vitrine/catálogo: carrinho finaliza
+direto num link de WhatsApp (mensagem pronta com os itens), e quem fecha
+forma de pagamento/entrega é a atendente, por fora do site. Mercado Pago
+foi removido do projeto inteiro (não é mais pendência colocar em
+produção). Painel admin ganhou lançamento de venda manual (pra registrar
+o que fechar no WhatsApp) e Pedidos/Clientes voltaram a aparecer no menu
+alimentados por isso — ver `clientes/Plavii/briefing.md`.
+
+Próximo passo antes de mandar a mensagem de abertura: trocar o número de
+WhatsApp placeholder (`src/lib/whatsapp.ts`) pelo número real da loja.
+Depois disso, falta só configurar domínio próprio.
 
 Pendência técnica resolvida em 2026-09-27: repositório próprio criado
 (github.com/gldsm584-GG/GLSM) e projeto Vercel próprio (time

@@ -6,8 +6,10 @@ import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import Icon, { type IconName } from "./Icon";
 
+// Dashboard saiu do menu — as métricas (receita, ticket médio) não fazem
+// mais sentido sem checkout automático. Pedidos e Clientes continuam,
+// agora alimentados também por venda manual (ver /admin/pedidos "Nova venda").
 const NAV: { href: string; label: string; icon: IconName }[] = [
-  { href: "/admin", label: "Dashboard", icon: "dashboard" },
   { href: "/admin/pedidos", label: "Pedidos", icon: "orders" },
   { href: "/admin/produtos", label: "Produtos", icon: "products" },
   { href: "/admin/clientes", label: "Clientes", icon: "users" },
