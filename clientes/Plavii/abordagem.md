@@ -20,7 +20,7 @@ do `briefing.md` que aparecem pra ele:
 - [x] Limpar os pedidos de teste do banco de pedidos
 - [x] Conferir o carrinho e o Hero no celular de verdade (arraste e lixeira
       funcionam)
-- [ ] Corrigir a categoria "Pets" do Projetor HY300
+- [x] Corrigir a categoria "Pets" do Projetor HY300
 - [x] Tirar prints novos: home (celular), página de produto, carrinho
       (ajustes finais: desmarcar o coração do 1º produto e mostrar o Power
       Bank inteiro, com preço)

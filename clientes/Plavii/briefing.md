@@ -68,11 +68,11 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
       "confirmado" no banco. Falta só a produção (ver nota abaixo).
 - [x] Categorias (painel "Tudo" + barra), busca, cadastro completo,
       endereços múltiplos, "Comprar agora" e painel do cliente (`/conta`)
-- [ ] Limpar dados de teste no `/admin`: Projetor HY300 com preço R$ 1,00
+- [x] Limpar dados de teste no `/admin`: Projetor HY300 com preço R$ 1,00
       (gera selo -100%) e categoria errada (Pets); revisar produtos que
       pareçam de teste (ex.: "blb"). Em 2026-10-04: preços corrigidos
       (projetor R$ 189,00; Power Bank com desconto de -46%) e "blb"
-      removido; **falta só a categoria "Pets" do projetor**
+      removido; categoria "Pets" do projetor corrigida também
 - [ ] Testar o checkout logado ponta a ponta (cartão de endereço em tela)
 - [x] Publicar num link de teste na Vercel — https://plavii.vercel.app
       (deploy em 2026-09-26, com chaves de teste do Mercado Pago;
