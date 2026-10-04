@@ -1,8 +1,9 @@
 import { formatPrice } from "./products";
 import type { CartItem, Product } from "./types";
 
-// Placeholder — troque pelo número de verdade da loja (DDI+DDD+número, só dígitos)
-export const WHATSAPP_NUMBER = "5561999999999";
+// Número de TESTE do Gustavo (2026-10-04) — troque pelo número de verdade da loja
+// antes de apresentar ao dono (DDI+DDD+número, só dígitos)
+export const WHATSAPP_NUMBER = "5561991918921";
 
 export function buildCartWhatsappUrl(
   items: CartItem[],
