@@ -22,8 +22,8 @@ do `briefing.md` que aparecem pra ele:
       funcionam)
 - [x] Corrigir a categoria "Pets" do Projetor HY300
 - [x] Tirar prints novos: home (celular), página de produto, carrinho
-      (ajustes finais: desmarcar o coração do 1º produto e mostrar o Power
-      Bank inteiro, com preço)
+      (aprovados como estão em 2026-10-04; o coração marcado e o Power Bank
+      cortado ficaram de propósito, não precisa refazer)
 
 Atenção: o Mercado Pago ainda está em modo teste, então **não prometa que já
 dá pra vender de verdade**. Diga que é uma versão pronta pra apresentar.
