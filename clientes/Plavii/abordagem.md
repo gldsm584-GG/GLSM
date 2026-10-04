@@ -18,9 +18,12 @@ do `briefing.md` que aparecem pra ele:
 
 - [x] Remover o produto de teste do catálogo (ex: "blb", Power Bank a R$ 1,00)
 - [x] Limpar os pedidos de teste do banco de pedidos
-- [ ] Conferir o carrinho e o Hero no celular de verdade (arraste e lixeira
-      foram testados só em emulador)
-- [ ] Tirar prints novos: home (celular), página de produto, carrinho
+- [x] Conferir o carrinho e o Hero no celular de verdade (arraste e lixeira
+      funcionam)
+- [x] Corrigir a categoria "Pets" do Projetor HY300
+- [x] Tirar prints novos: home (celular), página de produto, carrinho
+      (ajustes finais: desmarcar o coração do 1º produto e mostrar o Power
+      Bank inteiro, com preço)
 
 Atenção: o Mercado Pago ainda está em modo teste, então **não prometa que já
 dá pra vender de verdade**. Diga que é uma versão pronta pra apresentar.

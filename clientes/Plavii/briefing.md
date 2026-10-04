@@ -68,9 +68,11 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
       "confirmado" no banco. Falta só a produção (ver nota abaixo).
 - [x] Categorias (painel "Tudo" + barra), busca, cadastro completo,
       endereços múltiplos, "Comprar agora" e painel do cliente (`/conta`)
-- [ ] Limpar dados de teste no `/admin`: Projetor HY300 com preço R$ 1,00
+- [x] Limpar dados de teste no `/admin`: Projetor HY300 com preço R$ 1,00
       (gera selo -100%) e categoria errada (Pets); revisar produtos que
-      pareçam de teste (ex.: "blb")
+      pareçam de teste (ex.: "blb"). Em 2026-10-04: preços corrigidos
+      (projetor R$ 189,00; Power Bank com desconto de -46%) e "blb"
+      removido; categoria "Pets" do projetor corrigida também
 - [ ] Testar o checkout logado ponta a ponta (cartão de endereço em tela)
 - [x] Publicar num link de teste na Vercel — https://plavii.vercel.app
       (deploy em 2026-09-26, com chaves de teste do Mercado Pago;
@@ -213,11 +215,17 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   ou com deslize rápido; senão volta pro lugar. O autoplay pausa enquanto
   arrasta, clique parado num botão do Hero continua abrindo o link e
   arrastar sobre o botão não abre — publicado em 2026-10-03 (PR #2).
-  ⚠️ Testado só no Chromium com toque emulado; falta conferir num celular
-  de verdade
+  ✅ Conferido num celular de verdade em 2026-10-03/04 (funciona)
+- Hero no celular: a altura acompanha a proporção da imagem do slide ativo,
+  limitada a 3:2 (`MAX_MOBILE_RATIO` em `Hero.tsx`). Imagem larga (banner)
+  preenche a moldura e perde só uma faixa pequena das laterais; quadrada ou
+  vertical aparece inteira. De `sm` pra cima segue a moldura 16:9 / 21:9. Os
+  botões flutuantes usam % da moldura, então no celular ficam em % da
+  imagem já ajustada — publicado em 2026-10-03 (PRs #6 e #7)
 - Carrinho: cada item tem um botão de lixeira visível à direita pro
   cliente remover o produto (antes era só um link "Remover" pequeno embaixo
-  do nome) — publicado em 2026-10-03 (PR #1, `carrinho/page.tsx`)
+  do nome) — publicado em 2026-10-03 (PR #1, `carrinho/page.tsx`);
+  conferido num celular de verdade
 - Painel Clientes do admin: cada cliente tem "Ver detalhes", que expande os
   pedidos dele com status e produtos comprados; a coluna de localização
   mostra endereço completo (rua/bairro, cidade, CEP), não só a cidade
