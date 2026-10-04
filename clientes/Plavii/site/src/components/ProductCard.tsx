@@ -22,7 +22,7 @@ export default function ProductCard({ product }: { product: Product }) {
             sizes="(max-width: 768px) 50vw, 25vw"
           />
           {off && (
-            <span className="absolute left-2 top-2 rounded-full bg-red-500 px-2 py-1 text-xs font-bold text-white">
+            <span className="absolute left-2 top-2 rounded-full bg-green-600 px-2 py-1 text-xs font-bold text-white">
               -{off}%
             </span>
           )}

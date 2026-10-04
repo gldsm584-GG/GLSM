@@ -348,9 +348,8 @@ function DefaultHero({ destaques }: { destaques: Product[] }) {
             Achou, gostou, <span className="text-accent">chegou.</span>
           </h1>
           <p className="max-w-md text-lg text-white/85">
-            Eletrônicos, acessórios e utilidades com frete grátis e até 1 ano
-            de garantia. Loja física em Sobradinho — atendimento de gente pra
-            gente.
+            Eletrônicos, acessórios e utilidades com até 1 ano de garantia.
+            Loja física em Sobradinho — atendimento de gente pra gente.
           </p>
           <div className="flex flex-wrap gap-3">
             <a

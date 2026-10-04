@@ -61,9 +61,14 @@ pedido pendente), e o botão "Entregar em" do cabeçalho (seletor de
 endereço salvo — não era GPS real, só CEP com ViaCEP). O carrinho
 continua existindo; "Finalizar no WhatsApp" (`src/app/carrinho/page.tsx`)
 monta a lista de itens + total num link `wa.me` (`src/lib/whatsapp.ts`).
-**Número de WhatsApp ainda é placeholder** (`5561999999999` em
-`src/lib/whatsapp.ts`) — trocar pelo número real da loja antes de
-mostrar pro dono.
+**Número de WhatsApp é de TESTE** (`5561991918921`, do Gustavo, em
+`src/lib/whatsapp.ts`; era o placeholder `5561999999999` até 2026-10-04) —
+trocar pelo número real da loja antes de mostrar pro dono. Mensagem
+(2026-10-04): "Olá! Meu nome é <nome>. Tenho interesse em comprar este
+produto que vi no site:" + lista + total; o nome vem **só do cadastro**
+(conta logada com nome — sem campo pra digitar) e, sem cadastro ou com
+conta sem nome, a mensagem sai sem a parte do nome. Com mais de um item,
+"estes produtos". Botão testado de ponta a ponta no celular.
 
 Painel admin: só o Dashboard saiu do menu (`AdminSidebar.tsx`) — as
 métricas de receita não fazem mais sentido sem checkout automático, mas
@@ -81,6 +86,12 @@ de cliente quando o telefone bate.
 `site/supabase/019_manual_orders.sql` já foi rodada no Supabase (libera
 `user_id`/endereço nulo em `orders` e a policy de insert pro admin) —
 "Nova venda" testado de ponta a ponta, salva certinho.
+
+Ajustes visuais e de texto (2026-10-04): selo de desconto dos cards agora
+verde (igual ao "% OFF" da página do produto); "frete grátis" removido do
+carrinho, rodapé, Hero padrão, título/descrição do site (SEO) e da Política
+de Privacidade — a loja não promete frete grátis por enquanto (a entrega é
+combinada com a atendente pelo WhatsApp); dá pra recolocar depois.
 
 Limpeza pós-mudança de rumo (2026-10-04, achada ao testar o build): as
 páginas `/conta` e `/conta/compras` ainda apontavam pra `/pedido/<id>`
@@ -177,8 +188,9 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
       localhost
 - ~~[ ] Testar o checkout de teste no link da Vercel~~ — obsoleto, checkout
       removido em 2026-10-04 (ver "Mudança de rumo")
-- [ ] Pegar o número de WhatsApp real da loja e trocar o placeholder em
-      `src/lib/whatsapp.ts` (`WHATSAPP_NUMBER`)
+- [ ] Pegar o número de WhatsApp real da loja e trocar o número de teste
+      (`61 99191-8921`, do Gustavo) em `src/lib/whatsapp.ts`
+      (`WHATSAPP_NUMBER`)
 - [x] Preparar abordagem pro dono — `abordagem.md` reescrita em 2026-10-03
       e atualizada em 2026-10-04 pro formato catálogo + WhatsApp
 - [x] Publicar no plavii.vercel.app as novidades de 2026-09-27 (produto

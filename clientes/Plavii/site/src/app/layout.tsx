@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Plavii — Eletrônicos, acessórios e utilidades com frete grátis",
+  title: "Plavii — Eletrônicos, acessórios e utilidades",
   description:
-    "Loja multicategoria em Sobradinho/DF — eletrônicos, acessórios, brinquedos e utilidades com frete grátis e garantia de até 1 ano.",
+    "Loja multicategoria em Sobradinho/DF — eletrônicos, acessórios, brinquedos e utilidades com garantia de até 1 ano.",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {

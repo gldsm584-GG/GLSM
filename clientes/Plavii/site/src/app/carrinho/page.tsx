@@ -131,11 +131,6 @@ export default function CarrinhoPage() {
             </span>
             <span>{formatPrice(totalPrice)}</span>
           </div>
-          <p className="flex items-center gap-2 rounded-lg bg-brand/10 px-3 py-2 text-xs font-medium text-brand">
-            <LineIcon name="truck" className="h-4 w-4" />
-            Frete grátis a partir de R$14,99
-          </p>
-
           <div className="flex items-baseline justify-between border-t border-neutral-100 pt-4">
             <span className="font-bold text-neutral-800">Total</span>
             <span className="text-3xl font-extrabold tracking-tight text-brand">
