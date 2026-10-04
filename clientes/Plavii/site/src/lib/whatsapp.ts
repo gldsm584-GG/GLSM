@@ -20,11 +20,11 @@ export function buildCartWhatsappUrl(
     .filter((line): line is string => line !== null);
 
   const name = customerName?.replace(/\s+/g, " ").trim().slice(0, 60);
-  const interest = lines.length === 1 ? "neste produto" : "nestes produtos";
+  const what = lines.length === 1 ? "este produto" : "estes produtos";
   const message = [
     name
-      ? `Olá! Meu nome é ${name}. Tenho interesse ${interest} que vi no site:`
-      : `Olá! Tenho interesse ${interest} que vi no site:`,
+      ? `Olá! Meu nome é ${name}. Tenho interesse em comprar ${what} que vi no site:`
+      : `Olá! Tenho interesse em comprar ${what} que vi no site:`,
     "",
     ...lines,
     "",
