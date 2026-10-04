@@ -82,6 +82,16 @@ de cliente quando o telefone bate.
 `user_id`/endereço nulo em `orders` e a policy de insert pro admin) —
 "Nova venda" testado de ponta a ponta, salva certinho.
 
+Limpeza pós-mudança de rumo (2026-10-04, achada ao testar o build): as
+páginas `/conta` e `/conta/compras` ainda apontavam pra `/pedido/<id>`
+(rota removida → 404) e ofereciam "Cancelar/Apagar pedido" (chamavam a
+rota `api/orders/[id]`, removida). Tirei esses links/botões e o código
+morto em `src/lib/orders.ts`; a Política de Privacidade parou de citar o
+Mercado Pago e passou a citar o WhatsApp. Teste feito: `next build` passa
+e o fluxo celular (produto → carrinho → link `wa.me` com itens e total →
+lixeira) roda sem erro de JavaScript. Não testado: login e painel admin
+(precisam do Supabase de verdade).
+
 `/admin/clientes` (2026-10-04) também lista quem só criou conta e ainda
 não comprou — antes só aparecia cliente com pedido, e toda conta nova
 cadastrada em `/cadastro` sumia da tela. Rota `/api/admin/customers`
@@ -169,12 +179,12 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
       removido em 2026-10-04 (ver "Mudança de rumo")
 - [ ] Pegar o número de WhatsApp real da loja e trocar o placeholder em
       `src/lib/whatsapp.ts` (`WHATSAPP_NUMBER`)
-- [ ] Preparar abordagem pro dono — rascunho em `abordagem.md`, falta
-      atualizar pra referenciar o site funcional (não mais screenshots)
-- [ ] Publicar no plavii.vercel.app as novidades de 2026-09-27 (produto
+- [x] Preparar abordagem pro dono — `abordagem.md` reescrita em 2026-10-03
+      e atualizada em 2026-10-04 pro formato catálogo + WhatsApp
+- [x] Publicar no plavii.vercel.app as novidades de 2026-09-27 (produto
       editável na loja, páginas em branco, opiniões de produto, Hero em
       carrossel, detalhes de cliente no admin) — rodar as migrações SQL
-      novas (006 a 014) antes de publicar
+      novas (006 a 014) antes de publicar — já no ar
 
 ## Site
 
@@ -362,12 +372,12 @@ Modelo escolhido: venda única (não mensalidade) — R$ 4.000 no Pix ou 3x de
 R$ 1.500 no cartão (R$ 4.500), sem desconto adicional (atualizado em
 2026-10-03; antes era R$ 5.000 aceitando até R$ 4.000). Parcelado só no
 cartão, e as contas só passam pro dono depois do pagamento completo. Depois da venda, todas as
-contas (Vercel, Supabase, Mercado Pago, domínio) passam pro nome/email
+contas (Vercel, Supabase, domínio) passam pro nome/email
 do próprio dono, que paga as assinaturas dele — Gustavo não fica preso
 operando a infraestrutura do cliente. Qualquer alteração futura vira
 serviço cobrado à parte.
 
 Custo mensal estimado das ferramentas (plano pago, fica por conta do
 dono depois da transferência): ~US$45/mês (Vercel Pro + Supabase Pro)
-+ domínio .com.br (~R$40/ano) + taxa variável do Mercado Pago por venda
-(sem mensalidade).
++ domínio .com.br (~R$40/ano). Sem taxa por venda, já que o site não
+processa pagamento desde 2026-10-04 (sem mensalidade).

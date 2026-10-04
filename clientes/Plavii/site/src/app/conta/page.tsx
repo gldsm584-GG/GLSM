@@ -67,10 +67,7 @@ export default function ContaPage() {
       </div>
 
       {last && (
-        <Link
-          href={`/pedido/${last.id}`}
-          className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-md"
-        >
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-neutral-400">
               Última compra
@@ -89,7 +86,7 @@ export default function ContaPage() {
             </span>
             <p className="mt-1 font-extrabold text-brand">{formatPrice(last.total)}</p>
           </div>
-        </Link>
+        </div>
       )}
 
       <div className="grid gap-4 sm:grid-cols-2">

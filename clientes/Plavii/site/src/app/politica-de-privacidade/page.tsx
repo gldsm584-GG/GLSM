@@ -91,8 +91,9 @@ export default function PrivacyPolicyPage() {
         <Section title="4. Com quem compartilhamos seus dados">
           <ul className="list-disc pl-5">
             <li>
-              <strong>Mercado Pago:</strong> processa o pagamento do seu pedido. A Plavii não
-              recebe nem guarda o número do seu cartão — isso fica só com o Mercado Pago.
+              <strong>WhatsApp:</strong> ao finalizar o carrinho, a lista de itens vai numa
+              mensagem pro WhatsApp da loja, e o pagamento e a entrega são combinados por lá. O
+              site não processa pagamento e não recebe nem guarda o número do seu cartão.
             </li>
             <li>
               <strong>Supabase:</strong> empresa que hospeda o banco de dados e o login do site.
