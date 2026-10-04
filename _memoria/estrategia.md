@@ -25,9 +25,12 @@ escolhidos à mão, detalhes de cliente no admin — ver
 `clientes/Plavii/briefing.md`). A `abordagem.md` foi reescrita em 2026-10-03
 pra loja funcional (mensagem de abertura, roteiro de demonstração,
 objeções e preço). O produto de teste ("blb") e os pedidos de teste já
-foram removidos (2026-10-03). Antes de mandar o link ao dono falta:
-conferir o Hero (arraste) e a lixeira do carrinho num celular de verdade
-e tirar prints novos. Depois
+foram removidos (2026-10-03). O Hero (arraste, altura no celular) e a
+lixeira do carrinho já foram conferidos num celular de verdade, e os prints
+de home, produtos e carrinho estão tirados (2026-10-04). Antes de mandar o
+link ao dono falta: corrigir a categoria "Pets" do Projetor HY300 e ajustar
+detalhes dos prints (coração marcado no 1º produto, Power Bank cortado).
+Depois
 do sim falta: configurar domínio próprio e colocar o Mercado Pago em modo
 produção de verdade (hoje ainda em teste).
 
