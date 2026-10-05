@@ -52,7 +52,8 @@ export async function POST(request: Request) {
   try {
     const options = await quoteShipping(cep, items);
     return NextResponse.json({ configured: true, options });
-  } catch {
+  } catch (error) {
+    console.error("[frete] cotação falhou:", error instanceof Error ? error.message : error);
     // Melhor Envio fora do ar ou token inválido: o checkout segue só com a retirada
     return NextResponse.json({ configured: true, options: [], unavailable: true });
   }

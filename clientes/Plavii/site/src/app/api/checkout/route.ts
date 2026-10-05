@@ -51,7 +51,8 @@ export async function POST(request: Request) {
         order.cep ?? "",
         orderItems.map((item) => ({ quantity: item.quantity, price: Number(item.unit_price) }))
       );
-    } catch {
+    } catch (error) {
+      console.error("[frete] cotação no checkout falhou:", error instanceof Error ? error.message : error);
       options = [];
     }
     const chosen = options.find((option) => option.id === delivery.serviceId);
