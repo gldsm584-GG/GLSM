@@ -133,6 +133,14 @@ export default function PedidoPage() {
             </div>
           ))}
         </div>
+        {order.delivery_method && (
+          <div className="mt-2 flex justify-between text-sm text-neutral-600">
+            <span>{order.delivery_method === "pickup" ? "Retirada na loja" : `Frete — ${order.shipping_service ?? ""}`}</span>
+            <span className="font-medium">
+              {Number(order.shipping_cost ?? 0) > 0 ? formatPrice(Number(order.shipping_cost)) : "Grátis"}
+            </span>
+          </div>
+        )}
         <div className="mt-3 flex justify-between border-t border-neutral-100 pt-3 font-bold text-neutral-800">
           <span>Total</span>
           <span>{formatPrice(order.total)}</span>
@@ -142,10 +150,23 @@ export default function PedidoPage() {
       <div className="mt-6 rounded-2xl bg-white p-6 text-sm text-neutral-600">
         <h2 className="mb-2 font-semibold text-neutral-800">Entrega</h2>
         <p>{order.customer_name}</p>
-        <p>{order.address}</p>
-        <p>
-          {order.city} — CEP {order.cep}
-        </p>
+        {order.delivery_method === "pickup" ? (
+          <p>Retirada na loja — a loja combina o horário com você pelo telefone.</p>
+        ) : (
+          <>
+            <p>{order.address}</p>
+            <p>
+              {order.city} — CEP {order.cep}
+            </p>
+            {order.shipping_service && (
+              <p>
+                {order.shipping_service}
+                {order.shipping_days != null &&
+                  ` — ${order.shipping_days} ${order.shipping_days === 1 ? "dia útil" : "dias úteis"}`}
+              </p>
+            )}
+          </>
+        )}
         <p>{order.phone}</p>
       </div>
 

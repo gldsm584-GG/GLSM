@@ -70,6 +70,11 @@ export type OrderWithItems = {
   city: string | null;
   cep: string | null;
   phone: string;
+  // Preenchidos pelo checkout depois da migração 020 (antes disso ficam vazios)
+  delivery_method?: string | null; // 'pickup' | 'shipping'
+  shipping_service?: string | null;
+  shipping_cost?: number | null;
+  shipping_days?: number | null;
   created_at: string;
   order_items: {
     id: string;

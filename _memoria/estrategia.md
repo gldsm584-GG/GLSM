@@ -31,6 +31,12 @@ de home, produtos e carrinho estão tirados (2026-10-04). A categoria
 "Pets" do Projetor HY300 foi corrigida e os prints foram aprovados como
 estão (2026-10-04).
 
+ENTREGA (2026-10-05): o checkout ganhou "Método de entrega" — retirada na loja
+(grátis) ou frete cotado no Melhor Envio (Correios, Jadlog etc.). Pra ligar o
+frete falta o Gustavo criar a conta no Melhor Envio, guardar o token e o CEP da
+loja na Vercel e rodar a migração 020 — passo a passo no `briefing.md`. Sem
+isso o site oferece só a retirada.
+
 REVERTIDO em 2026-10-05 (pedido do Gustavo, "os dois jeitos"): o pagamento
 pelo Mercado Pago voltou — checkout, página do pedido, rotas da API e o
 seletor "Entregar em" do cabeçalho, Dashboard no menu do admin, cancelar/

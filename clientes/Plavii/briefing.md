@@ -44,6 +44,47 @@ foco em promoção/urgência.
 
 Prospecção — ainda não é cliente fechado.
 
+## Entrega: retirada na loja + Melhor Envio (2026-10-05)
+
+No checkout (`/checkout`), depois do endereço, o cliente escolhe o **método de
+entrega**: **Retirada na loja** (grátis, vem marcada) ou um serviço cotado no
+**Melhor Envio** pelo CEP (Correios PAC/SEDEX, Jadlog etc., com preço e prazo em
+dias úteis, ordenados do mais barato). O frete entra no total e no
+Mercado Pago como um item "Frete — <serviço>".
+
+Como funciona (arquivos): `src/lib/shipping.ts` (cotação, só servidor),
+`src/app/api/shipping/quote/route.ts` (cotação pro checkout, exige login) e
+`src/app/api/checkout/route.ts` (cota **de novo no servidor** o serviço
+escolhido — o valor nunca vem do navegador — e grava total + método no
+pedido). Pedido e admin mostram "Retirada na loja" ou "serviço — valor —
+prazo". Sem token ou sem CEP de origem, o site oferece só a retirada.
+
+**O que o Gustavo precisa fazer pra ligar o frete**
+1. Criar conta no Melhor Envio (comece pelo sandbox, `sandbox.melhorenvio.com.br`,
+   que é separado da conta real e só simula Correios e Jadlog).
+2. Gerar um token de acesso no painel e guardar na Vercel (Settings →
+   Environment Variables), nunca no código:
+   `MELHORENVIO_TOKEN`, `MELHORENVIO_ORIGIN_CEP` (CEP da loja),
+   `MELHORENVIO_CONTACT_EMAIL` (email de contato técnico, vai no User-Agent) e,
+   pra testar no sandbox, `MELHORENVIO_API_URL=https://sandbox.melhorenvio.com.br`.
+   Depois de salvar as variáveis, fazer um novo deploy.
+3. Rodar `site/supabase/020_shipping.sql` no SQL Editor do Supabase (colunas de
+   entrega no pedido). Sem ela o checkout funciona, só não registra o método.
+4. Quando for pra valer, trocar pro token de produção e tirar `MELHORENVIO_API_URL`.
+
+**Limites conhecidos:** os produtos ainda não têm peso/medidas; a cotação usa uma
+caixa padrão por item (0,5 kg, 20x15x20 cm; ajustável por
+`SHIPPING_DEFAULT_*`). Próximo passo natural: campos de peso/medidas no cadastro
+de produto. Também falta comprar a etiqueta do envio (hoje manual, no painel do
+Melhor Envio). Prazos médios (blogs, 2026-10): SEDEX 1 a 3 dias úteis; PAC até 10
+(3 a 10); Jadlog Package 5 a 7; o prazo real vem da API por CEP.
+
+Testado (build de produção, Supabase e Melhor Envio simulados, celular): opções
+com preço e prazo, serviço com erro descartado, total muda ao escolher, servidor
+recota e grava `total` + dados do frete; sem configuração aparece só a retirada;
+sem login a cotação responde 401. **Não testado:** Melhor Envio real e o
+pagamento do Mercado Pago de verdade (rede bloqueada aqui).
+
 ## Volta do pagamento (2026-10-05): os dois jeitos
 
 A pedido do Gustavo, o pagamento pelo Mercado Pago voltou, ao lado do

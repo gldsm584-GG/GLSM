@@ -83,6 +83,7 @@ minha atendente com o pedido pronto".
 | 0-1 | Home no celular | "Carrega rápido e fica bom no celular, que é de onde a maioria compra." |
 | 1-3 | Buscar um produto, abrir, adicionar ao carrinho, tirar pela lixeira | "O cliente acha o que quer em poucos toques." |
 | 3-4 | **Finalizar:** "Finalizar compra" (checkout com Mercado Pago, em teste) e "Finalizar no WhatsApp" (abre a conversa com a lista e o total prontos) | "O cliente escolhe: paga no site ou manda o pedido pronto pra sua atendente, que fecha pagamento e entrega do jeito que vocês já fazem." |
+| 3-4 | **Entrega** (no checkout): retirada na loja (grátis) ou frete com preço e prazo por CEP (Melhor Envio, se já estiver configurado) | "O cliente escolhe: retira na loja de graça ou recebe em casa, já vendo preço e prazo." (prazos médios: SEDEX 1-3 dias úteis, PAC até 10, Jadlog 5-7) |
 | 4-5 | Painel admin, **Pedidos → "+ Nova venda"** (lançar a venda fechada no WhatsApp) | "Fechou no WhatsApp, é só registrar aqui em segundos." |
 | 5-8 | **Painel admin**: editar preço/produto direto na loja, trocar o Hero, criar Ofertas relâmpago | "Você muda tudo daqui, sem me chamar." (o ponto mais forte) |
 | 8-9 | Clientes e pedidos (agrupados pelo telefone) | "Você vê quem comprou e o que mais sai." |
