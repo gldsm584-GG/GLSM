@@ -106,8 +106,8 @@ antes de fazer):
   grátis e se quer outras transportadoras além de Correios e Jadlog.
 - **Comprar a etiqueta automaticamente** depois do pagamento aprovado (hoje é
   manual, no painel do Melhor Envio) e mostrar o código de rastreio no pedido.
-- **Pagamento e frete de verdade:** token de produção do Mercado Pago e do
-  Melhor Envio (hoje tudo em teste).
+- **Pagamento de verdade:** token de produção do Mercado Pago (hoje em teste).
+  O frete do Melhor Envio já está em produção desde 2026-10-05.
 Detalhes técnicos e o passo a passo de configuração estão no `briefing.md`
 (seção "Entrega: retirada na loja + Melhor Envio").
 
