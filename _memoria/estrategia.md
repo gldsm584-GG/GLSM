@@ -92,6 +92,25 @@ R$ 1.500 no cartão, sem desconto adicional; contas transferidas pro dono
 depois do pagamento completo, que passa a pagar as assinaturas) estão detalhados em
 `clientes/Plavii/briefing.md`.
 
+## Ideias guardadas pra depois (a conversar com o cliente)
+
+Frete do Plavii (salvo em 2026-10-05; o Gustavo vai conversar com o cliente
+antes de fazer):
+- **Peso e medidas por produto:** hoje a cotação do Melhor Envio usa uma caixa
+  padrão (0,5 kg, 20x15x20 cm) e o frete sai estimado. A ideia é criar campos
+  de peso, largura, altura e comprimento no cadastro de produto (migração +
+  formulário em Produtos no admin) pra o frete sair certo. Precisa do cliente:
+  peso e medidas (já embalado) de cada produto.
+- **Combinar com o cliente:** se vai usar o Melhor Envio mesmo, o CEP e o
+  endereço da loja (origem do frete e da retirada), se a retirada fica sempre
+  grátis e se quer outras transportadoras além de Correios e Jadlog.
+- **Comprar a etiqueta automaticamente** depois do pagamento aprovado (hoje é
+  manual, no painel do Melhor Envio) e mostrar o código de rastreio no pedido.
+- **Pagamento e frete de verdade:** token de produção do Mercado Pago e do
+  Melhor Envio (hoje tudo em teste).
+Detalhes técnicos e o passo a passo de configuração estão no `briefing.md`
+(seção "Entrega: retirada na loja + Melhor Envio").
+
 ## O que pode esperar
 
 Nome de marca própria já definido (GLSM, 2026-09-28). Falta a identidade
