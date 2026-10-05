@@ -36,9 +36,12 @@ O dono vai abrir o link, então o site tem que estar apresentável.
 - [ ] **Refazer o print do carrinho:** o que existe é da versão antiga
       ("Finalizar compra"). O novo mostra "Finalizar no WhatsApp".
 
-Atenção: o site **não cobra nem processa pagamento**. Não prometa venda
-automática: a venda fecha pelo WhatsApp com a atendente. Diga que é uma
-vitrine pronta pra apresentar.
+Atenção: o checkout com Mercado Pago voltou em 2026-10-05, mas ainda está
+em **modo teste**. Não prometa que já dá pra vender de verdade pelo site:
+diga que é uma versão pronta pra apresentar. O carrinho tem dois jeitos de
+finalizar: "Finalizar compra" (pagamento no site) e "Finalizar no WhatsApp"
+(a atendente combina pagamento e entrega). Antes de vender de verdade, falta
+o token de produção do Mercado Pago.
 
 ## Mensagem de abertura (WhatsApp/DM)
 
@@ -79,7 +82,8 @@ minha atendente com o pedido pronto".
 |---|---|---|
 | 0-1 | Home no celular | "Carrega rápido e fica bom no celular, que é de onde a maioria compra." |
 | 1-3 | Buscar um produto, abrir, adicionar ao carrinho, tirar pela lixeira | "O cliente acha o que quer em poucos toques." |
-| 3-4 | **"Finalizar no WhatsApp"** (abre a conversa com a lista e o total prontos) | "O pedido chega pronto na sua atendente. Ela fecha pagamento e entrega do jeito que vocês já fazem." |
+| 3-4 | **Finalizar:** "Finalizar compra" (checkout com Mercado Pago, em teste) e "Finalizar no WhatsApp" (abre a conversa com a lista e o total prontos) | "O cliente escolhe: paga no site ou manda o pedido pronto pra sua atendente, que fecha pagamento e entrega do jeito que vocês já fazem." |
+| 3-4 | **Entrega** (no checkout): retirada na loja (grátis) ou frete com preço e prazo por CEP (Melhor Envio, se já estiver configurado) | "O cliente escolhe: retira na loja de graça ou recebe em casa, já vendo preço e prazo." (prazos médios: SEDEX 1-3 dias úteis, PAC até 10, Jadlog 5-7) |
 | 4-5 | Painel admin, **Pedidos → "+ Nova venda"** (lançar a venda fechada no WhatsApp) | "Fechou no WhatsApp, é só registrar aqui em segundos." |
 | 5-8 | **Painel admin**: editar preço/produto direto na loja, trocar o Hero, criar Ofertas relâmpago | "Você muda tudo daqui, sem me chamar." (o ponto mais forte) |
 | 8-9 | Clientes e pedidos (agrupados pelo telefone) | "Você vê quem comprou e o que mais sai." |
@@ -134,10 +138,11 @@ Resposta pronta:
   esse é mais rápido, você edita sozinho sem plugin, e não tem produto
   duplicado como aparece no atual." (usar o ponto dos produtos "(cópia)"
   duplicados na categoria Eletrônicos, se ainda estiver assim)
-- **"Como o cliente paga?"** → "Ele monta o carrinho e finaliza no WhatsApp.
-  Sua atendente combina pagamento e entrega do jeito que vocês já fazem
-  (Pix, cartão, retirada ou entrega). Depois você registra a venda no
-  painel." (se ele quiser pagamento online no site, é um próximo passo, à parte)
+- **"Como o cliente paga?"** → "Tem dois jeitos: paga no próprio site
+  (Mercado Pago, quando for ativado de verdade) ou finaliza no WhatsApp, e
+  sua atendente combina pagamento e entrega do jeito que vocês já fazem
+  (Pix, cartão, retirada ou entrega). Se for pelo WhatsApp, você registra a
+  venda no painel." (hoje o pagamento no site está em modo teste)
 - **"Preciso pensar."** → "Claro. Posso deixar o link com você pra olhar com
   calma. Se quiser, te mando um resumo do que está incluso." (e marcar de
   retornar em 2-3 dias)

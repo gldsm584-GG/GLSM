@@ -31,6 +31,22 @@ de home, produtos e carrinho estão tirados (2026-10-04). A categoria
 "Pets" do Projetor HY300 foi corrigida e os prints foram aprovados como
 estão (2026-10-04).
 
+ENTREGA (2026-10-05): o checkout ganhou "Método de entrega" — retirada na loja
+(grátis) ou frete cotado no Melhor Envio (Correios, Jadlog etc.). Pra ligar o
+frete falta o Gustavo criar a conta no Melhor Envio, guardar o token e o CEP da
+loja na Vercel e rodar a migração 020 — passo a passo no `briefing.md`. Sem
+isso o site oferece só a retirada.
+
+REVERTIDO em 2026-10-05 (pedido do Gustavo, "os dois jeitos"): o pagamento
+pelo Mercado Pago voltou — checkout, página do pedido, rotas da API e o
+seletor "Entregar em" do cabeçalho, Dashboard no menu do admin, cancelar/
+apagar pedido na conta do cliente. O carrinho agora tem "Finalizar compra"
+(Mercado Pago) e "Finalizar no WhatsApp". Ficaram da fase WhatsApp o painel
+"Nova venda", o kanban de pedidos e a lista de clientes por telefone. O
+Mercado Pago volta em modo TESTE: antes de vender de verdade precisa do
+token de produção em `MERCADOPAGO_ACCESS_TOKEN` na Vercel e do webhook no
+painel do Mercado Pago. O texto abaixo é o histórico da fase só-WhatsApp.
+
 Mudança de rumo em 2026-10-04 (decisão do Gustavo antes de levar ao
 dono): a loja tava virando complexa demais (checkout, Mercado Pago,
 endereço salvo) sem nunca ter confirmado com o dono como ele realmente
@@ -75,6 +91,25 @@ decisão de modelo comercial (venda única: R$ 4.000 no Pix ou 3x de
 R$ 1.500 no cartão, sem desconto adicional; contas transferidas pro dono
 depois do pagamento completo, que passa a pagar as assinaturas) estão detalhados em
 `clientes/Plavii/briefing.md`.
+
+## Ideias guardadas pra depois (a conversar com o cliente)
+
+Frete do Plavii (salvo em 2026-10-05; o Gustavo vai conversar com o cliente
+antes de fazer):
+- **Peso e medidas por produto:** hoje a cotação do Melhor Envio usa uma caixa
+  padrão (0,5 kg, 20x15x20 cm) e o frete sai estimado. A ideia é criar campos
+  de peso, largura, altura e comprimento no cadastro de produto (migração +
+  formulário em Produtos no admin) pra o frete sair certo. Precisa do cliente:
+  peso e medidas (já embalado) de cada produto.
+- **Combinar com o cliente:** se vai usar o Melhor Envio mesmo, o CEP e o
+  endereço da loja (origem do frete e da retirada), se a retirada fica sempre
+  grátis e se quer outras transportadoras além de Correios e Jadlog.
+- **Comprar a etiqueta automaticamente** depois do pagamento aprovado (hoje é
+  manual, no painel do Melhor Envio) e mostrar o código de rastreio no pedido.
+- **Pagamento e frete de verdade:** token de produção do Mercado Pago e do
+  Melhor Envio (hoje tudo em teste).
+Detalhes técnicos e o passo a passo de configuração estão no `briefing.md`
+(seção "Entrega: retirada na loja + Melhor Envio").
 
 ## O que pode esperar
 

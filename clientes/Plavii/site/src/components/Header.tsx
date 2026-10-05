@@ -7,6 +7,8 @@ import CategoryDrawer from "@/components/CategoryDrawer";
 import SearchBar from "@/components/SearchBar";
 import UserMenu from "@/components/UserMenu";
 import LineIcon from "@/components/LineIcon";
+import { addressHeaderLabel } from "@/lib/addresses";
+import { useAddresses } from "@/lib/address-context";
 import type { Category } from "@/lib/categories";
 import { useAuth } from "@/lib/auth-context";
 import { useCart } from "@/lib/cart-context";
@@ -18,6 +20,7 @@ export default function Header({ categories }: { categories: Category[] }) {
   const quickCategories = categories.slice(0, QUICK_COUNT);
   const { totalItems } = useCart();
   const { user } = useAuth();
+  const { selected, openPicker } = useAddresses();
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   const [hidden, setHidden] = useState(false);
@@ -50,21 +53,47 @@ export default function Header({ categories }: { categories: Category[] }) {
         hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="relative mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 gap-y-2 px-4 py-3 md:flex-nowrap md:gap-x-4">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-2 px-4 py-3 md:flex md:gap-x-4">
         <Link href="/" className="shrink-0">
           <Image src="/logo.png" alt="Plavii" width={110} height={36} priority />
         </Link>
 
-        {/* Celular: busca ocupa a linha de baixo inteira; conta+carrinho ficam em cima. Desktop: tudo numa linha só. */}
-        <SearchBar className="order-3 w-full md:order-none md:min-w-0 md:flex-1" />
+        {user ? (
+          <button type="button" onClick={openPicker} className="flex min-w-0 flex-1 items-center gap-1.5 rounded-lg px-2 py-1 text-left transition-colors hover:bg-neutral-100 sm:max-w-[10rem] sm:flex-none lg:max-w-[14rem]">
+          <LineIcon name="pin" className="h-5 w-5 text-brand" />
+          <span className="min-w-0 leading-tight">
+            <span className="hidden text-[11px] text-neutral-500 sm:block">
+              {user ? "A entrega será feita em" : "Entregar em"}
+            </span>
+            <span className="block truncate text-sm font-bold text-neutral-800">
+              {!user ? "Informe seu endereço" : selected ? addressHeaderLabel(selected) : "Adicionar endereço"}
+            </span>
+          </span>
+          </button>
+        ) : (
+          <Link href="/entrar" className="flex min-w-0 flex-1 items-center gap-1.5 rounded-lg px-2 py-1 text-left transition-colors hover:bg-neutral-100 sm:max-w-[10rem] sm:flex-none lg:max-w-[14rem]">
+          <LineIcon name="pin" className="h-5 w-5 text-brand" />
+          <span className="min-w-0 leading-tight">
+            <span className="hidden text-[11px] text-neutral-500 sm:block">
+              {user ? "A entrega será feita em" : "Entregar em"}
+            </span>
+            <span className="block truncate text-sm font-bold text-neutral-800">
+              {!user ? "Informe seu endereço" : selected ? addressHeaderLabel(selected) : "Adicionar endereço"}
+            </span>
+          </span>
+          </Link>
+        )}
 
-        <div className="ml-auto flex items-center gap-2 md:gap-4">
+        {/* Celular: busca (2 colunas) + conta na 2ª linha; carrinho na 1ª. Desktop: tudo numa linha só. */}
+        <SearchBar className="col-span-2 md:min-w-0 md:flex-1" />
+
+        <div className="contents md:flex md:items-center md:gap-4">
           {user ? (
             <UserMenu />
           ) : (
             <Link
               href="/entrar"
-              className="flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-brand bg-brand px-3 py-2 text-sm font-semibold text-white transition-colors hover:border-brand-dark hover:bg-brand-dark"
+              className="flex items-center gap-1.5 justify-self-end whitespace-nowrap rounded-lg border border-brand bg-brand px-3 py-2 text-sm font-semibold text-white transition-colors hover:border-brand-dark hover:bg-brand-dark"
             >
               <LineIcon name="user" className="h-5 w-5" />
               Entrar
@@ -74,7 +103,7 @@ export default function Header({ categories }: { categories: Category[] }) {
           <Link
             href="/carrinho"
             aria-label="Carrinho"
-            className="relative flex items-center rounded-full bg-brand px-3 py-2 text-white shadow-sm transition-colors hover:bg-brand-dark"
+            className="relative col-start-3 row-start-1 flex items-center justify-self-end rounded-full bg-brand px-3 py-2 text-white shadow-sm transition-colors hover:bg-brand-dark"
           >
             <svg
               viewBox="0 0 24 24"

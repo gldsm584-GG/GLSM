@@ -92,12 +92,20 @@ export default function OrdersPanel() {
                 </div>
               ))}
               <p className="mt-3 font-medium text-neutral-800">Contato</p>
-              {order.address ? (
+              {order.delivery_method === "pickup" ? (
+                <p className="font-medium text-green-700">Retirada na loja (grátis)</p>
+              ) : order.address ? (
                 <>
                   <p>{order.address}</p>
                   <p>
                     {order.city} — CEP {order.cep}
                   </p>
+                  {order.shipping_service && (
+                    <p className="text-neutral-500">
+                      {order.shipping_service} — {formatPrice(Number(order.shipping_cost ?? 0))}
+                      {order.shipping_days != null && ` — ${order.shipping_days} dias úteis`}
+                    </p>
+                  )}
                 </>
               ) : (
                 <p className="text-neutral-400">Sem endereço (venda manual — combinado por fora)</p>

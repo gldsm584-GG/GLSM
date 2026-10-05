@@ -80,7 +80,7 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc pl-5">
             <li>Criar e gerenciar sua conta</li>
             <li>Processar, entregar e dar suporte aos seus pedidos</li>
-            <li>Preencher seu endereço automaticamente a partir do CEP</li>
+            <li>Preencher seu endereço de entrega automaticamente a partir do CEP</li>
             <li>Mostrar suas avaliações públicas nos produtos</li>
             <li>Cumprir obrigações legais e fiscais</li>
             <li>Melhorar o funcionamento do site</li>
@@ -91,9 +91,14 @@ export default function PrivacyPolicyPage() {
         <Section title="4. Com quem compartilhamos seus dados">
           <ul className="list-disc pl-5">
             <li>
-              <strong>WhatsApp:</strong> ao finalizar o carrinho, a lista de itens vai numa
-              mensagem pro WhatsApp da loja, e o pagamento e a entrega são combinados por lá. O
-              site não processa pagamento e não recebe nem guarda o número do seu cartão.
+              <strong>Mercado Pago:</strong> processa o pagamento do seu pedido quando você paga
+              pelo site. A Plavii não recebe nem guarda o número do seu cartão — isso fica só com o
+              Mercado Pago.
+            </li>
+            <li>
+              <strong>WhatsApp:</strong> se você escolher finalizar pelo WhatsApp, a lista de
+              itens vai numa mensagem pro WhatsApp da loja, e o pagamento e a entrega são
+              combinados por lá.
             </li>
             <li>
               <strong>Supabase:</strong> empresa que hospeda o banco de dados e o login do site.
