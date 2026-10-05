@@ -72,6 +72,11 @@ prazo". Sem token ou sem CEP de origem, o site oferece só a retirada.
    entrega no pedido). Sem ela o checkout funciona, só não registra o método.
 4. Quando for pra valer, trocar pro token de produção e tirar `MELHORENVIO_API_URL`.
 
+**IDEIA SALVA PRA DEPOIS (2026-10-05, a conversar com o cliente):** campos de
+peso e medidas no cadastro de produto, pra o frete sair certo, e compra
+automática da etiqueta — ver `_memoria/estrategia.md`, "Ideias guardadas pra
+depois". Não fazer antes de falar com o cliente.
+
 **Limites conhecidos:** os produtos ainda não têm peso/medidas; a cotação usa uma
 caixa padrão por item (0,5 kg, 20x15x20 cm; ajustável por
 `SHIPPING_DEFAULT_*`). Próximo passo natural: campos de peso/medidas no cadastro
