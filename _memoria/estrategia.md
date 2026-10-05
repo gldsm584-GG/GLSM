@@ -32,10 +32,10 @@ de home, produtos e carrinho estão tirados (2026-10-04). A categoria
 estão (2026-10-04).
 
 ENTREGA (2026-10-05): o checkout ganhou "Método de entrega" — retirada na loja
-(grátis) ou frete cotado no Melhor Envio (Correios, Jadlog etc.). Pra ligar o
-frete falta o Gustavo criar a conta no Melhor Envio, guardar o token e o CEP da
-loja na Vercel e rodar a migração 020 — passo a passo no `briefing.md`. Sem
-isso o site oferece só a retirada.
+(grátis) ou frete cotado no Melhor Envio (Correios, Jadlog etc.). Em
+2026-10-05 o Gustavo cadastrou na Vercel o token (produção), o CEP da loja e o
+email de contato; falta testar o frete no site real e rodar a migração 020 —
+passo a passo no `briefing.md`. Sem as variáveis o site oferece só a retirada.
 
 REVERTIDO em 2026-10-05 (pedido do Gustavo, "os dois jeitos"): o pagamento
 pelo Mercado Pago voltou — checkout, página do pedido, rotas da API e o
