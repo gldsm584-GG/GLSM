@@ -114,7 +114,7 @@ export default function UserMenu() {
 
           {isAdmin(user) && (
             <div className="border-t border-neutral-100 py-2">
-              {link("/admin/pedidos", "shield", "Painel do administrador")}
+              {link("/admin", "shield", "Painel do administrador")}
             </div>
           )}
 
