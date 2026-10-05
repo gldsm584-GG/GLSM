@@ -17,7 +17,7 @@ const emptyForm: ProductInput = {
   category: "",
   price: 0,
   oldPrice: undefined,
-  image: "",
+  images: [],
   description: "",
 };
 
@@ -48,7 +48,7 @@ export default function ProductForm({
           category: editing.category,
           price: editing.price,
           oldPrice: editing.oldPrice,
-          image: editing.image,
+          images: editing.images.length > 0 ? editing.images : editing.image ? [editing.image] : [],
           description: editing.description,
         }
       : emptyForm
@@ -73,36 +73,53 @@ export default function ProductForm({
     }));
   };
 
-  const handleImageChange = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
+  const handleImagesChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(event.target.files ?? []);
+    if (files.length === 0) return;
 
-    if (!file.type.startsWith("image/")) {
-      setError("Escolhe um arquivo de imagem (JPG, PNG ou WebP).");
-      return;
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      setError("A foto tem mais de 5 MB. Escolhe uma menor.");
-      return;
+    for (const file of files) {
+      if (!file.type.startsWith("image/")) {
+        setError("Escolhe arquivos de imagem (JPG, PNG ou WebP).");
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        setError("Uma das fotos tem mais de 5 MB. Escolhe uma menor.");
+        return;
+      }
     }
 
     setError(null);
     setUploading(true);
     try {
-      const url = await uploadProductImage(file);
-      setForm((f) => ({ ...f, image: url }));
+      const urls = await Promise.all(files.map(uploadProductImage));
+      setForm((f) => ({ ...f, images: [...f.images, ...urls] }));
     } catch {
-      setError("Não deu pra enviar a foto. Tenta de novo.");
+      setError("Não deu pra enviar as fotos. Tenta de novo.");
     } finally {
       setUploading(false);
+      event.target.value = "";
     }
+  };
+
+  const handleRemoveImage = (index: number) => {
+    setForm((f) => ({ ...f, images: f.images.filter((_, i) => i !== index) }));
+  };
+
+  const handleSetCover = (index: number) => {
+    setForm((f) => {
+      if (index === 0) return f;
+      const images = [...f.images];
+      const [chosen] = images.splice(index, 1);
+      images.unshift(chosen);
+      return { ...f, images };
+    });
   };
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setError(null);
-    if (!form.image || form.image === "/sem-imagem.svg") {
-      setError("Envia uma foto do produto antes de salvar.");
+    if (form.images.length === 0) {
+      setError("Envia pelo menos uma foto do produto antes de salvar.");
       return;
     }
     setSaving(true);
@@ -210,28 +227,55 @@ export default function ProductForm({
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium text-neutral-700">Foto do produto</label>
-        <div className="flex items-center gap-4">
-          <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100">
-            {form.image ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={form.image} alt="Prévia" className="h-full w-full object-contain" />
-            ) : (
-              <span className="text-xs text-neutral-400">Sem foto</span>
-            )}
+        <label className="text-sm font-medium text-neutral-700">Fotos do produto</label>
+        {form.images.length > 0 && (
+          <div className="flex flex-wrap gap-3">
+            {form.images.map((src, i) => (
+              <div
+                key={src + i}
+                className={`group relative h-20 w-20 overflow-hidden rounded-lg border bg-neutral-100 ${
+                  i === 0 ? "border-brand ring-1 ring-brand" : "border-neutral-200"
+                }`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt="Prévia" className="h-full w-full object-contain" />
+                {i === 0 ? (
+                  <span className="absolute bottom-0 left-0 right-0 bg-brand/90 py-0.5 text-center text-[10px] font-semibold text-white">
+                    Capa
+                  </span>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => handleSetCover(i)}
+                    className="absolute inset-x-0 bottom-0 bg-black/50 py-0.5 text-center text-[10px] text-white opacity-0 group-hover:opacity-100"
+                  >
+                    Tornar capa
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => handleRemoveImage(i)}
+                  aria-label="Remover foto"
+                  className="absolute right-0.5 top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/60 text-xs text-white hover:bg-black/80"
+                >
+                  ×
+                </button>
+              </div>
+            ))}
           </div>
-          <div className="flex flex-col gap-1">
-            <input
-              type="file"
-              accept="image/png,image/jpeg,image/webp"
-              onChange={handleImageChange}
-              disabled={uploading}
-              className="text-sm text-neutral-600 file:mr-3 file:rounded-full file:border-0 file:bg-brand file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-brand-dark"
-            />
-            <p className="text-xs text-neutral-400">
-              {uploading ? "Enviando foto..." : "JPG, PNG ou WebP, até 5 MB."}
-            </p>
-          </div>
+        )}
+        <div className="flex flex-col gap-1">
+          <input
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            multiple
+            onChange={handleImagesChange}
+            disabled={uploading}
+            className="text-sm text-neutral-600 file:mr-3 file:rounded-full file:border-0 file:bg-brand file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-brand-dark"
+          />
+          <p className="text-xs text-neutral-400">
+            {uploading ? "Enviando fotos..." : "JPG, PNG ou WebP, até 5 MB cada. A primeira é a capa."}
+          </p>
         </div>
       </div>
 

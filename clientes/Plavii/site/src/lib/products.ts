@@ -9,6 +9,7 @@ type ProductRow = {
   price: number;
   old_price: number | null;
   image: string;
+  images: string[] | null;
   description: string;
   is_promo: boolean;
 };
@@ -20,7 +21,15 @@ function safeImageSrc(src: string | null): string {
   return value.startsWith("/") || /^https?:\/\//i.test(value) ? value : NO_IMAGE;
 }
 
+function safeImageList(images: string[] | null, cover: string): string[] {
+  const list = (images ?? [])
+    .map(safeImageSrc)
+    .filter((src, i, arr) => src !== NO_IMAGE && arr.indexOf(src) === i);
+  return list.length > 0 ? list : [cover];
+}
+
 function mapRow(row: ProductRow): Product {
+  const image = safeImageSrc(row.image);
   return {
     id: row.id,
     slug: row.slug,
@@ -28,7 +37,8 @@ function mapRow(row: ProductRow): Product {
     category: row.category,
     price: Number(row.price),
     oldPrice: row.old_price != null ? Number(row.old_price) : undefined,
-    image: safeImageSrc(row.image),
+    image,
+    images: safeImageList(row.images, image),
     description: row.description,
     isPromo: row.is_promo,
   };
@@ -71,7 +81,7 @@ export type ProductInput = {
   category: string;
   price: number;
   oldPrice?: number;
-  image: string;
+  images: string[];
   description: string;
 };
 
@@ -83,7 +93,8 @@ export async function createProduct(input: ProductInput): Promise<void> {
     category: input.category,
     price: input.price,
     old_price: input.oldPrice ?? null,
-    image: input.image,
+    image: input.images[0] ?? "",
+    images: input.images,
     description: input.description,
   });
   if (error) throw error;
@@ -98,7 +109,8 @@ export async function updateProduct(id: string, input: ProductInput): Promise<vo
       category: input.category,
       price: input.price,
       old_price: input.oldPrice ?? null,
-      image: input.image,
+      image: input.images[0] ?? "",
+      images: input.images,
       description: input.description,
     })
     .eq("id", id)

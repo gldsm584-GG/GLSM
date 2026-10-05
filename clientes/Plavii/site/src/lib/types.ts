@@ -6,6 +6,7 @@ export type Product = {
   price: number;
   oldPrice?: number;
   image: string;
+  images: string[];
   description: string;
   isPromo: boolean;
 };

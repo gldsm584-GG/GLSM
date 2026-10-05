@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AddToCart from "@/components/AddToCart";
@@ -6,6 +5,7 @@ import FavoriteButton from "@/components/FavoriteButton";
 import TrackView from "@/components/TrackView";
 import LineIcon from "@/components/LineIcon";
 import ProductCard from "@/components/ProductCard";
+import ProductGallery from "@/components/ProductGallery";
 import ProductInlineEditor from "@/components/ProductInlineEditor";
 import ProductReviews from "@/components/ProductReviews";
 import { getCategories, sameCategory } from "@/lib/categories";
@@ -57,22 +57,12 @@ export default async function ProductPage({
 
       <div className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5 md:p-6">
         <div className="grid gap-6 md:grid-cols-[minmax(0,26rem)_1fr] md:gap-10">
-          {/* Só a foto, isolada numa moldura própria */}
-          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50 md:max-w-none">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 90vw, 416px"
-              priority
-            />
-            {off && off < 100 && (
-              <span className="absolute left-3 top-3 rounded-full bg-green-600 px-2.5 py-1 text-xs font-bold text-white">
-                {off}% OFF
-              </span>
-            )}
-          </div>
+          {/* Galeria de fotos, com miniaturas e zoom ao passar o mouse */}
+          <ProductGallery
+            images={product.images}
+            alt={product.name}
+            discountLabel={off && off < 100 ? `${off}% OFF` : null}
+          />
 
           {/* Categoria, título, descrição, preço e compra — tudo junto, estilo Mercado Livre */}
           <div className="flex flex-col gap-3">
