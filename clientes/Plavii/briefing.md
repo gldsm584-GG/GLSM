@@ -96,6 +96,11 @@ etiqueta (manual, no painel do Melhor Envio, que exige créditos na carteira) e
 decidir quais transportadoras mostrar (hoje aparecem todas as que o Melhor Envio
 devolve).
 
+**WhatsApp no checkout (2026-10-05):** a página `/checkout` agora também tem o
+botão "Finalizar no WhatsApp" (antes só existia no carrinho). A mensagem leva
+itens, nome, entrega escolhida (retirada ou transportadora + valor) e o total
+já com o frete. No carrinho a mensagem segue sem entrega.
+
 **O que o Gustavo precisa fazer pra ligar o frete**
 1. Criar conta no Melhor Envio (comece pelo sandbox, `sandbox.melhorenvio.com.br`,
    que é separado da conta real e só simula Correios e Jadlog).

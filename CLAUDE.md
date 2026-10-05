@@ -142,7 +142,7 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 `clientes/Plavii/site/`, publicada em produção em plavii.vercel.app;
 checkout com Mercado Pago (voltou em 2026-10-05, ainda em modo TESTE) com
 escolha de entrega (retirada grátis ou frete Melhor Envio, já funcionando
-em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção; o número de WhatsApp no
+em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção (no carrinho e no checkout, este com a entrega escolhida na mensagem); o número de WhatsApp no
 site é o da loja (`61 99233-2876`, trocado em 2026-10-05) — falta token do
 Mercado Pago em produção, domínio próprio e apresentar ao dono).
 

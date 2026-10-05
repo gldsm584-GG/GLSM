@@ -13,6 +13,7 @@ import { formatPrice } from "@/lib/products";
 import { formatPhone } from "@/lib/profile";
 import type { ShippingOption } from "@/lib/shipping";
 import { supabase } from "@/lib/supabase";
+import { buildCartWhatsappUrl } from "@/lib/whatsapp";
 
 const inputClass =
   "rounded-lg border border-neutral-200 px-3 py-2 outline-none focus:border-brand";
@@ -306,6 +307,20 @@ export default function CheckoutPage() {
             <p className="text-center text-xs text-neutral-400">
               Você vai ser levado pro Mercado Pago pra concluir o pagamento com segurança.
             </p>
+            <a
+              href={buildCartWhatsappUrl(items, products, totalPrice, customerName.trim(), {
+                label: isPickup
+                  ? "Retirada na loja"
+                  : [chosenShipping.company, chosenShipping.name].filter(Boolean).join(" "),
+                price: shippingCost,
+              })}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-brand py-2.5 text-center text-base font-semibold text-brand transition-colors hover:bg-brand/10"
+            >
+              <LineIcon name="phone" className="h-5 w-5" />
+              Finalizar no WhatsApp
+            </a>
           </form>
         </div>
 

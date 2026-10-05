@@ -8,7 +8,8 @@ export function buildCartWhatsappUrl(
   items: CartItem[],
   products: Product[],
   totalPrice: number,
-  customerName?: string
+  customerName?: string,
+  delivery?: { label: string; price: number }
 ): string {
   const lines = items
     .map((item) => {
@@ -27,7 +28,14 @@ export function buildCartWhatsappUrl(
     "",
     ...lines,
     "",
-    `Total: ${formatPrice(totalPrice)}`,
+    ...(delivery
+      ? [
+          delivery.price > 0
+            ? `Entrega: ${delivery.label} — ${formatPrice(delivery.price)}`
+            : `Entrega: ${delivery.label}`,
+        ]
+      : []),
+    `Total: ${formatPrice(totalPrice + (delivery?.price ?? 0))}`,
   ].join("\n");
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
