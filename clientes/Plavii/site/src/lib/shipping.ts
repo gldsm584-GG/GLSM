@@ -80,10 +80,17 @@ export async function quoteShipping(toCep: string, items: QuoteItem[]): Promise<
     cache: "no-store",
   });
 
-  if (!response.ok) throw new Error(`Melhor Envio respondeu ${response.status}`);
+  // O motivo da falha (status e começo da resposta, sem o token) vai pro log
+  // da Vercel — é a única forma de saber por que o frete não apareceu.
+  if (!response.ok) {
+    const detail = (await response.text().catch(() => "")).slice(0, 400);
+    throw new Error(`Melhor Envio respondeu ${response.status}: ${detail}`);
+  }
 
   const services = (await response.json()) as MelhorEnvioService[];
-  if (!Array.isArray(services)) return [];
+  if (!Array.isArray(services)) {
+    throw new Error(`Melhor Envio devolveu um formato inesperado: ${JSON.stringify(services).slice(0, 400)}`);
+  }
 
   return services
     .filter((service) => !service.error)
