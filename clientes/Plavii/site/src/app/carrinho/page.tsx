@@ -138,11 +138,17 @@ export default function CarrinhoPage() {
             </span>
           </div>
 
+          <Link
+            href="/checkout"
+            className="block w-full rounded-full bg-brand py-3 text-center text-lg font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
+          >
+            Finalizar compra
+          </Link>
           <a
             href={buildCartWhatsappUrl(items, products, totalPrice, customerName)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-brand py-3 text-center text-lg font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
+            className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-brand py-2.5 text-center text-base font-semibold text-brand transition-colors hover:bg-brand/10"
           >
             <LineIcon name="phone" className="h-5 w-5" />
             Finalizar no WhatsApp

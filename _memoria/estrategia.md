@@ -31,6 +31,16 @@ de home, produtos e carrinho estão tirados (2026-10-04). A categoria
 "Pets" do Projetor HY300 foi corrigida e os prints foram aprovados como
 estão (2026-10-04).
 
+REVERTIDO em 2026-10-05 (pedido do Gustavo, "os dois jeitos"): o pagamento
+pelo Mercado Pago voltou — checkout, página do pedido, rotas da API e o
+seletor "Entregar em" do cabeçalho, Dashboard no menu do admin, cancelar/
+apagar pedido na conta do cliente. O carrinho agora tem "Finalizar compra"
+(Mercado Pago) e "Finalizar no WhatsApp". Ficaram da fase WhatsApp o painel
+"Nova venda", o kanban de pedidos e a lista de clientes por telefone. O
+Mercado Pago volta em modo TESTE: antes de vender de verdade precisa do
+token de produção em `MERCADOPAGO_ACCESS_TOKEN` na Vercel e do webhook no
+painel do Mercado Pago. O texto abaixo é o histórico da fase só-WhatsApp.
+
 Mudança de rumo em 2026-10-04 (decisão do Gustavo antes de levar ao
 dono): a loja tava virando complexa demais (checkout, Mercado Pago,
 endereço salvo) sem nunca ter confirmado com o dono como ele realmente

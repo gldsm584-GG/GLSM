@@ -44,6 +44,30 @@ foco em promoção/urgência.
 
 Prospecção — ainda não é cliente fechado.
 
+## Volta do pagamento (2026-10-05): os dois jeitos
+
+A pedido do Gustavo, o pagamento pelo Mercado Pago voltou, ao lado do
+WhatsApp. Restaurado do commit `24ad9d9` (o anterior à mudança de rumo):
+`/checkout`, `/pedido/[id]`, rotas `api/checkout`, `api/mercadopago/verify`,
+`api/mercadopago/webhook`, `api/orders/[id]`, `src/lib/mercadopago.ts`,
+`payment-status.ts`, dependência `mercadopago`, o seletor "Entregar em" do
+cabeçalho (`Header.tsx`), `createOrder`/`getOrder`/`cancelOrder`/
+`deleteOrder` em `orders.ts`, as páginas `/conta` e `/conta/compras` (com
+cancelar/apagar pedido) e o Dashboard no menu do admin. "Comprar agora"
+volta pro checkout. Mantido da fase WhatsApp: botão "Finalizar no WhatsApp"
+(agora o segundo botão do carrinho), "+ Nova venda", kanban de pedidos,
+clientes agrupados por telefone e a migração `019`. Fica fora o "frete
+grátis", removido de propósito em 2026-10-04.
+
+Testado (build de produção, Supabase simulado, celular): carrinho com os
+dois botões; "Finalizar compra" pede login e, logado, abre "Finalizar
+pedido". **Não testado:** o pagamento de verdade (token, webhook e
+Supabase reais). Requisitos: `MERCADOPAGO_ACCESS_TOKEN` e
+`SUPABASE_SERVICE_ROLE_KEY` nas variáveis da Vercel; token de produção
+antes de vender de verdade. O texto abaixo (fase só-WhatsApp) vale como
+histórico; onde disser que o pagamento "foi removido", leia como "removido
+em 2026-10-04 e restaurado em 2026-10-05".
+
 ## Mudança de rumo (2026-10-04): catálogo + WhatsApp
 
 Decisão do Gustavo antes de levar pro dono: o site tava virando loja
