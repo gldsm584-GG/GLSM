@@ -12,6 +12,17 @@ import { STATUS_STYLE } from "@/lib/order-status";
 import { STATUS_CHART_COLORS } from "@/lib/chart-colors";
 import { formatPrice } from "@/lib/products";
 
+// Lista compacta dos itens — até 2 nomes, o resto vira "+N"
+function itemsSummary(items: OrderWithItems["order_items"]): string {
+  if (items.length === 0) return "";
+  const first = items
+    .slice(0, 2)
+    .map((item) => `${item.quantity}x ${item.product_name}`)
+    .join(", ");
+  const rest = items.length - 2;
+  return rest > 0 ? `${first} +${rest}` : first;
+}
+
 export default function OrdersKanban() {
   const [orders, setOrders] = useState<OrderWithItems[]>([]);
   const [loading, setLoading] = useState(true);
@@ -86,7 +97,20 @@ export default function OrdersKanban() {
                     draggingId === order.id ? "opacity-40" : ""
                   }`}
                 >
-                  <p className="truncate text-xs font-medium text-neutral-800">{order.customer_name}</p>
+                  <div className="flex items-start justify-between gap-1">
+                    <p className="truncate text-xs font-medium text-neutral-800">{order.customer_name}</p>
+                    <span className="shrink-0 text-[10px] text-neutral-400">
+                      #{order.id.slice(0, 8).toUpperCase()}
+                    </span>
+                  </div>
+                  {order.phone && (
+                    <p className="truncate text-[11px] text-neutral-500">{order.phone}</p>
+                  )}
+                  {order.order_items.length > 0 && (
+                    <p className="mt-1 line-clamp-2 text-[11px] text-neutral-600">
+                      {itemsSummary(order.order_items)}
+                    </p>
+                  )}
                   <div className="mt-1 flex items-center justify-between text-[11px] text-neutral-500">
                     <span>{new Date(order.created_at).toLocaleDateString("pt-BR")}</span>
                     <span className="font-semibold text-neutral-700">{formatPrice(order.total)}</span>
