@@ -141,8 +141,8 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 **Clientes ativos:** Plavii (em prospecção — loja Next.js funcional em
 `clientes/Plavii/site/`, publicada em produção em plavii.vercel.app;
 checkout com Mercado Pago (voltou em 2026-10-05, ainda em modo TESTE) com
-escolha de entrega (retirada grátis ou Melhor Envio — falta configurar o
-token) e botão "Finalizar no WhatsApp" como segunda opção; o número de WhatsApp no
+escolha de entrega (retirada grátis ou frete Melhor Envio, já funcionando
+em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção; o número de WhatsApp no
 site é um número de TESTE do Gustavo — falta trocar pelo da loja, token do
 Mercado Pago em produção, domínio próprio e apresentar ao dono).
 
