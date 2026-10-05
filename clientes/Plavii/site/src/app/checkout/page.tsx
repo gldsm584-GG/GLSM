@@ -308,7 +308,12 @@ export default function CheckoutPage() {
               Você vai ser levado pro Mercado Pago pra concluir o pagamento com segurança.
             </p>
             <a
-              href={buildCartWhatsappUrl(items, products, totalPrice, customerName.trim())}
+              href={buildCartWhatsappUrl(items, products, totalPrice, customerName.trim(), {
+                label: isPickup
+                  ? "Retirada na loja"
+                  : [chosenShipping.company, chosenShipping.name].filter(Boolean).join(" "),
+                price: shippingCost,
+              })}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-brand py-2.5 text-center text-base font-semibold text-brand transition-colors hover:bg-brand/10"
