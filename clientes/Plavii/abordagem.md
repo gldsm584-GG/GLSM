@@ -28,11 +28,11 @@ O dono vai abrir o link, então o site tem que estar apresentável.
 - [x] Corrigir a categoria "Pets" do Projetor HY300
 - [x] Prints de home e de produtos (aprovados como estão em 2026-10-04; o
       coração marcado e o Power Bank cortado ficaram de propósito)
-- [ ] **Trocar o número de teste do WhatsApp** (`5561991918921`, o do
-      Gustavo, em `src/lib/whatsapp.ts`) pelo número real da loja. Enquanto
-      o de teste estiver lá, o botão "Finalizar no WhatsApp" manda a
-      mensagem pro Gustavo, então **não mostre o link ao dono antes**.
-      (Botão testado de ponta a ponta em 2026-10-04: funciona.)
+- [x] Número de WhatsApp trocado pelo da loja (`61 99233-2876`, em
+      `src/lib/whatsapp.ts`, 2026-10-05). Agora o botão "Finalizar no
+      WhatsApp" manda a mensagem pra loja de verdade: **não teste o botão
+      sem avisar**. (Botão testado de ponta a ponta em 2026-10-04 com o
+      número de teste.)
 - [ ] **Refazer o print do carrinho:** o que existe é da versão antiga
       ("Finalizar compra"). O novo mostra "Finalizar no WhatsApp".
 
@@ -91,9 +91,8 @@ minha atendente com o pedido pronto".
 
 Dicas:
 - Deixar ele **mexer** (editar um preço) vale mais que explicar.
-- **Cuidado no passo "Finalizar no WhatsApp":** só faça isso depois de trocar
-  o número de teste pelo da loja, e **não envie** a mensagem de teste pra
-  loja de verdade. A mensagem sai com o nome do cadastro (se o cliente
+- **Cuidado no passo "Finalizar no WhatsApp":** o número já é o da loja, então
+  **não envie** mensagem de teste. A mensagem sai com o nome do cadastro (se o cliente
   estiver logado) e o texto "Tenho interesse em comprar este produto que vi
   no site:". Sem cadastro, sai sem nome.
 - Se lançar uma venda de teste em "Nova venda", **apague depois**, pra não

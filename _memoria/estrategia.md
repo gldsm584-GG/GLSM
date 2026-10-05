@@ -63,14 +63,11 @@ o que fechar no WhatsApp) e Pedidos/Clientes voltaram a aparecer no menu
 alimentados por isso — ver `clientes/Plavii/briefing.md`.
 
 O botão "Finalizar no WhatsApp" já foi testado de ponta a ponta (2026-10-04)
-com o número de TESTE do Gustavo (`61 99191-8921`), que continua no site de
-propósito. A mensagem sai com o nome do cadastro quando o cliente está
+com o número de TESTE do Gustavo (`61 99191-8921`). Em 2026-10-05 o número
+no site foi trocado pelo da loja (`61 99233-2876`). A mensagem sai com o nome do cadastro quando o cliente está
 logado e sem nome quando não tem cadastro, no texto "Tenho interesse em
-comprar este produto que vi no site:". Próximo passo antes de mandar a
-mensagem de abertura ao dono: trocar o número de teste
-(`src/lib/whatsapp.ts`) pelo número real da loja — enquanto o de teste
-estiver lá, não mostrar o link a ninguém. Depois disso, falta só configurar
-domínio próprio.
+comprar este produto que vi no site:". Número real já está no site; não
+testar o botão sem avisar. Falta só configurar domínio próprio.
 
 Pendência técnica resolvida em 2026-09-27: repositório próprio criado
 (github.com/gldsm584-GG/GLSM) e projeto Vercel próprio (time

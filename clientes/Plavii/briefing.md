@@ -169,9 +169,9 @@ pedido pendente), e o botão "Entregar em" do cabeçalho (seletor de
 endereço salvo — não era GPS real, só CEP com ViaCEP). O carrinho
 continua existindo; "Finalizar no WhatsApp" (`src/app/carrinho/page.tsx`)
 monta a lista de itens + total num link `wa.me` (`src/lib/whatsapp.ts`).
-**Número de WhatsApp é de TESTE** (`5561991918921`, do Gustavo, em
-`src/lib/whatsapp.ts`; era o placeholder `5561999999999` até 2026-10-04) —
-trocar pelo número real da loja antes de mostrar pro dono. Mensagem
+**Número de WhatsApp é o da loja** (`5561992332876`, `61 99233-2876`, em
+`src/lib/whatsapp.ts`; trocado em 2026-10-05, era o número de teste do
+Gustavo). Cuidado ao testar o botão: a mensagem vai pra loja de verdade. Mensagem
 (2026-10-04): "Olá! Meu nome é <nome>. Tenho interesse em comprar este
 produto que vi no site:" + lista + total; o nome vem **só do cadastro**
 (conta logada com nome — sem campo pra digitar) e, sem cadastro ou com
@@ -295,9 +295,9 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
       localhost
 - ~~[ ] Testar o checkout de teste no link da Vercel~~ — obsoleto, checkout
       removido em 2026-10-04 (ver "Mudança de rumo")
-- [ ] Pegar o número de WhatsApp real da loja e trocar o número de teste
-      (`61 99191-8921`, do Gustavo) em `src/lib/whatsapp.ts`
-      (`WHATSAPP_NUMBER`)
+- [x] Pegar o número de WhatsApp real da loja e trocar o número de teste
+      em `src/lib/whatsapp.ts` (`WHATSAPP_NUMBER`) — feito em 2026-10-05
+      (`61 99233-2876`)
 - [x] Preparar abordagem pro dono — `abordagem.md` reescrita em 2026-10-03
       e atualizada em 2026-10-04 pro formato catálogo + WhatsApp
 - [x] Publicar no plavii.vercel.app as novidades de 2026-09-27 (produto

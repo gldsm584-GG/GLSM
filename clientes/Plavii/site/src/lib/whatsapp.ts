@@ -1,9 +1,8 @@
 import { formatPrice } from "./products";
 import type { CartItem, Product } from "./types";
 
-// Número de TESTE do Gustavo (2026-10-04) — troque pelo número de verdade da loja
-// antes de apresentar ao dono (DDI+DDD+número, só dígitos)
-export const WHATSAPP_NUMBER = "5561991918921";
+// Número da loja Plavii (2026-10-05) — DDI+DDD+número, só dígitos
+export const WHATSAPP_NUMBER = "5561992332876";
 
 export function buildCartWhatsappUrl(
   items: CartItem[],
