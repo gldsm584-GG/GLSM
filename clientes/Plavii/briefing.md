@@ -70,6 +70,20 @@ e `NEXT_PUBLIC_SUPABASE_ANON_KEY` já existiam. Falta: confirmar o redeploy, tes
 o frete no site real e rodar a migração `020_shipping.sql`. Se o frete sumir do
 checkout algum dia, suspeitar do token vencido (gerar outro e trocar na Vercel).
 
+**FRETE FUNCIONANDO EM PRODUÇÃO (2026-10-05):** no checkout de plavii.vercel.app
+aparecem a Retirada na loja (grátis) e 6 opções do Melhor Envio (Loggi Express,
+Correios SEDEX, Jadlog .Package e .Com, Loggi Ponto e Coleta), com preço e prazo
+em dias úteis. A primeira tentativa falhou porque o CEP de origem estava errado
+(foi usado o CEP de exemplo `73000000`, que não existe); corrigido com o CEP real
+da loja. Como diagnosticar se der problema: Vercel → Logs, buscar `frete`; o site
+anota o motivo (`[frete] cotação falhou: ...`, com o campo que o Melhor Envio
+rejeitou). Atenção: ao testar, usar `plavii.vercel.app`, não o endereço de um
+deploy antigo (esse fica preso na versão antiga). Ainda falta: migração `020`,
+peso/medidas por produto (ideia salva, a conversar com o cliente), comprar a
+etiqueta (manual, no painel do Melhor Envio, que exige créditos na carteira) e
+decidir quais transportadoras mostrar (hoje aparecem todas as que o Melhor Envio
+devolve).
+
 **O que o Gustavo precisa fazer pra ligar o frete**
 1. Criar conta no Melhor Envio (comece pelo sandbox, `sandbox.melhorenvio.com.br`,
    que é separado da conta real e só simula Correios e Jadlog).
