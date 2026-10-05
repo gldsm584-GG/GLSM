@@ -1,10 +1,11 @@
-# Abordagem — Plavii (catálogo + WhatsApp)
+# Abordagem — Plavii (loja com pagamento, entrega e WhatsApp)
 
 > Substitui o roteiro antigo, que era do mockup estático. O que se mostra
-> agora é a loja de verdade, publicada em https://plavii.vercel.app, no
-> formato vitrine/catálogo: o carrinho finaliza num link de WhatsApp e quem
-> fecha pagamento e entrega é a atendente (mudança de 2026-10-04, ver
-> `briefing.md`).
+> agora é a loja de verdade, publicada em https://plavii.vercel.app. O
+> carrinho tem dois jeitos de finalizar: pagar no site (Mercado Pago, ainda
+> em teste, com retirada na loja ou frete Melhor Envio) ou mandar o pedido
+> pronto pro WhatsApp da loja, onde a atendente fecha do jeito que já faz
+> (ver `briefing.md`, seções "Volta do pagamento" e "Entrega").
 
 ## Plano em resumo
 
@@ -14,8 +15,8 @@
 - **Meta do primeiro contato:** ele olhar e topar uma conversa curta (10 min).
   Não é fechar nada na primeira mensagem.
 - **O que descobrir na conversa:** como ele fecha venda hoje (pagamento,
-  entrega, retirada). Foi justamente isso que fez o site virar vitrine: o
-  fechamento fica com a atendente, do jeito que a loja já trabalha.
+  entrega, retirada) e se o `61 99233-2876` é mesmo o número que recebe os
+  pedidos. Isso decide se ele usa mais o pagamento no site ou o WhatsApp.
 
 ## Antes de mandar qualquer coisa
 
@@ -58,8 +59,9 @@ Mandar primeiro o print `home-mobile`, depois o texto:
 > Se curtir, posso te mostrar em 10 minutos como funciona por dentro, onde
 > você muda preço e produto sozinho, sem depender de ninguém. Topa?
 
-A frase sobre o pedido chegar no WhatsApp só vale depois de trocar o número
-de teste pelo da loja. Ajustar o tom na hora (a régua é "direto e simples",
+A frase sobre o pedido chegar no WhatsApp vale porque o número do site já é
+o da loja (`61 99233-2876`, trocado em 2026-10-05; confirmar com o dono que
+é o número certo). Ajustar o tom na hora (a régua é "direto e simples",
 `_memoria/preferencias.md`). Se ele responder só com "legal", seguir com a
 pergunta dos 10 minutos.
 
@@ -83,10 +85,10 @@ minha atendente com o pedido pronto".
 | 0-1 | Home no celular | "Carrega rápido e fica bom no celular, que é de onde a maioria compra." |
 | 1-3 | Buscar um produto, abrir, adicionar ao carrinho, tirar pela lixeira | "O cliente acha o que quer em poucos toques." |
 | 3-4 | **Finalizar:** "Finalizar compra" (checkout com Mercado Pago, em teste) e "Finalizar no WhatsApp" (abre a conversa com a lista e o total prontos) | "O cliente escolhe: paga no site ou manda o pedido pronto pra sua atendente, que fecha pagamento e entrega do jeito que vocês já fazem." |
-| 3-4 | **Entrega** (no checkout): retirada na loja (grátis) ou frete com preço e prazo por CEP (Melhor Envio, se já estiver configurado) | "O cliente escolhe: retira na loja de graça ou recebe em casa, já vendo preço e prazo." (prazos médios: SEDEX 1-3 dias úteis, PAC até 10, Jadlog 5-7) |
-| 4-5 | Painel admin, **Pedidos → "+ Nova venda"** (lançar a venda fechada no WhatsApp) | "Fechou no WhatsApp, é só registrar aqui em segundos." |
-| 5-8 | **Painel admin**: editar preço/produto direto na loja, trocar o Hero, criar Ofertas relâmpago | "Você muda tudo daqui, sem me chamar." (o ponto mais forte) |
-| 8-9 | Clientes e pedidos (agrupados pelo telefone) | "Você vê quem comprou e o que mais sai." |
+| 4-5 | **Entrega** (no checkout): retirada na loja (grátis) ou frete com preço e prazo por CEP (Melhor Envio, se já estiver configurado) | "O cliente escolhe: retira na loja de graça ou recebe em casa, já vendo preço e prazo." (prazos médios: SEDEX 1-3 dias úteis, PAC até 10, Jadlog 5-7) |
+| 5-6 | Painel admin, **Pedidos → "+ Nova venda"** (lançar a venda fechada no WhatsApp) | "Fechou no WhatsApp, é só registrar aqui em segundos." |
+| 6-8 | **Painel admin**: editar preço/produto direto na loja, trocar o Hero, criar Ofertas relâmpago | "Você muda tudo daqui, sem me chamar." (o ponto mais forte) |
+| 8-9 | Dashboard (receita, pedidos, mais vendidos), clientes e pedidos | "Você vê quanto vendeu, quem comprou e o que mais sai." |
 | 9-10 | Fechar com pergunta | "Como vocês fecham hoje, pagamento e entrega? O que mudaria? O que faltou?" |
 
 Dicas:
@@ -98,9 +100,9 @@ Dicas:
 - Se lançar uma venda de teste em "Nova venda", **apague depois**, pra não
   sujar o banco.
 - Anotar o que ele pedir de ajuste: vira argumento pra conversa seguinte.
-- O dashboard financeiro saiu do menu (as métricas de receita não fazem
-  sentido sem checkout automático). A página existe em `/admin`, mas não é
-  parte do roteiro.
+- O pagamento no site ainda é de **teste**: não finalize "Finalizar compra"
+  na frente dele como se fosse cobrar. Se testar, é com conta/cartão de teste
+  e apague o pedido depois.
 - Frase de fechamento: *"Sua loja vendendo mesmo com a porta fechada."*
 
 ## Preço (só se ele perguntar)
@@ -110,7 +112,7 @@ Resposta pronta:
 > Faço como projeto fechado, não é mensalidade. Fica R$ 4.000 no Pix, ou
 > 3x de R$ 1.500 no cartão. Inclui o site completo, o painel pra você
 > editar e eu passo todas as contas pro seu nome (hospedagem, banco de
-> dados, domínio), então você é dono de tudo.
+> dados, pagamento, frete, domínio), então você é dono de tudo.
 
 - Duas opções: **R$ 4.000 no Pix** (à vista) ou **3x de R$ 1.500** (R$ 4.500
   no total). O parcelado custa R$ 500 a mais, o que incentiva o Pix.
@@ -118,13 +120,14 @@ Resposta pronta:
   segurar o preço e oferecer algo no lugar (ex: um ajuste pequeno depois da
   entrega) em vez de baixar.
 - Parcelado: cobrar no **cartão de crédito** (maquininha ou link de
-  pagamento da sua própria conta), pra o risco de calote não ser seu. O
-  site não cobra mais, então esse recebimento é à parte. Passar as contas
-  pro nome dele só depois do pagamento completo.
+  pagamento da sua própria conta), pra o risco de calote não ser seu. Não
+  usar o Mercado Pago da loja pra isso: ele é do dono. Passar as contas pro
+  nome dele só depois do pagamento completo.
 - Se perguntar de custo mensal: depois da transferência, as ferramentas ficam
   por conta dele, em torno de US$ 45/mês (Vercel Pro + Supabase Pro), mais o
-  domínio .com.br (~R$ 40/ano). Sem taxa por venda, porque o site não
-  processa pagamento.
+  domínio .com.br (~R$ 40/ano), mais a taxa do Mercado Pago por venda feita
+  no site (sem mensalidade) e o frete, que o Melhor Envio cobra por envio
+  (a etiqueta é paga na carteira dele; sem venda, sem custo).
 - Mudanças depois da entrega são serviço à parte.
 
 ## Respostas pras objeções
@@ -142,6 +145,11 @@ Resposta pronta:
   sua atendente combina pagamento e entrega do jeito que vocês já fazem
   (Pix, cartão, retirada ou entrega). Se for pelo WhatsApp, você registra a
   venda no painel." (hoje o pagamento no site está em modo teste)
+- **"E o frete?"** → "No checkout o cliente escolhe retirada na loja (grátis)
+  ou recebe em casa, vendo preço e prazo por CEP (Correios, Jadlog, Loggi,
+  pelo Melhor Envio). Hoje a cotação usa uma caixa padrão; com o peso e as
+  medidas dos seus produtos ela fica exata." (já funciona em produção; o
+  que falta é peso/medidas por produto, a combinar com ele)
 - **"Preciso pensar."** → "Claro. Posso deixar o link com você pra olhar com
   calma. Se quiser, te mando um resumo do que está incluso." (e marcar de
   retornar em 2-3 dias)
@@ -159,4 +167,9 @@ Resposta pronta:
 2. Preencher razão social/CNPJ e email de contato na Política de Privacidade.
 3. Domínio próprio, Vercel Pro e SMTP (ver checklist completo no
    `briefing.md`).
-4. Transferir contas (Vercel, Supabase, domínio) pro dono.
+4. Mercado Pago em produção: token de produção na Vercel e webhook no painel
+   do Mercado Pago (hoje o pagamento está em modo teste).
+5. Melhor Envio: peso e medidas por produto, e quais transportadoras mostrar.
+   O token hoje é de uma conta do Gustavo: passar pra conta do dono.
+6. Transferir contas (Vercel, Supabase, Mercado Pago, Melhor Envio, domínio)
+   pro dono.
