@@ -61,6 +61,15 @@ escolhido — o valor nunca vem do navegador — e grava total + método no
 pedido). Pedido e admin mostram "Retirada na loja" ou "serviço — valor —
 prazo". Sem token ou sem CEP de origem, o site oferece só a retirada.
 
+**Status (2026-10-05):** as variáveis `MELHORENVIO_TOKEN` (token de PRODUÇÃO,
+gerado em Integrações → Permissões de acesso na conta real do Melhor Envio),
+`MELHORENVIO_ORIGIN_CEP` e `MELHORENVIO_CONTACT_EMAIL` já foram cadastradas na
+Vercel (só Production, como Secret — o valor não aparece mais no painel).
+`MERCADOPAGO_ACCESS_TOKEN`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_URL`
+e `NEXT_PUBLIC_SUPABASE_ANON_KEY` já existiam. Falta: confirmar o redeploy, testar
+o frete no site real e rodar a migração `020_shipping.sql`. Se o frete sumir do
+checkout algum dia, suspeitar do token vencido (gerar outro e trocar na Vercel).
+
 **O que o Gustavo precisa fazer pra ligar o frete**
 1. Criar conta no Melhor Envio (comece pelo sandbox, `sandbox.melhorenvio.com.br`,
    que é separado da conta real e só simula Correios e Jadlog).
