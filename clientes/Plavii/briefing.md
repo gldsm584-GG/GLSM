@@ -46,6 +46,16 @@ foco em promoção/urgência.
 
 Prospecção — ainda não é cliente fechado.
 
+## Galeria de fotos do produto (2026-10-05)
+
+A página do produto ganhou uma galeria com várias fotos e zoom ao passar o mouse
+(`src/components/ProductGallery.tsx`). A coluna `image` continua sendo a capa
+(cards, carrinho, busca, Hero); a nova coluna `images` (lista de fotos, com a
+capa na posição 0) guarda a galeria. Migração `supabase/021_product_images.sql`
+rodada no Supabase em 2026-10-05 (deu sucesso): criou a coluna e copiou a foto
+atual de cada produto pra dentro da lista. Pra ter várias fotos, editar o
+produto no admin e adicionar imagens.
+
 ## Entrega: retirada na loja + Melhor Envio (2026-10-05)
 
 No checkout (`/checkout`), depois do endereço, o cliente escolhe o **método de
