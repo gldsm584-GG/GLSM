@@ -22,11 +22,13 @@ WooCommerce) e Instagram ativo (@plavii.br, ~9k seguidores).
 
 ## Diferenciais que o site atual já comunica
 
-- Frete grátis a partir de R$14,99
 - Entrega rápida
 - Garantia de até 1 ano
 - Estabelecimento físico (CNPJ e endereço, loja física legítima)
 - Horário: Seg-Sex 9:30-19:00, Sáb 9:30-18:00, Dom fechado
+- ~~Frete grátis a partir de R$14,99~~ — removido do site em 2026-10-04
+  (carrinho, rodapé, Hero, SEO, Política de Privacidade); a loja não
+  promete frete grátis por enquanto, dá pra recolocar depois
 
 ## Tom da marca (Instagram)
 
@@ -79,9 +81,8 @@ WhatsApp, pelo botão "+ Nova venda" em `/admin/pedidos`
 (`NewOrderModal.tsx` → `createManualOrder` em `src/lib/orders.ts`) —
 escolhe os produtos do catálogo, quantidade e status; nome/telefone do
 cliente, sem conta nem endereço (`user_id` null). `/admin/clientes`
-agora agrupa pedido por **telefone**, não mais por conta de usuário
-(`order.user_id`), pra conta real e venda manual caírem na mesma lista
-de cliente quando o telefone bate.
+junta pedido manual (sem conta) na conta de telefone igual quando existe
+— ver correção abaixo pra como isso funciona de verdade hoje.
 
 `site/supabase/019_manual_orders.sql` já foi rodada no Supabase (libera
 `user_id`/endereço nulo em `orders` e a policy de insert pro admin) —
@@ -214,9 +215,10 @@ Fica em `clientes/Plavii/site/` — projeto Next.js (TypeScript + Tailwind):
   continuam no banco, só não recebem mais pedido novo
 - Painel admin em `/admin` (exige login + email na lista de admin em
   `src/lib/admin.ts`) — barra lateral escura (layout em `app/admin/layout.tsx`,
-  esconde o cabeçalho/rodapé da loja via `StoreChrome`). Desde 2026-10-04
-  só tem Produtos no menu (cadastra/edita/apaga produtos); Dashboard,
-  Pedidos e Clientes saíram do menu mas o código continua (ver "Mudança
+  esconde o cabeçalho/rodapé da loja via `StoreChrome`). Menu
+  (`AdminSidebar.tsx`): Pedidos, Produtos, Clientes — só o Dashboard saiu
+  (métricas de receita não fazem sentido sem checkout automático), mas a
+  página continua no código, acessível direto por `/admin` (ver "Mudança
   de rumo"). Admin de teste hoje: `gustest@gmail.com` (lista em
   `src/lib/admin.ts`; policies recriadas por `site/supabase/005_admin_gustest.sql`)
   — trocar pro email real quando definir
