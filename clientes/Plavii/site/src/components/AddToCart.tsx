@@ -18,8 +18,8 @@ export default function AddToCart({ productId }: { productId: string }) {
   };
 
   const handleBuyNow = () => {
-    addItem(productId, quantity);
-    router.push("/checkout");
+    // Compra direta: vai pro checkout só com este produto, sem mexer no carrinho
+    router.push(`/checkout?produto=${encodeURIComponent(productId)}&qtd=${quantity}`);
   };
 
   return (

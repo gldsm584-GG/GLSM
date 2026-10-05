@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState, type FormEvent } from "react";
 import AddressForm from "@/components/AddressForm";
 import LineIcon from "@/components/LineIcon";
 import { addressLine, addressSecondLine, orderAddressFields, type Address } from "@/lib/addresses";
@@ -19,8 +20,29 @@ const inputClass =
   "rounded-lg border border-neutral-200 px-3 py-2 outline-none focus:border-brand";
 
 export default function CheckoutPage() {
+  return (
+    <Suspense fallback={null}>
+      <Checkout />
+    </Suspense>
+  );
+}
+
+function Checkout() {
   const { user, loading: authLoading } = useAuth();
-  const { items, products, totalPrice, clear } = useCart();
+  const { items: cartItems, products, totalPrice: cartTotal, clear } = useCart();
+
+  // "Comprar agora" manda ?produto=&qtd= : o checkout mostra só esse produto e o
+  // carrinho fica intacto. Sem o parâmetro, é o carrinho inteiro.
+  const params = useSearchParams();
+  const directId = params.get("produto");
+  const directQty = Math.min(99, Math.max(1, parseInt(params.get("qtd") ?? "1", 10) || 1));
+  const items = useMemo(
+    () => (directId ? [{ productId: directId, quantity: directQty }] : cartItems),
+    [directId, directQty, cartItems]
+  );
+  const totalPrice = directId
+    ? (products.find((p) => p.id === directId)?.price ?? 0) * directQty
+    : cartTotal;
 
   const [customerName, setCustomerName] = useState("");
   const [phone, setPhone] = useState("");
@@ -183,7 +205,7 @@ export default function CheckoutPage() {
 
       if (!initPoint) throw new Error(apiError ?? "Sem link de pagamento");
 
-      clear();
+      if (!directId) clear();
       window.location.assign(initPoint);
     } catch (err) {
       setError(
