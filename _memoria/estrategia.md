@@ -35,7 +35,8 @@ ENTREGA (2026-10-05): o checkout ganhou "Método de entrega" — retirada na loj
 (grátis) ou frete cotado no Melhor Envio (Correios, Jadlog etc.). Em
 2026-10-05 o Gustavo cadastrou na Vercel o token (produção), o CEP da loja e o
 email de contato e o frete JÁ FUNCIONA no site real (retirada grátis + Loggi,
-Correios e Jadlog com preço e prazo). Falta rodar a migração 020 e as ideias
+Correios e Jadlog com preço e prazo) e a migração 020 já foi rodada no
+Supabase (os pedidos novos guardam o método de entrega). Faltam só as ideias
 guardadas abaixo — detalhes e como diagnosticar no `briefing.md`. Sem as
 variáveis o site oferece só a retirada.
 

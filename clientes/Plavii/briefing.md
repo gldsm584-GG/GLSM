@@ -66,9 +66,10 @@ gerado em Integrações → Permissões de acesso na conta real do Melhor Envio)
 `MELHORENVIO_ORIGIN_CEP` e `MELHORENVIO_CONTACT_EMAIL` já foram cadastradas na
 Vercel (só Production, como Secret — o valor não aparece mais no painel).
 `MERCADOPAGO_ACCESS_TOKEN`, `SUPABASE_SERVICE_ROLE_KEY`, `NEXT_PUBLIC_SUPABASE_URL`
-e `NEXT_PUBLIC_SUPABASE_ANON_KEY` já existiam. Falta: confirmar o redeploy, testar
-o frete no site real e rodar a migração `020_shipping.sql`. Se o frete sumir do
-checkout algum dia, suspeitar do token vencido (gerar outro e trocar na Vercel).
+e `NEXT_PUBLIC_SUPABASE_ANON_KEY` já existiam. Redeploy feito, frete testado no
+site real (funciona) e migração `020_shipping.sql` rodada no Supabase em
+2026-10-05 (deu sucesso). Se o frete sumir do checkout algum dia, suspeitar do
+token vencido (gerar outro e trocar na Vercel).
 
 **FRETE FUNCIONANDO EM PRODUÇÃO (2026-10-05):** no checkout de plavii.vercel.app
 aparecem a Retirada na loja (grátis) e 6 opções do Melhor Envio (Loggi Express,
@@ -78,7 +79,8 @@ em dias úteis. A primeira tentativa falhou porque o CEP de origem estava errado
 da loja. Como diagnosticar se der problema: Vercel → Logs, buscar `frete`; o site
 anota o motivo (`[frete] cotação falhou: ...`, com o campo que o Melhor Envio
 rejeitou). Atenção: ao testar, usar `plavii.vercel.app`, não o endereço de um
-deploy antigo (esse fica preso na versão antiga). Ainda falta: migração `020`,
+deploy antigo (esse fica preso na versão antiga). A migração `020` já foi rodada
+(2026-10-05), então os pedidos novos guardam o método de entrega. Ainda falta:
 peso/medidas por produto (ideia salva, a conversar com o cliente), comprar a
 etiqueta (manual, no painel do Melhor Envio, que exige créditos na carteira) e
 decidir quais transportadoras mostrar (hoje aparecem todas as que o Melhor Envio
@@ -94,7 +96,8 @@ devolve).
    pra testar no sandbox, `MELHORENVIO_API_URL=https://sandbox.melhorenvio.com.br`.
    Depois de salvar as variáveis, fazer um novo deploy.
 3. Rodar `site/supabase/020_shipping.sql` no SQL Editor do Supabase (colunas de
-   entrega no pedido). Sem ela o checkout funciona, só não registra o método.
+   entrega no pedido) — FEITO em 2026-10-05. Sem ela o checkout funciona, só não
+   registra o método.
 4. Quando for pra valer, trocar pro token de produção e tirar `MELHORENVIO_API_URL`.
 
 **IDEIA SALVA PRA DEPOIS (2026-10-05, a conversar com o cliente):** campos de
