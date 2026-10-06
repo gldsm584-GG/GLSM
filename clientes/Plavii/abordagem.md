@@ -6,6 +6,23 @@
 > fecha pagamento e entrega é a atendente (mudança de 2026-10-04, ver
 > `briefing.md`).
 
+## Status (2026-10-06)
+
+**Mensagem de abertura enviada e aguardando resposta.** Texto realmente
+enviado (com apresentação):
+
+> Oi, tudo bem? Aqui é o Gustavo, eu crio sites pra comércio. Vi a Plavii e
+> gostei muito da loja de vocês. Fiz uma versão online nova com os produtos
+> de vocês, pensada pra vender mais mesmo com a loja física fechada. Dá uma
+> olhada 👀 https://plavii.vercel.app Dá pra navegar de verdade, colocar no
+> carrinho, e o pedido chega direto no WhatsApp de vocês. Se curtir, te
+> mostro em 10 minutos como funciona por dentro: onde você muda preço e
+> produto sozinho, sem depender de ninguém. Topa?
+
+Se não responder em 2-3 dias, lembrete único: "Oi! Só passando pra saber se
+você chegou a ver a versão da loja que te mandei. Sem compromisso, se quiser
+te mostro rapidinho. 🙂"
+
 ## Plano em resumo
 
 - **Canal:** WhatsApp ou DM do Instagram (primeiro contato frio).

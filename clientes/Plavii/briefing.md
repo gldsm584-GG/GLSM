@@ -46,6 +46,13 @@ foco em promoção/urgência.
 
 Prospecção — ainda não é cliente fechado.
 
+**2026-10-06: mensagem de abordagem enviada ao dono (WhatsApp), aguardando
+resposta.** Texto enviado: apresentação do Gustavo ("eu crio sites pra
+comércio"), link https://plavii.vercel.app, pedido chegando no WhatsApp da
+loja e convite pra mostrar em 10 minutos como funciona por dentro. Sem preço.
+Próximo passo: se não responder em 2-3 dias, mandar um lembrete curto (uma
+vez só); se responder, seguir `abordagem.md`.
+
 ## Galeria de fotos do produto (2026-10-05)
 
 A página do produto ganhou uma galeria com várias fotos e zoom ao passar o mouse
