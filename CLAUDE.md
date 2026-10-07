@@ -138,13 +138,21 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 
 **Meu serviço:** criação de sites.
 
-**Clientes ativos:** Plavii (em prospecção — loja Next.js funcional em
-`clientes/Plavii/site/`, publicada em produção em plavii.vercel.app;
-checkout com Mercado Pago (voltou em 2026-10-05, ainda em modo TESTE) com
-escolha de entrega (retirada grátis ou frete Melhor Envio, já funcionando
-em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção (no carrinho e no checkout, este com a entrega escolhida na mensagem); o número de WhatsApp no
-site é o da loja (`61 99233-2876`, trocado em 2026-10-05) — falta token do
-Mercado Pago em produção, domínio próprio e apresentar ao dono).
+**Clientes ativos:**
+- Plavii (em prospecção — loja Next.js funcional em
+  `clientes/Plavii/site/`, publicada em produção em plavii.vercel.app;
+  checkout com Mercado Pago (voltou em 2026-10-05, ainda em modo TESTE) com
+  escolha de entrega (retirada grátis ou frete Melhor Envio, já funcionando
+  em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção (no carrinho e no checkout, este com a entrega escolhida na mensagem); o número de WhatsApp no
+  site é o da loja (`61 99233-2876`, trocado em 2026-10-05) — falta token do
+  Mercado Pago em produção, domínio próprio e apresentar ao dono; primeira
+  abordagem direta ao dono em 2026-10-05/06 recebeu resposta educada sem
+  fechamento — ver `clientes/Plavii/briefing.md`).
+- Bibi Perfumes Importados (irmã do Gustavo — loja de perfumes árabes/
+  importados, Next.js + Supabase independente, publicada em produção em
+  bibiperfumesimportados.vercel.app desde 2026-10-06; catálogo + carrinho +
+  WhatsApp, sem login de cliente nem pagamento online; falta só fotos reais
+  dos produtos e logo — ver `clientes/Bibi-Perfumes-Importados/briefing.md`).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com

@@ -5,9 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        // TODO: trocar pelo host do projeto Supabase da Bibi assim que ele existir
-        // (Project Settings → API → Project URL, só o domínio).
-        hostname: "TROCAR-projeto.supabase.co",
+        hostname: "pmacqaerzglwcljxifxo.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },
     ],

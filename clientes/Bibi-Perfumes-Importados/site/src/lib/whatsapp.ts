@@ -1,9 +1,8 @@
 import { formatPrice } from "./products";
 import type { CartItem, Product } from "./types";
 
-// TODO: trocar pelo WhatsApp real da Bibi Perfumes antes de divulgar o
-// link. DDI+DDD+número, só dígitos (ex: 55619XXXXXXXX).
-export const WHATSAPP_NUMBER = "5500000000000";
+// Número da loja Bibi Perfumes (2026-10-06) — DDI+DDD+número, só dígitos
+export const WHATSAPP_NUMBER = "556199173630";
 
 export function buildCartWhatsappUrl(
   items: CartItem[],

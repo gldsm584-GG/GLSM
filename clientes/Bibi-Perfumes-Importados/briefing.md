@@ -30,8 +30,11 @@ página do produto mostra isso em destaque, com ícone pra cada camada.
 
 ## Status
 
-Em desenvolvimento — site sendo construído (2026-10-06), ainda não
-publicado.
+✅ Publicado em produção em 2026-10-06:
+https://bibiperfumesimportados.vercel.app (projeto Vercel `bibi-perfumes`,
+time `glsmteste`, deploy automático a cada push). Supabase próprio
+rodando (schema + os 12 produtos seedados), login de admin testado e
+funcionando com `gldsm584@gmail.com`.
 
 ## Decisões de escopo (2026-10-06)
 
@@ -47,20 +50,21 @@ publicado.
   seria overbuild pra esse catálogo)
 - Infra (Supabase + Vercel) na conta do Gustavo por enquanto, mesmo
   esquema usado com a Plavii — transferir pra Bibi se o negócio decolar
-- Admin login: email do Gustavo por enquanto (confirmar se é
-  `gldsm584@gmail.com` ou se prefere um email dedicado, como fez com a
-  Plavii usando `gustest@gmail.com`)
+- Admin login: email do Gustavo (`gldsm584@gmail.com`) — confirmado e
+  testado em 2026-10-06, funcionando
 
 ## Pendências antes de divulgar
 
-- [ ] Número de WhatsApp real da loja (`src/lib/whatsapp.ts`,
-      `WHATSAPP_NUMBER` — está com placeholder)
+- [x] Criar o projeto Supabase novo e rodar `site/supabase/schema.sql`
+      — feito em 2026-10-06 (projeto `pmacqaerzglwcljxifxo`)
+- [x] Criar o projeto Vercel novo e publicar — feito em 2026-10-06
+      (Root Directory corrigido pra `clientes/Bibi-Perfumes-Importados/site`,
+      proteção SSO desligada pra ficar público)
+- [x] Número de WhatsApp real da loja — `61 9917-3630`, atualizado em
+      2026-10-06 em `src/lib/whatsapp.ts`
 - [ ] Fotos reais dos 12 perfumes (hoje todos usam `/sem-imagem.svg` —
       sobe pelo admin em Produtos)
 - [ ] Logo real da Bibi Perfumes
-- [ ] Criar o projeto Supabase novo e rodar `site/supabase/schema.sql`
-- [ ] Criar o projeto Vercel novo (Root Directory =
-      `clientes/Bibi-Perfumes-Importados/site`) e publicar
 
 ## Site
 
