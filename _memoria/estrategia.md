@@ -86,6 +86,14 @@ trocado pro logo real da Plavii. Em 2026-09-30, foi criada a Política de
 Privacidade (`/politica-de-privacidade`) e tirado o CNPJ do rodapé (a
 Plavii ainda não é cliente fechado).
 
+Primeira abordagem direta enviada ao dono em 2026-10-05 à noite (mensagem
+pronta com link do site + oferta de demo de 10min). Resposta em 2026-10-06:
+agradeceram e disseram que "vão analisar e qualquer coisa entram em
+contato" — sem aceitar a demo. Leitura do Gustavo: foi um "fora" educado,
+não interesse real. Prospecção segue em aberto, sem retorno confirmado;
+pode precisar de reabordagem ou abrir prospecção em paralelo (ver
+`clientes/Plavii/briefing.md`).
+
 Checklist completo do que falta antes do lançamento de verdade, e a
 decisão de modelo comercial (venda única: R$ 4.000 no Pix ou 3x de
 R$ 1.500 no cartão, sem desconto adicional; contas transferidas pro dono
