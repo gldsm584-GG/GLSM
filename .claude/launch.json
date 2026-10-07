@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "clientes/Plavii/site"],
       "port": 3000
+    },
+    {
+      "name": "bibi-perfumes-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "clientes/Bibi-Perfumes-Importados/site", "--", "-p", "3001"],
+      "port": 3001
     }
   ]
 }
