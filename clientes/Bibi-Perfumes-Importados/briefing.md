@@ -31,8 +31,11 @@ página do produto mostra isso em destaque, com ícone pra cada camada.
 ## Status
 
 ✅ Publicado em produção em 2026-10-06:
-https://bibiperfumesimportados.vercel.app (projeto Vercel `bibi-perfumes`,
-time `glsmteste`, deploy automático a cada push). Supabase próprio
+https://bibi-perfumes-glsmteste.vercel.app (projeto Vercel `bibi-perfumes`,
+time `glsmteste`, deploy automático a cada push — esse é o domínio que
+sempre segue a produção, usa ele pra divulgar. `bibiperfumesimportados.vercel.app`
+também existe mas é um alias fixo numa versão — se usar ele, precisa
+re-apontar manualmente a cada deploy). Supabase próprio
 rodando (schema + os 12 produtos seedados), login de admin testado e
 funcionando com `gldsm584@gmail.com`.
 

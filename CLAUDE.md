@@ -150,9 +150,10 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   fechamento — ver `clientes/Plavii/briefing.md`).
 - Bibi Perfumes Importados (irmã do Gustavo — loja de perfumes árabes/
   importados, Next.js + Supabase independente, publicada em produção em
-  bibiperfumesimportados.vercel.app desde 2026-10-06; catálogo + carrinho +
-  WhatsApp, sem login de cliente nem pagamento online; falta só fotos reais
-  dos produtos e logo — ver `clientes/Bibi-Perfumes-Importados/briefing.md`).
+  bibi-perfumes-glsmteste.vercel.app desde 2026-10-06; catálogo + carrinho +
+  WhatsApp (número real já configurado), sem login de cliente nem pagamento
+  online; falta só fotos reais dos produtos e logo — ver
+  `clientes/Bibi-Perfumes-Importados/briefing.md`).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com
