@@ -6,7 +6,10 @@
 
 ## Fase
 
-Começando — primeiro cliente em prospecção (Plavii), ainda sem nenhum fechado.
+Dois projetos ativos: Plavii (ainda em prospecção, primeira abordagem
+direta ao dono sem fechamento) e Bibi Perfumes Importados (irmã do
+Gustavo — site construído e publicado em produção em 2026-10-06; não é
+uma prospecção comercial). Nenhum cliente pagante fechado ainda.
 
 ## Prioridade principal
 
@@ -99,6 +102,23 @@ decisão de modelo comercial (venda única: R$ 4.000 no Pix ou 3x de
 R$ 1.500 no cartão, sem desconto adicional; contas transferidas pro dono
 depois do pagamento completo, que passa a pagar as assinaturas) estão detalhados em
 `clientes/Plavii/briefing.md`.
+
+## Bibi Perfumes Importados (2026-10-06)
+
+Site novo construído do zero numa sessão só: loja de perfumes árabes/
+importados da irmã do Gustavo, Next.js + Supabase independente (não
+compartilha banco com a Plavii), reaproveitando os padrões já validados
+(galeria de fotos com zoom, admin, kanban de pedidos pra vendas
+fechadas no WhatsApp). Catálogo + carrinho + "Finalizar no WhatsApp",
+sem login de cliente nem pagamento online (decisão consciente de manter
+simples). Publicado em produção em
+https://bibi-perfumes-glsmteste.vercel.app, com deploy automático a
+cada push (time Vercel `glsmteste`, mesmo esquema da Plavii). Supabase
+próprio criado e rodando, login de admin testado
+(`gldsm584@gmail.com`). Número de WhatsApp real já configurado
+(`61 9917-3630`). Falta só fotos reais dos 12 perfumes (hoje
+`/sem-imagem.svg`) e o logo da Bibi — ver
+`clientes/Bibi-Perfumes-Importados/briefing.md`.
 
 ## Ideias guardadas pra depois (a conversar com o cliente)
 
