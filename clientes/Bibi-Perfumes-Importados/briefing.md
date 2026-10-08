@@ -63,9 +63,23 @@ funcionando com `gldsm584@gmail.com`.
   "Allow new users to sign up" LIGADO e decidir o "Confirm email". Ligado
   sem SMTP próprio, o email de confirmação só chega pra emails da equipe
   do Supabase — cliente de verdade não consegue entrar. Opções: desligar
-  (como na Plavii) ou configurar SMTP grátis (Resend). Se ligar, ajustar
-  também o "Site URL" (Authentication → URL Configuration) pra
-  https://bibi-perfumes-glsmteste.vercel.app
+  (como na Plavii) ou configurar SMTP próprio. Resend precisa de domínio
+  próprio; SEM domínio, o caminho é o Gmail da loja (decidido em 2026-10-07,
+  o Gustavo vai fazer depois):
+  1. Conta Google `bibiperfumes@gmail.com` → Segurança → ativar
+     Verificação em duas etapas
+  2. Criar senha de app em https://myaccount.google.com/apppasswords
+     ("Supabase") — código de 16 letras, NÃO a senha normal
+  3. Supabase → Authentication → Emails → SMTP Settings → Enable Custom
+     SMTP: sender `bibiperfumes@gmail.com`, nome `Bibi Perfumes`, host
+     `smtp.gmail.com`, porta `465`, usuário `bibiperfumes@gmail.com`,
+     senha = código do passo 2 (limite ~500 emails/dia)
+  4. Authentication → URL Configuration → Site URL =
+     https://bibi-perfumes-glsmteste.vercel.app
+  5. Ligar "Confirm email" e testar com um email que NÃO seja da equipe do
+     Supabase (o do Gustavo sempre recebe, não prova nada)
+  Depois: traduzir o template do email de confirmação (hoje em inglês) e
+  fazer "Esqueci minha senha" no site (também depende do SMTP)
 - Sem pagamento online, sem frete — tudo combinado por fora, pelo
   WhatsApp
 - Admin consegue: cadastrar/editar/apagar produtos (com fotos, volume,

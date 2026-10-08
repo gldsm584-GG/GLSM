@@ -130,6 +130,12 @@ favoritos e histórico; logado, nome e endereço vão na mensagem do
 WhatsApp) e o logo real foi aplicado no site. Falta conferir o "Confirm
 email" no Supabase e testar um cadastro de verdade.
 
+Também em 2026-10-07: o admin da Bibi passou a ser `bibiperfumes@gmail.com`
+(conta criada, SQL rodado e publicado — funcionando). O `gldsm584@gmail.com`
+virou conta comum. Plano pro "Confirm email" (o Gustavo vai fazer depois):
+usar o próprio Gmail da loja como SMTP no Supabase (senha de app do Google),
+que funciona sem domínio próprio — passo a passo no briefing da Bibi.
+
 ## Ideias guardadas pra depois (a conversar com o cliente)
 
 Frete do Plavii (salvo em 2026-10-05; o Gustavo vai conversar com o cliente

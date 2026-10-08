@@ -487,7 +487,9 @@ verdade, por gravidade:
 - [ ] Hospedagem no plano Hobby da Vercel não é pra uso comercial —
       precisa virar Pro (~US$20/mês) antes do lançamento de verdade
 - [ ] Confirmação de email desligada no Supabase — precisa configurar
-      SMTP (Resend, plano grátis já serve) antes de religar
+      SMTP antes de religar. Resend precisa de domínio próprio; sem
+      domínio, dá pra usar um Gmail da loja com senha de app (passo a
+      passo no briefing da Bibi, seção "Decisões de escopo")
 - [ ] Projeto Supabase free pausa sozinho por inatividade — resolve
       junto com a migração pro plano pago
 - [ ] Nenhum monitoramento de erro/uptime — ninguém é avisado se o site
