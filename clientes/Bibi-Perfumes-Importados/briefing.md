@@ -100,8 +100,9 @@ funcionando com `gldsm584@gmail.com`.
 - [x] Logo real da Bibi Perfumes — recebido e aplicado em 2026-10-07
 - [ ] Conferir "Confirm email" no Supabase e testar um cadastro de
       verdade (ver "Decisões de escopo")
-- [ ] Trocar admin pra `bibiperfumes@gmail.com`: criar a conta no
-      Supabase e rodar `002_admin_bibiperfumes.sql` (código já trocado)
+- [x] Trocar admin pra `bibiperfumes@gmail.com` — conta criada, SQL
+      `002_admin_bibiperfumes.sql` rodado e publicado; Gustavo confirmou
+      que funcionou em 2026-10-07
 
 ## Demo de animação no scroll — Yum Yum (2026-10-07)
 
