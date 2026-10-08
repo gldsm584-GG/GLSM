@@ -120,6 +120,16 @@ próprio criado e rodando, login de admin testado
 `/sem-imagem.svg`) e o logo da Bibi — ver
 `clientes/Bibi-Perfumes-Importados/briefing.md`.
 
+Em 2026-10-07: demo de animação no scroll com o Yum Yum (frasco girando
+em 3D, fotos via Gemini + vídeo via Kling) em `demo-scroll/`, ainda fora
+do site — ver briefing.
+
+Ainda em 2026-10-07, a pedido do Gustavo: a Bibi ganhou conta de cliente
+OPCIONAL (cadastro com nome e endereço, menu da conta igual ao da Plavii,
+favoritos e histórico; logado, nome e endereço vão na mensagem do
+WhatsApp) e o logo real foi aplicado no site. Falta conferir o "Confirm
+email" no Supabase e testar um cadastro de verdade.
+
 ## Ideias guardadas pra depois (a conversar com o cliente)
 
 Frete do Plavii (salvo em 2026-10-05; o Gustavo vai conversar com o cliente

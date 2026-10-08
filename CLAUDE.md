@@ -151,8 +151,10 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 - Bibi Perfumes Importados (irmã do Gustavo — loja de perfumes árabes/
   importados, Next.js + Supabase independente, publicada em produção em
   bibi-perfumes-glsmteste.vercel.app desde 2026-10-06; catálogo + carrinho +
-  WhatsApp (número real já configurado), sem login de cliente nem pagamento
-  online; falta só fotos reais dos produtos e logo — ver
+  WhatsApp (número real já configurado), sem pagamento online; conta de
+  cliente opcional (cadastro com endereço, menu da conta, favoritos e
+  histórico) e logo real aplicado em 2026-10-07; falta fotos reais dos
+  produtos e conferir o "Confirm email" no Supabase — ver
   `clientes/Bibi-Perfumes-Importados/briefing.md`).
 
 **Regras do sistema:**
