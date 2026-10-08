@@ -144,7 +144,7 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   checkout com Mercado Pago (voltou em 2026-10-05, ainda em modo TESTE) com
   escolha de entrega (retirada grátis ou frete Melhor Envio, já funcionando
   em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção (no carrinho e no checkout, este com a entrega escolhida na mensagem); o número de WhatsApp no
-  site é o da loja (`61 99233-2876`, trocado em 2026-10-05) ; mensagem de
+  site é o da loja (`61 99233-2876`, trocado em 2026-10-05); mensagem de
   abordagem enviada ao dono em 2026-10-06, aguardando resposta — falta
   resposta do dono, token do Mercado Pago em produção e domínio próprio).
 - Bibi Perfumes Importados (irmã do Gustavo — loja de perfumes árabes/
