@@ -17,3 +17,5 @@ Nada específico registrado ainda.
 Em aberto — sem restrições fortes até o momento.
 
 ## Preferências adicionais
+
+- Por enquanto, preferir ferramentas e métodos gratuitos (ex.: app do Gemini/Kling em vez de API paga); só sugerir opção paga quando o volume justificar (2026-10-07).

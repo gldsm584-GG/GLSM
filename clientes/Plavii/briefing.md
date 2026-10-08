@@ -312,6 +312,14 @@ substituído por essa aplicação assim que o escopo virou "loja completa".
       (`61 99233-2876`)
 - [x] Preparar abordagem pro dono — `abordagem.md` reescrita em 2026-10-03
       e atualizada em 2026-10-04 pro formato catálogo + WhatsApp
+- [ ] Abordagem enviada por WhatsApp em 2026-10-05 à noite (mensagem com
+      link do plavii.vercel.app + oferta de demo de 10min). Resposta em
+      2026-10-06 de manhã: "Gostamos muito do seu trabalho, vamos
+      analisar a ideia e qualquer coisa entramos em contato com você." —
+      educada, sem aceitar a demo nem dar prazo. Leitura do Gustavo: foi
+      um "fora" educado, não sinal de interesse real. Segue em
+      prospecção fria; considerar reabordar depois ou abrir prospecção
+      em paralelo com outro negócio
 - [x] Publicar no plavii.vercel.app as novidades de 2026-09-27 (produto
       editável na loja, páginas em branco, opiniões de produto, Hero em
       carrossel, detalhes de cliente no admin) — rodar as migrações SQL
@@ -486,7 +494,9 @@ verdade, por gravidade:
 - [ ] Hospedagem no plano Hobby da Vercel não é pra uso comercial —
       precisa virar Pro (~US$20/mês) antes do lançamento de verdade
 - [ ] Confirmação de email desligada no Supabase — precisa configurar
-      SMTP (Resend, plano grátis já serve) antes de religar
+      SMTP antes de religar. Resend precisa de domínio próprio; sem
+      domínio, dá pra usar um Gmail da loja com senha de app (passo a
+      passo no briefing da Bibi, seção "Decisões de escopo")
 - [ ] Projeto Supabase free pausa sozinho por inatividade — resolve
       junto com a migração pro plano pago
 - [ ] Nenhum monitoramento de erro/uptime — ninguém é avisado se o site

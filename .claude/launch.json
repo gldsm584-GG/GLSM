@@ -6,6 +6,24 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev", "--prefix", "clientes/Plavii/site"],
       "port": 3000
+    },
+    {
+      "name": "bibi-perfumes-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "clientes/Bibi-Perfumes-Importados/site", "--", "-p", "3001"],
+      "port": 3001
+    },
+    {
+      "name": "aula-scroll",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "saidas/outros", "-l", "4321", "--no-clipboard"],
+      "port": 4321
+    },
+    {
+      "name": "bibi-demo-scroll",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "clientes/Bibi-Perfumes-Importados/demo-scroll", "-l", "4322", "--no-clipboard"],
+      "port": 4322
     }
   ]
 }

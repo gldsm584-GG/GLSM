@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yum Yum · Bibi Perfumes Importados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     DEMO: animação no scroll com o Yum Yum (fotos reais via Gemini)
+     Técnicas usadas (as mesmas da aula em saidas/outros/):
+       - seção presa na tela (pin) + filme no scroll (timeline + scrub)
+       - parallax em 3 camadas (doces longe / meio / perto)
+       - texto que acende palavra por palavra
+       - revelar ao entrar na tela
+     Cores = as mesmas do site da Bibi (globals.css).
+     ============================================================ */
+  :root {
+    --fundo: #fff5f8;
+    --texto: #2b1620;
+    --marca: #c2185b;
+    --marca-escura: #880e4f;
+    --marca-clara: #f48fb1;
+    --ouro: #d4af37;
+    --vinho: #4a0a2a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  body { background: var(--vinho); color: var(--texto); font-family: Inter, system-ui, sans-serif; overflow-x: hidden; }
+  img { display: block; user-select: none; -webkit-user-drag: none; }
+
+  /* ---------- O palco: fica preso na tela enquanto o "filme" roda ---------- */
+  .palco {
+    position: relative; height: 100svh; overflow: hidden;
+    background: radial-gradient(ellipse at 50% 45%, #ffffff 0%, var(--fundo) 40%, #fbd3e2 100%);
+  }
+  .camada-vinho {
+    position: absolute; inset: 0; opacity: 0;
+    background: radial-gradient(circle at 50% 42%, #b0185a 0%, var(--marca-escura) 42%, var(--vinho) 100%);
+  }
+  .topo {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center; padding: 20px 24px;
+  }
+  .marca-bibi { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 18px; color: var(--marca-escura); }
+  .marca-bibi small { display: block; font-family: Inter, sans-serif; font-weight: 500; font-size: 10px; letter-spacing: .3em; color: var(--marca); }
+  .selo { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--marca-escura); }
+
+  .titulo {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3;
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; white-space: nowrap;
+    font-size: clamp(88px, 19vw, 300px); color: var(--marca-escura); letter-spacing: -.02em; line-height: 1;
+  }
+  .titulo-final {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1; opacity: 0;
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; white-space: nowrap;
+    font-size: clamp(88px, 19vw, 300px); line-height: 1; letter-spacing: -.02em;
+    color: transparent; -webkit-text-stroke: 2px var(--ouro);
+  }
+  .halo {
+    position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; z-index: 2; opacity: 0;
+    transform: translate(-50%, -50%); border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, .5) 0%, rgba(212, 175, 55, 0) 65%);
+  }
+  .dica {
+    position: absolute; bottom: 24px; left: 0; right: 0; text-align: center; z-index: 10;
+    font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--marca-escura);
+  }
+  .dica span { display: inline-block; animation: pulo 2s ease-in-out infinite; }
+  @keyframes pulo { 50% { transform: translateY(6px); } }
+
+  /* ---------- Frasco ---------- */
+  .frasco {
+    position: absolute; left: 50%; top: 52%; z-index: 4;
+    height: min(64svh, 620px); transform: translate(-50%, -50%);
+  }
+  .frasco canvas { display: block; height: 100%; width: auto; filter: drop-shadow(0 30px 40px rgba(136, 14, 79, .28)); }
+
+  /* ---------- Doces: cada um é 3 caixinhas, uma pra cada animação ----------
+     .doce        -> o scroll mexe nela (explosão)
+     .doce-flutua -> balança sozinha, sem parar
+     img          -> animação de entrada quando a página abre               */
+  .doce { position: absolute; transform: translate(-50%, -50%); will-change: transform; }
+  .doce img { width: 100%; height: auto; }
+  .doce.longe { z-index: 0; }
+  .doce.meio  { z-index: 2; }
+  .doce.perto { z-index: 5; }
+  .doce.perto.clone img { filter: blur(3px); }
+  .centro { position: absolute; left: 50%; top: 50%; z-index: 1; width: min(66vw, 560px); transform: translate(-50%, -50%); }
+  .centro img { width: 100%; height: auto; }
+
+  /* ---------- Notas (pirâmide olfativa) ---------- */
+  .notas {
+    position: absolute; z-index: 6; color: #fff;
+    right: 6vw; top: 50%; width: 42vw; max-width: 520px; height: 300px; transform: translateY(-50%);
+  }
+  .pir { display: flex; gap: 18px; margin-bottom: 28px; opacity: 0; }
+  .pir span { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255, 255, 255, .35); position: relative; padding-bottom: 8px; }
+  .pir span i { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--ouro); transform: scaleX(0); transform-origin: left; }
+  .nota { position: absolute; left: 0; right: 0; top: 56px; opacity: 0; }
+  .nota .etq { font-size: 13px; color: var(--marca-clara); letter-spacing: .08em; }
+  .nota h3 { font-family: 'Playfair Display', serif; font-weight: 600; font-size: clamp(30px, 3.6vw, 50px); line-height: 1.1; margin-top: 12px; }
+
+  /* ---------- Depois do palco ---------- */
+  .frase { min-height: 120vh; display: grid; place-items: center; padding: 0 16px; background: var(--vinho); }
+  .acender {
+    font-family: 'Playfair Display', serif; font-weight: 500; color: #fff; text-align: center;
+    font-size: clamp(34px, 5.6vw, 76px); line-height: 1.15; max-width: 1000px;
+  }
+  .acender em { color: var(--marca-clara); }
+  .palavra { opacity: .14; }
+
+  .compra { background: linear-gradient(180deg, var(--vinho), #2b1620); color: #fff; padding: 40px 16px 120px; text-align: center; }
+  .compra img { height: 260px; width: auto; margin: 0 auto 32px; filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .35)); }
+  .compra .linha { font-size: 12px; letter-spacing: .25em; text-transform: uppercase; color: var(--marca-clara); }
+  .compra h2 { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(44px, 7vw, 80px); margin: 10px 0 6px; }
+  .compra .preco { font-size: 28px; font-weight: 600; color: var(--ouro); margin-bottom: 28px; }
+  .botao {
+    display: inline-block; background: var(--marca); color: #fff; text-decoration: none; font-weight: 600;
+    padding: 16px 32px; border-radius: 999px; box-shadow: 0 10px 30px rgba(194, 24, 91, .45);
+  }
+  .rodape { margin-top: 64px; font-size: 13px; color: rgba(255, 255, 255, .45); }
+
+  .revelar { opacity: 0; transform: translateY(40px); transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1); }
+  .revelar.visivel { opacity: 1; transform: none; }
+
+  @media (max-width: 799px) {
+    .topo { padding: 16px; }
+    .selo { display: none; }
+    .frasco { height: min(56svh, 480px); }
+    .notas { left: 16px; right: 16px; width: auto; top: auto; bottom: 4svh; height: 36svh; transform: none; text-align: center; }
+    .pir { justify-content: center; margin-bottom: 16px; }
+    .nota { top: 40px; }
+    .nota h3 { font-size: clamp(26px, 7.4vw, 34px); }
+    .compra img { height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="palco" id="palco">
+  <div class="camada-vinho"></div>
+
+  <header class="topo">
+    <div class="marca-bibi">Bibi Perfumes<small>IMPORTADOS</small></div>
+    <div class="selo">Armaf · Eau de Parfum · 100ml</div>
+  </header>
+
+  <div class="titulo">Yum Yum</div>
+  <div class="titulo-final">Yum Yum</div>
+  <div class="halo"></div>
+
+  <div class="centro"><img src="img/doces/doce-07.png" alt=""></div>
+  <div id="doces"></div>
+
+  <div class="frasco"><canvas id="giro" width="433" height="1000" role="img" aria-label="Perfume Armaf Yum Yum, frasco rosa em formato de milkshake, girando"></canvas></div>
+
+  <div class="notas">
+    <div class="pir"><span>Topo<i></i></span><span>Coração<i></i></span><span>Fundo<i></i></span></div>
+    <article class="nota"><p class="etq">Notas de topo · os primeiros minutos</p><h3>Frutas silvestres, cereja, laranja e bergamota</h3></article>
+    <article class="nota"><p class="etq">Notas de coração · depois de meia hora</p><h3>Rosa, flores brancas e baunilha</h3></article>
+    <article class="nota"><p class="etq">Notas de fundo · o que fica na pele</p><h3>Notas atalcadas, almíscar e âmbar</h3></article>
+  </div>
+
+  <p class="dica"><span>↓</span> role para descobrir</p>
+</section>
+
+<section class="frase">
+  <p class="acender">Doce como a sua <em>sobremesa preferida.</em> Elegante como um perfume importado deve ser.</p>
+</section>
+
+<section class="compra">
+  <img class="revelar" src="img/frasco.webp" alt="">
+  <p class="linha revelar">Armaf · Eau de Parfum · 100ml</p>
+  <h2 class="revelar">Yum Yum</h2>
+  <p class="preco revelar">R$ 340,00</p>
+  <a class="botao revelar" href="https://bibi-perfumes-glsmteste.vercel.app/produto/yum-yum">Quero o meu</a>
+  <p class="rodape">Bibi Perfumes Importados</p>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.defaults({ markers: new URLSearchParams(location.search).has('marcadores') }); // ?marcadores=1 mostra os gatilhos
+  const poucoMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- Rolagem suave (Lenis) ----------
+  if (!poucoMovimento) {
+    const lenis = window.lenis = new Lenis();
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((t) => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ---------- Os doces: posição de cada um na foto original do Gemini (1024x572) ----------
+  // [arquivo, x, y, largura, altura, nitidez]  -> nitidez baixa = foto desfocada
+  const FOTO_L = 1024, FOTO_A = 572;
+  const DOCES = [
+    ['04', 139, 36, 121, 132, 247], ['05', 694, 55, 74, 69, 119], ['06', 394, 64, 46, 55, 21],
+    ['09', 258, 152, 73, 73, 22], ['10', 33, 158, 78, 48, 263], ['11', 801, 167, 173, 139, 175],
+    ['12', 85, 174, 98, 123, 272], ['13', 311, 233, 42, 42, 25], ['14', 195, 238, 94, 98, 31],
+    ['16', 739, 257, 76, 78, 41], ['18', 653, 283, 57, 68, 47], ['19', 114, 359, 172, 150, 263],
+    ['20', 701, 386, 71, 66, 15], ['21', 799, 401, 156, 135, 15], ['22', 533, 414, 238, 109, 62],
+    ['23', 502, 464, 58, 73, 29],
+    // cópias desfocadas e maiores, pra ter mais coisa "passando perto da câmera"
+    ['21', 60, 20, 210, 182, 0, 'clone'], ['14', 860, 470, 150, 156, 0, 'clone']
+  ];
+  // camada: desfocado e grande = perto da câmera; desfocado e pequeno = longe; nítido = meio
+  const camadaDe = (w, nit) => (nit < 35 ? (w > 90 ? 'perto' : 'longe') : 'meio');
+
+  const caixa = document.getElementById('doces');
+  DOCES.forEach(([arq, x, y, w, h, nit, clone]) => {
+    const camada = clone ? 'perto' : camadaDe(w, nit);
+    const el = document.createElement('div');
+    el.className = `doce ${camada}${clone ? ' clone' : ''}`;
+    el.style.left = ((x + w / 2) / FOTO_L * 100) + '%';
+    el.style.top = ((y + h / 2) / FOTO_A * 100) + '%';
+    // tamanho proporcional à tela (no celular a tela é estreita, então usa a altura também)
+    el.style.width = `calc(${w / FOTO_L} * max(100vw, 95svh))`;
+    el.dataset.camada = camada;
+    el.dataset.cx = (x + w / 2) / FOTO_L; // posição de 0 a 1 (0.5 = meio da tela)
+    el.dataset.cy = (y + h / 2) / FOTO_A;
+    el.innerHTML = `<div class="doce-flutua"><img src="img/doces/doce-${arq}.png" alt=""></div>`;
+    caixa.appendChild(el);
+  });
+  const doces = gsap.utils.toArray('.doce');
+  const palco = document.getElementById('palco');
+
+  // Centraliza com xPercent/yPercent: assim o GSAP pode mexer em x/y sem perder o centro
+  gsap.set(['.doce', '.frasco', '.titulo', '.titulo-final', '.halo', '.centro'], { x: 0, y: 0, xPercent: -50, yPercent: -50 });
+
+  // ---------- GIRO 3D: 120 fotos do vídeo do Kling, trocadas conforme o scroll (um "flipbook") ----------
+  const TOTAL_QUADROS = 120;
+  const tela = document.getElementById('giro');
+  const pincel = tela.getContext('2d');
+  const quadros = [];
+  let quadroAtual = 0;
+  function desenhar(n) {
+    quadroAtual = n;
+    // se o quadro ainda não carregou, usa o mais próximo que já carregou
+    for (let d = 0; d < TOTAL_QUADROS; d++) {
+      const img = quadros[(n + d) % TOTAL_QUADROS];
+      if (img && img.complete && img.naturalWidth) {
+        pincel.clearRect(0, 0, tela.width, tela.height);
+        pincel.drawImage(img, 0, 0, tela.width, tela.height);
+        return;
+      }
+    }
+  }
+  for (let i = 0; i < TOTAL_QUADROS; i++) {
+    const img = new Image();
+    img.src = `img/giro/g${String(i).padStart(3, '0')}.webp`;
+    img.onload = () => { if (i === quadroAtual || i === 0) desenhar(quadroAtual); };
+    quadros.push(img);
+  }
+  const giro = { quadro: 0 }; // o scroll anima esse número de 0 a 119
+
+  // ---------- Animação de entrada (roda sozinha quando a página abre) ----------
+  if (!poucoMovimento) {
+    gsap.from('.doce img, .centro img', {
+      scale: 0, opacity: 0, rotation: () => gsap.utils.random(-60, 60),
+      duration: 1.1, ease: 'back.out(1.6)', stagger: { each: .04, from: 'center' }, delay: .2
+    });
+    gsap.from('.frasco canvas', { y: 120, opacity: 0, duration: 1.2, ease: 'power3.out' });
+    gsap.from('.titulo', { yPercent: 40, opacity: 0, duration: 1.2, ease: 'power3.out', delay: .1 });
+    // cada doce balança devagar, pra sempre (sem depender do scroll)
+    gsap.utils.toArray('.doce-flutua').forEach((d) => {
+      gsap.to(d, {
+        y: gsap.utils.random(-14, 14), rotation: gsap.utils.random(-10, 10),
+        duration: gsap.utils.random(2.5, 4.5), ease: 'sine.inOut', yoyo: true, repeat: -1
+      });
+    });
+  }
+
+  // ---------- O FILME: palco preso + tudo amarrado no scroll ----------
+  // matchMedia = uma versão do filme pro computador e outra pro celular
+  const mm = gsap.matchMedia();
+  mm.add({ pc: '(min-width: 800px)', cel: '(max-width: 799px)' }, (ctx) => {
+    const { pc } = ctx.conditions;
+    const filme = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#palco',
+        start: 'top top',
+        end: '+=450%',   // o filme dura 4,5 telas de rolagem
+        pin: true,       // o palco fica parado na tela
+        scrub: 1,        // segue o dedo, com 1s de suavidade
+        invalidateOnRefresh: true
+      }
+    });
+
+    // CENA 1 — explosão: cada doce voa pra longe do centro, na velocidade da sua camada
+    const forca = { longe: .55, meio: 1, perto: 1.6 };
+    doces.forEach((el) => {
+      const camada = el.dataset.camada;
+      // distância do doce até o meio da tela -> ele voa nessa mesma direção
+      const dx = () => (el.dataset.cx - .5) * palco.offsetWidth;
+      const dy = () => (el.dataset.cy - .5) * palco.offsetHeight;
+      filme.to(el, {
+        x: () => dx() * forca[camada] * 1.6 + Math.sign(dx() || 1) * 80,
+        y: () => dy() * forca[camada] * 1.6 + Math.sign(dy() || 1) * 80,
+        rotation: gsap.utils.random(-120, 120),
+        scale: camada === 'perto' ? 1.8 : camada === 'meio' ? 1.2 : .8,
+        ease: 'power1.in', duration: 1.2
+      }, 0);
+    });
+    filme
+      .to('.doce', { opacity: 0, duration: .3 }, .9) // some com quem ainda ficou na tela
+      .to('.centro', { scale: 1.8, opacity: 0, ease: 'power2.in', duration: .55 }, 0)
+      .to('.titulo', { scale: 1.5, opacity: 0, duration: 1 }, 0)
+      .to('.topo, .dica', { opacity: 0, duration: .3 }, 0)
+      .to('.frasco', { scale: 1.06, duration: 1 }, 0)
+      // o frasco dá uma volta completa durante o filme inteiro (termina de frente de novo)
+      .to(giro, { quadro: TOTAL_QUADROS - 1, ease: 'none', duration: 5, onUpdate: () => desenhar(Math.round(giro.quadro)) }, .2)
+
+    // CENA 2 — fundo vira vinho, frasco vai pro lado, notas aparecem uma por vez
+      .to('.camada-vinho', { opacity: 1, duration: .6 }, 1)
+      .to('.frasco', pc
+        ? { x: () => -innerWidth * .22, scale: .9, duration: .8 }
+        : { y: () => -innerHeight * .2, scale: .58, duration: .8 }, 1.1)
+      .to('.pir', { opacity: 1, duration: .3 }, 1.6);
+
+    const notas = gsap.utils.toArray('.nota');
+    const barras = gsap.utils.toArray('.pir i');
+    const nomes = gsap.utils.toArray('.pir span');
+    notas.forEach((nota, i) => {
+      const inicio = 1.7 + i * 1.1;
+      filme
+        .fromTo(nota, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .4 }, inicio)
+        .to(barras[i], { scaleX: 1, duration: .4 }, inicio)
+        .to(nomes[i], { color: '#fff', duration: .3 }, inicio);
+      if (i < notas.length - 1) filme.to(nota, { opacity: 0, y: -30, duration: .3 }, inicio + .8);
+    });
+
+    // CENA 3 — final: frasco volta pro centro com o nome em dourado atrás
+    filme
+      .to('.notas', { opacity: 0, duration: .3 }, 5.1)
+      .to('.frasco', { x: 0, y: 0, scale: 1, duration: .8 }, 5.2)
+      .fromTo('.titulo-final', { scale: 1.3, opacity: 0 }, { scale: 1, opacity: 1, duration: .8 }, 5.3)
+      .to('.halo', { opacity: 1, duration: .8 }, 5.3)
+      .to({}, { duration: .3 }); // respiro antes de soltar o palco
+  });
+
+  // ---------- Texto que acende palavra por palavra ----------
+  const frase = document.querySelector('.acender');
+  frase.querySelectorAll('em').forEach((em) => {
+    em.innerHTML = em.textContent.split(' ').map((p) => `<span class="palavra">${p}</span>`).join(' ');
+  });
+  [...frase.childNodes].forEach((no) => {
+    if (no.nodeType !== 3 || !no.textContent.trim()) return;
+    const span = document.createElement('span');
+    span.innerHTML = no.textContent.replace(/(\S+)/g, '<span class="palavra">$1</span>');
+    no.replaceWith(span);
+  });
+  gsap.to('.palavra', {
+    opacity: 1, stagger: .1, ease: 'none',
+    scrollTrigger: { trigger: '.acender', start: 'top 80%', end: 'bottom 45%', scrub: true }
+  });
+
+  // ---------- Revelar ao entrar na tela ----------
+  const olho = new IntersectionObserver((itens) => itens.forEach((item) => {
+    if (item.isIntersecting) { item.target.classList.add('visivel'); olho.unobserve(item.target); }
+  }), { threshold: .2 });
+  document.querySelectorAll('.revelar').forEach((el, i) => { el.style.transitionDelay = (i * .08) + 's'; olho.observe(el); });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+</script>
+</body>
+</html>

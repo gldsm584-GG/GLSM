@@ -138,14 +138,23 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 
 **Meu serviço:** criação de sites.
 
-**Clientes ativos:** Plavii (em prospecção — loja Next.js funcional em
-`clientes/Plavii/site/`, publicada em produção em plavii.vercel.app;
-checkout com Mercado Pago (voltou em 2026-10-05, ainda em modo TESTE) com
-escolha de entrega (retirada grátis ou frete Melhor Envio, já funcionando
-em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção (no carrinho e no checkout, este com a entrega escolhida na mensagem); o número de WhatsApp no
-site é o da loja (`61 99233-2876`, trocado em 2026-10-05); mensagem de
-abordagem enviada ao dono em 2026-10-06, aguardando resposta — falta
-resposta do dono, token do Mercado Pago em produção e domínio próprio).
+**Clientes ativos:**
+- Plavii (em prospecção — loja Next.js funcional em
+  `clientes/Plavii/site/`, publicada em produção em plavii.vercel.app;
+  checkout com Mercado Pago (voltou em 2026-10-05, ainda em modo TESTE) com
+  escolha de entrega (retirada grátis ou frete Melhor Envio, já funcionando
+  em produção desde 2026-10-05) e botão "Finalizar no WhatsApp" como segunda opção (no carrinho e no checkout, este com a entrega escolhida na mensagem); o número de WhatsApp no
+  site é o da loja (`61 99233-2876`, trocado em 2026-10-05) ; mensagem de
+  abordagem enviada ao dono em 2026-10-06, aguardando resposta — falta
+  resposta do dono, token do Mercado Pago em produção e domínio próprio).
+- Bibi Perfumes Importados (irmã do Gustavo — loja de perfumes árabes/
+  importados, Next.js + Supabase independente, publicada em produção em
+  bibi-perfumes-glsmteste.vercel.app desde 2026-10-06; catálogo + carrinho +
+  WhatsApp (número real já configurado), sem pagamento online; conta de
+  cliente opcional (cadastro com endereço, menu da conta, favoritos e
+  histórico) e logo real aplicado em 2026-10-07; falta fotos reais dos
+  produtos e conferir o "Confirm email" no Supabase — ver
+  `clientes/Bibi-Perfumes-Importados/briefing.md`).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com

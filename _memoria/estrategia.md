@@ -6,7 +6,10 @@
 
 ## Fase
 
-Começando — primeiro cliente em prospecção (Plavii), ainda sem nenhum fechado.
+Dois projetos ativos: Plavii (ainda em prospecção, primeira abordagem
+direta ao dono sem fechamento) e Bibi Perfumes Importados (irmã do
+Gustavo — site construído e publicado em produção em 2026-10-06; não é
+uma prospecção comercial). Nenhum cliente pagante fechado ainda.
 
 ## Prioridade principal
 
@@ -86,6 +89,14 @@ trocado pro logo real da Plavii. Em 2026-09-30, foi criada a Política de
 Privacidade (`/politica-de-privacidade`) e tirado o CNPJ do rodapé (a
 Plavii ainda não é cliente fechado).
 
+Primeira abordagem direta enviada ao dono em 2026-10-05 à noite (mensagem
+pronta com link do site + oferta de demo de 10min). Resposta em 2026-10-06:
+agradeceram e disseram que "vão analisar e qualquer coisa entram em
+contato" — sem aceitar a demo. Leitura do Gustavo: foi um "fora" educado,
+não interesse real. Prospecção segue em aberto, sem retorno confirmado;
+pode precisar de reabordagem ou abrir prospecção em paralelo (ver
+`clientes/Plavii/briefing.md`).
+
 Checklist completo do que falta antes do lançamento de verdade, e a
 decisão de modelo comercial (venda única: R$ 4.000 no Pix ou 3x de
 R$ 1.500 no cartão, sem desconto adicional; contas transferidas pro dono
@@ -96,6 +107,39 @@ ABORDAGEM ENVIADA (2026-10-06): o Gustavo mandou a mensagem de abertura pro dono
 da Plavii (WhatsApp, com link do site, sem preço). Estado: aguardando
 resposta. Lembrete de 2-3 dias se ele não responder; evitar mexer no site
 sem necessidade enquanto isso. Roteiro em `clientes/Plavii/abordagem.md`.
+
+## Bibi Perfumes Importados (2026-10-06)
+
+Site novo construído do zero numa sessão só: loja de perfumes árabes/
+importados da irmã do Gustavo, Next.js + Supabase independente (não
+compartilha banco com a Plavii), reaproveitando os padrões já validados
+(galeria de fotos com zoom, admin, kanban de pedidos pra vendas
+fechadas no WhatsApp). Catálogo + carrinho + "Finalizar no WhatsApp",
+sem login de cliente nem pagamento online (decisão consciente de manter
+simples). Publicado em produção em
+https://bibi-perfumes-glsmteste.vercel.app, com deploy automático a
+cada push (time Vercel `glsmteste`, mesmo esquema da Plavii). Supabase
+próprio criado e rodando, login de admin testado
+(`gldsm584@gmail.com`). Número de WhatsApp real já configurado
+(`61 9917-3630`). Falta só fotos reais dos 12 perfumes (hoje
+`/sem-imagem.svg`) e o logo da Bibi — ver
+`clientes/Bibi-Perfumes-Importados/briefing.md`.
+
+Em 2026-10-07: demo de animação no scroll com o Yum Yum (frasco girando
+em 3D, fotos via Gemini + vídeo via Kling) em `demo-scroll/`, ainda fora
+do site — ver briefing.
+
+Ainda em 2026-10-07, a pedido do Gustavo: a Bibi ganhou conta de cliente
+OPCIONAL (cadastro com nome e endereço, menu da conta igual ao da Plavii,
+favoritos e histórico; logado, nome e endereço vão na mensagem do
+WhatsApp) e o logo real foi aplicado no site. Falta conferir o "Confirm
+email" no Supabase e testar um cadastro de verdade.
+
+Também em 2026-10-07: o admin da Bibi passou a ser `bibiperfumes@gmail.com`
+(conta criada, SQL rodado e publicado — funcionando). O `gldsm584@gmail.com`
+virou conta comum. Plano pro "Confirm email" (o Gustavo vai fazer depois):
+usar o próprio Gmail da loja como SMTP no Supabase (senha de app do Google),
+que funciona sem domínio próprio — passo a passo no briefing da Bibi.
 
 ## Ideias guardadas pra depois (a conversar com o cliente)
 
