@@ -6,6 +6,9 @@
 -- vai logar como admin (6 ocorrências abaixo). Sugestão: gldsm584@gmail.com
 -- (confirmar com o Gustavo) — depois disso, troque também em
 -- src/lib/admin.ts (ADMIN_EMAILS).
+--
+-- DEPOIS: rode 002_admin_bibiperfumes.sql — ele troca essas políticas pela
+-- função is_admin() (admin atual: bibiperfumes@gmail.com, desde 2026-10-07).
 -- ============================================================
 
 -- PRODUCTS -----------------------------------------------------

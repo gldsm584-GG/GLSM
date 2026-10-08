@@ -77,6 +77,12 @@ funcionando com `gldsm584@gmail.com`.
   esquema usado com a Plavii — transferir pra Bibi se o negócio decolar
 - Admin login: email do Gustavo (`gldsm584@gmail.com`) — confirmado e
   testado em 2026-10-06, funcionando
+- TROCADO em 2026-10-07 (pedido do Gustavo): admin passa a ser
+  `bibiperfumes@gmail.com`. Código em `src/lib/admin.ts` e banco via
+  `site/supabase/002_admin_bibiperfumes.sql` (as 9 políticas agora usam a
+  função `is_admin()` — pra trocar de novo, muda só ela). Ordem: 1) criar a
+  conta no Supabase (Add user, Auto Confirm), 2) rodar o SQL, 3) publicar.
+  A conta `gldsm584@gmail.com` vira conta comum (pode apagar se quiser)
 
 ## Pendências antes de divulgar
 
@@ -94,6 +100,8 @@ funcionando com `gldsm584@gmail.com`.
 - [x] Logo real da Bibi Perfumes — recebido e aplicado em 2026-10-07
 - [ ] Conferir "Confirm email" no Supabase e testar um cadastro de
       verdade (ver "Decisões de escopo")
+- [ ] Trocar admin pra `bibiperfumes@gmail.com`: criar a conta no
+      Supabase e rodar `002_admin_bibiperfumes.sql` (código já trocado)
 
 ## Demo de animação no scroll — Yum Yum (2026-10-07)
 

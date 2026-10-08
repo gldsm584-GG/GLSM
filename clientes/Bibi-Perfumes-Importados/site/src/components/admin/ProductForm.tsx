@@ -131,7 +131,7 @@ export default function ProductForm({
     } catch (err) {
       setError(
         err instanceof Error && err.message === "NO_PERMISSION"
-          ? "O banco recusou a alteração. Confere se seu email está em ADMIN_EMAILS (src/lib/admin.ts) e na política RLS do Supabase."
+          ? "O banco recusou a alteração. Confere se seu email está em ADMIN_EMAILS (src/lib/admin.ts) e na função is_admin() do Supabase."
           : "Não deu pra salvar. Confere se o identificador já existe."
       );
     } finally {
