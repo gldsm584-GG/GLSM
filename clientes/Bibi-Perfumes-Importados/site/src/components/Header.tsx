@@ -43,7 +43,7 @@ export default function Header() {
             priority
             className="h-11 w-11 shrink-0 rounded-full shadow-sm"
           />
-          <span className="truncate font-serif text-xl font-bold tracking-tight text-brand-dark">
+          <span className="truncate font-serif text-2xl font-semibold tracking-wide text-brand-dark">
             Bibi Perfumes
           </span>
         </Link>

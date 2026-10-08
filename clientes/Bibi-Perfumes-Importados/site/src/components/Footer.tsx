@@ -15,7 +15,7 @@ export default function Footer() {
               height={88}
               className="mb-3 h-22 w-22 rounded-full ring-2 ring-accent/40"
             />
-            <p className="font-serif text-lg font-bold text-white">Bibi Perfumes Importados</p>
+            <p className="font-serif text-xl font-semibold text-white">Bibi Perfumes Importados</p>
             <p className="mt-2">
               Perfumes árabes e importados, com notas de topo, coração e
               fundo escolhidas pra contar uma história.
