@@ -103,6 +103,11 @@ R$ 1.500 no cartão, sem desconto adicional; contas transferidas pro dono
 depois do pagamento completo, que passa a pagar as assinaturas) estão detalhados em
 `clientes/Plavii/briefing.md`.
 
+ABORDAGEM ENVIADA (2026-10-06): o Gustavo mandou a mensagem de abertura pro dono
+da Plavii (WhatsApp, com link do site, sem preço). Estado: aguardando
+resposta. Lembrete de 2-3 dias se ele não responder; evitar mexer no site
+sem necessidade enquanto isso. Roteiro em `clientes/Plavii/abordagem.md`.
+
 ## Bibi Perfumes Importados (2026-10-06)
 
 Site novo construído do zero numa sessão só: loja de perfumes árabes/

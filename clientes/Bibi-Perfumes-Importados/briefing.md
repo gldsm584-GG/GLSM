@@ -16,21 +16,23 @@ página do produto mostra isso em destaque, com ícone pra cada camada.
 
 ## Identidade visual
 
-- Paleta rosa/vinho/dourado, inspirada no print de catálogo que a Bibi
-  usa hoje (fundo rosa/magenta em gradiente, título serifado vinho,
-  detalhes dourados, flores decorativas)
-- Cores (`src/app/globals.css`): `--brand #c2185b` (framboesa/magenta),
-  `--brand-dark #880e4f` (vinho), `--brand-light #f48fb1` (rosa claro),
-  `--accent #d4af37` (dourado)
-- Fonte serifada (Playfair Display) pro título do hero, Inter pro resto
+- Paleta vinho/champagne/dourado (redesenhada em 2026-10-08 pra ficar mais
+  premium; antes era rosa/magenta inspirada no print de catálogo): fundo
+  creme `#faf5ee`, texto `#2a1520`, vinho `--brand #7b2646`, vinho escuro
+  `--brand-dark #3a0f24`, blush `--brand-light #e6c3bd`, dourado
+  `--accent #c0975a` (`src/app/globals.css`). Os cinzas do Tailwind
+  (`neutral-*`) foram trocados por tons quentes de pedra/champagne no mesmo
+  arquivo. Hero da home escuro (degradê vinho com brilho dourado)
+- Tipografia: Cormorant Garamond (serifada) em títulos h1/h2, nome no
+  cabeçalho e rodapé; Inter no resto. Antes era Playfair Display
 - Logo: recebido em 2026-10-07 — selo redondo dourado-rosé em fundo de
   mármore rosa (frasco + coroa + "BIBI Perfumes Importados"). Original em
   `clientes/Bibi-Perfumes-Importados/logo.jpeg` (1254x1254) — nunca em
   `identidade/` (reservada pra marca pessoal do Gustavo). No site: recorte
   redondo em `site/public/logo.png` (cabeçalho e rodapé), ícone da aba
   `site/src/app/icon.png` e `apple-icon.png` (atalho no celular)
-- Obs.: o logo é rosé/blush, mais suave que o magenta `--brand` do site —
-  se a Bibi quiser, dá pra puxar a paleta do site pro tom do logo
+- Obs.: o logo é rosé/blush; a paleta nova (vinho + champagne) já combina
+  melhor com ele que o magenta antigo
 
 ## Status
 
@@ -117,6 +119,16 @@ funcionando com `gldsm584@gmail.com`.
 - [x] Trocar admin pra `bibiperfumes@gmail.com` — conta criada, SQL
       `002_admin_bibiperfumes.sql` rodado e publicado; Gustavo confirmou
       que funcionou em 2026-10-07
+
+## Ideias de evolução do visual (sugeridas em 2026-10-08)
+
+Feito: paleta e tipografia (acima). Ainda não feito, em ordem de impacto:
+- [ ] Fotos reais dos frascos (maior ganho de todos)
+- [ ] Hero da home com o frasco girando no scroll (a demo do Yum Yum)
+- [ ] Pirâmide olfativa interativa (topo/coração/fundo se acendem)
+- [ ] Microinterações (tilt nos cards, revelação no scroll, transições)
+- [ ] Filtro por família olfativa e mini quiz "qual perfume é você?"
+- [ ] Selo "100% original", avaliações, Instagram embutido
 
 ## Demo de animação no scroll — Yum Yum (2026-10-07)
 
