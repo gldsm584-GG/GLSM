@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aula: animações no scroll</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     AULA: ANIMAÇÕES NO SCROLL
+     Abra esse arquivo num editor (VS Code, Bloco de Notas...),
+     mude os números marcados com "EXERCÍCIO" e recarregue a página.
+     ============================================================ */
+
+  :root {
+    --fundo: #0e0c0a;
+    --fundo2: #17130f;
+    --creme: #f3ece0;
+    --cinza: #a39a8c;
+    --ouro: #d4a857;
+    --ouro2: #f1d48f;
+    --linha: rgba(243, 236, 224, .12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Lenis (rolagem suave) pede essas duas linhas */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+  body {
+    background: var(--fundo);
+    color: var(--creme);
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.05; }
+
+  /* ---------- BÔNUS: barra de progresso só com CSS ---------- */
+  .progresso {
+    position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 100;
+    background: linear-gradient(90deg, var(--ouro), var(--ouro2));
+    transform-origin: 0 50%;
+    transform: scaleX(0);
+  }
+  @supports (animation-timeline: scroll()) {
+    .progresso { animation: encher linear both; animation-timeline: scroll(root); }
+    @keyframes encher { to { transform: scaleX(1); } }
+  }
+
+  /* ---------- Botões flutuantes ---------- */
+  .hud {
+    position: fixed; right: 16px; bottom: 16px; z-index: 100;
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;
+  }
+  .hud button {
+    font: 500 13px Inter, sans-serif; color: var(--creme);
+    background: rgba(23, 19, 15, .88); backdrop-filter: blur(8px);
+    border: 1px solid var(--linha); border-radius: 999px;
+    padding: 10px 14px; cursor: pointer;
+  }
+  .hud button[aria-pressed="true"] { border-color: var(--ouro); color: var(--ouro2); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100svh; display: grid; place-content: center;
+    text-align: center; padding: 0 16px; position: relative;
+  }
+  .eyebrow { font-size: 12px; letter-spacing: .25em; text-transform: uppercase; color: var(--ouro); }
+  .hero h1 { font-size: clamp(56px, 12vw, 160px); margin: 16px 0 24px; }
+  .hero h1 em { font-style: italic; color: var(--ouro2); }
+  .hero .sub { color: var(--cinza); max-width: 520px; margin: 0 auto; }
+  .seta {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    font-size: 13px; color: var(--cinza); animation: pulo 2s ease-in-out infinite;
+  }
+  @keyframes pulo { 50% { transform: translate(-50%, 8px); } }
+
+  /* ---------- Ficha de cada técnica ---------- */
+  .ficha {
+    max-width: 1100px; margin: 0 auto; padding: 140px 16px 56px;
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: start;
+  }
+  .num { font-family: 'Playfair Display', serif; color: var(--ouro); font-size: 14px; letter-spacing: .2em; }
+  .ficha h2 { font-size: clamp(36px, 5vw, 56px); margin: 8px 0 16px; }
+  .ficha p { color: var(--cinza); }
+  .ficha p + p { margin-top: 12px; }
+  .ficha b { color: var(--creme); font-weight: 600; }
+  .uso { margin-top: 20px; font-size: 14px; color: var(--creme); border-left: 2px solid var(--ouro); padding-left: 12px; }
+  pre {
+    background: #0a0907; border: 1px solid var(--linha); border-radius: 14px;
+    padding: 20px; overflow-x: auto; color: #e8dcc6;
+    font: 13px/1.65 'JetBrains Mono', ui-monospace, monospace;
+  }
+  pre .c { color: #7d7366; }
+  pre .k { color: var(--ouro2); }
+
+  /* ---------- TÉCNICA 1: revelar ao entrar na tela ---------- */
+  .revelar {
+    opacity: 0;
+    transform: translateY(48px); /* EXERCÍCIO 1: troque por translateX(-80px) */
+    transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1);
+  }
+  .revelar.visivel { opacity: 1; transform: none; }
+
+  .cards {
+    max-width: 1100px; margin: 0 auto; padding: 0 16px 140px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .card {
+    background: var(--fundo2); border: 1px solid var(--linha); border-radius: 20px;
+    padding: 28px; min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end;
+    position: relative; overflow: hidden;
+  }
+  .card .gota {
+    position: absolute; top: -40px; right: -40px; width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle, var(--cor, #d4a857) 0%, transparent 70%); opacity: .45;
+  }
+  .card span { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--ouro); }
+  .card h3 { font-size: 30px; margin: 6px 0 8px; }
+  .card p { color: var(--cinza); font-size: 15px; }
+
+  /* ---------- Frasco de perfume desenhado em CSS ---------- */
+  .frasco { font-size: 10px; display: flex; flex-direction: column; align-items: center; width: 18em; }
+  .tampa {
+    width: 7em; height: 6em; border-radius: .6em .6em .2em .2em;
+    background: linear-gradient(90deg, #6e5222, #f1d48f 45%, #b98d3e 62%, #5c441c);
+  }
+  .gargalo { width: 4em; height: 1.6em; background: linear-gradient(90deg, #4a3c29, #c9b48a, #4a3c29); }
+  .corpo {
+    position: relative; width: 18em; height: 20em; overflow: hidden;
+    border-radius: 3em 3em 2.4em 2.4em; border: 1px solid rgba(255, 255, 255, .28);
+    background: linear-gradient(135deg, rgba(255, 255, 255, .16), rgba(255, 255, 255, .03));
+    box-shadow: inset 0 0 3em rgba(255, 255, 255, .06), 0 2em 4em rgba(0, 0, 0, .55);
+  }
+  .liquido {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 84%;
+    background: linear-gradient(180deg, #e9bb5f, #9c5a17); transform-origin: 50% 100%; opacity: .92;
+  }
+  .brilho {
+    position: absolute; top: 8%; left: 10%; width: 14%; height: 70%; border-radius: 2em;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
+  }
+  .rotulo {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif; font-size: 1.7em; letter-spacing: .3em; color: #2a1a08;
+    background: rgba(243, 236, 224, .9); padding: .45em .7em .45em 1em; border-radius: .2em;
+  }
+
+  /* ---------- TÉCNICA 2: parallax ---------- */
+  .parallax {
+    position: relative; height: 130vh; overflow: hidden; display: grid; place-items: center;
+    background: radial-gradient(ellipse at center, #2a1f14 0%, var(--fundo) 70%);
+  }
+  .camada { position: absolute; will-change: transform; }
+  .p-fundo {
+    font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: -.02em;
+    font-size: clamp(150px, 34vw, 440px); color: rgba(212, 168, 87, .1);
+  }
+  .p-meio .frasco { font-size: 9px; }
+  .p-frente { inset: 0; pointer-events: none; }
+  .ponto {
+    position: absolute; border-radius: 50%;
+    background: radial-gradient(circle, var(--ouro2), transparent 70%);
+  }
+  .legenda {
+    position: absolute; bottom: 24px; left: 0; right: 0; text-align: center;
+    font-size: 13px; color: var(--cinza); padding: 0 16px;
+  }
+
+  /* ---------- TÉCNICA 3: palco preso (pin + scrub) ---------- */
+  .palco { height: 100svh; overflow: hidden; position: relative; display: grid; place-items: center; }
+  .palco-grid {
+    width: 100%; max-width: 1100px; padding: 0 16px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  }
+  .palco-frasco { position: relative; display: grid; place-items: center; }
+  .palco-frasco .frasco { font-size: 13px; position: relative; z-index: 1; }
+  .aura {
+    position: absolute; width: 520px; height: 520px; border-radius: 50%; opacity: 0;
+    background: radial-gradient(circle, rgba(241, 212, 143, .35), transparent 65%);
+  }
+  .notas { position: relative; height: 240px; list-style: none; }
+  .nota { position: absolute; inset: 0; }
+  .nota span { font-size: 12px; letter-spacing: .25em; text-transform: uppercase; color: var(--ouro); }
+  .nota h3 { font-size: clamp(34px, 4.5vw, 54px); margin: 10px 0 12px; }
+  .nota p { color: var(--cinza); max-width: 380px; }
+  .medidor {
+    position: absolute; left: 16px; bottom: 24px; font: 13px 'JetBrains Mono', monospace; color: var(--cinza);
+  }
+  .medidor b { color: var(--ouro2); font-weight: 500; }
+
+  /* ---------- TÉCNICA 4: rolagem horizontal ---------- */
+  .horizontal { height: 100svh; overflow: hidden; display: flex; align-items: center; }
+  .trilho { display: flex; gap: 24px; padding: 0 8vw; width: max-content; align-items: center; }
+  .h-intro { width: min(70vw, 340px); flex: none; }
+  .h-intro h2 { font-size: clamp(44px, 6vw, 72px); margin: 8px 0 12px; }
+  .h-intro p { color: var(--cinza); }
+  .produto {
+    flex: none; width: min(76vw, 320px); height: min(62svh, 440px); border-radius: 24px;
+    border: 1px solid var(--linha); padding: 24px; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    background: linear-gradient(160deg, var(--cor), var(--fundo2) 75%);
+  }
+  .produto .frasco { font-size: 6px; position: absolute; top: 28px; left: 50%; transform: translateX(-50%); }
+  .produto h3 { font-size: 28px; }
+  .produto p { color: var(--cinza); font-size: 14px; }
+  .produto .preco { color: var(--ouro2); font-weight: 600; margin-top: 8px; }
+
+  /* ---------- TÉCNICA 5: texto que acende ---------- */
+  .frase { min-height: 140vh; display: grid; place-items: center; padding: 0 16px; }
+  .acender {
+    font-family: 'Playfair Display', serif; font-size: clamp(32px, 5.5vw, 72px);
+    line-height: 1.15; max-width: 1000px;
+  }
+  .palavra { opacity: .12; }
+
+  /* ---------- Resumo ---------- */
+  .resumo { max-width: 1100px; margin: 0 auto; padding: 140px 16px 160px; }
+  .resumo h2 { font-size: clamp(36px, 5vw, 56px); margin: 8px 0 32px; }
+  .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .bloco { background: var(--fundo2); border: 1px solid var(--linha); border-radius: 20px; padding: 24px; }
+  .bloco .n { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--ouro); line-height: 1; }
+  .bloco h3 { font-size: 22px; margin: 12px 0 8px; }
+  .bloco p, .lista li { color: var(--cinza); font-size: 15px; }
+  .bloco b, .lista b { color: var(--creme); font-weight: 600; }
+  .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 72px; }
+  .duas h3 { font-size: 28px; margin-bottom: 16px; }
+  .lista { list-style: none; display: grid; gap: 14px; }
+  .lista li { padding-left: 16px; border-left: 2px solid var(--linha); }
+  code.in { font-family: 'JetBrains Mono', monospace; font-size: .9em; color: var(--ouro2); }
+
+  @media (max-width: 800px) {
+    .ficha { grid-template-columns: 1fr; gap: 24px; padding-top: 104px; }
+    .cards, .grade, .duas { grid-template-columns: 1fr; }
+    .palco-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+    .palco-frasco .frasco { font-size: 8px; }
+    .aura { width: 320px; height: 320px; }
+    .notas { height: 200px; }
+    .nota p { margin: 0 auto; }
+    .medidor { left: 0; right: 0; text-align: center; top: 20px; bottom: auto; }
+    .duas { gap: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progresso"></div>
+
+<div class="hud">
+  <button id="b-suave" type="button">Rolagem suave</button>
+  <button id="b-marcadores" type="button">Ver gatilhos</button>
+</div>
+
+<!-- ========================== HERO ========================== -->
+<header class="hero">
+  <div class="hero-conteudo">
+    <p class="eyebrow">Aula prática · 5 técnicas</p>
+    <h1>Animações<br>no <em>scroll</em></h1>
+    <p class="sub">Role devagar. Cada parte da página é uma técnica diferente, com o código que faz ela funcionar logo antes.</p>
+  </div>
+  <div class="seta">↓ role pra baixo</div>
+</header>
+
+<!-- ===================== TÉCNICA 1 ===================== -->
+<section id="t1">
+  <div class="ficha">
+    <div class="revelar">
+      <span class="num">TÉCNICA 01</span>
+      <h2>Revelar ao entrar na tela</h2>
+      <p>A mais usada de todas. O elemento começa <b>invisível e um pouco abaixo</b>. Quando ele aparece na tela, o JavaScript coloca uma classe nele e o CSS faz a transição.</p>
+      <p>Funciona em qualquer site, sem biblioteca nenhuma. A animação <b>dispara uma vez e roda sozinha</b>, não importa a velocidade que você rola.</p>
+      <p class="uso">Quando usar: títulos, cards de produto, depoimentos. Quase todo site "bonito" tem isso.</p>
+    </div>
+    <pre class="revelar"><span class="c">/* CSS: começa escondido e abaixo */</span>
+.revelar {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: .9s;
+}
+.revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+<span class="c">// JS: um "olho" que avisa quando entra na tela</span>
+<span class="k">const</span> olho = <span class="k">new</span> IntersectionObserver((itens) =&gt; {
+  itens.forEach((item) =&gt; {
+    <span class="k">if</span> (item.isIntersecting)
+      item.target.classList.add(<span class="k">'visivel'</span>);
+  });
+}, { threshold: 0.2 }); <span class="c">// 20% visível = dispara</span>
+
+document.querySelectorAll(<span class="k">'.revelar'</span>)
+  .forEach((el) =&gt; olho.observe(el));</pre>
+  </div>
+
+  <div class="cards">
+    <article class="card revelar" style="--cor:#d4a857">
+      <div class="gota"></div>
+      <span>Árabe</span><h3>Oud Noir</h3>
+      <p>Esse card entrou primeiro.</p>
+    </article>
+    <article class="card revelar" style="--cor:#c2566b; transition-delay:.15s">
+      <div class="gota"></div>
+      <span>Floral</span><h3>Rosa de Taif</h3>
+      <p>Esse tem <code class="in">transition-delay: .15s</code>.</p>
+    </article>
+    <article class="card revelar" style="--cor:#e6dcc8; transition-delay:.3s">
+      <div class="gota"></div>
+      <span>Amadeirado</span><h3>Musk Branco</h3>
+      <p>E esse <code class="in">.3s</code>. Daí o efeito "um depois do outro".</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== TÉCNICA 2 ===================== -->
+<section>
+  <div class="ficha">
+    <div class="revelar">
+      <span class="num">TÉCNICA 02</span>
+      <h2>Parallax</h2>
+      <p>Várias camadas andando em <b>velocidades diferentes</b> enquanto você rola. O cérebro lê isso como profundidade, igual olhar pela janela do carro: o que tá longe anda devagar, o que tá perto passa rápido.</p>
+      <p>Aqui entra o <b>GSAP + ScrollTrigger</b>, a biblioteca que quase todo site premiado usa. A diferença pra técnica 1: com <code class="in">scrub</code> a animação <b>segue o seu dedo</b>. Rolou metade, ela tá na metade. Parou, ela para.</p>
+      <p class="uso">Quando usar: topo do site, fundo de seções, fotos grandes.</p>
+    </div>
+    <pre class="revelar"><span class="c">&lt;!-- HTML: cada camada diz sua velocidade --&gt;</span>
+&lt;div data-velocidade=<span class="k">"-0.6"</span>&gt;OUD&lt;/div&gt;  <span class="c">&lt;!-- longe --&gt;</span>
+&lt;div data-velocidade=<span class="k">"0.3"</span>&gt;frasco&lt;/div&gt;
+&lt;div data-velocidade=<span class="k">"1.2"</span>&gt;brilhos&lt;/div&gt; <span class="c">&lt;!-- perto --&gt;</span>
+
+<span class="c">// JS: pra cada camada...</span>
+gsap.fromTo(camada,
+  { y: velocidade * 250 },   <span class="c">// sai daqui</span>
+  { y: velocidade * -250,    <span class="c">// chega aqui</span>
+    ease: <span class="k">'none'</span>,
+    scrollTrigger: {
+      trigger: <span class="k">'#t2'</span>,
+      start: <span class="k">'top bottom'</span>, <span class="c">// seção apareceu</span>
+      end: <span class="k">'bottom top'</span>,   <span class="c">// seção saiu</span>
+      scrub: <span class="k">true</span>          <span class="c">// segue o dedo</span>
+    }
+  });</pre>
+  </div>
+</section>
+
+<section class="parallax" id="t2">
+  <div class="camada p-fundo" data-velocidade="-0.6">OUD</div>
+  <div class="camada p-meio" data-velocidade="0.3">
+    <div class="frasco"><div class="tampa"></div><div class="gargalo"></div><div class="corpo"><div class="liquido"></div><div class="brilho"></div><span class="rotulo">ÂMBAR</span></div></div>
+  </div>
+  <div class="camada p-frente" data-velocidade="1.2"></div>
+  <p class="legenda">"OUD" no fundo: devagar · frasco: médio · brilhos na frente: rápido</p>
+</section>
+
+<!-- ===================== TÉCNICA 3 ===================== -->
+<section>
+  <div class="ficha">
+    <div class="revelar">
+      <span class="num">TÉCNICA 03</span>
+      <h2>A seção que "gruda" na tela</h2>
+      <p>Esse é o efeito estilo Apple, o que mais aparece nesses vídeos. A seção <b>fica presa</b> (<code class="in">pin</code>) e, em vez da página descer, o seu scroll vira o <b>controle de um filme</b>: o frasco cresce, enche, abre a tampa e o texto vai trocando.</p>
+      <p>O segredo é a <b>timeline</b>: uma fila de animações, uma depois da outra. O scroll só decide em que ponto do filme você está. Repara no contador de % no canto da seção.</p>
+      <p class="uso">Quando usar: apresentar UM produto principal, contar uma história em etapas. 1 ou 2 por site, no máximo.</p>
+    </div>
+    <pre class="revelar"><span class="k">const</span> filme = gsap.timeline({
+  scrollTrigger: {
+    trigger: <span class="k">'#t3'</span>,
+    start: <span class="k">'top top'</span>,
+    end: <span class="k">'+=300%'</span>, <span class="c">// dura 3 telas de rolagem</span>
+    pin: <span class="k">true</span>,     <span class="c">// a seção fica PARADA</span>
+    scrub: 1       <span class="c">// segue o scroll (1s de suavidade)</span>
+  }
+});
+
+<span class="c">// as cenas, em ordem:</span>
+filme
+  .from(<span class="k">'.frasco'</span>,  { scale: 0.5, rotate: -25 })
+  .from(<span class="k">'.liquido'</span>, { scaleY: 0 })   <span class="c">// enche</span>
+  .to(<span class="k">'.nota-1'</span>,    { opacity: 1 })  <span class="c">// texto 1</span>
+  .to(<span class="k">'.nota-1'</span>,    { opacity: 0 })
+  .to(<span class="k">'.nota-2'</span>,    { opacity: 1 })  <span class="c">// texto 2</span>
+  <span class="c">// ...</span>
+  .to(<span class="k">'.tampa'</span>,     { y: -60 });     <span class="c">// abre</span></pre>
+  </div>
+</section>
+
+<section class="palco" id="t3">
+  <div class="palco-grid">
+    <div class="palco-frasco">
+      <div class="aura"></div>
+      <div class="frasco"><div class="tampa"></div><div class="gargalo"></div><div class="corpo"><div class="liquido"></div><div class="brilho"></div><span class="rotulo">ÂMBAR</span></div></div>
+    </div>
+    <ol class="notas">
+      <li class="nota"><span>Notas de topo</span><h3>Bergamota e açafrão</h3><p>O que você sente nos primeiros minutos, logo depois de borrifar.</p></li>
+      <li class="nota"><span>Notas de coração</span><h3>Rosa damascena</h3><p>Aparece depois de uns 30 minutos, quando o topo evapora.</p></li>
+      <li class="nota"><span>Notas de fundo</span><h3>Oud e âmbar</h3><p>O que fica na pele até o fim do dia.</p></li>
+    </ol>
+  </div>
+  <div class="medidor">progresso do filme: <b>0%</b></div>
+</section>
+
+<!-- ===================== TÉCNICA 4 ===================== -->
+<section>
+  <div class="ficha">
+    <div class="revelar">
+      <span class="num">TÉCNICA 04</span>
+      <h2>Rolagem horizontal</h2>
+      <p>Você rola <b>pra baixo</b>, os cards andam <b>pro lado</b>. É a técnica 3 de novo (seção presa + scrub), só que a animação é mover a fileira inteira pra esquerda.</p>
+      <p>A conta é simples: a fileira anda o quanto ela é maior que a tela, e a seção fica presa por essa mesma distância de rolagem.</p>
+      <p class="uso">Quando usar: vitrine de produtos, portfólio, linha do tempo.</p>
+    </div>
+    <pre class="revelar"><span class="k">const</span> trilho = document.querySelector(<span class="k">'.trilho'</span>);
+<span class="c">// quanto a fileira passa da largura da tela</span>
+<span class="k">const</span> sobra = () =&gt;
+  trilho.scrollWidth - window.innerWidth;
+
+gsap.to(trilho, {
+  x: () =&gt; -sobra(),       <span class="c">// anda pra esquerda</span>
+  ease: <span class="k">'none'</span>,
+  scrollTrigger: {
+    trigger: <span class="k">'#t4'</span>,
+    start: <span class="k">'top top'</span>,
+    end: () =&gt; <span class="k">'+='</span> + sobra(), <span class="c">// mesma distância</span>
+    pin: <span class="k">true</span>,
+    scrub: 1
+  }
+});</pre>
+  </div>
+</section>
+
+<section class="horizontal" id="t4">
+  <div class="trilho">
+    <div class="h-intro">
+      <span class="num">COLEÇÃO</span>
+      <h2>Continue rolando ↓</h2>
+      <p>…e veja os perfumes passarem pro lado →</p>
+    </div>
+    <article class="produto" style="--cor:#4a3317"><div class="frasco"><div class="tampa"></div><div class="gargalo"></div><div class="corpo"><div class="liquido"></div><div class="brilho"></div></div></div><h3>Oud Noir</h3><p>Árabe · 100ml</p><p class="preco">R$ 289</p></article>
+    <article class="produto" style="--cor:#5a2430"><div class="frasco"><div class="tampa"></div><div class="gargalo"></div><div class="corpo"><div class="liquido" style="background:linear-gradient(#e78a9c,#8e2f45)"></div><div class="brilho"></div></div></div><h3>Rosa de Taif</h3><p>Floral · 100ml</p><p class="preco">R$ 249</p></article>
+    <article class="produto" style="--cor:#5a4415"><div class="frasco"><div class="tampa"></div><div class="gargalo"></div><div class="corpo"><div class="liquido" style="background:linear-gradient(#f6d27a,#b9801c)"></div><div class="brilho"></div></div></div><h3>Âmbar Real</h3><p>Oriental · 80ml</p><p class="preco">R$ 319</p></article>
+    <article class="produto" style="--cor:#3d3a35"><div class="frasco"><div class="tampa"></div><div class="gargalo"></div><div class="corpo"><div class="liquido" style="background:linear-gradient(#f4efe4,#bdb3a0)"></div><div class="brilho"></div></div></div><h3>Musk Branco</h3><p>Amadeirado · 100ml</p><p class="preco">R$ 199</p></article>
+    <article class="produto" style="--cor:#4e3420"><div class="frasco"><div class="tampa"></div><div class="gargalo"></div><div class="corpo"><div class="liquido" style="background:linear-gradient(#e3b57d,#7b4a22)"></div><div class="brilho"></div></div></div><h3>Baunilha Sultana</h3><p>Gourmand · 90ml</p><p class="preco">R$ 229</p></article>
+  </div>
+</section>
+
+<!-- ===================== TÉCNICA 5 ===================== -->
+<section>
+  <div class="ficha">
+    <div class="revelar">
+      <span class="num">TÉCNICA 05</span>
+      <h2>Texto que acende palavra por palavra</h2>
+      <p>Muito comum nesses vídeos. O truque: <b>quebrar a frase em palavras</b>, cada uma dentro de um <code class="in">&lt;span&gt;</code> quase transparente, e acender uma de cada vez com <code class="in">stagger</code> (escalonado) amarrado ao scroll.</p>
+      <p class="uso">Quando usar: a frase de impacto da marca, o "sobre nós", uma citação.</p>
+    </div>
+    <pre class="revelar"><span class="c">// 1. quebra a frase: cada palavra vira um &lt;span&gt;</span>
+<span class="k">const</span> frase = document.querySelector(<span class="k">'.acender'</span>);
+frase.innerHTML = frase.textContent
+  .split(<span class="k">' '</span>)
+  .map((p) =&gt; <span class="k">`&lt;span class="palavra"&gt;${p}&lt;/span&gt;`</span>)
+  .join(<span class="k">' '</span>);
+
+<span class="c">// 2. acende uma depois da outra</span>
+gsap.to(<span class="k">'.palavra'</span>, {
+  opacity: 1,
+  stagger: 0.1,   <span class="c">// uma de cada vez</span>
+  scrollTrigger: {
+    trigger: <span class="k">'.acender'</span>,
+    start: <span class="k">'top 80%'</span>,
+    end: <span class="k">'bottom 40%'</span>,
+    scrub: <span class="k">true</span>
+  }
+});</pre>
+  </div>
+</section>
+
+<section class="frase" id="t5">
+  <p class="acender">Um perfume não é só cheiro. É a lembrança que fica no ar depois que você sai da sala.</p>
+</section>
+
+<!-- ========================== RESUMO ========================== -->
+<section class="resumo">
+  <div class="revelar">
+    <span class="num">RESUMO</span>
+    <h2>Toda animação de scroll responde 3 perguntas</h2>
+  </div>
+  <div class="grade">
+    <div class="bloco revelar">
+      <div class="n">1</div>
+      <h3>Quando começa e termina?</h3>
+      <p>É o <b>gatilho</b>: <code class="in">start</code> e <code class="in">end</code>. <code class="in">'top 80%'</code> quer dizer "quando o topo do elemento chegar a 80% da altura da tela". Aperte <b>Ver gatilhos</b> lá embaixo pra ver as linhas.</p>
+    </div>
+    <div class="bloco revelar" style="transition-delay:.12s">
+      <div class="n">2</div>
+      <h3>O que muda?</h3>
+      <p>Posição (<code class="in">x</code>, <code class="in">y</code>), tamanho (<code class="in">scale</code>), giro (<code class="in">rotate</code>) e transparência (<code class="in">opacity</code>). <b>Só essas quatro</b> rodam lisinho no celular.</p>
+    </div>
+    <div class="bloco revelar" style="transition-delay:.24s">
+      <div class="n">3</div>
+      <h3>Dispara sozinha ou segue o dedo?</h3>
+      <p><b>Dispara</b>: entrou na tela, roda inteira (técnica 1). <b>Segue o dedo</b> (<code class="in">scrub</code>): o scroll controla o andamento (técnicas 2 a 5).</p>
+    </div>
+  </div>
+
+  <div class="duas">
+    <div class="revelar">
+      <h3>As ferramentas</h3>
+      <ul class="lista">
+        <li><b>GSAP + ScrollTrigger</b>: o padrão do mercado, de graça desde 2025. Funciona em qualquer site, inclusive nos seus em Next.js. É o que essa página usa.</li>
+        <li><b>Lenis</b>: deixa a rolagem "amanteigada", aquele deslizar macio dos sites premiados. Desliga no botão <b>Rolagem suave</b> pra sentir a diferença.</li>
+        <li><b>CSS puro</b> (<code class="in">animation-timeline</code>): sem biblioteca nenhuma. A barra dourada no topo da página é feita assim. Ainda não funciona em todos os navegadores.</li>
+        <li><b>Motion</b> (antigo Framer Motion): o jeito "React" de fazer, encaixa bem em Next.js.</li>
+      </ul>
+    </div>
+    <div class="revelar">
+      <h3>Pra treinar</h3>
+      <ul class="lista">
+        <li><b>1.</b> No CSS, procure <code class="in">EXERCÍCIO 1</code> e troque <code class="in">translateY(48px)</code> por <code class="in">translateX(-80px)</code>. Os cards passam a entrar pelo lado.</li>
+        <li><b>2.</b> No JS, procure <code class="in">EXERCÍCIO 2</code> e troque <code class="in">'+=300%'</code> por <code class="in">'+=100%'</code>. O "filme" do frasco fica 3x mais rápido.</li>
+        <li><b>3.</b> No <code class="in">EXERCÍCIO 3</code>, troque <code class="in">scrub: 1</code> por <code class="in">scrub: true</code> e depois por <code class="in">scrub: 3</code>. Repare no "atraso" macio.</li>
+        <li><b>4.</b> Aperte <b>Ver gatilhos</b> e role a página olhando onde <code class="in">start</code> encontra <code class="in">scroller-start</code>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ficha" style="padding:96px 0 0">
+    <div class="revelar">
+      <span class="num">BÔNUS</span>
+      <h2>A barra lá em cima</h2>
+      <p>Só CSS. Em vez do tempo (segundos), a animação usa <b>o scroll como relógio</b>. Página no começo = barra vazia, página no fim = barra cheia.</p>
+    </div>
+    <pre class="revelar">.progresso {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  transform-origin: left;
+  animation: encher linear;
+  animation-timeline: scroll(); <span class="c">/* o "relógio" é o scroll */</span>
+}
+@keyframes encher {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}</pre>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ---------- Botão "Ver gatilhos": mostra as linhas start/end de cada animação ----------
+  const params = new URLSearchParams(location.search);
+  const MARCADORES = params.has('marcadores');
+  ScrollTrigger.defaults({ markers: MARCADORES });
+
+  // ---------- Lenis: rolagem suave ----------
+  let lenis = null;
+  function ligarSuave() {
+    lenis = new Lenis();
+    lenis.on('scroll', ScrollTrigger.update); // avisa o GSAP a cada movimento
+  }
+  function desligarSuave() { lenis.destroy(); lenis = null; }
+  gsap.ticker.add((tempo) => { if (lenis) lenis.raf(tempo * 1000); });
+  gsap.ticker.lagSmoothing(0);
+  // quem pediu "menos movimento" no sistema não recebe rolagem suave
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) ligarSuave();
+
+  // ---------- Hero: o título sobe e some enquanto você sai dele ----------
+  gsap.to('.hero-conteudo', {
+    yPercent: -40, opacity: 0, scale: .92, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+  });
+  gsap.to('.seta', {
+    opacity: 0, ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: '15% top', scrub: true }
+  });
+
+  // ---------- Barra de progresso: plano B pra navegador sem animation-timeline ----------
+  if (!CSS.supports('animation-timeline: scroll()')) {
+    gsap.to('.progresso', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: true } });
+  }
+
+  // ==================== TÉCNICA 1: revelar ao entrar na tela ====================
+  const olho = new IntersectionObserver((itens) => {
+    itens.forEach((item) => {
+      if (item.isIntersecting) {
+        item.target.classList.add('visivel');
+        olho.unobserve(item.target); // anima só uma vez
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.revelar').forEach((el) => olho.observe(el));
+
+  // ==================== TÉCNICA 2: parallax ====================
+  // espalha os brilhos da camada da frente
+  const frente = document.querySelector('.p-frente');
+  for (let i = 0; i < 16; i++) {
+    const ponto = document.createElement('span');
+    const tamanho = 6 + Math.random() * 26;
+    ponto.className = 'ponto';
+    ponto.style.cssText = `width:${tamanho}px;height:${tamanho}px;left:${Math.random() * 100}%;top:${Math.random() * 100}%;opacity:${.3 + Math.random() * .6}`;
+    frente.appendChild(ponto);
+  }
+  document.querySelectorAll('#t2 [data-velocidade]').forEach((camada) => {
+    const velocidade = parseFloat(camada.dataset.velocidade);
+    gsap.fromTo(camada,
+      { y: velocidade * 250 },
+      {
+        y: velocidade * -250, ease: 'none',
+        scrollTrigger: { trigger: '#t2', start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+  });
+
+  // ==================== TÉCNICA 3: seção presa (pin) + filme (timeline) ====================
+  const medidor = document.querySelector('#t3 .medidor b');
+  gsap.set('#t3 .nota', { opacity: 0, y: 40 });
+  const filme = gsap.timeline({
+    defaults: { ease: 'power2.out' },
+    scrollTrigger: {
+      trigger: '#t3',
+      start: 'top top',
+      end: '+=300%', // EXERCÍCIO 2: troque por '+=100%'
+      pin: true,
+      scrub: 1,      // EXERCÍCIO 3: troque por true, depois por 3
+      onUpdate: (self) => { medidor.textContent = Math.round(self.progress * 100) + '%'; }
+    }
+  });
+  filme
+    .from('#t3 .frasco', { scale: .5, rotate: -25, y: 120, opacity: 0, duration: 1 })
+    .from('#t3 .liquido', { scaleY: 0, duration: 1.4, ease: 'power1.inOut' }, '-=.4')
+    .to('#t3 .nota:nth-child(1)', { opacity: 1, y: 0, duration: .5 }, '-=.9')
+    .to('#t3 .nota:nth-child(1)', { opacity: 0, y: -40, duration: .4 }, '+=.6')
+    .to('#t3 .frasco', { rotate: 8, duration: .8 }, '<')
+    .to('#t3 .nota:nth-child(2)', { opacity: 1, y: 0, duration: .5 }, '-=.3')
+    .to('#t3 .nota:nth-child(2)', { opacity: 0, y: -40, duration: .4 }, '+=.6')
+    .to('#t3 .frasco', { rotate: 0, scale: 1.08, duration: .8 }, '<')
+    .to('#t3 .nota:nth-child(3)', { opacity: 1, y: 0, duration: .5 }, '-=.3')
+    .to('#t3 .tampa', { y: -60, rotate: 14, duration: .8 }, '+=.2')
+    .to('#t3 .aura', { opacity: 1, scale: 1.15, duration: .8 }, '<')
+    .to({}, { duration: .4 }); // respiro no final antes de soltar a seção
+
+  // ==================== TÉCNICA 4: rolagem horizontal ====================
+  const trilho = document.querySelector('.trilho');
+  const sobra = () => trilho.scrollWidth - window.innerWidth;
+  gsap.to(trilho, {
+    x: () => -sobra(),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#t4',
+      start: 'top top',
+      end: () => '+=' + sobra(),
+      pin: true,
+      scrub: 1,
+      invalidateOnRefresh: true // refaz a conta se a tela mudar de tamanho
+    }
+  });
+
+  // ==================== TÉCNICA 5: texto que acende ====================
+  const frase = document.querySelector('.acender');
+  frase.innerHTML = frase.textContent
+    .split(' ')
+    .map((p) => `<span class="palavra">${p}</span>`)
+    .join(' ');
+  gsap.to('.palavra', {
+    opacity: 1,
+    stagger: 0.1,
+    ease: 'none',
+    scrollTrigger: { trigger: '.acender', start: 'top 80%', end: 'bottom 40%', scrub: true }
+  });
+
+  // ---------- Botões ----------
+  const bSuave = document.getElementById('b-suave');
+  const pintarSuave = () => {
+    bSuave.setAttribute('aria-pressed', String(!!lenis));
+    bSuave.textContent = 'Rolagem suave: ' + (lenis ? 'ligada' : 'desligada');
+  };
+  pintarSuave();
+  bSuave.addEventListener('click', () => { lenis ? desligarSuave() : ligarSuave(); pintarSuave(); });
+
+  const bMarc = document.getElementById('b-marcadores');
+  bMarc.setAttribute('aria-pressed', String(MARCADORES));
+  bMarc.textContent = MARCADORES ? 'Esconder gatilhos' : 'Ver gatilhos';
+  bMarc.addEventListener('click', () => {
+    try { sessionStorage.setItem('aula-y', String(window.scrollY)); } catch (e) {}
+    const url = new URL(location.href);
+    MARCADORES ? url.searchParams.delete('marcadores') : url.searchParams.set('marcadores', '1');
+    location.href = url;
+  });
+  // volta pro mesmo ponto da página depois de ligar/desligar os gatilhos
+  window.addEventListener('load', () => {
+    let y = null;
+    try { y = sessionStorage.getItem('aula-y'); sessionStorage.removeItem('aula-y'); } catch (e) {}
+    ScrollTrigger.refresh();
+    if (y !== null) window.scrollTo(0, Number(y));
+  });
+</script>
+</body>
+</html>
