@@ -1,9 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { type FormEvent, useState } from "react";
 import PasswordInput from "@/components/PasswordInput";
+import { inputClass } from "@/components/ProfileFields";
 import { useAuth } from "@/lib/auth-context";
+import { afterLoginPath } from "@/lib/redirect";
+import { supabase } from "@/lib/supabase";
 
 export default function EntrarPage() {
   const { signIn } = useAuth();
@@ -18,22 +22,26 @@ export default function EntrarPage() {
     setError(null);
     setLoading(true);
     const result = await signIn(email, password);
-    setLoading(false);
     if (result.error) {
+      setLoading(false);
       setError(result.error);
       return;
     }
-    router.push("/admin");
+    const { data } = await supabase.auth.getUser();
+    router.push(afterLoginPath(data.user));
     router.refresh();
   };
 
   return (
     <div className="mx-auto max-w-sm px-4 py-16">
-      <h1 className="mb-6 text-2xl font-bold text-brand-dark">Entrar</h1>
-      <p className="mb-4 text-sm text-neutral-500">
-        Login só pra administrar a loja — não precisa de conta pra comprar.
+      <h1 className="font-serif text-3xl font-bold text-brand-dark">Entrar</h1>
+      <p className="mb-6 mt-1 text-sm text-neutral-500">
+        Entre na sua conta pra agilizar seus pedidos.
       </p>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-black/5"
+      >
         <label className="flex flex-col gap-1 text-sm font-medium text-neutral-700">
           Email
           <input
@@ -42,7 +50,7 @@ export default function EntrarPage() {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-lg border border-neutral-200 px-3 py-2 outline-none focus:border-brand"
+            className={inputClass}
           />
         </label>
         <label className="flex flex-col gap-1 text-sm font-medium text-neutral-700">
@@ -63,6 +71,15 @@ export default function EntrarPage() {
           {loading ? "Aguarde..." : "Entrar"}
         </button>
       </form>
+      <p className="mt-5 text-center text-sm text-neutral-500">
+        Ainda não tem conta?{" "}
+        <Link href="/cadastro" className="font-semibold text-brand hover:underline">
+          Criar conta
+        </Link>
+      </p>
+      <p className="mt-2 text-center text-xs text-neutral-400">
+        Não precisa de conta pra comprar — dá pra finalizar direto pelo WhatsApp.
+      </p>
     </div>
   );
 }

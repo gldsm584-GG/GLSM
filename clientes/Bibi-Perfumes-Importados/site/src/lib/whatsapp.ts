@@ -8,7 +8,8 @@ export function buildCartWhatsappUrl(
   items: CartItem[],
   products: Product[],
   totalPrice: number,
-  customerName?: string
+  customerName?: string,
+  address?: string
 ): string {
   const lines = items
     .map((item) => {
@@ -21,6 +22,7 @@ export function buildCartWhatsappUrl(
     .filter((line): line is string => line !== null);
 
   const name = customerName?.replace(/\s+/g, " ").trim().slice(0, 60);
+  const where = address?.replace(/\s+/g, " ").trim().slice(0, 200);
   const what = lines.length === 1 ? "este perfume" : "estes perfumes";
   const message = [
     name
@@ -30,6 +32,7 @@ export function buildCartWhatsappUrl(
     ...lines,
     "",
     `Total: ${formatPrice(totalPrice)}`,
+    ...(where ? ["", `Meu endereço: ${where}`] : []),
   ].join("\n");
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

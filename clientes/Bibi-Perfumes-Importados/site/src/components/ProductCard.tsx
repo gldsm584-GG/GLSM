@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FavoriteButton from "@/components/FavoriteButton";
 import { discountPercent, formatPrice } from "@/lib/products";
 import type { Product } from "@/lib/types";
 
@@ -19,9 +20,10 @@ export default function ProductCard({ product }: { product: Product }) {
           className="object-contain transition-transform hover:scale-105"
           sizes="(max-width: 768px) 50vw, 25vw"
         />
-        <span className="absolute right-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[11px] font-semibold text-brand-dark shadow-sm">
+        <span className="absolute bottom-2 right-2 rounded-full bg-white/90 px-2 py-0.5 text-[11px] font-semibold text-brand-dark shadow-sm">
           {product.volumeMl}ml
         </span>
+        <FavoriteButton productId={product.id} className="absolute right-2 top-2 z-10" />
         {off && (
           <span className="absolute left-2 top-2 rounded-full bg-brand px-2 py-1 text-xs font-bold text-white">
             -{off}%

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import LineIcon from "@/components/LineIcon";
 
@@ -7,6 +8,13 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 text-sm text-white/70">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
+            <Image
+              src="/logo.png"
+              alt="Bibi Perfumes Importados"
+              width={88}
+              height={88}
+              className="mb-3 h-22 w-22 rounded-full ring-2 ring-accent/40"
+            />
             <p className="font-serif text-lg font-bold text-white">Bibi Perfumes Importados</p>
             <p className="mt-2">
               Perfumes árabes e importados, com notas de topo, coração e

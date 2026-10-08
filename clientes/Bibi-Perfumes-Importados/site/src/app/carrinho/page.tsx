@@ -4,13 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import LineIcon from "@/components/LineIcon";
+import { useAuth } from "@/lib/auth-context";
 import { useCart } from "@/lib/cart-context";
 import { formatPrice } from "@/lib/products";
+import { addressText, fullName, profileFromMeta } from "@/lib/profile";
 import { buildCartWhatsappUrl } from "@/lib/whatsapp";
 
 export default function CarrinhoPage() {
   const { items, products, setQuantity, removeItem, totalPrice } = useCart();
+  const { user } = useAuth();
   const [customerName, setCustomerName] = useState("");
+
+  // Logado: nome e endereço vêm do cadastro e vão junto na mensagem
+  const profile = user ? profileFromMeta(user.user_metadata) : null;
+  const accountName = profile ? fullName(profile) : "";
+  const accountAddress = profile ? addressText(profile) : "";
 
   if (items.length === 0) {
     return (
@@ -130,18 +138,50 @@ export default function CarrinhoPage() {
             </span>
           </div>
 
-          <label className="flex flex-col gap-1 text-sm text-neutral-600">
-            Seu nome (opcional)
-            <input
-              value={customerName}
-              onChange={(e) => setCustomerName(e.target.value)}
-              placeholder="Pra gente te chamar pelo nome"
-              className="rounded-lg border border-neutral-200 px-3 py-2 outline-none focus:border-brand"
-            />
-          </label>
+          {user ? (
+            <div className="rounded-xl bg-brand/5 p-3 text-sm text-neutral-600">
+              <p>
+                Pedido em nome de{" "}
+                <span className="font-semibold text-neutral-800">
+                  {accountName || user.email}
+                </span>
+              </p>
+              {accountAddress && (
+                <p className="mt-1">
+                  Endereço: <span className="text-neutral-800">{accountAddress}</span>
+                </p>
+              )}
+              <Link href="/conta/dados" className="mt-1 inline-block font-medium text-brand hover:underline">
+                Alterar meus dados
+              </Link>
+            </div>
+          ) : (
+            <>
+              <label className="flex flex-col gap-1 text-sm text-neutral-600">
+                Seu nome (opcional)
+                <input
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  placeholder="Pra gente te chamar pelo nome"
+                  className="rounded-lg border border-neutral-200 px-3 py-2 outline-none focus:border-brand"
+                />
+              </label>
+              <p className="-mt-2 text-xs text-neutral-500">
+                Tem conta?{" "}
+                <Link href="/entrar?volta=/carrinho" className="font-semibold text-brand hover:underline">
+                  Entre
+                </Link>{" "}
+                e seu nome e endereço já vão na mensagem.
+              </p>
+            </>
+          )}
 
           <a
-            href={buildCartWhatsappUrl(items, products, totalPrice, customerName)}
+            href={
+              user
+                ? buildCartWhatsappUrl(items, products, totalPrice, accountName, accountAddress)
+                : buildCartWhatsappUrl(items, products, totalPrice, customerName)
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center justify-center gap-2 rounded-full bg-brand py-3 text-center text-lg font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"

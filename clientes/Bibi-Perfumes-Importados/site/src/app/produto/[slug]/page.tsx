@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AddToCart from "@/components/AddToCart";
+import FavoriteButton from "@/components/FavoriteButton";
 import LineIcon from "@/components/LineIcon";
 import ProductCard from "@/components/ProductCard";
 import ProductGallery from "@/components/ProductGallery";
+import TrackView from "@/components/TrackView";
 import {
   discountPercent,
   formatPrice,
@@ -27,6 +29,7 @@ export default async function ProductPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
+      <TrackView productId={product.id} />
       <nav className="mb-5 text-sm text-neutral-500">
         <Link href="/" className="hover:text-brand">
           Início
@@ -44,9 +47,12 @@ export default async function ProductPage({
           />
 
           <div className="flex flex-col gap-3">
-            <span className="w-fit rounded-full bg-brand/10 px-2.5 py-1 text-xs font-semibold text-brand-dark">
-              {product.volumeMl}ml
-            </span>
+            <div className="flex items-center">
+              <span className="w-fit rounded-full bg-brand/10 px-2.5 py-1 text-xs font-semibold text-brand-dark">
+                {product.volumeMl}ml
+              </span>
+              <FavoriteButton productId={product.id} className="ml-auto" />
+            </div>
 
             <h1 className="font-serif text-2xl font-bold leading-snug text-brand-dark md:text-3xl">
               {product.name}
