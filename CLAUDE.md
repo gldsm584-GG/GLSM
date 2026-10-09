@@ -160,7 +160,10 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   `clientes/Ciapel-Papelaria/mockup/`, publicada em ciapel-papelaria.vercel.app
   com noindex; projeto Vercel SEM GitHub conectado — republicar com
   `npx vercel deploy --prod --scope glsmteste` de dentro da pasta `mockup/`;
-  abordagem pronta, ainda não enviada — falta definir preço — ver
+  abordagem pronta pelo WhatsApp da loja (61 99626-5726), ainda não enviada;
+  preço definido em 2026-10-09: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês
+  de Google Ads (até R$ 200) e o domínio do 1º ano inclusos; roteiro da
+  chamada de 10 min em `mockup/abordagem.md` — ver
   `clientes/Ciapel-Papelaria/briefing.md`).
 
 **Regras do sistema:**

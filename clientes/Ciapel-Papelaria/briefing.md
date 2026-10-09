@@ -23,8 +23,9 @@ pronta em `mockup/`, ainda não enviada ao dono.
 
 ## Contato
 
-- WhatsApp (pedidos): **(61) 99626-5726**
-- Fixos: (61) 3387-7784 · (61) 3591-9231
+- WhatsApp (pedidos, Sobradinho I): **(61) 99626-5726**
+- Fixos: (61) 3387-7784 (Sobradinho I) · (61) 3591-9231 (Sobradinho II). O WhatsApp (61) 99626-5726 e o fixo 3387-7784 são de Sobradinho I (confirmado pelo Gustavo em 2026-10-09). Na página, cada loja mostra o fixo e o WhatsApp no próprio quadro, e a linha "Telefones" separa "Sobradinho I" e "Sobradinho II"
+- **Sobradinho II tem contato próprio** (placas da fachada, fotos do Gustavo, 2026-10-09): endereço "AR 09 - 09 - CONJ. 1A - LT. 02 - SOB. II - DF", fixo **(61) 3591-9231**, WhatsApp **(61) 99634-8804**, e-mail **ciapelpapelariasob2@gmail.com** e o mesmo Instagram. Esses dados servem pra preencher o cadastro de Sobradinho II no Google Maps (hoje sem telefone). Na página, o fixo e o WhatsApp de Sobradinho II já aparecem no quadro da loja (publicado em 2026-10-09). Todos os outros botões de WhatsApp continuam indo pro (61) 99626-5726
 - Instagram: [@ciapel.papelaria](https://www.instagram.com/ciapel.papelaria/) — 11,7 mil seguidores, 714 posts
 - Sem site próprio
 
@@ -68,9 +69,9 @@ pronta em `mockup/`, ainda não enviada ao dono.
 - [ ] Confirmar com quem falar (dono/dona ou responsável)
 - [ ] Confirmar com a loja: serviço de lista escolar pelo WhatsApp (seção
       sugerida, não estava anunciada assim) e se o horário vale pras duas lojas
-- [ ] Enviar abordagem
+- [ ] Enviar abordagem pelo WhatsApp da loja (texto final em `mockup/abordagem.md`)
 - [x] Publicar o mockup na Vercel (2026-10-08): https://ciapel-papelaria.vercel.app
-- [ ] Definir preço da landing page
+- [x] Definir preço da landing page: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês de anúncio no Google incluso (até R$ 200) e o domínio do 1º ano (+ R$ 150/mês opcional pra atualizar as novidades), 2026-10-09. Detalhes em `mockup/abordagem.md`. O ciapel.com.br é de outra empresa: usar ciapelpapelaria.com.br (livre em 2026-10-09)
 
 ## Publicação (Vercel)
 

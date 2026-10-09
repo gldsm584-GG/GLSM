@@ -222,8 +222,13 @@
   .mapa-legenda{position:absolute;right:16px;top:16px;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--azul-escuro);font-weight:800;font-size:14px;padding:9px 14px;border-radius:999px;box-shadow:var(--sombra)}
   .mapa-legenda .ico{width:18px;height:18px;color:var(--vermelho)}
   .lojas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px}
-  .loja{background:var(--papel);border:1px solid var(--linha);border-radius:16px;padding:16px 16px 14px}
+  .loja{background:var(--papel);border:1px solid var(--linha);border-radius:16px;padding:16px 16px 14px;display:flex;flex-direction:column;align-items:flex-start}
   .loja p{font-weight:700;font-size:14.5px;margin:10px 0 10px;line-height:1.45}
+  .loja .contato-loja{list-style:none;margin:0 0 10px;display:grid;gap:6px}
+  .loja .contato-loja a{color:var(--tinta);font-weight:700;font-size:14px}
+  .loja .contato-loja .ico{color:var(--azul)}
+  .loja .contato-loja .ico-wa{width:16px;height:16px;color:var(--verde)}
+  .loja > a:last-child{margin-top:auto}
   .loja p small{font-size:13px;color:var(--tinta-suave);font-weight:700}
   .loja a{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px;color:var(--azul)}
   .loja a .ico{width:16px;height:16px}
@@ -574,18 +579,26 @@
         <div class="loja">
           <span class="tag-loja">Sobradinho I</span>
           <p>Quadra 08, Bloco 18,<br>Lote 04, Loja 01<br><small>CEP 73005-518</small></p>
+          <ul class="contato-loja">
+            <li><a href="tel:+556133877784"><svg class="ico"><use href="#i-fone"/></svg>(61) 3387-7784</a></li>
+            <li><a href="https://wa.me/5561996265726?text=Ol%C3%A1%2C%20Ciapel%20Sobradinho%20I!%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg class="ico-wa"><use href="#wa"/></svg>(61) 99626-5726</a></li>
+          </ul>
           <a href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJAQAAkH5AWpMRSquHEoVfZvE" target="_blank" rel="noopener">Como chegar <svg class="ico"><use href="#i-seta"/></svg></a>
         </div>
         <div class="loja">
           <span class="tag-loja">Sobradinho II</span>
           <p>AR 9, Conjunto 1A,<br>Lote 2<br><small>CEP 73060-700</small></p>
+          <ul class="contato-loja">
+            <li><a href="tel:+556135919231"><svg class="ico"><use href="#i-fone"/></svg>(61) 3591-9231</a></li>
+            <li><a href="https://wa.me/5561996348804?text=Ol%C3%A1%2C%20Ciapel%20Sobradinho%20II!%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg class="ico-wa"><use href="#wa"/></svg>(61) 99634-8804</a></li>
+          </ul>
           <a href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJgaJiy71AWpMRUUaUB6Xtbss" target="_blank" rel="noopener">Como chegar <svg class="ico"><use href="#i-seta"/></svg></a>
         </div>
       </div>
       <div class="linha-info"><svg class="ico"><use href="#i-relogio"/></svg><div><h3>Horário</h3>
         <div class="horas"><span>Segunda a sexta</span><span>8h30 às 18h</span><span>Sábado</span><span>8h30 às 16h</span><span>Domingo</span><span class="fechado">Fechado</span></div>
         <p class="obs">A copiadora encerra 30 minutos antes do fechamento da loja.</p></div></div>
-      <div class="linha-info"><svg class="ico"><use href="#i-fone"/></svg><div><h3>Telefones</h3><p>WhatsApp (61) 99626-5726<br>(61) 3387-7784 · (61) 3591-9231</p></div></div>
+      <div class="linha-info"><svg class="ico"><use href="#i-fone"/></svg><div><h3>Telefones</h3><p>Sobradinho I: WhatsApp (61) 99626-5726 · (61) 3387-7784<br>Sobradinho II: WhatsApp (61) 99634-8804 · (61) 3591-9231</p></div></div>
     </div>
     <div class="mapa">
       <a class="mapa-fallback" href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJAQAAkH5AWpMRSquHEoVfZvE" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg>Ver no Google Maps</a>
@@ -632,7 +645,7 @@
       </div>
       <div>
         <h4>Contato</h4>
-        <ul><li>WhatsApp (61) 99626-5726</li><li>(61) 3387-7784</li><li>(61) 3591-9231</li><li>Quadra 08, Bloco 18, Lote 04, Loja 01 · Sobradinho I</li><li>AR 9, Conjunto 1A, Lote 2 · Sobradinho II</li></ul>
+        <ul><li>Sobradinho I: WhatsApp (61) 99626-5726 · (61) 3387-7784</li><li>Sobradinho II: WhatsApp (61) 99634-8804 · (61) 3591-9231</li><li>Quadra 08, Bloco 18, Lote 04, Loja 01 · Sobradinho I</li><li>AR 9, Conjunto 1A, Lote 2 · Sobradinho II</li></ul>
       </div>
     </div>
     <div class="copy"><span>© 2026 Ciapel Papelaria · Sobradinho – DF</span><span>Site por GLSM</span></div>

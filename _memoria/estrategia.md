@@ -12,7 +12,9 @@ Gustavo — site construído e publicado em produção em 2026-10-06; não é
 uma prospecção comercial). Nenhum cliente pagante fechado ainda.
 Em 2026-10-08 entrou uma terceira frente: Ciapel Papelaria (prospecção —
 landing page de demonstração publicada em ciapel-papelaria.vercel.app,
-abordagem ainda não enviada; ver `clientes/Ciapel-Papelaria/briefing.md`).
+abordagem pronta pelo WhatsApp da loja, ainda não enviada; preço definido em
+2026-10-09: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês de Google Ads
+incluso — ver `clientes/Ciapel-Papelaria/briefing.md`).
 
 ## Prioridade principal
 
