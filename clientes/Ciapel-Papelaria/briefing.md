@@ -79,9 +79,15 @@ pronta em `mockup/`, ainda não enviada ao dono.
 - **GitHub desconectado de propósito.** O `vercel link` conectou o repo GLSM
   inteiro com Root Directory "." e, no próximo push, publicaria o repositório
   todo (memória, briefings, abordagens). Se um dia quiser deploy automático,
-  definir antes o Root Directory como `clientes/ciapel papelaria/mockup` no
+  definir antes o Root Directory como `clientes/Ciapel-Papelaria/mockup` no
   painel da Vercel
 - `.vercelignore` deixa `abordagem.md`, `screenshots/` e `.env*` fora do site
   (conferido: dão 404)
 - Página com `noindex` (não aparece no Google enquanto for demonstração). Tirar
   a tag quando virar o site oficial
+- Pasta renomeada de `clientes/ciapel papelaria/` pra `clientes/Ciapel-Papelaria/`
+  em 2026-10-09 (padrão das outras pastas). O site no ar não muda. No
+  computador local, a pasta oculta `mockup/.vercel` (link com o projeto, fora
+  do git) fica na pasta antiga: mover pra `clientes/Ciapel-Papelaria/mockup/`
+  ou, no próximo deploy, linkar ao projeto existente `ciapel-papelaria` (nunca
+  criar um novo)

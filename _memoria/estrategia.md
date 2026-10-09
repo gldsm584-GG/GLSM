@@ -12,7 +12,7 @@ Gustavo — site construído e publicado em produção em 2026-10-06; não é
 uma prospecção comercial). Nenhum cliente pagante fechado ainda.
 Em 2026-10-08 entrou uma terceira frente: Ciapel Papelaria (prospecção —
 landing page de demonstração publicada em ciapel-papelaria.vercel.app,
-abordagem ainda não enviada; ver `clientes/ciapel papelaria/briefing.md`).
+abordagem ainda não enviada; ver `clientes/Ciapel-Papelaria/briefing.md`).
 
 ## Prioridade principal
 
