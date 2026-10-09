@@ -155,6 +155,13 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   histórico) e logo real aplicado em 2026-10-07; falta fotos reais dos
   produtos e conferir o "Confirm email" no Supabase — ver
   `clientes/Bibi-Perfumes-Importados/briefing.md`).
+- Ciapel Papelaria (em prospecção desde 2026-10-08 — papelaria em Sobradinho
+  I e II – DF, desde 2000; landing page de demonstração em HTML estático em
+  `clientes/ciapel papelaria/mockup/`, publicada em ciapel-papelaria.vercel.app
+  com noindex; projeto Vercel SEM GitHub conectado — republicar com
+  `npx vercel deploy --prod --scope glsmteste` de dentro da pasta `mockup/`;
+  abordagem pronta, ainda não enviada — falta definir preço — ver
+  `clientes/ciapel papelaria/briefing.md`).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com

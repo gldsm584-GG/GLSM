@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Conceito pra apresentar ao dono: não indexar até virar o site oficial -->
+<meta name="robots" content="noindex, nofollow">
+<title>Ciapel Papelaria · Sobradinho – DF</title>
+<meta name="description" content="Papelaria, presentes, informática, copiadora e personalizados em Sobradinho – DF desde 2000. Peça pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul:#1a50be;
+    --azul-2:#2563d4;
+    --azul-escuro:#0b2b6f;
+    --vermelho:#e0262f;
+    --amarelo:#ffc845;
+    --amarelo-claro:#fff3cf;
+    --papel:#fbf7ee;
+    --tinta:#13224a;
+    --tinta-suave:#56607a;
+    --linha:#e6e0d2;
+    --verde:#16a34a;
+    --verde-escuro:#12873d;
+    --branco:#fff;
+    --raio:20px;
+    --sombra:0 10px 30px -12px rgba(11,43,111,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Nunito",system-ui,sans-serif;color:var(--tinta);background:var(--papel);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.08;letter-spacing:-.01em}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
+  .ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .ico-wa{width:22px;height:22px;fill:currentColor;flex:none}
+
+  /* ---------- botões ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:"Nunito",sans-serif;font-weight:800;font-size:17px;padding:15px 24px;border-radius:999px;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;white-space:nowrap}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-wa{background:var(--verde);color:#fff;box-shadow:0 10px 24px -10px rgba(22,163,74,.75)}
+  .btn-wa:hover{background:var(--verde-escuro)}
+  .btn-ghost{border:2px solid rgba(255,255,255,.55);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.1)}
+  .btn-azul{background:var(--azul);color:#fff}
+  .btn-sm{font-size:14px;padding:9px 14px;gap:7px}
+  .btn-sm .ico-wa{width:17px;height:17px}
+
+  .chip{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;background:var(--amarelo-claro);color:var(--azul-escuro)}
+  .chip-red{background:#fde3e4;color:var(--vermelho)}
+
+  /* ---------- barra de anúncio ---------- */
+  .anuncio{background:var(--azul-escuro);color:#dfe8ff;font-size:13.5px;font-weight:700}
+  .anuncio .wrap{display:flex;justify-content:center;gap:28px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+  .anuncio span{display:inline-flex;align-items:center;gap:7px}
+  .anuncio .ico{width:16px;height:16px;color:var(--amarelo)}
+  .anuncio .so-desk{display:inline-flex}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo img{width:48px;height:48px;border-radius:50%;border:3px solid var(--azul);object-fit:cover}
+  .logo b{display:block;font-family:"Baloo 2";font-weight:800;font-size:25px;color:var(--vermelho);line-height:1;font-style:italic}
+  .logo small{display:block;font-weight:800;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--azul-escuro)}
+  nav ul{display:flex;gap:26px;list-style:none;font-weight:700;font-size:15px}
+  nav a{color:var(--tinta)}
+  nav a:hover{color:var(--azul)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:0;position:relative;overflow:hidden;color:#fff;background:
+      radial-gradient(900px 500px at 85% 20%, rgba(255,255,255,.14), transparent 60%),
+      linear-gradient(160deg,var(--azul-2) 0%,var(--azul) 45%,#163f9b 100%)}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M14 18h12M20 12v12'/%3E%3Ccircle cx='86' cy='26' r='5'/%3E%3Cpath d='M60 70l10-10M64 74l10-10'/%3E%3Cpath d='M18 92c6-6 12 6 18 0s12 6 18 0'/%3E%3Cpath d='M98 84l4 8 8 1-6 6 2 8-8-4-8 4 2-8-6-6 8-1z'/%3E%3C/svg%3E")}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:80px}
+  .hero .chip{background:rgba(255,255,255,.14);color:#fff}
+  .hero .chip i{width:8px;height:8px;border-radius:50%;background:var(--amarelo)}
+  .hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:800;margin:20px 0 18px}
+  .hero h1 em{font-style:normal;position:relative;white-space:nowrap;color:var(--amarelo)}
+  .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M2 8c40-7 90-7 196-2' stroke='%23e0262f' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%}
+  .hero p.lead{font-size:clamp(17px,1.6vw,19.5px);color:#e2eaff;max-width:540px}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 34px}
+  .fatos{display:flex;gap:26px;flex-wrap:wrap}
+  .fatos div{display:flex;flex-direction:column}
+  .fatos b{font-family:"Baloo 2";font-size:28px;font-weight:800;line-height:1;color:#fff}
+  .fatos span{font-size:13.5px;color:#c4d4ff;font-weight:700}
+  .fatos .sep{width:1px;background:rgba(255,255,255,.22)}
+
+  /* colagem de fotos */
+  .colagem{position:relative;aspect-ratio:1/0.95;width:100%;max-width:540px;justify-self:center}
+  .polaroid{position:absolute;background:#fff;padding:10px 10px 12px;border-radius:14px;box-shadow:0 22px 40px -18px rgba(0,0,0,.55)}
+  .polaroid img{border-radius:8px;aspect-ratio:1/1;object-fit:cover;width:100%}
+  .polaroid figcaption{font-family:"Caveat",cursive;font-weight:700;font-size:22px;color:var(--tinta);text-align:center;margin-top:6px;line-height:1}
+  .polaroid::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:24px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,200,69,.82);border-radius:3px}
+  .p1,.p2{padding-bottom:30px}
+  .p1{width:50%;left:0;top:10%;transform:rotate(-7deg);z-index:2}
+  .p2{width:47%;right:2%;top:0;transform:rotate(5deg);z-index:1}
+  .p2::before{background:rgba(224,38,47,.7)}
+  .p3{width:44%;left:30%;bottom:0;transform:rotate(-1.5deg);z-index:3}
+  .p3::before{background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(0,0,0,.05)}
+  .sticker{position:absolute;right:0;bottom:6%;width:31%;z-index:4;transform:rotate(6deg)}
+  .bolha{position:absolute;right:20%;bottom:39%;z-index:5;background:#fff;color:var(--azul-escuro);font-weight:800;font-size:14px;padding:8px 13px;border-radius:14px;box-shadow:var(--sombra);transform:rotate(-4deg);white-space:nowrap}
+  .bolha::after{content:"";position:absolute;right:22px;bottom:-7px;width:14px;height:14px;background:#fff;transform:rotate(45deg)}
+
+  /* recorte do mascote (arte do story de horário) */
+  .mascote{position:relative;overflow:hidden;aspect-ratio:204/270;border-radius:22px;border:6px solid #fff;background:#1d4fb5;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
+  .mascote img{position:absolute;max-width:none;width:235.29%;left:-135.29%;top:-122.22%}
+
+  /* ---------- seções ---------- */
+  section{padding:88px 0}
+  .titulo{max-width:680px;margin-bottom:44px}
+  .titulo h2{font-size:clamp(30px,3.6vw,44px);font-weight:800;color:var(--azul-escuro);margin:14px 0 12px}
+  .titulo p{color:var(--tinta-suave);font-size:17.5px}
+  .titulo.centro{text-align:center;margin-left:auto;margin-right:auto}
+
+  /* categorias */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .cat{background:#fff;border:1px solid var(--linha);border-radius:var(--raio);padding:26px 24px;display:flex;gap:18px;align-items:flex-start;transition:transform .2s ease, box-shadow .2s ease}
+  .cat:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+  .cat .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;flex:none}
+  .cat .ic .ico{width:26px;height:26px}
+  .cat h3{font-size:21px;font-weight:700;color:var(--azul-escuro);margin-bottom:4px}
+  .cat p{font-size:15px;color:var(--tinta-suave)}
+  .c1 .ic{background:#e3ecff;color:var(--azul)}
+  .c2 .ic{background:#fff0c7;color:#b07800}
+  .c3 .ic{background:#fde3e4;color:var(--vermelho)}
+  .c4 .ic{background:#e2f6ea;color:var(--verde-escuro)}
+  .c5 .ic{background:#efe6ff;color:#6d3fd1}
+  .c6 .ic{background:#e0f4fb;color:#0e7aa3}
+
+  /* produtos */
+  .produtos{background:#fff;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+  .prod-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px}
+  .prod-topo .titulo{margin-bottom:0}
+  .link-ig{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--azul);white-space:nowrap}
+  .grade{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .card{background:var(--papel);border-radius:var(--raio);padding:12px;display:flex;flex-direction:column;border:1px solid var(--linha);transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+  .card .foto{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1/1;background:#fff}
+  .card .foto img{width:100%;height:100%;object-fit:cover}
+  .card .selo{position:absolute;top:10px;right:10px;background:var(--vermelho);color:#fff;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+  .card .selo.novo{background:var(--azul)}
+  .card .info{padding:14px 6px 6px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-size:19px;font-weight:700;color:var(--azul-escuro)}
+  .card p{font-size:14px;color:var(--tinta-suave);margin:3px 0 14px;flex:1}
+  .card .rodape{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .preco{font-family:"Baloo 2";font-weight:800;font-size:22px;color:var(--vermelho);line-height:1}
+  .preco small{display:block;font-family:"Nunito";font-size:11.5px;font-weight:700;color:var(--tinta-suave);letter-spacing:.02em}
+  .consulte{font-weight:800;font-size:14px;color:var(--tinta-suave)}
+
+  /* lista escolar */
+  .lista{background:var(--amarelo);position:relative;overflow:hidden}
+  .lista::before{content:"";position:absolute;inset:0;opacity:.18;background-image:radial-gradient(var(--azul-escuro) 1.4px,transparent 1.6px);background-size:22px 22px}
+  .lista .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .lista .titulo{margin-bottom:28px}
+  .lista .titulo p{color:#4a3d12}
+  .lista .chip{background:var(--azul-escuro);color:#fff}
+  .passos{display:grid;gap:14px;margin-bottom:32px;list-style:none}
+  .passos li{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.6);border-radius:16px;padding:14px 18px;font-weight:700;font-size:16.5px}
+  .passos .n{width:40px;height:40px;border-radius:50%;background:var(--azul-escuro);color:#fff;display:grid;place-items:center;font-family:"Baloo 2";font-weight:800;font-size:20px;flex:none}
+  .passos small{display:block;font-weight:600;color:#5c4d1a;font-size:14px}
+  .folha{position:relative;background:#fff;border-radius:6px;padding:34px 30px 30px 62px;transform:rotate(2.5deg);box-shadow:0 30px 50px -25px rgba(60,40,0,.55);background-image:linear-gradient(transparent 37px,#d9e6ff 38px);background-size:100% 38px;background-position:0 22px;font-family:"Caveat",cursive}
+  .folha::before{content:"";position:absolute;top:0;bottom:0;left:44px;width:2px;background:#f4a3a6}
+  .folha::after{content:"";position:absolute;top:-14px;right:40px;width:96px;height:28px;background:rgba(224,38,47,.75);transform:rotate(4deg);border-radius:3px}
+  .folha h3{font-family:"Caveat";font-size:34px;color:var(--azul-escuro);margin-bottom:6px;line-height:38px}
+  .folha ul{list-style:none;font-size:25px;line-height:38px;color:#2a3a6a}
+  .folha li{display:flex;align-items:center;gap:12px}
+  .folha .ck{width:20px;height:20px;border:2px solid #9aa9cc;border-radius:5px;display:grid;place-items:center;flex:none;background:#fff}
+  .folha .ck.ok{background:var(--verde);border-color:var(--verde)}
+  .folha .ck.ok::after{content:"";width:9px;height:5px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+  .folha li.feito span{text-decoration:line-through;text-decoration-color:rgba(224,38,47,.7);text-decoration-thickness:2px;color:#7a86a6}
+
+  /* personalizados */
+  .perso .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+  .perso-img{position:relative}
+  .perso-img img{border-radius:26px;box-shadow:var(--sombra);transform:rotate(-2deg);border:8px solid #fff}
+  .perso-img .tag{position:absolute;right:-10px;bottom:28px;background:var(--vermelho);color:#fff;font-family:"Baloo 2";font-weight:800;font-size:19px;padding:10px 18px;border-radius:14px;transform:rotate(3deg);box-shadow:var(--sombra)}
+  .itens{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 30px}
+  .itens span{background:#fff;border:1px solid var(--linha);padding:9px 16px;border-radius:999px;font-weight:700;font-size:15px;color:var(--azul-escuro)}
+  .perso .nota{display:flex;gap:12px;align-items:flex-start;background:#fff;border-left:4px solid var(--azul);padding:14px 18px;border-radius:12px;margin-bottom:28px;font-size:15.5px;color:var(--tinta-suave)}
+  .perso .nota b{color:var(--tinta)}
+
+  /* entregas */
+  .entregas{background:linear-gradient(160deg,var(--azul-escuro),#123a8f);color:#fff;padding-bottom:130px}
+  .entregas .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .entregas .titulo h2{color:#fff}
+  .entregas .titulo p{color:#c9d6ff}
+  .entregas .chip{background:rgba(255,255,255,.12);color:var(--amarelo)}
+  .arte{position:relative;overflow:hidden;aspect-ratio:1/1;border-radius:28px;border:8px solid rgba(255,255,255,.12);box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+  .arte img{position:absolute;max-width:none;width:100%;top:-39.2%;left:0}
+  .beneficios{display:grid;gap:12px;margin-bottom:32px;list-style:none}
+  .beneficios li{display:flex;gap:14px;align-items:center;font-weight:700;font-size:16.5px}
+  .beneficios .ico{color:var(--amarelo);width:24px;height:24px}
+
+  /* números */
+  .numeros{padding:0;position:relative;z-index:2}
+  .numeros .faixa{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--linha);border-radius:24px;box-shadow:var(--sombra);margin-top:-62px;overflow:hidden}
+  .numeros .n{padding:26px 22px;text-align:center;border-right:1px solid var(--linha)}
+  .numeros .n:last-child{border-right:0}
+  .numeros b{display:block;font-family:"Baloo 2";font-size:36px;font-weight:800;color:var(--azul);line-height:1.05}
+  .numeros span{font-size:14.5px;font-weight:700;color:var(--tinta-suave)}
+
+  /* visite */
+  .visite{padding-top:64px}
+  .visite .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:stretch}
+  .info-loja{background:#fff;border:1px solid var(--linha);border-radius:24px;padding:34px}
+  .info-loja h2{font-size:clamp(28px,3vw,38px);color:var(--azul-escuro);font-weight:800;margin:14px 0 22px}
+  .linha-info{display:flex;gap:16px;padding:16px 0;border-top:1px dashed var(--linha)}
+  .linha-info .ico{color:var(--azul);margin-top:3px}
+  .linha-info h3{font-family:"Nunito";font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave);margin-bottom:4px}
+  .linha-info p{font-weight:700;font-size:16px}
+  .horas{display:grid;grid-template-columns:auto 1fr;gap:3px 18px;font-weight:700;font-size:16px}
+  .horas .fechado{color:var(--vermelho)}
+  .obs{font-size:13.5px;color:var(--tinta-suave);font-weight:600;margin-top:8px}
+  .mapa{border-radius:24px;overflow:hidden;border:1px solid var(--linha);min-height:420px;background:#dfe7f5;position:relative}
+  .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .mapa-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:800;color:var(--azul)}
+  .mapa-fallback .ico{width:40px;height:40px}
+  .mapa-legenda{position:absolute;right:16px;top:16px;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--azul-escuro);font-weight:800;font-size:14px;padding:9px 14px;border-radius:999px;box-shadow:var(--sombra)}
+  .mapa-legenda .ico{width:18px;height:18px;color:var(--vermelho)}
+  .lojas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px}
+  .loja{background:var(--papel);border:1px solid var(--linha);border-radius:16px;padding:16px 16px 14px}
+  .loja p{font-weight:700;font-size:14.5px;margin:10px 0 10px;line-height:1.45}
+  .loja p small{font-size:13px;color:var(--tinta-suave);font-weight:700}
+  .loja a{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:14px;color:var(--azul)}
+  .loja a .ico{width:16px;height:16px}
+  .tag-loja{display:inline-block;background:var(--azul);color:#fff;font-weight:800;font-size:12.5px;letter-spacing:.04em;padding:4px 11px;border-radius:999px}
+
+  /* cta final */
+  .final{padding-top:96px}
+  .final .painel{position:relative;background:var(--vermelho);color:#fff;border-radius:32px;padding:56px 56px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;overflow:hidden}
+  .final .painel::before{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.08)}
+  .final h2{font-size:clamp(30px,3.8vw,46px);font-weight:800;margin-bottom:12px}
+  .final p{font-size:18px;color:#ffe1e2;max-width:560px;margin-bottom:28px}
+  .final .mascote{width:200px;transform:rotate(4deg)}
+
+  /* rodapé */
+  footer{background:var(--azul-escuro);color:#c9d6ff;padding:64px 0 28px;margin-top:96px;font-size:15px}
+  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.12)}
+  footer .logo b{color:#fff}
+  footer .logo small{color:var(--amarelo)}
+  footer .logo img{border-color:#fff}
+  footer h4{font-family:"Baloo 2";font-size:18px;color:#fff;margin-bottom:12px}
+  footer ul{list-style:none;display:grid;gap:8px}
+  footer a:hover{color:#fff}
+  footer .sobre{margin-top:16px;max-width:300px}
+  .redes{display:flex;gap:10px;margin-top:18px}
+  .redes a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.1);display:grid;place-items:center;color:#fff}
+  .redes a:hover{background:rgba(255,255,255,.2)}
+  .copy{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:13.5px;color:#93a6d8}
+
+  /* whatsapp flutuante */
+  .flutuante{position:fixed;right:22px;bottom:22px;z-index:50;width:62px;height:62px;border-radius:50%;background:var(--verde);color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(22,163,74,.8)}
+  .flutuante .ico-wa{width:32px;height:32px}
+
+  /* ---------- responsivo ---------- */
+  @media (max-width:1020px){
+    nav{display:none}
+    .hero .wrap{grid-template-columns:1fr;gap:56px;padding-top:44px}
+    .colagem{max-width:480px}
+    .cats{grid-template-columns:repeat(2,1fr)}
+    .grade{grid-template-columns:repeat(2,1fr)}
+    .lista .wrap,.perso .wrap,.entregas .wrap,.visite .wrap{grid-template-columns:1fr;gap:44px}
+    .folha{max-width:440px;margin:0 auto}
+    .perso-img{max-width:480px;margin:0 auto}
+    .arte{max-width:480px;margin:0 auto;width:100%}
+    footer .cols{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    section{padding:64px 0}
+    .anuncio .so-desk{display:none}
+    header .wrap{height:66px}
+    .logo img{width:42px;height:42px}
+    .logo b{font-size:22px}
+    .head-btn span{display:none}
+    .head-btn{padding:11px}
+    .hero .wrap{padding-top:34px;padding-bottom:64px}
+    .hero h1{margin:16px 0 14px}
+    .hero .btn-ghost{display:none}
+    .fatos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .fatos .sep{display:none}
+    .fatos b{font-size:22px}
+    .fatos span{font-size:12.5px;line-height:1.3;margin-top:4px}
+    .hero .ctas{flex-direction:column;align-items:stretch;margin:26px 0 30px}
+    .polaroid{padding:7px 7px 9px;border-radius:10px}
+    .polaroid figcaption{font-size:17px}
+    .p1,.p2{padding-bottom:20px}
+    .polaroid::before{width:56px;height:18px;top:-9px}
+    .bolha{font-size:12px;padding:6px 10px}
+    .mascote{border-width:4px;border-radius:16px}
+    .cats{grid-template-columns:1fr;gap:12px}
+    .cat{padding:20px}
+    .prod-topo{flex-direction:column;align-items:flex-start}
+    .grade{gap:12px}
+    .card{padding:8px}
+    .card .info{padding:10px 4px 4px}
+    .card h3{font-size:16px}
+    .card .selo{font-size:10px;padding:4px 8px;top:7px;right:7px}
+    .card p{font-size:13px}
+    .card .rodape{flex-direction:column;align-items:stretch;gap:10px}
+    .card .btn-sm{justify-content:center}
+    .preco{font-size:20px}
+    .folha{padding:28px 20px 24px 52px}
+    .folha::before{left:36px}
+    .folha ul{font-size:22px}
+    .numeros .faixa{grid-template-columns:repeat(2,1fr);margin-top:-40px}
+    .visite{padding-top:48px}
+    .entregas{padding-bottom:96px}
+    .numeros .n{border-bottom:1px solid var(--linha)}
+    .numeros .n:nth-child(2){border-right:0}
+    .numeros .n:nth-child(n+3){border-bottom:0}
+    .numeros b{font-size:30px}
+    .info-loja{padding:24px}
+    .lojas{grid-template-columns:1fr}
+    .mapa{min-height:300px}
+    .final{padding-top:64px}
+    .final .painel{grid-template-columns:1fr;padding:36px 24px;text-align:left}
+    .final .mascote{width:150px;order:-1}
+    .final .btn{width:100%}
+    footer .cols{grid-template-columns:1fr}
+    .flutuante{right:16px;bottom:16px;width:56px;height:56px}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="i-livro" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-paleta" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></symbol>
+  <symbol id="i-presente" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+  <symbol id="i-brilho" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-impressora" viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-moto" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-fone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-loja" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<!-- barra de anúncio -->
+<div class="anuncio">
+  <div class="wrap">
+    <span><svg class="ico"><use href="#i-moto"/></svg>Entregas em Sobradinho I e II</span>
+    <span class="so-desk"><svg class="ico"><use href="#i-loja"/></svg>2 lojas: Sobradinho I e II</span>
+    <span class="so-desk"><svg class="ico"><use href="#i-relogio"/></svg>Seg a sex 8h30–18h · Sáb 8h30–16h</span>
+  </div>
+</div>
+
+<!-- header -->
+<header>
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="Ciapel Papelaria, início">
+      <img src="assets/fotos/perfil.jpg" alt="Mascote da Ciapel">
+      <div><b>Ciapel</b><small>Papelaria</small></div>
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#produtos">Novidades</a></li>
+        <li><a href="#lista">Lista escolar</a></li>
+        <li><a href="#personalizados">Personalizados</a></li>
+        <li><a href="#entregas">Entregas</a></li>
+        <li><a href="#loja">Nossas lojas</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-wa btn-sm head-btn" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vim pelo site e quero fazer um pedido." aria-label="Pedir pelo WhatsApp"><svg class="ico-wa"><use href="#wa"/></svg><span>Pedir no WhatsApp</span></a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- hero -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="chip"><i></i>Papelaria em Sobradinho desde 2000</span>
+      <h1>Tudo de papelaria, direto no seu <em>WhatsApp</em>.</h1>
+      <p class="lead">Material escolar, presentes, personalizados, informática e copiadora. Mande o que precisa, a gente separa e você retira na loja ou recebe em casa.</p>
+      <div class="ctas">
+        <a class="btn btn-wa" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vim pelo site e quero fazer um pedido."><svg class="ico-wa"><use href="#wa"/></svg>Fazer pedido no WhatsApp</a>
+        <a class="btn btn-ghost" href="#produtos">Ver novidades <svg class="ico"><use href="#i-seta"/></svg></a>
+      </div>
+      <div class="fatos">
+        <div><b>26 anos</b><span>atendendo Sobradinho</span></div>
+        <div class="sep"></div>
+        <div><b>11,7 mil</b><span>seguidores no Instagram</span></div>
+        <div class="sep"></div>
+        <div><b>4,3 ★</b><span>798 avaliações no Google</span></div>
+      </div>
+    </div>
+
+    <div class="colagem" aria-hidden="true">
+      <figure class="polaroid p1"><img src="assets/fotos/post06-bobbiegoods.jpg" alt=""></figure>
+      <figure class="polaroid p2"><img src="assets/fotos/post10-superherois.jpg" alt=""></figure>
+      <figure class="polaroid p3"><img src="assets/fotos/post11-ducks.jpg" alt=""><figcaption>Caderno Ducks</figcaption></figure>
+      <div class="bolha">Pede que eu levo!</div>
+      <div class="sticker"><div class="mascote"><img src="assets/fotos/story-horario.jpg" alt=""></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- categorias -->
+<section id="categorias">
+  <div class="wrap">
+    <div class="titulo">
+      <span class="chip">O que tem na Ciapel</span>
+      <h2>Da lista da escola ao presente de última hora</h2>
+      <p>Uma papelaria completa no meio de Sobradinho, com copiadora e personalizados no mesmo balcão.</p>
+    </div>
+    <div class="cats">
+      <div class="cat c1"><div class="ic"><svg class="ico"><use href="#i-livro"/></svg></div><div><h3>Material escolar</h3><p>Cadernos, canetas, mochilas, estojos e tudo o que vem na lista.</p></div></div>
+      <div class="cat c2"><div class="ic"><svg class="ico"><use href="#i-paleta"/></svg></div><div><h3>Arte e criatividade</h3><p>Massinhas, massa de modelar, canetinhas e livros de colorir.</p></div></div>
+      <div class="cat c3"><div class="ic"><svg class="ico"><use href="#i-presente"/></svg></div><div><h3>Presentes</h3><p>Pelúcias, canecas, garrafinhas e mimos pra todas as datas.</p></div></div>
+      <div class="cat c4"><div class="ic"><svg class="ico"><use href="#i-brilho"/></svg></div><div><h3>Personalizados</h3><p>Gravação a laser em canecas, copos, squeezes e carimbos.</p></div></div>
+      <div class="cat c5"><div class="ic"><svg class="ico"><use href="#i-impressora"/></svg></div><div><h3>Copiadora</h3><p>Cópias, impressões e plastificação pra escola e pro trabalho.</p></div></div>
+      <div class="cat c6"><div class="ic"><svg class="ico"><use href="#i-monitor"/></svg></div><div><h3>Informática</h3><p>Acessórios e suprimentos pro computador e pro escritório.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- produtos -->
+<section class="produtos" id="produtos">
+  <div class="wrap">
+    <div class="prod-topo">
+      <div class="titulo">
+        <span class="chip chip-red">Chegou na loja</span>
+        <h2>Novidades da Ciapel</h2>
+        <p>Viu algo que gostou? Toque em “Quero esse” e a mensagem já vai pronta pro nosso WhatsApp.</p>
+      </div>
+      <a class="link-ig" href="https://www.instagram.com/ciapel.papelaria/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-insta"/></svg>Mais no @ciapel.papelaria</a>
+    </div>
+
+    <div class="grade">
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post06-bobbiegoods.jpg" alt="Kit Bobbie Goods com livro e estojo de 24 canetinhas"><span class="selo">Oferta</span></div>
+        <div class="info"><h3>Kit Bobbie Goods</h3><p>Livro de colorir + estojo com 24 canetinhas.</p>
+          <div class="rodape"><div class="preco"><small>o kit</small>R$ 15,00</div><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e quero o Kit Bobbie Goods (R$ 15,00)."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post10-superherois.jpg" alt="Coleção de ursinhos de pelúcia Super Heróis"><span class="selo novo">Novidade</span></div>
+        <div class="info"><h3>Pelúcias Super Heróis</h3><p>Ursinhos fofos e macios, perfeitos pra presentear.</p>
+          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse nas Pelúcias Super Heróis."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post11-ducks.jpg" alt="Mini caderno de pelúcia Ducks"><span class="selo novo">Novidade</span></div>
+        <div class="info"><h3>Mini Caderno Ducks</h3><p>De pelúcia, com caneta. Fofo e cheio de estilo.</p>
+          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse no Mini Caderno de Pelúcia Ducks."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post14-mymini.jpg" alt="Coleção surpresa My Mini Baby" style="object-position:50% 38%"><span class="selo novo">Novidade</span></div>
+        <div class="info"><h3>My Mini Baby</h3><p>Coleção surpresa de miniaturas. Garanta o seu!</p>
+          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse no My Mini Baby."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post08-balde.jpg" alt="Big Balde Acrilex com 30 massinhas soft"></div>
+        <div class="info"><h3>Big Balde Acrilex</h3><p>30 massinhas soft Art Kids num balde só.</p>
+          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse no Big Balde Acrilex (30 massinhas)."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post09-massinha.jpg" alt="Massa de E.V.A Make+ com 20 cores"></div>
+        <div class="info"><h3>Massa de E.V.A</h3><p>20 cores pra modelar, da Make+.</p>
+          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse na Massa de E.V.A 20 cores."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post16-das.jpg" alt="Massa de modelar DAS" style="object-position:50% 30%"></div>
+        <div class="info"><h3>Massa de modelar DAS</h3><p>Seca ao ar, ideal pra artesanato e escola.</p>
+          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse na Massa de modelar DAS."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+      <article class="card">
+        <div class="foto"><img src="assets/fotos/post13-caneca.jpg" alt="Caneca com lata decorada floral" style="object-position:50% 55%"></div>
+        <div class="info"><h3>Caneca com lata floral</h3><p>Presente pronto: caneca e lata decorada.</p>
+          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse na Caneca com lata floral."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- lista escolar -->
+<section class="lista" id="lista">
+  <div class="wrap">
+    <div>
+      <div class="titulo">
+        <span class="chip">Lista de material escolar</span>
+        <h2>Mande a lista. A gente separa tudo pra você.</h2>
+        <p>Sem fila e sem rodar a loja atrás de cada item. É só tirar uma foto da lista da escola.</p>
+      </div>
+      <ol class="passos">
+        <li><span class="n">1</span><div>Tire uma foto da lista<small>Pode ser a folha da escola ou um print.</small></div></li>
+        <li><span class="n">2</span><div>Mande no nosso WhatsApp<small>(61) 99626-5726</small></div></li>
+        <li><span class="n">3</span><div>Receba o orçamento e combine a retirada<small>Retire na loja ou consulte a entrega.</small></div></li>
+      </ol>
+      <a class="btn btn-azul" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Quero um orçamento da lista de material escolar. Vou mandar a foto da lista."><svg class="ico-wa"><use href="#wa"/></svg>Enviar minha lista</a>
+    </div>
+    <div class="folha" aria-hidden="true">
+      <h3>Lista do 3º ano ✏️</h3>
+      <ul>
+        <li class="feito"><i class="ck ok"></i><span>2 cadernos de 96 folhas</span></li>
+        <li class="feito"><i class="ck ok"></i><span>Lápis de cor, 24 cores</span></li>
+        <li class="feito"><i class="ck ok"></i><span>Cola branca e tesoura</span></li>
+        <li><i class="ck"></i><span>Massinha de modelar</span></li>
+        <li><i class="ck"></i><span>Pasta com elástico</span></li>
+        <li><i class="ck"></i><span>Estojo e borracha</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- personalizados -->
+<section class="perso" id="personalizados">
+  <div class="wrap">
+    <div class="perso-img">
+      <img src="assets/fotos/post05-personalizados.jpg" alt="Personalizados Ciapel: gravação a laser em copos, canecas, squeezes e carimbos">
+    </div>
+    <div>
+      <div class="titulo" style="margin-bottom:24px">
+        <span class="chip chip-red">Personalizados</span>
+        <h2>Seu nome, sua marca, seu presente</h2>
+        <p>Gravamos a laser em copos térmicos, canecas e squeezes. Também fazemos carimbos profissionais pra empresas e autônomos.</p>
+      </div>
+      <div class="itens"><span>Copos térmicos</span><span>Canecas</span><span>Squeezes</span><span>Canecas de chopp</span><span>Carimbos profissionais</span></div>
+      <div class="nota"><svg class="ico"><use href="#i-brilho"/></svg><div><b>Ótimo pra brindes de empresa,</b> lembrancinhas de festa e presentes que ninguém mais vai ter igual.</div></div>
+      <a class="btn btn-wa" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Quero um orçamento de personalizados (gravação a laser)."><svg class="ico-wa"><use href="#wa"/></svg>Pedir orçamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- entregas -->
+<section class="entregas" id="entregas">
+  <div class="wrap">
+    <div>
+      <div class="titulo" style="margin-bottom:28px">
+        <span class="chip">Entregas</span>
+        <h2>Não dá pra passar na loja? A Ciapel leva até você.</h2>
+        <p>Faça o pedido pelo WhatsApp e consulte a entrega pro seu endereço em Sobradinho I&nbsp;e&nbsp;II.</p>
+      </div>
+      <ul class="beneficios">
+        <li><svg class="ico"><use href="#i-check"/></svg>Pedido direto com a loja, sem cadastro</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Retire no balcão ou receba em casa</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Atendimento de quem conhece Sobradinho há 26 anos</li>
+      </ul>
+      <a class="btn btn-wa" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vocês entregam no meu endereço? Meu bairro é: "><svg class="ico-wa"><use href="#wa"/></svg>Consultar entrega</a>
+    </div>
+    <div class="arte"><img src="assets/fotos/story-entregas.jpg" alt="Mascote da Ciapel de moto: a Ciapel realiza entregas"></div>
+  </div>
+</section>
+
+<!-- números -->
+<section class="numeros" aria-label="Ciapel em números">
+  <div class="wrap">
+    <div class="faixa">
+      <div class="n"><b>2000</b><span>ano de fundação</span></div>
+      <div class="n"><b>11,7 mil</b><span>seguidores no Instagram</span></div>
+      <div class="n"><b>4,3 ★</b><span>798 avaliações no Google</span></div>
+      <div class="n"><b>2 lojas</b><span>Sobradinho I e II</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- visite -->
+<section class="visite" id="loja">
+  <div class="wrap">
+    <div class="info-loja">
+      <span class="chip">Nossas lojas</span>
+      <h2>Duas lojas em Sobradinho</h2>
+      <div class="lojas">
+        <div class="loja">
+          <span class="tag-loja">Sobradinho I</span>
+          <p>Quadra 08, Bloco 18,<br>Lote 04, Loja 01<br><small>CEP 73005-518</small></p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJAQAAkH5AWpMRSquHEoVfZvE" target="_blank" rel="noopener">Como chegar <svg class="ico"><use href="#i-seta"/></svg></a>
+        </div>
+        <div class="loja">
+          <span class="tag-loja">Sobradinho II</span>
+          <p>AR 9, Conjunto 1A,<br>Lote 2<br><small>CEP 73060-700</small></p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJgaJiy71AWpMRUUaUB6Xtbss" target="_blank" rel="noopener">Como chegar <svg class="ico"><use href="#i-seta"/></svg></a>
+        </div>
+      </div>
+      <div class="linha-info"><svg class="ico"><use href="#i-relogio"/></svg><div><h3>Horário</h3>
+        <div class="horas"><span>Segunda a sexta</span><span>8h30 às 18h</span><span>Sábado</span><span>8h30 às 16h</span><span>Domingo</span><span class="fechado">Fechado</span></div>
+        <p class="obs">A copiadora encerra 30 minutos antes do fechamento da loja.</p></div></div>
+      <div class="linha-info"><svg class="ico"><use href="#i-fone"/></svg><div><h3>Telefones</h3><p>WhatsApp (61) 99626-5726<br>(61) 3387-7784 · (61) 3591-9231</p></div></div>
+    </div>
+    <div class="mapa">
+      <a class="mapa-fallback" href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJAQAAkH5AWpMRSquHEoVfZvE" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg>Ver no Google Maps</a>
+      <iframe title="Mapa da Ciapel Papelaria em Sobradinho I" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=-15.6460826,-47.8018678&z=16&output=embed"></iframe>
+      <span class="mapa-legenda"><svg class="ico"><use href="#i-pin"/></svg>Loja Sobradinho I</span>
+    </div>
+  </div>
+</section>
+
+<!-- cta final -->
+<section class="final">
+  <div class="wrap">
+    <div class="painel">
+      <div>
+        <h2>Precisa de alguma coisa? Chama a Ciapel.</h2>
+        <p>Do caderno ao presente, da cópia ao carimbo. Manda uma mensagem que a gente responde e separa pra você.</p>
+        <a class="btn btn-wa" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vim pelo site e quero fazer um pedido."><svg class="ico-wa"><use href="#wa"/></svg>Chamar no WhatsApp</a>
+      </div>
+      <div class="mascote"><img src="assets/fotos/story-horario.jpg" alt="Mascote da Ciapel"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="logo" href="#topo"><img src="assets/fotos/perfil.jpg" alt="Mascote da Ciapel"><div><b>Ciapel</b><small>Papelaria</small></div></a>
+        <p class="sobre">Papelaria, presentes, informática, copiadora e personalizados. Em Sobradinho I e II desde 2000.</p>
+        <div class="redes">
+          <a href="https://www.instagram.com/ciapel.papelaria/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico"><use href="#i-insta"/></svg></a>
+          <a href="https://wa.me/5561996265726" aria-label="WhatsApp"><svg class="ico-wa"><use href="#wa"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Na loja</h4>
+        <ul><li><a href="#categorias">Material escolar</a></li><li><a href="#categorias">Presentes</a></li><li><a href="#personalizados">Personalizados</a></li><li><a href="#categorias">Copiadora</a></li><li><a href="#categorias">Informática</a></li></ul>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <ul><li><a href="#lista">Lista escolar</a></li><li><a href="#entregas">Entregas</a></li><li><a href="#loja">Horário</a></li><li><a href="#">Política de privacidade</a></li><li><a href="#">Trocas e devoluções</a></li></ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul><li>WhatsApp (61) 99626-5726</li><li>(61) 3387-7784</li><li>(61) 3591-9231</li><li>Quadra 08, Bloco 18, Lote 04, Loja 01 · Sobradinho I</li><li>AR 9, Conjunto 1A, Lote 2 · Sobradinho II</li></ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 Ciapel Papelaria · Sobradinho – DF</span><span>Site por GLSM</span></div>
+  </div>
+</footer>
+
+<a class="flutuante" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vim pelo site e quero fazer um pedido." aria-label="Falar no WhatsApp"><svg class="ico-wa"><use href="#wa"/></svg></a>
+
+<script>
+  // Deixa cada botão de WhatsApp com a mensagem já escrita
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    a.href = 'https://wa.me/5561996265726?text=' + encodeURIComponent(a.dataset.wa);
+    a.target = '_blank';
+    a.rel = 'noopener';
+  });
+</script>
+</body>
+</html>

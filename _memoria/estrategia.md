@@ -10,6 +10,9 @@ Dois projetos ativos: Plavii (ainda em prospecção, primeira abordagem
 direta ao dono sem fechamento) e Bibi Perfumes Importados (irmã do
 Gustavo — site construído e publicado em produção em 2026-10-06; não é
 uma prospecção comercial). Nenhum cliente pagante fechado ainda.
+Em 2026-10-08 entrou uma terceira frente: Ciapel Papelaria (prospecção —
+landing page de demonstração publicada em ciapel-papelaria.vercel.app,
+abordagem ainda não enviada; ver `clientes/ciapel papelaria/briefing.md`).
 
 ## Prioridade principal
 

@@ -1,0 +1,5 @@
+abordagem.md
+screenshots/
+.gitignore
+.env.local
+.env*
