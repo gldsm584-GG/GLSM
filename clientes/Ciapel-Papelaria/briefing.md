@@ -60,6 +60,7 @@ pronta em `mockup/`, ainda não enviada ao dono.
   entregas, números reais, duas lojas + mapa, CTA final, rodapé
 - Preço real usado: Kit Bobbie Goods R$ 15,00 (post de 14/08/2026). Os outros
   produtos ficaram como "Consulte"
+- Política de privacidade (2026-10-09): `mockup/politica-de-privacidade.html`, ligada ao rodapé. Modelo em linguagem simples baseado na LGPD: o site não coleta dados (sem cadastro, formulário, cookies próprios ou estatística); terceiros são hospedagem, Google Maps/Fonts, WhatsApp e Shopee; canal pros direitos do titular é o WhatsApp (61) 99626-5726 ou a loja. **Antes de virar o site oficial:** o dono revisa (principalmente a promessa de só mandar promoção com consentimento), incluir razão social e CNPJ, e atualizar a página se entrar Google Ads/estatística (aí passa a ter cookies de terceiros)
 
 ## Checklist
 

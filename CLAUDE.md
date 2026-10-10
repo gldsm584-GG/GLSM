@@ -165,7 +165,9 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   de Google Ads (até R$ 200) e o domínio do 1º ano inclusos; roteiro da
   chamada de 10 min em `mockup/abordagem.md`; a loja também vende na Shopee
   (nota 5,0, 2,9 mil avaliações) e a página tem seção própria pra ela, além
-  do telefone e WhatsApp de cada loja no quadro de endereço — ver
+  do telefone e WhatsApp de cada loja no quadro de endereço; política de
+  privacidade em `mockup/politica-de-privacidade.html` (modelo LGPD, o dono
+  precisa revisar) — ver
   `clientes/Ciapel-Papelaria/briefing.md`).
 
 **Regras do sistema:**
