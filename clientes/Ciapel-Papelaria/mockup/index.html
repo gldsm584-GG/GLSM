@@ -203,6 +203,19 @@
   .numeros b{display:block;font-family:"Baloo 2";font-size:36px;font-weight:800;color:var(--azul);line-height:1.05}
   .numeros span{font-size:14.5px;font-weight:700;color:var(--tinta-suave)}
 
+  /* shopee */
+  .sec-shopee{padding:64px 0 0}
+  .shopee-card{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center;background:#fff;border:1px solid var(--linha);border-top:6px solid #ee4d2d;border-radius:24px;box-shadow:var(--sombra);padding:36px 40px}
+  .shopee-texto h2{font-size:clamp(28px,3.2vw,38px);font-weight:800;color:var(--azul-escuro);margin:14px 0 10px}
+  .shopee-texto p{color:var(--tinta-suave);font-size:17px;margin-bottom:24px}
+  .chip-shopee{background:#fde8e3;color:#d73211}
+  .btn-shopee{background:#ee4d2d;color:#fff;box-shadow:0 10px 24px -10px rgba(238,77,45,.7)}
+  .btn-shopee:hover{background:#d73211}
+  .shopee-numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .shopee-numeros div{background:var(--papel);border:1px solid var(--linha);border-radius:16px;padding:20px 10px;text-align:center}
+  .shopee-numeros b{display:block;font-family:"Baloo 2";font-size:32px;font-weight:800;color:#ee4d2d;line-height:1.05}
+  .shopee-numeros span{font-size:13.5px;font-weight:700;color:var(--tinta-suave)}
+
   /* visite */
   .visite{padding-top:64px}
   .visite .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:stretch}
@@ -273,9 +286,16 @@
     .perso-img{max-width:480px;margin:0 auto}
     .arte{max-width:480px;margin:0 auto;width:100%}
     footer .cols{grid-template-columns:1fr 1fr}
+    .shopee-card{grid-template-columns:1fr;gap:28px}
   }
   @media (max-width:640px){
     .wrap{padding:0 16px}
+    .sec-shopee{padding-top:48px}
+    .shopee-card{padding:26px 20px}
+    .shopee-numeros{gap:8px}
+    .shopee-numeros div{padding:14px 6px}
+    .shopee-numeros b{font-size:24px}
+    .shopee-numeros span{font-size:12.5px}
     section{padding:64px 0}
     .anuncio .so-desk{display:none}
     header .wrap{height:66px}
@@ -569,6 +589,25 @@
   </div>
 </section>
 
+<!-- shopee -->
+<section class="sec-shopee" id="shopee">
+  <div class="wrap">
+    <div class="shopee-card">
+      <div class="shopee-texto">
+        <span class="chip chip-shopee">Loja online</span>
+        <h2>Mora longe? A Ciapel também está na Shopee.</h2>
+        <p>Quem é de fora de Sobradinho pode comprar pela nossa loja na Shopee e receber em casa: papelaria, mochilas, balões, informática e mais.</p>
+        <a class="btn btn-shopee" href="https://shopee.com.br/845lycnh9f" target="_blank" rel="noopener"><svg class="ico"><use href="#i-loja"/></svg>Ver loja na Shopee</a>
+      </div>
+      <div class="shopee-numeros">
+        <div><b>5,0 ★</b><span>nota da loja</span></div>
+        <div><b>2,9 mil</b><span>avaliações</span></div>
+        <div><b>71</b><span>produtos</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- visite -->
 <section class="visite" id="loja">
   <div class="wrap">
@@ -632,6 +671,7 @@
         <p class="sobre">Papelaria, presentes, informática, copiadora e personalizados. Em Sobradinho I e II desde 2000.</p>
         <div class="redes">
           <a href="https://www.instagram.com/ciapel.papelaria/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico"><use href="#i-insta"/></svg></a>
+          <a href="https://shopee.com.br/845lycnh9f" target="_blank" rel="noopener" aria-label="Loja na Shopee" title="Loja na Shopee"><svg class="ico"><use href="#i-loja"/></svg></a>
           <a href="https://wa.me/5561996265726" aria-label="WhatsApp"><svg class="ico-wa"><use href="#wa"/></svg></a>
         </div>
       </div>

@@ -27,7 +27,8 @@ pronta em `mockup/`, ainda não enviada ao dono.
 - Fixos: (61) 3387-7784 (Sobradinho I) · (61) 3591-9231 (Sobradinho II). O WhatsApp (61) 99626-5726 e o fixo 3387-7784 são de Sobradinho I (confirmado pelo Gustavo em 2026-10-09). Na página, cada loja mostra o fixo e o WhatsApp no próprio quadro, e a linha "Telefones" separa "Sobradinho I" e "Sobradinho II"
 - **Sobradinho II tem contato próprio** (placas da fachada, fotos do Gustavo, 2026-10-09): endereço "AR 09 - 09 - CONJ. 1A - LT. 02 - SOB. II - DF", fixo **(61) 3591-9231**, WhatsApp **(61) 99634-8804**, e-mail **ciapelpapelariasob2@gmail.com** e o mesmo Instagram. Esses dados servem pra preencher o cadastro de Sobradinho II no Google Maps (hoje sem telefone). Na página, o fixo e o WhatsApp de Sobradinho II já aparecem no quadro da loja (publicado em 2026-10-09). Todos os outros botões de WhatsApp continuam indo pro (61) 99626-5726
 - Instagram: [@ciapel.papelaria](https://www.instagram.com/ciapel.papelaria/) — 11,7 mil seguidores, 714 posts
-- Sem site próprio
+- Shopee: [Ciapel Papelaria, Loja Online](https://shopee.com.br/845lycnh9f) — na Shopee desde jun/2025 (16 meses em 2026-10-09), 71 produtos, **nota 5,0 com 2,9 mil avaliações**, 244 seguidores, responde 60% dos chats. Vende papelaria (lápis de cor, cadernos licenciados, DAS, Acrilex), balões, mochilas (Rebecca Bonbon, Capricho), copos de time, plastificadora e acessórios de informática. A Shopee só mostra a loja com login (o Gustavo entrou na conta dele no navegador pra conferir). Na página: seção própria "Mora longe? A Ciapel também está na Shopee." logo abaixo de Entregas (depois da faixa de números), com nota, avaliações e nº de produtos + ícone no rodapé (publicado em 2026-10-09). Argumento: local pede no WhatsApp (sem comissão), quem é de fora compra pela Shopee
+- Sem site próprio (tem loja na Shopee, ver acima)
 
 ## Horário (story "Horário" do Instagram)
 

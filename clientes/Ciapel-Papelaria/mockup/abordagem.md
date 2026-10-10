@@ -87,6 +87,10 @@ você vai usar no passo 3.
   WhatsApp?"
 - "Os personalizados, tipo gravação a laser e carimbo, saem bem? O pessoal
   sabe que vocês fazem?"
+- "Vi que vocês têm loja na Shopee também, com nota 5,0 em quase 3 mil
+  avaliações. Vende mais pra quem é de fora de Sobradinho?" (Só elogiar. A
+  loja responde 60% dos chats da Shopee, mas não tocar nisso: pode soar como
+  crítica.)
 
 Depois de perguntar, fique quieto e deixe ele responder. Silêncio não é
 problema.
@@ -100,6 +104,7 @@ problema.
 | Cliente perguntando se tem produto | Novidades + botão "Quero esse" | "Clica em 'Quero esse' em qualquer produto, só não envia. Já abre o WhatsApp com o nome dele. O cliente chega sabendo o que quer." |
 | Volta às aulas | Lista escolar | "O pai manda a foto da lista, vocês separam. Na época de volta às aulas, isso organiza a fila." |
 | Personalizados | Seção de personalizados | "É serviço que dá mais retorno, e muita gente nem sabe que vocês fazem." |
+| Shopee / vender pra fora | Seção da Shopee, logo abaixo de Entregas | "Coloquei a Shopee de vocês aqui. Quem é de Sobradinho pede no WhatsApp e quem é de fora compra pela Shopee. E pelo WhatsApp não tem comissão: a venda fica inteira com vocês." |
 | Cliente novo / Google | Topo (26 anos, 798 avaliações) | "Hoje quem acha vocês no Google cai no Facebook. Com a página, cai direto no WhatsApp de vocês." |
 
 Se ele falar pouco, mostre nessa ordem: topo → novidades ("Quero esse") →

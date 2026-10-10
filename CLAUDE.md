@@ -163,7 +163,9 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   abordagem pronta pelo WhatsApp da loja (61 99626-5726), ainda não enviada;
   preço definido em 2026-10-09: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês
   de Google Ads (até R$ 200) e o domínio do 1º ano inclusos; roteiro da
-  chamada de 10 min em `mockup/abordagem.md` — ver
+  chamada de 10 min em `mockup/abordagem.md`; a loja também vende na Shopee
+  (nota 5,0, 2,9 mil avaliações) e a página tem seção própria pra ela, além
+  do telefone e WhatsApp de cada loja no quadro de endereço — ver
   `clientes/Ciapel-Papelaria/briefing.md`).
 
 **Regras do sistema:**
