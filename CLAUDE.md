@@ -160,15 +160,27 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   `clientes/Ciapel-Papelaria/mockup/`, publicada em ciapel-papelaria.vercel.app
   com noindex; projeto Vercel SEM GitHub conectado — republicar com
   `npx vercel deploy --prod --scope glsmteste` de dentro da pasta `mockup/`;
-  abordagem pronta pelo WhatsApp da loja (61 99626-5726), ainda não enviada;
+  abordagem enviada em 2026-10-11 pelo WhatsApp da loja (61 99626-5726), só
+  veio a resposta automática até agora (lembrete em 14 ou 15/10); a copiadora
+  tem WhatsApp próprio (61 99680-9913), já na página;
   preço definido em 2026-10-09: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês
   de Google Ads (até R$ 200) e o domínio do 1º ano inclusos; roteiro da
   chamada de 10 min em `mockup/abordagem.md`; a loja também vende na Shopee
   (nota 5,0, 2,9 mil avaliações) e a página tem seção própria pra ela, além
-  do telefone e WhatsApp de cada loja no quadro de endereço; política de
+  do telefone e WhatsApp de cada loja no quadro de endereço; o mapa mostra
+  as duas lojas (OpenStreetMap/Leaflet desde 2026-10-09, porque o mapa
+  embutido do Google só aceita um pino); política de
   privacidade em `mockup/politica-de-privacidade.html` (modelo LGPD, o dono
   precisa revisar) — ver
   `clientes/Ciapel-Papelaria/briefing.md`).
+- Geocar Automóveis (em prospecção desde 2026-10-12 — loja de carros
+  seminovos em Sobradinho/DF, Instagram @geocarautomoveis, WhatsApp do
+  George 61 98115-3066 e do Diógenes 61 98204-5568; proposta: site com
+  vitrine de carros, painel admin pra editar estoque/descrição/fotos e CRM
+  com funil de negociação, em Next.js + Supabase próprio, ainda não
+  construído em `clientes/Geocar/site/`; estoque levantado do Instagram em
+  `clientes/Geocar/estoque.md`, 11 anúncios à venda com 124 fotos em
+  `clientes/Geocar/fotos/` — ver `clientes/Geocar/briefing.md`).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com
