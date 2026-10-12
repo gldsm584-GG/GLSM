@@ -7,19 +7,19 @@ funcionário, então a mensagem já pede pra passar pro responsável.
 (o print aparece direto na conversa, e muita gente não clica em link de quem
 não conhece).
 
-**Cuidado:** os botões "Quero esse" e "Fazer pedido" da demonstração abrem o
-WhatsApp de verdade da loja. Não teste esses botões.
+**Cuidado:** os botões de WhatsApp da demonstração (como "Fazer pedido")
+abrem o WhatsApp de verdade da loja. Não teste esses botões.
 
 ---
 
-## Mensagem de abertura (versão final, 2026-10-09)
+## Mensagem de abertura (versão final, atualizada em 2026-10-10)
 
 > Oi, tudo bem? Meu nome é Gustavo, eu faço sites pra comércio aqui do DF.
 >
 > Montei uma página de demonstração pra Ciapel com as fotos e as informações
-> do Instagram de vocês: as duas lojas, o horário, as entregas e as
-> novidades. Cada produto tem um botão que já abre o WhatsApp da loja com o
-> nome dele.
+> do Instagram de vocês: as duas lojas, o horário, as entregas e os
+> personalizados. Os botões já abrem o WhatsApp da loja com a mensagem
+> pronta.
 >
 > Dá pra abrir no celular e clicar em tudo 👉 https://ciapel-papelaria.vercel.app
 >
@@ -45,8 +45,10 @@ Em seguida: `screenshots/mobile.png`.
 - Perguntar o nome de quem decide e falar com essa pessoa.
 - Mais um gancho pra conversa: o cadastro de Sobradinho II no Google Maps
   não foi assumido por ninguém da loja e está sem telefone e sem site. Uma reclamação recente no
-  Google diz que a copiadora fechou antes do horário. O aviso dos 30 min só
-  existe num story, e a página deixa isso claro.
+  Google diz que a copiadora fechou antes do horário. O aviso dos 30 min está
+  num story e na resposta automática do WhatsApp, então só vê quem já segue ou
+  já mandou mensagem. Quem pesquisa no Google não vê, e a página deixa isso
+  claro.
 - Confirmar com eles:
   - Se o serviço "mande sua lista pelo WhatsApp" faz sentido. A seção é
     sugestão nossa, a loja não anuncia assim.
@@ -56,7 +58,7 @@ Em seguida: `screenshots/mobile.png`.
 ## Roteiro da chamada (10 min)
 
 **Formato:** ligação no WhatsApp, com a pessoa abrindo o site no celular dela
-(no viva-voz). Ela clica e você guia ("desce até as novidades..."). Assim a
+(no viva-voz). Ela clica e você guia ("desce até a lista escolar..."). Assim a
 atenção fica no site, não em você. Se der pra ir na loja, melhor ainda: aí
 você mostra no seu celular.
 
@@ -100,14 +102,14 @@ problema.
 | Se ele falar de... | Mostrar | O que dizer (ideia) |
 |---|---|---|
 | Perguntam muito horário e endereço | Lojas, horário e mapa | "Isso aqui responde sozinho. A atendente manda o link, ou o cliente nem precisa perguntar." |
-| Copiadora ou horário | Aviso dos 30 min da copiadora | "Tem até avaliação no Google reclamando disso. Aqui fica fixo, não some igual story." |
-| Cliente perguntando se tem produto | Novidades + botão "Quero esse" | "Clica em 'Quero esse' em qualquer produto, só não envia. Já abre o WhatsApp com o nome dele. O cliente chega sabendo o que quer." |
+| Copiadora ou horário | Aviso dos 30 min da copiadora + WhatsApp da copiadora | "Tem até avaliação no Google reclamando disso. A resposta automática de vocês avisa, mas só vê quem já mandou mensagem. Aqui o cliente vê antes de sair de casa, e já tem o WhatsApp da copiadora do lado." |
+| Cliente perguntando se tem produto | "O que tem na Ciapel" + botão "Fazer pedido no WhatsApp" | "O cliente vê tudo o que vocês vendem e já chama no WhatsApp com a mensagem pronta. Clica no botão, só não envia." |
 | Volta às aulas | Lista escolar | "O pai manda a foto da lista, vocês separam. Na época de volta às aulas, isso organiza a fila." |
 | Personalizados | Seção de personalizados | "É serviço que dá mais retorno, e muita gente nem sabe que vocês fazem." |
 | Shopee / vender pra fora | Seção da Shopee, logo abaixo de Entregas | "Coloquei a Shopee de vocês aqui. Quem é de Sobradinho pede no WhatsApp e quem é de fora compra pela Shopee. E pelo WhatsApp não tem comissão: a venda fica inteira com vocês." |
 | Cliente novo / Google | Topo (26 anos, 798 avaliações) | "Hoje quem acha vocês no Google cai no Facebook. Com a página, cai direto no WhatsApp de vocês." |
 
-Se ele falar pouco, mostre nessa ordem: topo → novidades ("Quero esse") →
+Se ele falar pouco, mostre nessa ordem: topo → lista escolar →
 personalizados → lojas e horário.
 
 ### 4. O que entra no pacote (1 min)
@@ -150,9 +152,8 @@ ver pra decidir).
   em vez do Facebook. E no primeiro mês o anúncio já mostra a página pra quem
   pesquisa na região." Não prometer primeiro lugar no Google nem número de
   clientes.
-- **"E se eu quiser mudar alguma coisa depois?"** → "É só me chamar. Se
-  quiserem que eu atualize as novidades todo mês, tem a opção de R$ 150 por
-  mês. Mudança grande eu orço à parte."
+- **"E se eu quiser mudar alguma coisa depois?"** → "É só me chamar. Mudança
+  grande eu orço à parte."
 - **Pergunta que você não sabe responder** → "Boa pergunta. Deixa eu
   confirmar direitinho e te mando ainda hoje." Isso passa mais credibilidade
   do que chutar.
@@ -184,9 +185,7 @@ Resposta pronta:
 > 3x de R$ 550 no cartão. Inclui a página no endereço próprio (tipo
 > ciapelpapelaria.com.br), os dois cadastros de vocês no Google Maps
 > arrumados (site, telefone e horário) e o primeiro mês de anúncio no Google já pago, pra
-> página começar sendo vista por quem procura papelaria em Sobradinho. Se
-> quiserem que eu atualize as novidades da página todo mês, fica R$ 150/mês,
-> mas é opcional.
+> página começar sendo vista por quem procura papelaria em Sobradinho.
 
 - Duas opções: **R$ 1.500 no Pix** ou **3x de R$ 550** (R$ 1.650 no total).
   O parcelado sai mais caro de propósito, pra incentivar o Pix. Decidido em
@@ -204,9 +203,9 @@ Resposta pronta:
   então a hospedagem pode ser grátis. Na entrega, publicar em Netlify ou
   Cloudflare Pages: o plano grátis da Vercel (Hobby) não permite uso
   comercial.
-- **Mensalidade de R$ 150 (opcional):** trocar as novidades com os posts
-  novos do Instagram e ajustar horário e avisos. Mudança maior (seção nova,
-  loja online) é orçamento à parte.
+- **Sem mensalidade:** a opção de R$ 150/mês pra atualizar as novidades saiu
+  em 2026-10-10, junto com a seção de novidades da página. Mudança depois da
+  entrega é orçamento à parte.
 
 ### Anúncio do primeiro mês (até R$ 200)
 
@@ -234,13 +233,10 @@ Resposta pronta:
   substitui isso, só leva mais gente pro WhatsApp. Ela aparece no Google pra
   quem ainda não segue vocês.
 - **"Não tenho tempo pra cuidar de site."** → A página usa o que vocês já
-  postam. Não precisa fazer nada novo, e se quiserem eu cuido das
-  atualizações.
+  postam. Não precisa fazer nada novo.
 - **"Tá caro."** → É pagamento único. Pra comparar: R$ 1.500 dá uns R$ 125
   por mês no primeiro ano, pra aparecer no Google com as duas lojas
-  arrumadas, e já inclui o primeiro mês de anúncio. Segurar o preço. Se
-  precisar ceder, oferecer o primeiro mês de atualização grátis em vez de
-  baixar o valor.
+  arrumadas, e já inclui o primeiro mês de anúncio. Segurar o preço.
 - **"Vou pensar."** → Não ler como sim (ver memória: resposta ambígua não é
   sinal positivo). Agradecer e combinar de voltar a falar perto da volta às
   aulas, que é quando a seção da lista escolar faz mais diferença.
@@ -248,8 +244,9 @@ Resposta pronta:
 ## Checklist
 
 - [x] Preço definido: R$ 1.500 Pix / 3x R$ 550, com 1º mês de anúncio no
-      Google incluso (até R$ 200) + R$ 150/mês opcional (2026-10-09)
+      Google incluso (até R$ 200) (2026-10-09; sem mensalidade desde 2026-10-10)
 - [x] Domínio conferido (ciapel.com.br ocupado, usar ciapelpapelaria.com.br)
 - [x] Site no ar com a versão mais nova e `abordagem.md` fora do ar (404)
-- [ ] Enviar a mensagem + `mobile.png` pelo WhatsApp
-- [ ] Lembrete em 2 ou 3 dias, se não responderem
+- [x] Enviar a mensagem pelo WhatsApp (2026-10-11, domingo; só veio a
+      resposta automática)
+- [ ] Lembrete na quarta (14/10) ou quinta (15/10), se ninguém responder

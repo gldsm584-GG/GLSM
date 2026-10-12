@@ -24,6 +24,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["--yes", "serve", "clientes/Bibi-Perfumes-Importados/demo-scroll", "-l", "4322", "--no-clipboard"],
       "port": 4322
+    },
+    {
+      "name": "ciapel-mockup",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "clientes/Ciapel-Papelaria/mockup", "-l", "4323", "--no-clipboard"],
+      "port": 4323
     }
   ]
 }

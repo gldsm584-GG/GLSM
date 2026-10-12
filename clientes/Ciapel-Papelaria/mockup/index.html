@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/leaflet/leaflet.css">
 <style>
   :root{
     --azul:#1a50be;
@@ -131,26 +132,6 @@
   .c5 .ic{background:#efe6ff;color:#6d3fd1}
   .c6 .ic{background:#e0f4fb;color:#0e7aa3}
 
-  /* produtos */
-  .produtos{background:#fff;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
-  .prod-topo{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px}
-  .prod-topo .titulo{margin-bottom:0}
-  .link-ig{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--azul);white-space:nowrap}
-  .grade{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .card{background:var(--papel);border-radius:var(--raio);padding:12px;display:flex;flex-direction:column;border:1px solid var(--linha);transition:transform .2s ease, box-shadow .2s ease}
-  .card:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
-  .card .foto{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1/1;background:#fff}
-  .card .foto img{width:100%;height:100%;object-fit:cover}
-  .card .selo{position:absolute;top:10px;right:10px;background:var(--vermelho);color:#fff;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
-  .card .selo.novo{background:var(--azul)}
-  .card .info{padding:14px 6px 6px;display:flex;flex-direction:column;flex:1}
-  .card h3{font-size:19px;font-weight:700;color:var(--azul-escuro)}
-  .card p{font-size:14px;color:var(--tinta-suave);margin:3px 0 14px;flex:1}
-  .card .rodape{display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .preco{font-family:"Baloo 2";font-weight:800;font-size:22px;color:var(--vermelho);line-height:1}
-  .preco small{display:block;font-family:"Nunito";font-size:11.5px;font-weight:700;color:var(--tinta-suave);letter-spacing:.02em}
-  .consulte{font-weight:800;font-size:14px;color:var(--tinta-suave)}
-
   /* lista escolar */
   .lista{background:var(--amarelo);position:relative;overflow:hidden}
   .lista::before{content:"";position:absolute;inset:0;opacity:.18;background-image:radial-gradient(var(--azul-escuro) 1.4px,transparent 1.6px);background-size:22px 22px}
@@ -228,12 +209,22 @@
   .horas{display:grid;grid-template-columns:auto 1fr;gap:3px 18px;font-weight:700;font-size:16px}
   .horas .fechado{color:var(--vermelho)}
   .obs{font-size:13.5px;color:var(--tinta-suave);font-weight:600;margin-top:8px}
-  .mapa{border-radius:24px;overflow:hidden;border:1px solid var(--linha);min-height:420px;background:#dfe7f5;position:relative}
-  .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .obs a{display:inline-flex;align-items:center;gap:5px;color:var(--tinta);font-weight:800;white-space:nowrap}
+  .obs a .ico-wa{width:15px;height:15px;color:var(--verde)}
+  .mapa{border-radius:24px;overflow:hidden;border:1px solid var(--linha);min-height:420px;background:#dfe7f5;position:relative;z-index:0}
   .mapa-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:800;color:var(--azul)}
   .mapa-fallback .ico{width:40px;height:40px}
-  .mapa-legenda{position:absolute;right:16px;top:16px;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--azul-escuro);font-weight:800;font-size:14px;padding:9px 14px;border-radius:999px;box-shadow:var(--sombra)}
-  .mapa-legenda .ico{width:18px;height:18px;color:var(--vermelho)}
+  .mapa-lojas{position:absolute;inset:0}
+  .mapa-lojas:not(.leaflet-container){display:none}
+  .mapa .leaflet-container{background:#dfe7f5;font-family:"Nunito",system-ui,sans-serif}
+  .mapa .leaflet-tile-pane{filter:saturate(.8)}
+  .pino{position:relative;width:32px;height:42px;filter:drop-shadow(0 4px 6px rgba(11,43,111,.35))}
+  .pino svg{display:block;width:32px;height:42px}
+  .pino span{position:absolute;left:50%;bottom:calc(100% + 4px);transform:translateX(-50%);white-space:nowrap;background:var(--azul);color:#fff;font-weight:800;font-size:13px;padding:4px 11px;border-radius:999px}
+  .mapa .leaflet-popup-content-wrapper{border-radius:14px;box-shadow:var(--sombra)}
+  .mapa .leaflet-popup-content{margin:12px 16px;font-size:14px;line-height:1.45;color:var(--tinta);font-weight:700}
+  .mapa .leaflet-popup-content b{display:block;font-family:"Baloo 2";font-size:17px;color:var(--azul-escuro);margin-bottom:2px}
+  .mapa .leaflet-container a.pop-link{display:inline-block;margin-top:6px;color:var(--azul);font-weight:800}
   .lojas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px}
   .loja{background:var(--papel);border:1px solid var(--linha);border-radius:16px;padding:16px 16px 14px;display:flex;flex-direction:column;align-items:flex-start}
   .loja p{font-weight:700;font-size:14.5px;margin:10px 0 10px;line-height:1.45}
@@ -280,7 +271,6 @@
     .hero .wrap{grid-template-columns:1fr;gap:56px;padding-top:44px}
     .colagem{max-width:480px}
     .cats{grid-template-columns:repeat(2,1fr)}
-    .grade{grid-template-columns:repeat(2,1fr)}
     .lista .wrap,.perso .wrap,.entregas .wrap,.visite .wrap{grid-template-columns:1fr;gap:44px}
     .folha{max-width:440px;margin:0 auto}
     .perso-img{max-width:480px;margin:0 auto}
@@ -319,16 +309,6 @@
     .mascote{border-width:4px;border-radius:16px}
     .cats{grid-template-columns:1fr;gap:12px}
     .cat{padding:20px}
-    .prod-topo{flex-direction:column;align-items:flex-start}
-    .grade{gap:12px}
-    .card{padding:8px}
-    .card .info{padding:10px 4px 4px}
-    .card h3{font-size:16px}
-    .card .selo{font-size:10px;padding:4px 8px;top:7px;right:7px}
-    .card p{font-size:13px}
-    .card .rodape{flex-direction:column;align-items:stretch;gap:10px}
-    .card .btn-sm{justify-content:center}
-    .preco{font-size:20px}
     .folha{padding:28px 20px 24px 52px}
     .folha::before{left:36px}
     .folha ul{font-size:22px}
@@ -389,7 +369,6 @@
     </a>
     <nav aria-label="Principal">
       <ul>
-        <li><a href="#produtos">Novidades</a></li>
         <li><a href="#lista">Lista escolar</a></li>
         <li><a href="#personalizados">Personalizados</a></li>
         <li><a href="#entregas">Entregas</a></li>
@@ -411,7 +390,7 @@
       <p class="lead">Material escolar, presentes, personalizados, informática e copiadora. Mande o que precisa, a gente separa e você retira na loja ou recebe em casa.</p>
       <div class="ctas">
         <a class="btn btn-wa" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vim pelo site e quero fazer um pedido."><svg class="ico-wa"><use href="#wa"/></svg>Fazer pedido no WhatsApp</a>
-        <a class="btn btn-ghost" href="#produtos">Ver novidades <svg class="ico"><use href="#i-seta"/></svg></a>
+        <a class="btn btn-ghost" href="#categorias">Ver o que tem <svg class="ico"><use href="#i-seta"/></svg></a>
       </div>
       <div class="fatos">
         <div><b>26 anos</b><span>atendendo Sobradinho</span></div>
@@ -447,63 +426,6 @@
       <div class="cat c4"><div class="ic"><svg class="ico"><use href="#i-brilho"/></svg></div><div><h3>Personalizados</h3><p>Gravação a laser em canecas, copos, squeezes e carimbos.</p></div></div>
       <div class="cat c5"><div class="ic"><svg class="ico"><use href="#i-impressora"/></svg></div><div><h3>Copiadora</h3><p>Cópias, impressões e plastificação pra escola e pro trabalho.</p></div></div>
       <div class="cat c6"><div class="ic"><svg class="ico"><use href="#i-monitor"/></svg></div><div><h3>Informática</h3><p>Acessórios e suprimentos pro computador e pro escritório.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- produtos -->
-<section class="produtos" id="produtos">
-  <div class="wrap">
-    <div class="prod-topo">
-      <div class="titulo">
-        <span class="chip chip-red">Chegou na loja</span>
-        <h2>Novidades da Ciapel</h2>
-        <p>Viu algo que gostou? Toque em “Quero esse” e a mensagem já vai pronta pro nosso WhatsApp.</p>
-      </div>
-      <a class="link-ig" href="https://www.instagram.com/ciapel.papelaria/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-insta"/></svg>Mais no @ciapel.papelaria</a>
-    </div>
-
-    <div class="grade">
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/post06-bobbiegoods.jpg" alt="Kit Bobbie Goods com livro e estojo de 24 canetinhas"><span class="selo">Oferta</span></div>
-        <div class="info"><h3>Kit Bobbie Goods</h3><p>Livro de colorir + estojo com 24 canetinhas.</p>
-          <div class="rodape"><div class="preco"><small>o kit</small>R$ 15,00</div><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e quero o Kit Bobbie Goods (R$ 15,00)."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/post10-superherois.jpg" alt="Coleção de ursinhos de pelúcia Super Heróis"><span class="selo novo">Novidade</span></div>
-        <div class="info"><h3>Pelúcias Super Heróis</h3><p>Ursinhos fofos e macios, perfeitos pra presentear.</p>
-          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse nas Pelúcias Super Heróis."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/post11-ducks.jpg" alt="Mini caderno de pelúcia Ducks"><span class="selo novo">Novidade</span></div>
-        <div class="info"><h3>Mini Caderno Ducks</h3><p>De pelúcia, com caneta. Fofo e cheio de estilo.</p>
-          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse no Mini Caderno de Pelúcia Ducks."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/mymini-baby.jpg" style="object-fit:contain;padding:15% 7% 4%" alt="My Mini Baby Disney: bolinha surpresa com bebê, berço e acessórios"><span class="selo novo">Novidade</span></div>
-        <div class="info"><h3>My Mini Baby</h3><p>Bolinha surpresa com bebê, berço e acessórios.</p>
-          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse no My Mini Baby."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/post08-balde.jpg" alt="Big Balde Acrilex com 30 massinhas soft"></div>
-        <div class="info"><h3>Big Balde Acrilex</h3><p>30 massinhas soft Art Kids num balde só.</p>
-          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse no Big Balde Acrilex (30 massinhas)."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/post09-massinha.jpg" alt="Massa de E.V.A Make+ com 20 cores"></div>
-        <div class="info"><h3>Massa de E.V.A</h3><p>20 cores pra modelar, da Make+.</p>
-          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse na Massa de E.V.A 20 cores."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/post16-das.jpg" alt="Massa de modelar DAS" style="object-position:50% 30%"></div>
-        <div class="info"><h3>Massa de modelar DAS</h3><p>Seca ao ar, ideal pra artesanato e escola.</p>
-          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse na Massa de modelar DAS."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
-      <article class="card">
-        <div class="foto"><img src="assets/fotos/post13-caneca.jpg" alt="Caneca com lata decorada floral" style="object-position:50% 55%"></div>
-        <div class="info"><h3>Caneca com lata floral</h3><p>Presente pronto: caneca e lata decorada.</p>
-          <div class="rodape"><span class="consulte">Consulte</span><a class="btn btn-wa btn-sm" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vi no site e tenho interesse na Caneca com lata floral."><svg class="ico-wa"><use href="#wa"/></svg>Quero esse</a></div></div>
-      </article>
     </div>
   </div>
 </section>
@@ -636,13 +558,12 @@
       </div>
       <div class="linha-info"><svg class="ico"><use href="#i-relogio"/></svg><div><h3>Horário</h3>
         <div class="horas"><span>Segunda a sexta</span><span>8h30 às 18h</span><span>Sábado</span><span>8h30 às 16h</span><span>Domingo</span><span class="fechado">Fechado</span></div>
-        <p class="obs">A copiadora encerra 30 minutos antes do fechamento da loja.</p></div></div>
-      <div class="linha-info"><svg class="ico"><use href="#i-fone"/></svg><div><h3>Telefones</h3><p>Sobradinho I: WhatsApp (61) 99626-5726 · (61) 3387-7784<br>Sobradinho II: WhatsApp (61) 99634-8804 · (61) 3591-9231</p></div></div>
+        <p class="obs">A copiadora encerra 30 minutos antes do fechamento da loja. Cópias e impressões pelo WhatsApp da copiadora: <a href="https://wa.me/5561996809913?text=Ol%C3%A1%2C%20copiadora%20da%20Ciapel!%20Vim%20pelo%20site." target="_blank" rel="noopener"><svg class="ico-wa"><use href="#wa"/></svg>(61) 99680-9913</a></p></div></div>
+      <div class="linha-info"><svg class="ico"><use href="#i-fone"/></svg><div><h3>Telefones</h3><p>Sobradinho I: WhatsApp (61) 99626-5726 · (61) 3387-7784<br>Sobradinho II: WhatsApp (61) 99634-8804 · (61) 3591-9231<br>Copiadora: WhatsApp (61) 99680-9913</p></div></div>
     </div>
     <div class="mapa">
-      <a class="mapa-fallback" href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJAQAAkH5AWpMRSquHEoVfZvE" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg>Ver no Google Maps</a>
-      <iframe title="Mapa da Ciapel Papelaria em Sobradinho I" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=-15.6460826,-47.8018678&z=16&output=embed"></iframe>
-      <span class="mapa-legenda"><svg class="ico"><use href="#i-pin"/></svg>Loja Sobradinho I</span>
+      <a class="mapa-fallback" href="https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria%20Sobradinho%20DF" target="_blank" rel="noopener"><svg class="ico"><use href="#i-pin"/></svg>Ver no Google Maps</a>
+      <div class="mapa-lojas" id="mapa-lojas" role="region" aria-label="Mapa com as duas lojas da Ciapel em Sobradinho"></div>
     </div>
   </div>
 </section>
@@ -685,7 +606,7 @@
       </div>
       <div>
         <h4>Contato</h4>
-        <ul><li>Sobradinho I: WhatsApp (61) 99626-5726 · (61) 3387-7784</li><li>Sobradinho II: WhatsApp (61) 99634-8804 · (61) 3591-9231</li><li>Quadra 08, Bloco 18, Lote 04, Loja 01 · Sobradinho I</li><li>AR 9, Conjunto 1A, Lote 2 · Sobradinho II</li></ul>
+        <ul><li>Sobradinho I: WhatsApp (61) 99626-5726 · (61) 3387-7784</li><li>Sobradinho II: WhatsApp (61) 99634-8804 · (61) 3591-9231</li><li>Copiadora: WhatsApp (61) 99680-9913</li><li>Quadra 08, Bloco 18, Lote 04, Loja 01 · Sobradinho I</li><li>AR 9, Conjunto 1A, Lote 2 · Sobradinho II</li></ul>
       </div>
     </div>
     <div class="copy"><span>© 2026 Ciapel Papelaria · Sobradinho – DF</span><span>Site por GLSM</span></div>
@@ -694,6 +615,7 @@
 
 <a class="flutuante" href="https://wa.me/5561996265726" data-wa="Olá, Ciapel! Vim pelo site e quero fazer um pedido." aria-label="Falar no WhatsApp"><svg class="ico-wa"><use href="#wa"/></svg></a>
 
+<script src="assets/leaflet/leaflet.js"></script>
 <script>
   // Deixa cada botão de WhatsApp com a mensagem já escrita
   document.querySelectorAll('[data-wa]').forEach(function (a) {
@@ -701,6 +623,34 @@
     a.target = '_blank';
     a.rel = 'noopener';
   });
+
+  // Mapa com as duas lojas (se o Leaflet não carregar, fica o link "Ver no Google Maps")
+  (function () {
+    var el = document.getElementById('mapa-lojas');
+    if (!el || !window.L) return;
+    var lojas = [
+      {nome: 'Sobradinho I', pos: [-15.6460826, -47.8018678], end: 'Quadra 08, Bloco 18, Lote 04, Loja 01',
+       rota: 'https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJAQAAkH5AWpMRSquHEoVfZvE'},
+      {nome: 'Sobradinho II', pos: [-15.6407874, -47.8253667], end: 'AR 9, Conjunto 1A, Lote 2',
+       rota: 'https://www.google.com/maps/search/?api=1&query=Ciapel%20Papelaria&query_place_id=ChIJgaJiy71AWpMRUUaUB6Xtbss'}
+    ];
+    var mapa = L.map(el, {scrollWheelZoom: false, dragging: !L.Browser.mobile});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
+    }).addTo(mapa);
+    mapa.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
+    lojas.forEach(function (l) {
+      var icone = L.divIcon({
+        className: '',
+        html: '<div class="pino"><svg viewBox="0 0 32 42"><path d="M16 1C7.7 1 1 7.6 1 15.8 1 27 16 41 16 41s15-14 15-25.2C31 7.6 24.3 1 16 1Z" fill="#e0262f" stroke="#fff" stroke-width="2"/><circle cx="16" cy="15.5" r="5.5" fill="#fff"/></svg><span>' + l.nome + '</span></div>',
+        iconSize: [32, 42], iconAnchor: [16, 42], popupAnchor: [0, -70]
+      });
+      L.marker(l.pos, {icon: icone, title: 'Ciapel ' + l.nome}).addTo(mapa)
+        .bindPopup('<b>Ciapel ' + l.nome + '</b>' + l.end + '<br><a class="pop-link" href="' + l.rota + '" target="_blank" rel="noopener">Como chegar →</a>');
+    });
+    mapa.fitBounds(lojas.map(function (l) { return l.pos; }), {paddingTopLeft: [40, 80], paddingBottomRight: [40, 30]});
+  })();
 </script>
 </body>
 </html>
