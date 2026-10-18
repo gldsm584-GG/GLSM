@@ -14,6 +14,7 @@ Pesquisa de mercado feita em 2026-10-18.
 | [Hotmart — Frutíferas em Vasos: Modo Reprodutivo](https://hotmart.com/pt-br/marketplace/produtos/frutiferas-em-vasos-guia-pratico-do-modo-reprodutivo/Q105857331V) | R$ 37,90 | Planta que cresce bonita mas não dá fruto | Erros comuns, fase reprodutiva, receitas caseiras; garantia 7 dias | Sem dado de anúncio |
 | [Hotmart — 25 Frutíferas em Vasos ("Sua Varanda Frutífera")](https://hotmart.com/pt-br/marketplace/produtos/25-frutiferas-em-vasos-e-pequenos-espacos-guia-pratico-para-criar-seu-pomar-em-casa/P103415749T) | R$ 97 | Pomar na varanda, mesmo sem quintal | 25 espécies, PDF, garantia 7 dias | Sem dado de anúncio |
 | [Hotmart — Curso Plantio de Frutas em Vasos](https://hotmart.com/pt-br/marketplace/produtos/cultivo-de-pomares-exuberantes-em-vasos/X84902947G) | R$ 29 | Pomar em miniatura em vasos | Curso online | Nota 2,0 (1 avaliação), fraco |
+| [Árvores Frutíferas em Vaso — "Curso"](https://arvoresfrutiferasemvaso.com/) (visto em 2026-10-18) | R$ 97 ("de R$ 194", 50% off) ou 12x de R$ 9,70 | Pomar "em qualquer cantinho da sua casa" | Apostilas em PDF (plantio da muda, irrigação, pragas, adubação) + 3 bônus "de R$ 79,90 cada": grupo VIP, ebook de pragas, ebook de ervas medicinais; acesso vitalício | Anúncio rodando no YouTube (antes do vídeo do Naturando). Página de 2021, contador de "vagas restantes" que muda sozinho, depoimentos em print do Facebook. O botão de compra não tem link de checkout visível. No FAQ, diz que dá para plantar a partir da semente |
 | [Hotmart — Enciclopédia dos Planteiros](https://hotmart.com/pt-br/marketplace/produtos/a-enciclopedia-dos-planteiros-black-verde-2025-v2/R102996547Y) | indisponível | Guia definitivo de frutíferas em vaso | Livro impresso de 556 págs + cursos + comunidade | Produto caro, outro público |
 
 **O que a pesquisa mostra:**
@@ -139,6 +140,8 @@ Pesquisa de mercado feita em 2026-10-18.
 - [ ] Escolher o título
 - [x] Escrever o Cap. 1 (diagnóstico) e o checklist do Bônus 1 (2026-10-18, com fontes conferidas:
   `cap-01-diagnostico.md` e `bonus-01-checklist.md`)
+- [x] Escrever o Cap. 2 (escolhendo a muda) (2026-10-18, com fontes conferidas: `cap-02-escolhendo-a-muda.md`)
+- [x] Escrever o Cap. 3 (o vaso) (2026-10-18, com fontes conferidas: `cap-03-o-vaso.md`)
 - [ ] Escrever o resto dos capítulos e as 12 fichas
 - [ ] Diagramar o PDF (Canva grátis)
 - [ ] Criar a conta na Kiwify e o produto
