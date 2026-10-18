@@ -20,7 +20,7 @@ Pesquisa de mercado feita em 2026-10-18.
 **O que a pesquisa mostra:**
 - A dor que mais vende é **"minha planta cresce mas não dá fruto"**. Ela aparece no anúncio que mais escala (Sofia Valença) e no ebook de R$ 37,90.
 - As ofertas com anúncio rodando são baratas (R$ 10 ou "pague depois"). As de R$ 37–97 ficam paradas na Hotmart, sem anúncio visível.
-- R$ 27 fica entre o barato que escala (R$ 10) e o caro (R$ 37–97), com mais conteúdo que o de R$ 10.
+- R$ 20 fica entre o barato que escala (R$ 10) e o caro (R$ 37–97), com mais conteúdo que o de R$ 10.
 - Ninguém dá ferramenta prática (diagnóstico, calendário, ficha por espécie). Esse é o diferencial.
 
 ---
@@ -114,8 +114,9 @@ Pesquisa de mercado feita em 2026-10-18.
 
 ## 5. Preço e venda
 
-- **Preço:** R$ 27. Para lançar, R$ 19,90 nos primeiros dias, mas só se o aumento for real.
-  Não usar "de R$ 97 por R$ 27" se o produto nunca foi vendido a R$ 97: preço de
+- **Preço:** R$ 20 (definido em 2026-10-18; antes era R$ 27). Pela Kiwify (8,99% + R$ 2,49
+  por venda, segundo blogs), sobram cerca de R$ 15,71 por venda.
+  Não usar "de R$ 97 por R$ 20" se o produto nunca foi vendido a R$ 97: preço de
   referência falso é propaganda enganosa (Código de Defesa do Consumidor).
 - **Entrega:** checkout na Kiwify (entrega o PDF sozinha) + página de venda própria (o Gustavo já faz sites).
 - **Garantia:** 7 dias (padrão das plataformas).
@@ -142,6 +143,8 @@ Pesquisa de mercado feita em 2026-10-18.
   `cap-01-diagnostico.md` e `bonus-01-checklist.md`)
 - [x] Escrever o Cap. 2 (escolhendo a muda) (2026-10-18, com fontes conferidas: `cap-02-escolhendo-a-muda.md`)
 - [x] Escrever o Cap. 3 (o vaso) (2026-10-18, com fontes conferidas: `cap-03-o-vaso.md`)
+- [x] Escrever o Cap. 4 (substrato) (2026-10-18, com fontes conferidas: `cap-04-substrato.md`)
+- [x] Escrever o Cap. 5 (plantio) (2026-10-18, com fontes conferidas: `cap-05-plantio.md`)
 - [ ] Escrever o resto dos capítulos e as 12 fichas
 - [ ] Diagramar o PDF (Canva grátis)
 - [ ] Criar a conta na Kiwify e o produto
