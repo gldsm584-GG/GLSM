@@ -161,7 +161,7 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   com noindex; projeto Vercel SEM GitHub conectado — republicar com
   `npx vercel deploy --prod --scope glsmteste` de dentro da pasta `mockup/`;
   abordagem enviada em 2026-10-11 pelo WhatsApp da loja (61 99626-5726), só
-  veio a resposta automática até agora (lembrete em 14 ou 15/10); a copiadora
+  veio a resposta automática até agora (lembrete enviado em 2026-10-15); a copiadora
   tem WhatsApp próprio (61 99680-9913), já na página;
   preço definido em 2026-10-09: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês
   de Google Ads (até R$ 200) e o domínio do 1º ano inclusos; roteiro da
@@ -177,10 +177,17 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
   seminovos em Sobradinho/DF, Instagram @geocarautomoveis, WhatsApp do
   George 61 98115-3066 e do Diógenes 61 98204-5568; proposta: site com
   vitrine de carros, painel admin pra editar estoque/descrição/fotos e CRM
-  com funil de negociação, em Next.js + Supabase próprio, ainda não
-  construído em `clientes/Geocar/site/`; estoque levantado do Instagram em
-  `clientes/Geocar/estoque.md`, 11 anúncios à venda com 124 fotos em
-  `clientes/Geocar/fotos/` — ver `clientes/Geocar/briefing.md`).
+  com funil de negociação, em Next.js + Supabase próprio; site construído
+  em `clientes/Geocar/site/` e publicado em 2026-10-12 em
+  geocar-automoveis.vercel.app com noindex, em modo demonstração (sem
+  Supabase, com os 11 anúncios do Instagram e 124 fotos em
+  `site/public/carros/`); projeto Vercel SEM GitHub conectado — republicar
+  com `npx vercel deploy --prod --scope glsmteste` de dentro de `site/`;
+  falta criar o projeto Supabase (passo a passo no briefing) e pôr o
+  arquivo da logo; abordagem enviada ao George pelo WhatsApp em
+  2026-10-12 (11:56), aguardando resposta, lembrete enviado em 2026-10-15 — ver
+  `clientes/Geocar/abordagem.md`; preço R$ 700, pagamento único (2026-10-18); estoque levantado em
+  `clientes/Geocar/estoque.md` — ver `clientes/Geocar/briefing.md`).
 
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com

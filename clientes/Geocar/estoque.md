@@ -6,10 +6,11 @@
 > "Consulte condições no link da bio". Mesmo assim, o status precisa ser
 > confirmado com a loja, porque nem toda venda vira story.
 >
-> **Fotos:** `fotos/<carro>/01.jpg ... NN.jpg`, originais do Instagram em
-> 1440x1920 (o 01 é sempre a capa do post). A prévia de todas as capas está em
-> `fotos/capas.jpg`. Só baixei os anúncios de setembro e outubro que não
-> aparecem nas entregas.
+> **Fotos:** `site/public/carros/<carro>/01.jpg ... NN.jpg`, originais do
+> Instagram em 1440x1920 (o 01 é sempre a capa do post). A prévia de todas as
+> capas está em `capas-estoque.jpg`. Só baixei os anúncios de setembro e
+> outubro que não aparecem nas entregas. Esses 11 já estão no site
+> (`site/src/lib/estoque-inicial.ts` e `site/supabase/seed.sql`).
 
 ## À venda — com fotos (setembro e outubro)
 

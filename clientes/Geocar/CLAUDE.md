@@ -21,7 +21,9 @@ Cliente novo — prospecção por iniciativa própria (como a Ciapel).
 - Briefings e contexto: nessa pasta na raiz
 - Código do site: `site/`
 - Logo e fotos da loja/carros: nessa pasta (nunca em `identidade/` da raiz)
-- Estoque levantado: `estoque.md`. Fotos dos carros em `fotos/<carro>/`
+- Estoque levantado: `estoque.md`. Fotos dos carros em
+  `site/public/carros/<carro>/` (servidas pelo próprio site). Fotos novas
+  entram pelo painel e vão pro Storage do Supabase
 
 ## Contexto que herda da raiz
 

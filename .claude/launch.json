@@ -4,32 +4,90 @@
     {
       "name": "plavii-site",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "clientes/Plavii/site"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "clientes/Plavii/site"
+      ],
       "port": 3000
     },
     {
       "name": "bibi-perfumes-site",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "clientes/Bibi-Perfumes-Importados/site", "--", "-p", "3001"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "clientes/Bibi-Perfumes-Importados/site",
+        "--",
+        "-p",
+        "3001"
+      ],
       "port": 3001
     },
     {
       "name": "aula-scroll",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve", "saidas/outros", "-l", "4321", "--no-clipboard"],
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "saidas/outros",
+        "-l",
+        "4321",
+        "--no-clipboard"
+      ],
       "port": 4321
     },
     {
       "name": "bibi-demo-scroll",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve", "clientes/Bibi-Perfumes-Importados/demo-scroll", "-l", "4322", "--no-clipboard"],
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "clientes/Bibi-Perfumes-Importados/demo-scroll",
+        "-l",
+        "4322",
+        "--no-clipboard"
+      ],
       "port": 4322
     },
     {
       "name": "ciapel-mockup",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve", "clientes/Ciapel-Papelaria/mockup", "-l", "4323", "--no-clipboard"],
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "clientes/Ciapel-Papelaria/mockup",
+        "-l",
+        "4323",
+        "--no-clipboard"
+      ],
       "port": 4323
+    },
+    {
+      "name": "geocar-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "clientes/Geocar/site",
+        "--",
+        "-p",
+        "3002"
+      ],
+      "port": 3002
+    },
+    {
+      "name": "robo-prospeccao",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "G:/robo-prospeccao",
+        "dev"
+      ],
+      "port": 3100
     }
   ]
 }

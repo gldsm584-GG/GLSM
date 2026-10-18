@@ -142,10 +142,18 @@ ver pra decidir).
   com comércio aqui do DF. Fiz a loja online da Bibi Perfumes, posso te
   mandar o link. Foi por isso que montei a página de vocês antes de falar de
   valor: pra vocês verem o resultado antes de decidir." Não inventar números.
-- **"Em quanto tempo fica pronto?"** → "A página vai pro endereço novo em
-  poucos dias. Os cadastros no Google Maps dependem de uma confirmação do
-  próprio Google, que pode levar alguns dias. Pra isso, vocês só precisam me
-  dar acesso ao cadastro, eu mostro como faz."
+- **"Em quanto tempo fica pronto?"** → "A página fica no ar no endereço novo
+  em até uma semana depois que vocês me passam os dados. Os cadastros no
+  Google Maps eu arrumo nessa mesma semana, mas o de Sobradinho II precisa de
+  uma confirmação do próprio Google, que pode demorar um pouco mais. Isso não
+  depende de mim. Pra isso, vocês só precisam me dar acesso ao cadastro, eu
+  mostro como faz." Prometer uma semana mesmo dando pra fazer em 2 ou 3 dias:
+  entregar antes impressiona, atrasar por causa do Google não. Os dados que
+  dependem deles: CPF ou CNPJ do dono (pro endereço), acesso aos cadastros,
+  razão social e CNPJ (pra política de privacidade) e o horário de Sobradinho
+  II. O cadastro de Sobradinho II nunca foi assumido, então o Google pede pra
+  confirmar que a loja é deles (hoje costuma ser por vídeo da loja), e a
+  análise pode levar de dias a semanas.
 - **"Isso aparece no Google mesmo?"** → "Aparece, mas não é de um dia pro
   outro. O que faz efeito mais rápido é colocar a página no cadastro de vocês
   no Google Maps, que já tem quase 800 avaliações: quem clicar ali cai na página
@@ -249,4 +257,4 @@ Resposta pronta:
 - [x] Site no ar com a versão mais nova e `abordagem.md` fora do ar (404)
 - [x] Enviar a mensagem pelo WhatsApp (2026-10-11, domingo; só veio a
       resposta automática)
-- [ ] Lembrete na quarta (14/10) ou quinta (15/10), se ninguém responder
+- [x] Lembrete enviado em 2026-10-15 (quinta), pedindo pra passar pro responsável

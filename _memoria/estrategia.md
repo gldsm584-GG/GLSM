@@ -16,9 +16,11 @@ abordagem pronta pelo WhatsApp da loja, ainda não enviada; preço definido em
 2026-10-09: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês de Google Ads
 incluso — ver `clientes/Ciapel-Papelaria/briefing.md`).
 Em 2026-10-12 entrou uma quarta frente: Geocar Automóveis (prospecção — loja
-de carros em Sobradinho/DF; proposta de site com vitrine, admin e CRM de
-funil em Supabase, ainda não construído; estoque e fotos já levantados do
-Instagram — ver `clientes/Geocar/briefing.md`).
+de carros em Sobradinho/DF; site com vitrine, admin e CRM de funil
+construído no mesmo dia e publicado em geocar-automoveis.vercel.app em modo
+demonstração, com o estoque real do Instagram; abordagem enviada ao George
+pelo WhatsApp no mesmo dia, aguardando resposta; falta ligar o Supabase — ver
+`clientes/Geocar/briefing.md`).
 
 ## Prioridade principal
 

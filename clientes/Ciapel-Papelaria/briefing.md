@@ -85,7 +85,7 @@ só veio a resposta automática; esperar alguém da loja a partir de segunda.
 - [ ] Confirmar com a loja: serviço de lista escolar pelo WhatsApp (seção
       sugerida, não estava anunciada assim) e se o horário vale pras duas lojas
 - [x] Enviar abordagem pelo WhatsApp da loja (2026-10-11, texto em `mockup/abordagem.md`)
-- [ ] Lembrete na quarta (14/10) ou quinta (15/10), se ninguém responder
+- [x] Lembrete enviado em 2026-10-15 (quinta), pedindo pra passar pro responsável
 - [x] Publicar o mockup na Vercel (2026-10-08): https://ciapel-papelaria.vercel.app
 - [x] Definir preço da landing page: R$ 1.500 no Pix ou 3x de R$ 550, com o 1º mês de anúncio no Google incluso (até R$ 200) e o domínio do 1º ano, 2026-10-09. Sem mensalidade: a opção de R$ 150/mês pra atualizar as novidades saiu em 2026-10-10, junto com a seção. Detalhes em `mockup/abordagem.md`. O ciapel.com.br é de outra empresa: usar ciapelpapelaria.com.br (livre em 2026-10-09)
 
