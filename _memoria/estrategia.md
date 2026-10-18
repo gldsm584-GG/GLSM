@@ -21,6 +21,13 @@ construído no mesmo dia e publicado em geocar-automoveis.vercel.app em modo
 demonstração, com o estoque real do Instagram; abordagem enviada ao George
 pelo WhatsApp no mesmo dia, aguardando resposta; falta ligar o Supabase — ver
 `clientes/Geocar/briefing.md`).
+Em 2026-10-18 entrou uma frente própria, fora dos clientes: infoprodutos,
+como aposta pra começar a vender agora, em paralelo à prospecção. Nicho
+escolhido: frutíferas em vaso (demanda confirmada por anúncios ativos, pouca
+concorrência, sem risco de política de anúncio). Preço alvo R$ 27. Prontos:
+estrutura e pesquisa de concorrentes (`estrutura.md`), Cap. 1 e Bônus 1 com
+fontes conferidas. Falta escrever o resto, diagramar, criar a conta na Kiwify
+e a página de venda — ver `infoprodutos/frutiferas-em-vaso/estrutura.md`.
 
 ## Prioridade principal
 

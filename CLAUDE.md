@@ -132,11 +132,17 @@ prospecção do Gustavo.
 - `marketing/` — meu próprio conteúdo (Insta, LinkedIn, portfolio)
 - `saidas/` — emails, documentos pontuais
 - `dados/` — arquivos a analisar
+- `infoprodutos/` — meus produtos digitais (ebooks), uma subpasta por
+  produto (ex: `infoprodutos/frutiferas-em-vaso/`)
 
 **Quem sou:** Gustavo, freelancer criando sites profissionais pra
 qualquer tipo de comércio. Ainda sem nicho fechado.
 
 **Meu serviço:** criação de sites.
+
+**Infoprodutos:** ebooks baratos (R$ 20–30) de problema do dia a dia.
+Primeiro em construção desde 2026-10-18: frutíferas em vaso
+(`infoprodutos/frutiferas-em-vaso/`).
 
 **Clientes ativos:**
 - Plavii (em prospecção — loja Next.js funcional em
@@ -192,6 +198,10 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 **Regras do sistema:**
 - Cliente/prospecção novo → criar pasta `clientes/<Nome>/` com
   `briefing.md`
+- Infoproduto novo → criar pasta `infoprodutos/<nome>/` com
+  `estrutura.md` (pesquisa de concorrentes, posicionamento, capítulos e preço)
+- Dado técnico de ebook (número, prazo, dose) só entra conferido em fonte
+  confiável (Embrapa, universidade), com a fonte listada no fim do capítulo
 - Logo e identidade visual de um cliente ficam dentro da pasta do
   próprio cliente, não em `identidade/` (essa é reservada pra marca
   pessoal do Gustavo)
