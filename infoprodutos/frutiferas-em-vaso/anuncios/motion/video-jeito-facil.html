@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Vídeo: o jeito fácil</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<!--
+  Vídeo de anúncio do ebook (9:16, 1080x1920), feito só com código: ilustração em SVG,
+  animação em CSS e efeitos sonoros sintetizados (Web Audio). Nada de banco de imagem
+  ou música de terceiros, então não tem problema de licença.
+
+  - Ver no navegador: abra este arquivo e clique em "Tocar" (o som só sai depois do clique).
+  - Gerar o MP4: node render.mjs (dentro desta pasta).
+
+  Tudo é cronometrado pela tabela T (começo de cada cena, em segundos). Os efeitos sonoros
+  usam a mesma tabela, então mudar um tempo ali mexe na imagem e no som juntos.
+  Os números na tela vêm do ebook (caps. 1, 3, 5 e 6), com fonte. Não troque nenhum.
+-->
+<style>
+  :root {
+    --verde: #2f6b3a; --verde-escuro: #1f4a28; --verde-fundo: #173a1f;
+    --laranja: #f2a33a; --texto-claro: rgba(255,255,255,.92);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { background: #0d1f11; height: 100%; }
+  body { font-family: Inter, "Segoe UI", Arial, sans-serif; color: #fff; overflow: hidden; }
+
+  #palco-video {
+    position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: hidden;
+    background: radial-gradient(120% 70% at 50% 58%, #2e6c3b 0%, #1f4a28 55%, #163720 100%);
+    transform-origin: 0 0;
+  }
+
+  /* ---------- Textos ---------- */
+  /* Título e texto de apoio seguem um embaixo do outro, então título de 1 ou 2 linhas não deixa buraco */
+  .cena { position: absolute; inset: 0; padding: 372px 90px 0; }
+  .kicker {
+    position: absolute; left: 90px; top: 290px; font-size: 30px; font-weight: 800;
+    letter-spacing: .24em; text-transform: uppercase; color: var(--laranja);
+  }
+  .passo {
+    position: absolute; left: 90px; top: 290px; padding: 12px 26px; border-radius: 999px;
+    background: var(--laranja); color: #1f2a22; font-size: 28px; font-weight: 900;
+    letter-spacing: .12em; text-transform: uppercase;
+  }
+  .titulo { font-size: 84px; line-height: 1.0; font-weight: 900; letter-spacing: -.035em; }
+  .gancho { padding-top: 350px; }
+  .gancho .titulo { font-size: 92px; }
+  .titulo .w { display: inline-block; }
+  .titulo .destaque { color: var(--laranja); }
+  .sub { margin-top: 20px; font-size: 38px; line-height: 1.3; font-weight: 600; color: var(--texto-claro); }
+  .sub b { color: var(--laranja); font-weight: 800; }
+
+  /* ---------- Ilustração ---------- */
+  #ilustra { position: absolute; left: 90px; top: 670px; width: 900px; height: 819px; overflow: visible; }
+  #ilustra text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+  /* Elementos SVG giram/crescem a partir do próprio centro (ou da base, ou do topo) */
+  #ilustra .fb { transform-box: fill-box; transform-origin: center; }
+  #ilustra .base { transform-box: fill-box; transform-origin: 50% 100%; }
+  #ilustra .topo { transform-box: fill-box; transform-origin: 50% 0; }
+  #ilustra .esq { transform-box: fill-box; transform-origin: 0 50%; }
+
+  /* ---------- Fechamento (CTA) ---------- */
+  .cta .chamada {
+    position: absolute; left: 90px; right: 90px; top: 290px; font-size: 66px; line-height: 1.02;
+    font-weight: 900; letter-spacing: -.03em;
+  }
+  .cta .chamada .w { display: inline-block; }
+  .cta .chamada .destaque { color: var(--laranja); }
+  .livro {
+    position: absolute; left: 96px; top: 490px; width: 360px; height: 510px;
+    background: var(--verde); color: #fff; border-radius: 6px 14px 14px 6px; padding: 40px 28px;
+    text-align: center; display: flex; flex-direction: column; align-items: center;
+    box-shadow: -12px 0 0 #163a1e, 0 40px 70px rgba(0,0,0,.4);
+  }
+  .livro small { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; font-weight: 700; }
+  .livro b { font-size: 44px; line-height: 1.04; font-weight: 900; margin: 22px 0 14px; letter-spacing: -.02em; }
+  .livro i { font-style: normal; font-size: 17px; opacity: .95; }
+  .livro svg { margin-top: auto; }
+  .lista { position: absolute; left: 510px; right: 70px; top: 520px; list-style: none; padding: 0; }
+  .lista li {
+    font-size: 36px; line-height: 1.18; font-weight: 700; padding: 0 0 30px 52px; position: relative;
+  }
+  .lista li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--laranja); font-weight: 900; }
+  .preco {
+    position: absolute; left: 0; right: 0; top: 1062px; text-align: center; font-size: 40px; font-weight: 700;
+    color: var(--texto-claro);
+  }
+  .preco b { display: inline-block; font-size: 104px; font-weight: 900; color: var(--laranja); letter-spacing: -.03em; margin-left: 14px; vertical-align: -10px; }
+  .botao {
+    position: absolute; left: 190px; right: 190px; top: 1218px; padding: 30px 0; border-radius: 999px;
+    background: var(--laranja); color: #1f2a22; text-align: center; font-size: 40px; font-weight: 900;
+    box-shadow: 0 18px 40px rgba(0,0,0,.3);
+  }
+
+  /* ---------- Animações (todas pausadas; quem manda no tempo é o seek()) ---------- */
+  @keyframes pop { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+  @keyframes sobe { from { opacity: 0; transform: translateY(70px); } to { opacity: 1; transform: none; } }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes sai { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes cenaSai { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(-140px); } }
+  @keyframes apagar { from { opacity: 1; } to { opacity: .3; } }
+  @keyframes escalaY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes encher { from { opacity: 1; transform: scaleY(0); } to { opacity: 1; transform: scaleY(1); } }
+  @keyframes escalaX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes cai {
+    0% { opacity: 0; transform: translateY(-420px); animation-timing-function: cubic-bezier(.55,0,1,.45); }
+    15% { opacity: 1; }
+    72% { transform: translateY(0); animation-timing-function: cubic-bezier(.22,1,.36,1); }
+    86% { transform: translateY(-22px); animation-timing-function: cubic-bezier(.55,0,1,.45); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes carimbo { from { opacity: 0; transform: scale(2.4) rotate(-14deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+  @keyframes desce { 0% { opacity: 0; transform: translateY(-560px); } 30% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+  @keyframes entraRegador { from { opacity: 0; transform: translate(360px, -300px) rotate(25deg); } to { opacity: 1; transform: none; } }
+  @keyframes saiRegador { from { opacity: 1; transform: none; } to { opacity: 0; transform: translate(360px, -300px) rotate(25deg); } }
+  @keyframes chuva { 0% { opacity: 0; transform: translateY(0); } 12% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translateY(250px); } }
+  @keyframes pingo { 0% { opacity: 0; transform: translateY(0) scale(.5); } 20% { opacity: 1; transform: translateY(4px) scale(1); } 100% { opacity: 0; transform: translateY(48px) scale(1); } }
+  @keyframes girar { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @keyframes nasce { from { opacity: 0; transform: translateY(160px) scale(.5); } to { opacity: 1; transform: none; } }
+  @keyframes pulso { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+  @keyframes brilho { 0% { opacity: 0; transform: scale(0) rotate(0); } 40% { opacity: 1; transform: scale(1.15) rotate(45deg); } 100% { opacity: 0; transform: scale(0) rotate(90deg); } }
+  @keyframes livroEntra { from { opacity: 0; transform: translateY(420px) rotate(-16deg) scale(.8); } to { opacity: 1; transform: rotate(-4deg); } }
+  @keyframes flutua { from { transform: translate(0, 0) rotate(0deg); } to { transform: translate(-120px, -2300px) rotate(260deg); } }
+  @keyframes balanca { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+
+  /* ---------- Modo prévia (fora do render) ---------- */
+  #controles {
+    position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 12px; align-items: center;
+    padding: 10px 16px; background: #0d1f11; font: 600 14px Inter, system-ui, sans-serif; color: #cfe3cf;
+  }
+  #controles button { font: inherit; padding: 8px 16px; border-radius: 8px; border: 0; background: var(--laranja); color: #1f2a22; cursor: pointer; }
+  #controles input { flex: 1; }
+  body.render #controles { display: none; }
+</style>
+</head>
+<body>
+<div id="palco-video">
+
+  <!-- Folhinhas flutuando no fundo (decoração) -->
+  <svg id="fundo" width="1080" height="1920" style="position:absolute;inset:0" aria-hidden="true"></svg>
+
+  <!-- ===================== ILUSTRAÇÃO ===================== -->
+  <svg id="ilustra" viewBox="0 90 1000 910" data-anim="sai .4 cta-.45">
+    <defs>
+      <clipPath id="dentro"><path d="M322 560 H678 L634 914 H366 Z"/></clipPath>
+      <path id="folha" d="M0 0 C30 -26 80 -26 112 0 C80 26 30 26 0 0 Z"/>
+      <path id="gota" d="M0 -16 C7 -5 10 2 10 7 A10 10 0 0 1 -10 7 C-10 2 -7 -5 0 -16 Z"/>
+      <path id="estrela" d="M0 -30 C4 -6 6 -4 30 0 C6 4 4 6 0 30 C-4 6 -6 4 -30 0 C-6 -4 -4 -6 0 -30 Z"/>
+    </defs>
+
+    <!-- Sol (passo 5) -->
+    <g transform="translate(190 232)">
+      <g class="fb" data-anim="nasce .6 p5+.1 back">
+        <g id="raios" class="fb" data-anim="girar 9 p5 linear inf"></g>
+        <circle r="80" fill="#ffcc3d"/>
+        <circle r="62" fill="#ffd968"/>
+      </g>
+    </g>
+
+    <!-- Contador de horas de sol (passo 5) -->
+    <g transform="translate(640 0)">
+      <g class="fb" data-anim="pop .45 p5+.35 back; sai .3 fim">
+        <text id="contador" x="0" y="272" font-size="128" font-weight="900" fill="#fff">0 h</text>
+        <text x="4" y="323" font-size="38" font-weight="700" fill="#ffd968">de sol direto</text>
+      </g>
+    </g>
+
+    <!-- Vaso em corte (dá para ver por dentro) -->
+    <g class="fb" data-anim="pop .55 .2 back; sai .3 p1-.4; pop .55 p2+.15 back">
+      <ellipse cx="500" cy="950" rx="200" ry="18" fill="#000" opacity=".22"/>
+      <path d="M290 560 H710 V624 H690 L645 934 H355 L310 624 H290 Z" fill="#d0702a"/>
+      <rect x="290" y="560" width="420" height="12" fill="#e48b40"/>
+      <path d="M290 624 H710" stroke="#a9551a" stroke-width="6"/>
+      <path d="M322 560 H678 L634 914 H366 Z" fill="#5e2d0f"/>
+      <rect x="484" y="912" width="32" height="24" fill="#16351c"/>
+
+      <g clip-path="url(#dentro)">
+        <!-- Terra -->
+        <g class="base" data-anim="fade .01 0; sai .01 p1-.1; encher 1.0 p2+2.7 out">
+          <rect x="300" y="600" width="400" height="320" fill="#5b3a22"/>
+          <rect x="300" y="600" width="400" height="9" fill="#74502f"/>
+          <g id="graos"></g>
+        </g>
+        <!-- Terra molhada (passo 4) -->
+        <rect class="topo" x="300" y="600" width="400" height="320" fill="#1d0f06" fill-opacity=".5"
+              data-anim="escalaY 1.4 p4+.8 inout"/>
+        <!-- Pedras no fundo: o jeito errado (passo 2) -->
+        <g data-anim="sai .3 p2+2.15">
+          <g id="pedras"></g>
+        </g>
+        <!-- Tela cobrindo o furo -->
+        <g class="fb" data-anim="pop .4 p2+2.35 back">
+          <rect x="456" y="896" width="88" height="18" rx="5" fill="#efe7d2"/>
+          <path d="M470 896 V914 M486 896 V914 M500 896 V914 M514 896 V914 M530 896 V914 M456 905 H544" stroke="#b5a88a" stroke-width="2.5"/>
+        </g>
+      </g>
+
+      <!-- X sobre as pedras -->
+      <g transform="translate(500 862)">
+        <g class="fb" data-anim="carimbo .35 p2+1.45 back; sai .25 p2+2.15">
+          <circle r="62" fill="#e5484d"/>
+          <path d="M-26 -26 L26 26 M26 -26 L-26 26" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+        </g>
+      </g>
+
+      <!-- Etiqueta "tela no furo" -->
+      <g data-anim="fade .3 p2+2.5; sai .3 p3-.4">
+        <path d="M548 905 H735" stroke="#fff" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <text x="748" y="918" font-size="40" font-weight="800" fill="#fff">tela no furo</text>
+      </g>
+    </g>
+
+    <!-- Água saindo pelo furo (passo 4) -->
+    <g data-anim="fade .2 p4+1.9; sai .3 p5+.3">
+      <ellipse class="fb" cx="500" cy="984" rx="80" ry="9" fill="#7fd0ff" opacity=".55" data-anim="escalaX .7 p4+2.0 out"/>
+      <g id="pingos"></g>
+    </g>
+
+    <!-- Muda plantada (passos 3 em diante) -->
+    <g data-anim="desce .75 p3+.2 out">
+      <path d="M500 604 C440 604 418 650 420 700 C422 752 462 776 500 776 C538 776 578 752 580 700 C582 650 560 604 500 604 Z" fill="#3a2414"/>
+      <path d="M500 608 C488 650 470 690 448 742 M500 608 C506 660 520 700 548 750 M500 608 C496 670 498 720 500 770 M470 690 C455 700 440 702 430 716 M522 690 C540 700 556 700 568 712" stroke="#d8b88a" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/>
+      <path d="M500 604 C498 520 504 430 500 330" stroke="#6d5a2e" stroke-width="15" fill="none" stroke-linecap="round"/>
+      <ellipse cx="500" cy="556" rx="14" ry="10" fill="#8f6e3d"/>
+      <g id="folhas-muda" class="base" data-anim="balanca 2.6 p3+1 inout inf"></g>
+    </g>
+
+    <!-- Destaques do passo 3: colo e enxerto -->
+    <g data-anim="sai .3 p4-.4">
+      <path class="esq" d="M180 602 H820" stroke="#f2a33a" stroke-width="6" stroke-dasharray="18 12" data-anim="escalaX .5 p3+1.05 out"/>
+      <text x="168" y="616" font-size="40" font-weight="900" fill="#f2a33a" text-anchor="end" data-anim="fade .3 p3+1.3">colo</text>
+      <g data-anim="fade .3 p3+1.8">
+        <circle cx="500" cy="556" r="32" fill="none" stroke="#fff" stroke-width="6"/>
+        <path d="M534 548 H740" stroke="#fff" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
+        <text x="752" y="545" font-size="40" font-weight="800" fill="#fff">enxerto</text>
+        <text x="752" y="590" font-size="34" font-weight="600" fill="#fff" opacity=".85">acima da terra</text>
+      </g>
+    </g>
+
+    <!-- Regador (passo 4) -->
+    <g data-anim="entraRegador .6 p4+.1 out; saiRegador .45 p5-.45 in">
+      <g transform="rotate(-30 840 260)">
+        <path d="M790 200 C790 120 925 120 928 228" stroke="#2f73ad" stroke-width="20" fill="none" stroke-linecap="round"/>
+        <path d="M772 312 L648 218" stroke="#3f8fd0" stroke-width="24" stroke-linecap="round"/>
+        <ellipse cx="636" cy="210" rx="20" ry="30" fill="#2f73ad" transform="rotate(-37 636 210)"/>
+        <rect x="760" y="196" width="180" height="150" rx="24" fill="#3f8fd0"/>
+        <rect x="760" y="290" width="180" height="14" fill="#2f73ad"/>
+        <rect x="780" y="214" width="26" height="60" rx="13" fill="#7cc0f0" opacity=".55"/>
+      </g>
+    </g>
+    <!-- Chuva saindo do crivo -->
+    <g data-anim="fade .2 p4+.65; sai .25 p5-.5">
+      <g id="chuva"></g>
+    </g>
+
+    <!-- Árvore com frutos (abertura e resultado) -->
+    <rect class="base" x="487" y="380" width="26" height="226" rx="10" fill="#7a5a34"
+          data-anim="encher .45 .5 out; sai .3 p1-.4; encher .5 fim+.15 out"/>
+    <g class="base" data-anim="pop .6 .7 back; sai .3 p1-.4; pop .75 fim+.4 back">
+      <circle cx="500" cy="300" r="175" fill="#3f8a47"/>
+      <circle cx="405" cy="335" r="122" fill="#4a9a51"/>
+      <circle cx="595" cy="335" r="122" fill="#4a9a51"/>
+      <circle cx="500" cy="245" r="128" fill="#5aa85b"/>
+      <circle cx="450" cy="215" r="58" fill="#72bf6c" opacity=".6"/>
+    </g>
+    <g id="frutos"></g>
+    <g id="brilhos"></g>
+
+    <!-- Passo 1: muda de semente x muda enxertada -->
+    <g data-anim="sai .3 p2-.35">
+      <g transform="translate(290 640) scale(1.3)">
+        <g data-anim="sobe .5 p1+.35 back; apagar .4 p1+1.75 out">
+          <g id="muda-semente"></g>
+          <text y="210" font-size="46" font-weight="800" fill="#fff" text-anchor="middle">De semente</text>
+        </g>
+      </g>
+      <g transform="translate(710 640) scale(1.3)">
+        <g class="fb" data-anim="sobe .5 p1+.5 back; pulso .5 p1+2.45 inout">
+          <g id="muda-enxertada"></g>
+          <text y="210" font-size="46" font-weight="800" fill="#fff" text-anchor="middle">Enxertada</text>
+        </g>
+      </g>
+      <!-- "8 a 15 anos" -->
+      <g transform="translate(290 235)">
+        <g class="fb" data-anim="pop .4 p1+1.5 back">
+          <rect x="-150" y="-44" width="300" height="88" rx="44" fill="#e5484d"/>
+          <text y="16" font-size="44" font-weight="900" fill="#fff" text-anchor="middle">8 a 15 anos</text>
+        </g>
+      </g>
+      <!-- Calombo do enxerto e o "certo" -->
+      <g transform="translate(710 562)">
+        <g class="fb" data-anim="pop .35 p1+2.15 back">
+          <circle r="36" fill="none" stroke="#f2a33a" stroke-width="7"/>
+        </g>
+      </g>
+      <g transform="translate(835 300)">
+        <g class="fb" data-anim="pop .4 p1+2.4 back">
+          <circle r="50" fill="#fff"/>
+          <path d="M-22 2 L-6 18 L24 -16" stroke="#2f6b3a" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+  </svg>
+
+  <!-- ===================== TEXTOS ===================== -->
+  <section class="cena gancho" data-anim="cenaSai .35 p1-.35 in">
+    <div class="kicker" data-anim="sobe .5 .05">Frutífera em vaso</div>
+    <h1 class="titulo palavras" data-t=".2">O jeito <em>fácil</em> de plantar sua frutífera no vaso</h1>
+    <p class="sub" data-anim="sobe .5 1.25">Em 5 passos simples</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 p2-.35 in">
+    <div class="passo" data-anim="pop .45 p1+.02 back">Passo 1 de 5</div>
+    <h1 class="titulo palavras" data-t="p1+.12">Compre muda <em>enxertada</em></h1>
+    <p class="sub" data-anim="sobe .5 p1+.75">De semente, a jabuticabeira pode levar <b>8 a 15 anos</b> para dar o 1º fruto.</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 p3-.35 in">
+    <div class="passo" data-anim="pop .45 p2+.02 back">Passo 2 de 5</div>
+    <h1 class="titulo palavras" data-t="p2+.12">Tela no furo. <em>Sem pedra</em> no fundo</h1>
+    <p class="sub" data-anim="sobe .5 p2+.75">A pedra atrapalha a drenagem e deixa a raiz encharcada.</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 p4-.35 in">
+    <div class="passo" data-anim="pop .45 p3+.02 back">Passo 3 de 5</div>
+    <h1 class="titulo palavras" data-t="p3+.12"><em>Colo</em> no nível da terra</h1>
+    <p class="sub" data-anim="sobe .5 p3+.75">Colo é onde o caule vira raiz. O <b>enxerto</b> fica sempre acima.</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 p5-.35 in">
+    <div class="passo" data-anim="pop .45 p4+.02 back">Passo 4 de 5</div>
+    <h1 class="titulo palavras" data-t="p4+.12">Regue até a água <em>sair pelo furo</em></h1>
+    <p class="sub" data-anim="sobe .5 p4+.75">Depois, teste do dedo: terra seca a <b>5 cm</b> de fundo? Hora de regar.</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 fim-.35 in">
+    <div class="passo" data-anim="pop .45 p5+.02 back">Passo 5 de 5</div>
+    <h1 class="titulo palavras" data-t="p5+.12">No mínimo <em>6 horas</em> de sol direto</h1>
+    <p class="sub" data-anim="sobe .5 p5+.75">Sem sol, a planta não tem energia para florir.</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 cta-.35 in">
+    <h1 class="titulo palavras" data-t="fim+.12">Começou certo. <em>Agora é cuidar.</em></h1>
+    <p class="sub" data-anim="sobe .5 fim+.8">Adubo, poda e da flor ao fruto: o passo a passo está no guia.</p>
+  </section>
+
+  <section class="cena cta">
+    <h1 class="chamada palavras" data-t="cta+.1">O guia completo <em>em PDF</em></h1>
+    <div class="livro" data-anim="livroEntra .7 cta+.25 back">
+      <small>Guia prático de frutíferas em vaso</small>
+      <b>Sua Frutífera Vai Dar Fruto</b>
+      <i>Do vaso à colheita, mesmo em apartamento</i>
+      <svg width="104" height="158" viewBox="0 0 120 180" aria-hidden="true">
+        <circle cx="60" cy="56" r="48" fill="#4f9a5a"/>
+        <circle cx="44" cy="44" r="9" fill="#f2a33a"/><circle cx="78" cy="40" r="9" fill="#f2a33a"/><circle cx="62" cy="72" r="9" fill="#f2a33a"/>
+        <rect x="56" y="100" width="8" height="26" fill="#7a5a34"/>
+        <path d="M24 124 H96 L88 172 H32 Z" fill="#c8691c"/>
+      </svg>
+    </div>
+    <ul class="lista">
+      <li data-anim="sobe .4 cta+1.0">Os 7 erros que impedem o fruto</li>
+      <li data-anim="sobe .4 cta+1.25">Fichas de 12 frutíferas</li>
+      <li data-anim="sobe .4 cta+1.5">4 bônus para imprimir</li>
+      <li data-anim="sobe .4 cta+1.75">Fontes: Embrapa e universidades</li>
+    </ul>
+    <div class="preco" data-anim="pop .5 cta+2.1 back">Por <b>R$ 20</b></div>
+    <div class="botao" data-anim="sobe .45 cta+2.6; pulso 1.1 cta+3.1 inout inf">Toque em Saiba mais</div>
+  </section>
+</div>
+
+<div id="controles">
+  <button id="tocar">▶ Tocar</button>
+  <input id="barra" type="range" min="0" max="1000" value="0">
+  <span id="relogio">0.0 s</span>
+</div>
+
+<script>
+// ===================== TEMPO =====================
+// Começo de cada cena (segundos). Imagem e som leem daqui.
+const T = { gancho: 0, p1: 2.8, p2: 6.4, p3: 10.4, p4: 13.6, p5: 16.8, fim: 19.8, cta: 22.6 };
+const TOTAL = 27.2;
+
+const NS = "http://www.w3.org/2000/svg";
+const EASE = {
+  out: "cubic-bezier(.22,1,.36,1)", back: "cubic-bezier(.34,1.56,.64,1)",
+  in: "cubic-bezier(.55,0,1,.45)", inout: "cubic-bezier(.65,0,.35,1)", linear: "linear",
+};
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+
+// "p2+.3" -> 6.7
+function tempo(expr) {
+  const conta = String(expr).replace(/[a-z]\w*/g, (nome) => {
+    if (!(nome in T)) throw new Error("Cena desconhecida: " + nome);
+    return T[nome];
+  });
+  return Function("return (" + conta + ")")();
+}
+
+// data-anim="pop .5 p1+.3 back; sai .3 p2" -> animation CSS com atraso absoluto.
+// A 1ª animação preenche antes e depois (both); as seguintes só depois (forwards).
+function animar(el, spec) {
+  el.style.animation = spec.split(";").map((s) => s.trim()).filter(Boolean).map((parte, i) => {
+    const [nome, dur, quando, ease = "out", rep] = parte.split(/\s+/);
+    return `${nome} ${dur}s ${EASE[ease]} ${tempo(quando)}s ${rep === "inf" ? "infinite" : 1} ${i === 0 ? "both" : "forwards"}`;
+  }).join(", ");
+}
+
+function svg(tag, attrs, pai) {
+  const el = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+  if (pai) pai.appendChild(el);
+  return el;
+}
+function usar(id, attrs, pai) { return svg("use", { href: "#" + id, ...attrs }, pai); }
+
+// Sorteio com semente fixa: o vídeo sai igual toda vez.
+function sorteio(semente) {
+  return () => {
+    semente |= 0; semente = (semente + 0x6d2b79f5) | 0;
+    let t = Math.imul(semente ^ (semente >>> 15), 1 | semente);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// ===================== DESENHOS GERADOS =====================
+function montarDesenhos() {
+  const r = sorteio(7);
+
+  // Grãos da terra
+  const graos = document.getElementById("graos");
+  for (let i = 0; i < 70; i++) {
+    svg("circle", { cx: 310 + r() * 380, cy: 615 + r() * 300, r: 2 + r() * 4, fill: r() < .5 ? "#71492b" : "#47301c" }, graos);
+  }
+
+  // Pedras (o jeito errado)
+  const pedras = document.getElementById("pedras");
+  const posPedras = [[380,890],[425,895],[470,893],[515,896],[560,892],[605,890],[402,862],[448,866],[494,862],[540,866],[586,862],[470,836],[525,838]];
+  posPedras.forEach(([x, y], i) => {
+    const g = svg("g", { transform: `translate(${x} ${y})` }, pedras);
+    const p = svg("ellipse", { rx: 24 + r() * 6, ry: 17 + r() * 4, fill: i % 3 ? "#9aa3a8" : "#7d878d" }, g);
+    animar(p, `cai .55 p2+${(.6 + i * .045).toFixed(3)} linear`);
+  });
+
+  // Raios do sol
+  const raios = document.getElementById("raios");
+  for (let i = 0; i < 12; i++) {
+    svg("rect", { x: -7, y: -138, width: 14, height: 38, rx: 7, fill: "#ffcc3d", transform: `rotate(${i * 30})` }, raios);
+  }
+
+  // Folhas de uma muda: [y no caule, ângulo, lado, tamanho]
+  function folhasEm(pai, cx, base, lista) {
+    lista.forEach(([y, ang, lado, esc], i) => {
+      const g = svg("g", { transform: `translate(${cx} ${base + y}) scale(${lado * esc} ${esc}) rotate(${ang})` }, pai);
+      usar("folha", { fill: i % 2 ? "#3f8a47" : "#5aa85b" }, g);
+      svg("path", { d: "M6 0 H100", stroke: "#2f6b3a", "stroke-width": 3, opacity: .6 }, g);
+    });
+  }
+  folhasEm(document.getElementById("folhas-muda"), 500, 0, [
+    [470, -22, -1, 1], [440, -22, 1, 1], [400, -28, -1, .95], [372, -28, 1, .9], [340, -70, -1, .8], [336, -70, 1, .8],
+  ]);
+
+  // Mudas no saquinho (passo 1)
+  function mudaNoSaco(id, enxertada) {
+    const g = document.getElementById(id);
+    svg("path", { d: "M-80 20 H80 L68 160 H-68 Z", fill: "#2a2f2b" }, g);
+    svg("rect", { x: -86, y: 8, width: 172, height: 22, rx: 6, fill: "#3b423d" }, g);
+    svg("path", { d: "M-40 40 V140", stroke: "#4a524c", "stroke-width": 6, "stroke-linecap": "round" }, g);
+    svg("path", { d: "M0 14 C-2 -80 4 -170 0 -250", stroke: "#6d5a2e", "stroke-width": 12, fill: "none", "stroke-linecap": "round" }, g);
+    if (enxertada) svg("ellipse", { cx: 0, cy: -60, rx: 12, ry: 9, fill: "#8f6e3d" }, g);
+    folhasEm(g, 0, 0, [[-120, -24, -1, .8], [-150, -24, 1, .8], [-190, -30, -1, .75], [-215, -30, 1, .72], [-248, -70, -1, .62], [-252, -70, 1, .62]]);
+  }
+  mudaNoSaco("muda-semente", false);
+  mudaNoSaco("muda-enxertada", true);
+
+  // Chuva do regador (o crivo termina perto de x=636, y=322)
+  const chuva = document.getElementById("chuva");
+  for (let i = 0; i < 9; i++) {
+    const g = svg("g", { transform: `translate(${620 + (i % 3) * 14 + r() * 6} ${340 + r() * 10}) scale(.8)` }, chuva);
+    animar(usar("gota", { fill: "#8fd6ff" }, g), `chuva .55 p4+${(.65 + i * .061).toFixed(3)} linear inf`);
+  }
+
+  // Pingos saindo pelo furo
+  const pingos = document.getElementById("pingos");
+  for (let i = 0; i < 3; i++) {
+    const g = svg("g", { transform: `translate(500 944) scale(.7)` }, pingos);
+    animar(usar("gota", { fill: "#8fd6ff" }, g), `pingo .6 p4+${(1.9 + i * .2).toFixed(2)} in inf`);
+  }
+
+  // Frutos: abrem o vídeo e voltam no resultado
+  const frutos = document.getElementById("frutos");
+  const posFrutos = [[430, 270], [568, 230], [622, 345], [470, 380], [370, 360], [535, 320], [650, 255], [400, 200]];
+  posFrutos.forEach(([x, y], i) => {
+    const g = svg("g", { transform: `translate(${x} ${y})` }, frutos);
+    const f = svg("g", { class: "fb" }, g);
+    svg("circle", { r: 25, fill: "#f2a33a" }, f);
+    svg("circle", { cx: -8, cy: -8, r: 7, fill: "#ffd28a" }, f);
+    svg("path", { d: "M0 -24 C2 -32 8 -36 14 -36", stroke: "#2f6b3a", "stroke-width": 4, fill: "none", "stroke-linecap": "round" }, f);
+    animar(f, `pop .3 ${(1.05 + i * .08).toFixed(2)} back; sai .3 p1-.4; pop .35 fim+${(1.05 + i * .11).toFixed(2)} back`);
+  });
+
+  // Brilhos em volta da copa
+  const brilhos = document.getElementById("brilhos");
+  [[270, 170], [730, 190], [700, 450], [300, 470], [520, 110]].forEach(([x, y], i) => {
+    const g = svg("g", { transform: `translate(${x} ${y})` }, brilhos);
+    animar(usar("estrela", { class: "fb", fill: "#fff3c4" }, g), `brilho .7 ${(1.45 + i * .09).toFixed(2)} out; brilho .7 fim+${(1.9 + i * .1).toFixed(2)} out`);
+  });
+
+  // Folhinhas flutuando no fundo
+  const fundo = document.getElementById("fundo");
+  for (let i = 0; i < 9; i++) {
+    const g = svg("g", { transform: `translate(${80 + r() * 940} ${1900 + r() * 300}) scale(${.5 + r() * .5})` }, fundo);
+    const f = usar("folha-fundo", { fill: "#8fd18f", opacity: .07 }, g);
+    animar(f, `flutua ${(16 + r() * 8).toFixed(1)} -${(r() * 16).toFixed(1)} linear inf`);
+  }
+}
+// Folha do fundo (o <defs> da ilustração não vale para o outro SVG)
+(() => {
+  const fundo = document.getElementById("fundo");
+  const defs = svg("defs", {}, fundo);
+  svg("path", { id: "folha-fundo", d: "M0 0 C30 -26 80 -26 112 0 C80 26 30 26 0 0 Z" }, defs);
+})();
+
+// Títulos entram palavra por palavra
+function dividirPalavras(el) {
+  const novos = [];
+  const andar = (no, destaque) => {
+    for (const n of [...no.childNodes]) {
+      if (n.nodeType === 3) {
+        for (const p of n.textContent.split(/(\s+)/)) {
+          if (!p) continue;
+          if (/^\s+$/.test(p)) { novos.push(document.createTextNode(" ")); continue; }
+          const s = document.createElement("span");
+          s.className = "w" + (destaque ? " destaque" : "");
+          s.textContent = p;
+          novos.push(s);
+        }
+      } else andar(n, destaque || n.tagName === "EM");
+    }
+  };
+  andar(el, false);
+  el.replaceChildren(...novos);
+  const inicio = tempo(el.dataset.t);
+  novos.filter((n) => n.nodeType === 1).forEach((s, i) => animar(s, `sobe .5 ${(inicio + i * .06).toFixed(3)} out`));
+}
+
+// ===================== RELÓGIO =====================
+let animacoes = [];
+const contador = document.getElementById("contador");
+
+function seek(t) {
+  for (const a of animacoes) a.currentTime = t * 1000;
+  // Contador de 0 a 6 horas de sol
+  const n = Math.floor(clamp((t - (T.p5 + .55)) / 1.25) * 6);
+  contador.textContent = n + " h";
+}
+
+function iniciar() {
+  montarDesenhos();
+  document.querySelectorAll(".palavras").forEach(dividirPalavras);
+  document.querySelectorAll("[data-anim]").forEach((el) => animar(el, el.dataset.anim));
+  getComputedStyle(document.body).opacity; // força o navegador a criar as animações
+  animacoes = document.getAnimations();
+  animacoes.forEach((a) => a.pause());
+  seek(0);
+}
+
+// ===================== SOM =====================
+// Tudo sintetizado aqui. sons(ctx, saida, t0) agenda os efeitos na linha do tempo.
+function ruidoBuffer(ctx, seg = 2) {
+  const b = ctx.createBuffer(1, ctx.sampleRate * seg, ctx.sampleRate);
+  const d = b.getChannelData(0), r = sorteio(99);
+  for (let i = 0; i < d.length; i++) d[i] = r() * 2 - 1;
+  return b;
+}
+function impulso(ctx, seg, decai) {
+  const n = Math.floor(ctx.sampleRate * seg), b = ctx.createBuffer(2, n, ctx.sampleRate), r = sorteio(5);
+  for (let c = 0; c < 2; c++) {
+    const d = b.getChannelData(c);
+    for (let i = 0; i < n; i++) d[i] = (r() * 2 - 1) * Math.pow(1 - i / n, decai);
+  }
+  return b;
+}
+function montarMixer(ctx) {
+  const comp = ctx.createDynamicsCompressor();
+  comp.threshold.value = -14; comp.knee.value = 8; comp.ratio.value = 3.5; comp.attack.value = .004; comp.release.value = .2;
+  comp.connect(ctx.destination);
+  const master = ctx.createGain(); master.gain.value = .9; master.connect(comp);
+  const rev = ctx.createConvolver(); rev.buffer = impulso(ctx, 1.8, 3.2);
+  const revVol = ctx.createGain(); revVol.gain.value = .3; rev.connect(revVol).connect(master);
+  const musica = ctx.createGain(); musica.gain.value = .45; musica.connect(master);
+  const sfx = ctx.createGain(); sfx.gain.value = 1; sfx.connect(master);
+  return { ctx, master, rev, musica, sfx, ruido: ruidoBuffer(ctx) };
+}
+function envelope(param, at, pico, ataque, decai) {
+  param.setValueAtTime(0.0001, at);
+  param.linearRampToValueAtTime(pico, at + ataque);
+  param.exponentialRampToValueAtTime(0.0001, at + ataque + decai);
+}
+// Liga um nó na saída, com um pouco de eco (reverb) se pedir
+function ligar(m, no, destino, eco = 0) {
+  no.connect(destino);
+  if (eco) { const g = m.ctx.createGain(); g.gain.value = eco; no.connect(g).connect(m.rev); }
+}
+function osc(m, tipo, f, at, dur) {
+  const o = m.ctx.createOscillator(); o.type = tipo; o.frequency.setValueAtTime(f, at);
+  o.start(at); o.stop(at + dur + .05);
+  return o;
+}
+function ruido(m, at, dur) {
+  const s = m.ctx.createBufferSource(); s.buffer = m.ruido; s.loop = true;
+  s.start(at, (at * 7.3) % 1.5); s.stop(at + dur + .05);
+  return s;
+}
+const midi = (n) => 440 * Math.pow(2, (n - 69) / 12);
+
+const SOM = {
+  pop(m, at, f = 520, vol = .45) {
+    const o = osc(m, "sine", f * 1.9, at, .2), g = m.ctx.createGain();
+    o.frequency.exponentialRampToValueAtTime(f, at + .07);
+    envelope(g.gain, at, vol, .004, .14);
+    ligar(m, o.connect(g), m.sfx, .15);
+  },
+  ding(m, at, f = 1046.5, vol = .28, dur = 1.1) {
+    [[1, 1], [2, .28], [3.01, .1]].forEach(([mult, v]) => {
+      const o = osc(m, "sine", f * mult, at, dur), g = m.ctx.createGain();
+      envelope(g.gain, at, vol * v, .004, dur / mult);
+      ligar(m, o.connect(g), m.sfx, .45);
+    });
+  },
+  certo(m, at) { SOM.ding(m, at, 1046.5, .24); SOM.ding(m, at + .09, 1568, .24); },
+  errado(m, at) {
+    [[311, 0, .12], [233, .15, .24]].forEach(([f, d, dur]) => {
+      const o = osc(m, "triangle", f, at + d, dur), g = m.ctx.createGain(), lp = m.ctx.createBiquadFilter();
+      lp.type = "lowpass"; lp.frequency.value = 1400;
+      g.gain.setValueAtTime(0.0001, at + d); g.gain.linearRampToValueAtTime(.26, at + d + .01);
+      g.gain.setValueAtTime(.26, at + d + dur * .7); g.gain.exponentialRampToValueAtTime(0.0001, at + d + dur);
+      ligar(m, o.connect(lp).connect(g), m.sfx, .1);
+    });
+  },
+  whoosh(m, at, dur = .45, vol = .35, sobe = true) {
+    const s = ruido(m, at, dur), bp = m.ctx.createBiquadFilter(), g = m.ctx.createGain(), pan = m.ctx.createStereoPanner();
+    bp.type = "bandpass"; bp.Q.value = 1.1;
+    bp.frequency.setValueAtTime(sobe ? 350 : 3200, at); bp.frequency.exponentialRampToValueAtTime(sobe ? 3500 : 300, at + dur);
+    g.gain.setValueAtTime(0.0001, at); g.gain.linearRampToValueAtTime(vol, at + dur * .6); g.gain.exponentialRampToValueAtTime(0.0001, at + dur);
+    pan.pan.setValueAtTime(sobe ? -.6 : .6, at); pan.pan.linearRampToValueAtTime(sobe ? .6 : -.6, at + dur);
+    ligar(m, s.connect(bp).connect(g).connect(pan), m.sfx, .1);
+  },
+  baque(m, at, vol = .75) {
+    const o = osc(m, "sine", 150, at, .4), g = m.ctx.createGain();
+    o.frequency.exponentialRampToValueAtTime(46, at + .2);
+    envelope(g.gain, at, vol, .003, .32);
+    ligar(m, o.connect(g), m.sfx);
+    const s = ruido(m, at, .08), lp = m.ctx.createBiquadFilter(), g2 = m.ctx.createGain();
+    lp.type = "lowpass"; lp.frequency.value = 500; envelope(g2.gain, at, vol * .5, .002, .07);
+    ligar(m, s.connect(lp).connect(g2), m.sfx);
+  },
+  pedras(m, at, n = 16, dur = .55) {
+    const r = sorteio(Math.floor(at * 1000));
+    for (let i = 0; i < n; i++) {
+      const t = at + r() * dur, s = ruido(m, t, .05), bp = m.ctx.createBiquadFilter(), g = m.ctx.createGain();
+      bp.type = "bandpass"; bp.frequency.value = 1500 + r() * 2500; bp.Q.value = 5;
+      envelope(g.gain, t, .5 + r() * .5, .001, .035 + r() * .03);
+      ligar(m, s.connect(bp).connect(g), m.sfx, .05);
+    }
+  },
+  terra(m, at, dur = 1) {
+    const s = ruido(m, at, dur + .2), lp = m.ctx.createBiquadFilter(), g = m.ctx.createGain();
+    lp.type = "lowpass"; lp.frequency.value = 900;
+    g.gain.setValueAtTime(0.0001, at); g.gain.linearRampToValueAtTime(.3, at + .12);
+    g.gain.setValueAtTime(.3, at + dur * .75); g.gain.exponentialRampToValueAtTime(0.0001, at + dur + .2);
+    ligar(m, s.connect(lp).connect(g), m.sfx);
+    const r = sorteio(321);
+    for (let i = 0; i < 30; i++) {
+      const t = at + r() * dur, s2 = ruido(m, t, .04), bp = m.ctx.createBiquadFilter(), g2 = m.ctx.createGain();
+      bp.type = "bandpass"; bp.frequency.value = 600 + r() * 1400; bp.Q.value = 3;
+      envelope(g2.gain, t, .25 + r() * .25, .001, .03);
+      ligar(m, s2.connect(bp).connect(g2), m.sfx);
+    }
+  },
+  gota(m, at, f = 900, vol = .3) {
+    const o = osc(m, "sine", f, at, .15), g = m.ctx.createGain();
+    o.frequency.exponentialRampToValueAtTime(f * 2.3, at + .05);
+    envelope(g.gain, at, vol, .002, .09);
+    ligar(m, o.connect(g), m.sfx, .35);
+  },
+  agua(m, at, dur) {
+    const s = ruido(m, at, dur + .2), bp = m.ctx.createBiquadFilter(), g = m.ctx.createGain();
+    bp.type = "bandpass"; bp.frequency.value = 2400; bp.Q.value = .8;
+    g.gain.setValueAtTime(0.0001, at); g.gain.linearRampToValueAtTime(.09, at + .2);
+    g.gain.setValueAtTime(.09, at + dur - .2); g.gain.exponentialRampToValueAtTime(0.0001, at + dur);
+    ligar(m, s.connect(bp).connect(g), m.sfx, .2);
+  },
+  tique(m, at, f = 1900, vol = .22) {
+    const o = osc(m, "square", f, at, .04), g = m.ctx.createGain(), lp = m.ctx.createBiquadFilter();
+    lp.type = "lowpass"; lp.frequency.value = 3500;
+    envelope(g.gain, at, vol, .001, .035);
+    ligar(m, o.connect(lp).connect(g), m.sfx);
+  },
+  brilho(m, at, vol = .14) {
+    [2093, 2637, 3136, 3520, 4186].forEach((f, i) => {
+      const t = at + i * .045, o = osc(m, "sine", f, t, .3), g = m.ctx.createGain();
+      envelope(g.gain, t, vol, .002, .28);
+      ligar(m, o.connect(g), m.sfx, .5);
+    });
+  },
+  subida(m, at, dur = .8, de = 220, ate = 880, vol = .16) {
+    const o = osc(m, "triangle", de, at, dur), g = m.ctx.createGain(), lfo = osc(m, "sine", 9, at, dur), lg = m.ctx.createGain();
+    o.frequency.exponentialRampToValueAtTime(ate, at + dur);
+    lg.gain.value = 12; lfo.connect(lg).connect(o.frequency);
+    g.gain.setValueAtTime(0.0001, at); g.gain.linearRampToValueAtTime(vol, at + dur * .7); g.gain.exponentialRampToValueAtTime(0.0001, at + dur);
+    ligar(m, o.connect(g), m.sfx, .3);
+  },
+};
+
+// Trilha leve (marimba + baixo + batida), 120 BPM, acordes C G Am F
+function musica(m, t0) {
+  const tocar = (at, nota, vol, dur = .35, harm = .12) => {
+    const f = midi(nota), o1 = osc(m, "sine", f, at, dur), o2 = osc(m, "sine", f * 4, at, dur * .4), g = m.ctx.createGain(), g2 = m.ctx.createGain();
+    envelope(g.gain, at, vol, .003, dur); envelope(g2.gain, at, vol * harm, .002, dur * .3);
+    ligar(m, o1.connect(g), m.musica, .25); ligar(m, o2.connect(g2), m.musica, .25);
+  };
+  const acordes = [[60, 64, 67, 72], [59, 62, 67, 71], [60, 64, 69, 72], [60, 65, 69, 72]];
+  const baixos = [48, 43, 45, 41];
+  const desenho = [0, 1, 2, 3, 2, 1, 2, 3];
+  const fimMusica = T.cta + 3.4;
+  for (let k = 0; ; k++) {
+    const t = k * .25; if (t >= fimMusica - .01) break;
+    const compasso = Math.floor(k / 8), ac = acordes[compasso % 4], at = t0 + t;
+    tocar(at, ac[desenho[k % 8]], .2);
+    if (k % 4 === 0) tocar(at, baixos[compasso % 4], .4, .5, .3);
+    if (t >= T.p1 - .05) {
+      if (k % 4 === 0) { // bumbo
+        const o = osc(m, "sine", 110, at, .25), g = m.ctx.createGain();
+        o.frequency.exponentialRampToValueAtTime(42, at + .12); envelope(g.gain, at, .55, .002, .2); ligar(m, o.connect(g), m.musica);
+      }
+      if (k % 2 === 1) { // chimbal
+        const s = ruido(m, at, .05), hp = m.ctx.createBiquadFilter(), g = m.ctx.createGain();
+        hp.type = "highpass"; hp.frequency.value = 7000; envelope(g.gain, at, .12, .001, .04); ligar(m, s.connect(hp).connect(g), m.musica);
+      }
+    }
+  }
+  // Acorde final
+  [48, 60, 64, 67, 72, 76].forEach((n, i) => tocar(t0 + fimMusica + i * .03, n, n < 50 ? .4 : .14, 1.6, .08));
+}
+
+function sons(ctx, m, t0) {
+  const em = (expr) => t0 + tempo(expr);
+  musica(m, t0);
+  // Abertura
+  SOM.whoosh(m, em(".02"), .4, .3);
+  SOM.baque(m, em(".3"), .6);
+  SOM.subida(m, em(".5"), .6, 260, 780);
+  for (let i = 0; i < 8; i++) SOM.pop(m, em(`${1.05 + i * .08}`), [523, 587, 659, 784, 880, 988, 1047, 1175][i], .3);
+  SOM.brilho(m, em("1.45"));
+  // Transições entre cenas
+  ["p1", "p2", "p3", "p4", "p5", "fim"].forEach((c) => SOM.whoosh(m, em(`${c}-.38`), .45, .32));
+  // Passo 1
+  SOM.pop(m, em("p1+.4"), 440); SOM.pop(m, em("p1+.55"), 554);
+  SOM.errado(m, em("p1+1.5"));
+  SOM.pop(m, em("p1+2.15"), 660, .3);
+  SOM.certo(m, em("p1+2.4"));
+  // Passo 2
+  SOM.baque(m, em("p2+.25"));
+  SOM.pedras(m, em("p2+.95"), 18, .6);
+  SOM.errado(m, em("p2+1.45"));
+  SOM.whoosh(m, em("p2+2.1"), .3, .22, false);
+  SOM.pop(m, em("p2+2.38"), 620);
+  SOM.terra(m, em("p2+2.7"), 1.0);
+  SOM.certo(m, em("p2+3.55"));
+  // Passo 3
+  SOM.whoosh(m, em("p3+.2"), .6, .3, false);
+  SOM.baque(m, em("p3+.88"), .55);
+  SOM.tique(m, em("p3+1.1"), 1400); SOM.pop(m, em("p3+1.3"), 700, .3);
+  SOM.pop(m, em("p3+1.8"), 820, .3);
+  SOM.certo(m, em("p3+2.3"));
+  // Passo 4
+  SOM.whoosh(m, em("p4+.1"), .5, .28);
+  SOM.agua(m, em("p4+.7"), 1.9);
+  const rg = sorteio(44);
+  for (let i = 0; i < 12; i++) SOM.gota(m, em(`p4+${.7 + i * .15 + rg() * .05}`), 700 + rg() * 600, .2 + rg() * .1);
+  for (let i = 0; i < 4; i++) SOM.gota(m, em(`p4+${2.0 + i * .2}`), 500 + i * 40, .28);
+  SOM.certo(m, em("p4+2.6"));
+  // Passo 5
+  SOM.subida(m, em("p5+.1"), .7, 330, 990, .14);
+  for (let n = 1; n <= 6; n++) SOM.tique(m, em(`p5+${.55 + (n / 6) * 1.25 - .001}`), 1500 + n * 120);
+  SOM.certo(m, em("p5+1.95"));
+  // Resultado: a árvore cresce e dá fruto
+  SOM.subida(m, em("fim+.15"), .9, 196, 784, .18);
+  for (let i = 0; i < 8; i++) SOM.pop(m, em(`fim+${1.05 + i * .11}`), [523, 587, 659, 784, 880, 988, 1047, 1175][i], .3);
+  SOM.brilho(m, em("fim+1.9"));
+  // Fechamento
+  SOM.whoosh(m, em("cta-.4"), .55, .38);
+  SOM.baque(m, em("cta+.8"), .6);
+  for (let i = 0; i < 4; i++) SOM.pop(m, em(`cta+${1.02 + i * .25}`), 660 + i * 90, .26);
+  SOM.brilho(m, em("cta+2.1"), .16); SOM.ding(m, em("cta+2.15"), 1318.5, .26); SOM.ding(m, em("cta+2.25"), 1760, .22);
+  SOM.pop(m, em("cta+2.62"), 520, .3);
+}
+
+// Gera a trilha inteira (para o render.mjs) e devolve um WAV 16 bits em base64
+async function gerarAudioWav() {
+  const sr = 48000, off = new OfflineAudioContext(2, Math.ceil(TOTAL * sr), sr);
+  sons(off, montarMixer(off), 0);
+  const buf = await off.startRendering();
+  const L = buf.getChannelData(0), R = buf.getChannelData(1);
+  let pico = 0;
+  for (let i = 0; i < L.length; i++) pico = Math.max(pico, Math.abs(L[i]), Math.abs(R[i]));
+  const ganho = pico > 0 ? .89 / pico : 1; // pico em -1 dB
+  const n = L.length, dados = new DataView(new ArrayBuffer(44 + n * 4));
+  const txt = (o, s) => [...s].forEach((c, i) => dados.setUint8(o + i, c.charCodeAt(0)));
+  txt(0, "RIFF"); dados.setUint32(4, 36 + n * 4, true); txt(8, "WAVE"); txt(12, "fmt ");
+  dados.setUint32(16, 16, true); dados.setUint16(20, 1, true); dados.setUint16(22, 2, true);
+  dados.setUint32(24, sr, true); dados.setUint32(28, sr * 4, true); dados.setUint16(32, 4, true); dados.setUint16(34, 16, true);
+  txt(36, "data"); dados.setUint32(40, n * 4, true);
+  for (let i = 0; i < n; i++) {
+    dados.setInt16(44 + i * 4, clamp(L[i] * ganho, -1, 1) * 32767, true);
+    dados.setInt16(46 + i * 4, clamp(R[i] * ganho, -1, 1) * 32767, true);
+  }
+  const bytes = new Uint8Array(dados.buffer);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return { base64: btoa(bin), pico };
+}
+
+// ===================== PRÉVIA NO NAVEGADOR =====================
+const modoRender = new URLSearchParams(location.search).has("render");
+if (modoRender) document.body.classList.add("render");
+
+function ajustarTela() {
+  if (modoRender) return;
+  const palco = document.getElementById("palco-video");
+  const altura = window.innerHeight - 56, esc = Math.min(altura / 1920, window.innerWidth / 1080);
+  palco.style.transform = `scale(${esc})`;
+  palco.style.left = (window.innerWidth - 1080 * esc) / 2 + "px";
+}
+window.addEventListener("resize", ajustarTela);
+
+let audio = null, inicioAudio = 0;
+const barra = document.getElementById("barra"), relogio = document.getElementById("relogio");
+function mostrar(t) {
+  seek(t);
+  barra.value = Math.round((t / TOTAL) * 1000);
+  relogio.textContent = t.toFixed(1) + " s";
+}
+document.getElementById("tocar").addEventListener("click", () => {
+  if (audio) audio.close();
+  audio = new AudioContext();
+  inicioAudio = audio.currentTime + .15;
+  sons(audio, montarMixer(audio), inicioAudio);
+  const quadro = () => {
+    if (!audio) return;
+    const t = audio.currentTime - inicioAudio;
+    mostrar(clamp(t, 0, TOTAL));
+    if (t < TOTAL) requestAnimationFrame(quadro);
+  };
+  requestAnimationFrame(quadro);
+});
+barra.addEventListener("input", () => {
+  if (audio) { audio.close(); audio = null; }
+  mostrar((barra.value / 1000) * TOTAL);
+});
+
+window.TOTAL = TOTAL;
+window.seek = seek;
+window.gerarAudioWav = gerarAudioWav;
+iniciar();
+ajustarTela();
+window.pronto = true;
+</script>
+</body>
+</html>

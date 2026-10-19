@@ -1,6 +1,6 @@
 # Texto dos anúncios (Meta)
 
-Use o mesmo texto nos 5 criativos (3 vídeos e 2 imagens). No Meta dá para cadastrar até 5
+Use o mesmo texto nos 6 criativos (4 vídeos e 2 imagens). No Meta dá para cadastrar até 5
 versões de cada campo; cadastre as duas abaixo e ele testa sozinho.
 
 Sem hashtag: em anúncio, hashtag é um link que tira a pessoa do anúncio.

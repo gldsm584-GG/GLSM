@@ -164,4 +164,5 @@ Pesquisa de mercado feita em 2026-10-18.
   da Kiwify, o contato de suporte, a política de privacidade, fotos reais e depoimentos reais)
 - [ ] Criar os criativos com o gancho "cresce mas não dá fruto" e testar no Meta (2026-10-18: 2 imagens
   prontas, roteiros dos 3 vídeos, passo a passo grátis e texto dos anúncios em `anuncios/`; falta
-  montar os vídeos no CapCut e subir no Meta depois da Kiwify)
+  montar os vídeos no CapCut e subir no Meta depois da Kiwify. 2026-10-19: vídeo 4 "O jeito fácil" pronto,
+  animado em código com efeitos sonoros, em `anuncios/videos/video-4-jeito-facil.mp4`; fonte em `anuncios/motion/`)
