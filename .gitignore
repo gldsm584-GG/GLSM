@@ -17,6 +17,9 @@ Thumbs.db
 # Dependências
 node_modules/
 
+# Ebook gerado (produto pago): não vai para o GitHub. Regerar com diagramacao/montar-pdf.mjs
+infoprodutos/*/ebook/
+
 # Arquivos temporários
 *.log
 *.tmp

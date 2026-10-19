@@ -1,0 +1,82 @@
+/* Diagramação do ebook (impressão em A5, lido bem no celular) */
+@page {
+  size: A5;
+  margin: 15mm 13mm 17mm;
+  @bottom-center { content: counter(page); font: 8pt "Segoe UI", sans-serif; color: #6b776d; }
+}
+@page :first { margin: 0; @bottom-center { content: none; } }
+/* Bônus são para imprimir: saem em A4 */
+@page imprimir { size: A4; margin: 14mm 14mm 16mm; }
+.imprimir { page: imprimir; }
+
+:root {
+  --verde: #2f6b3a;
+  --verde-escuro: #1f4a28;
+  --verde-claro: #e8f2e3;
+  --laranja: #e8862a;
+  --texto: #1f2a22;
+  --suave: #55625a;
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; font: 9.6pt/1.5 "Segoe UI", Roboto, Arial, sans-serif; color: var(--texto); hyphens: auto; }
+
+/* Capa */
+.capa {
+  width: 148mm; height: 210mm; background: var(--verde); color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 18mm 14mm; break-after: page; position: relative;
+}
+.capa-topo { font-size: 9pt; letter-spacing: .12em; text-transform: uppercase; opacity: .85; margin-bottom: 10mm; }
+.capa h1 { font-size: 30pt; line-height: 1.08; margin: 0 0 5mm; font-weight: 800; }
+.capa-sub { font-size: 12pt; margin: 0 0 8mm; opacity: .95; }
+.capa-base { position: absolute; bottom: 14mm; left: 14mm; right: 14mm; font-size: 8.5pt; opacity: .85; margin: 0; }
+
+/* Página de aviso */
+.aviso-pag { break-after: page; padding-top: 110mm; font-size: 8.5pt; color: var(--suave); }
+.aviso-pag p { margin: 0 0 3mm; }
+
+/* Sumário */
+.sumario { break-after: page; }
+.sumario h1 { font-size: 20pt; color: var(--verde-escuro); margin: 0 0 6mm; }
+.sumario ol { list-style: none; padding: 0; margin: 0; }
+.sumario li { border-bottom: 1px solid #dfe7da; }
+.sumario a { display: flex; align-items: baseline; gap: 2mm; padding: 2.2mm 0; color: var(--texto); text-decoration: none; }
+.s-rotulo { color: var(--verde); font-weight: 700; font-size: 8.5pt; min-width: 22mm; }
+.s-nome { flex: 1; }
+.s-pag { color: var(--suave); font-variant-numeric: tabular-nums; }
+
+/* Abertura de capítulo */
+.capitulo { break-before: page; }
+.abre { background: var(--verde-claro); border-left: 3mm solid var(--verde); padding: 5mm 6mm; margin: 0 0 6mm; border-radius: 0 3mm 3mm 0; }
+.rotulo { color: var(--verde); font-weight: 700; font-size: 9pt; text-transform: uppercase; letter-spacing: .08em; }
+.abre h1 { font-size: 17pt; line-height: 1.2; margin: 1mm 0 0; color: var(--verde-escuro); }
+.marca { font-size: 1px; color: #fff; position: absolute; }
+
+h2 { font-size: 12.5pt; color: var(--verde-escuro); margin: 6mm 0 2.5mm; break-after: avoid; }
+h3 { font-size: 10.5pt; color: var(--verde); margin: 4.5mm 0 2mm; break-after: avoid; }
+h4 { font-size: 9.8pt; margin: 4mm 0 1.5mm; break-after: avoid; }
+p { margin: 0 0 2.6mm; orphans: 3; widows: 3; }
+ul, ol { margin: 0 0 3mm; padding-left: 5.5mm; }
+li { margin-bottom: 1.2mm; }
+li > ul, li > ol { margin: 1.2mm 0 0; }
+strong { color: #13301a; }
+a { color: var(--verde); text-decoration: none; }
+hr { border: 0; border-top: 1px solid #dfe7da; margin: 5mm 0; }
+code { font-family: Consolas, monospace; font-size: 8.8pt; }
+.caixa { font-size: 11pt; color: var(--verde); }
+
+/* Tabelas */
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 8.2pt; line-height: 1.35; hyphens: manual; }
+/* Linhas vazias das fichas para imprimir: espaço para escrever à mão */
+.imprimir td:empty { height: 9mm; border: 1px solid #cfdcc9; }
+.imprimir table:not(:has(thead)) td:first-child { width: 42%; font-weight: 600; }
+th { background: var(--verde); color: #fff; text-align: left; padding: 1.6mm 1.8mm; font-weight: 600; }
+td { padding: 1.5mm 1.8mm; border-bottom: 1px solid #dfe7da; vertical-align: top; }
+tr { break-inside: avoid; }
+tbody tr:nth-child(even) td { background: #f6f9f4; }
+
+/* Fontes no fim do capítulo */
+.fontes { margin-top: 6mm; padding-top: 3mm; border-top: 2px solid var(--verde-claro); font-size: 7.6pt; line-height: 1.4; color: var(--suave); }
+.fontes h2 { font-size: 9.5pt; margin-top: 0; }
+.fontes a { word-break: break-all; }

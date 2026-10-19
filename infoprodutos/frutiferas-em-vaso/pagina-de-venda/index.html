@@ -173,18 +173,6 @@
   footer { background: var(--verde-escuro); color: #dfe9dc; padding: 32px 0; font-size: 14px; text-align: center; }
   footer a { color: #fff; }
 
-  /* Botão fixo no celular */
-  .barra-fixa {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
-    background: rgba(255,253,248,.97); border-top: 1px solid var(--borda);
-    padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  }
-  .barra-fixa .valor { font-weight: 800; color: var(--verde-escuro); font-size: 20px; }
-  .barra-fixa .botao { font-size: 16px; padding: 12px 22px; }
-  @media (min-width: 760px) { .barra-fixa { display: none; } }
-  body { padding-bottom: 72px; }
-  @media (min-width: 760px) { body { padding-bottom: 0; } }
-
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 </style>
 </head>
@@ -428,11 +416,6 @@
     <p>Suporte: <a href="mailto:contato@exemplo.com">contato@exemplo.com</a></p>
   </div>
 </footer>
-
-<div class="barra-fixa">
-  <span class="valor">R$ 20</span>
-  <a class="botao" href="#oferta">Quero o guia</a>
-</div>
 
 </body>
 </html>
