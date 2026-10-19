@@ -20,6 +20,9 @@ node_modules/
 # Ebook gerado (produto pago): não vai para o GitHub. Regerar com diagramacao/montar-pdf.mjs
 infoprodutos/*/ebook/
 
+# Vídeos de anúncio e cenas baixadas (pesados demais para o git)
+infoprodutos/*/anuncios/videos/
+
 # Arquivos temporários
 *.log
 *.tmp

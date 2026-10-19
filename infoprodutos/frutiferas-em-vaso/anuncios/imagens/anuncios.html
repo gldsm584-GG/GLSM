@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Anúncios do ebook</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Mesmas cores do ebook e da página de venda */
+  :root {
+    --verde: #2f6b3a; --verde-escuro: #1f4a28; --verde-claro: #e8f2e3;
+    --laranja: #e8862a; --texto: #1f2a22; --suave: #4d5a50; --fundo: #fffdf8;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+  .slide { width: 1080px; height: 1350px; position: relative; overflow: hidden; display: none; }
+  /* render.mjs abre a página com #s1, #s2... e cada screenshot mostra só aquele slide */
+  .slide:target { display: block; }
+  .kicker { font-size: 22px; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; }
+  .regua { width: 80px; height: 5px; background: var(--laranja); margin: 34px 0; }
+
+  /* Livro desenhado em CSS, igual à capa do PDF */
+  .livro {
+    width: 380px; height: 539px; background: var(--verde); color: #fff; border-radius: 6px 14px 14px 6px;
+    padding: 46px 34px; text-align: center; display: flex; flex-direction: column; align-items: center;
+    box-shadow: -14px 0 0 var(--verde-escuro), 0 40px 70px rgba(0,0,0,.35);
+  }
+  .livro small { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+  .livro b { font-size: 46px; line-height: 1.04; font-weight: 900; margin: 22px 0 14px; letter-spacing: -.02em; }
+  .livro i { font-style: normal; font-size: 17px; opacity: .95; }
+  .livro svg { margin-top: auto; }
+
+  /* Imagem 1: a dor + o produto */
+  #s1 { background: var(--verde-escuro); color: #fff; padding: 90px 84px; }
+  #s1 .kicker { color: #f2a33a; }
+  #s1 h1 { font-size: 92px; line-height: .98; font-weight: 900; letter-spacing: -.04em; max-width: 900px; margin-top: 30px; }
+  #s1 h1 span { color: #f2a33a; }
+  #s1 p { font-size: 32px; line-height: 1.4; font-weight: 500; max-width: 520px; opacity: .92; }
+  #s1 ul { list-style: none; padding: 0; margin-top: 44px; }
+  #s1 li { font-size: 28px; font-weight: 600; padding: 12px 0 12px 46px; position: relative; }
+  #s1 li::before { content: "✓"; position: absolute; left: 0; color: #f2a33a; font-weight: 900; }
+  #s1 .livro { position: absolute; right: 84px; bottom: 150px; transform: rotate(4deg); }
+  #s1 .rodape {
+    position: absolute; left: 84px; right: 84px; bottom: 70px; padding-top: 26px;
+    border-top: 1px solid rgba(255,255,255,.18); font-size: 22px; font-weight: 600; letter-spacing: .04em; opacity: .85;
+  }
+
+  /* Imagem 2: 3 erros, fundo claro */
+  #s2 { background: var(--fundo); color: var(--texto); padding: 90px 84px; }
+  #s2 .kicker { color: var(--verde); }
+  #s2 h1 { font-size: 80px; line-height: 1.02; font-weight: 900; letter-spacing: -.035em; color: var(--verde-escuro); margin-top: 30px; }
+  #s2 ol { list-style: none; padding: 0; margin-top: 8px; }
+  #s2 li { display: flex; gap: 34px; padding: 44px 0; border-bottom: 2px solid #dfe7da; }
+  #s2 li:last-child { border-bottom: 0; }
+  #s2 .n { font-size: 84px; font-weight: 900; color: var(--laranja); line-height: .9; min-width: 64px; }
+  #s2 h2 { font-size: 44px; font-weight: 800; letter-spacing: -.02em; color: var(--verde-escuro); }
+  #s2 li p { font-size: 30px; line-height: 1.38; color: var(--suave); font-weight: 500; margin-top: 8px; }
+  #s2 .faixa {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 190px; background: var(--verde); color: #fff;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 84px;
+  }
+  #s2 .faixa strong { font-size: 34px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
+  #s2 .faixa span { font-size: 22px; font-weight: 600; opacity: .9; display: block; margin-top: 6px; }
+  #s2 .preco { background: var(--laranja); border-radius: 999px; padding: 18px 34px; font-size: 34px; font-weight: 900; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<section class="slide" id="s1">
+  <div class="kicker">Frutífera em vaso</div>
+  <h1>Sua planta cresce, fica bonita… e <span>não dá um fruto?</span></h1>
+  <div class="regua"></div>
+  <p>Quase sempre é um destes 7 erros. O guia mostra como reconhecer cada um na sua planta e como corrigir.</p>
+  <ul>
+    <li>Diagnóstico dos 7 erros</li>
+    <li>Fichas de 12 frutíferas</li>
+    <li>Checklist e calendário</li>
+  </ul>
+  <div class="livro">
+    <small>Guia prático de frutíferas em vaso</small>
+    <b>Sua Frutífera Vai Dar Fruto</b>
+    <i>Do vaso à colheita, mesmo em apartamento</i>
+    <svg viewBox="0 0 110 110" width="150" height="150" aria-hidden="true">
+      <circle cx="55" cy="38" r="30" fill="#4f9a5c"/><circle cx="40" cy="32" r="6" fill="#f2a33a"/>
+      <circle cx="66" cy="28" r="6" fill="#f2a33a"/><circle cx="58" cy="48" r="6" fill="#f2a33a"/>
+      <rect x="51" y="62" width="8" height="18" fill="#8a5a3b"/><path d="M30 80h50l-6 26H36z" fill="#c96d14"/>
+    </svg>
+  </div>
+  <div class="rodape">Guia em PDF · R$ 20 · 12 capítulos · 12 fichas · 4 bônus</div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="kicker">Frutífera em vaso</div>
+  <h1>3 erros que impedem sua frutífera de dar fruto</h1>
+  <div class="regua"></div>
+  <ol>
+    <li><div class="n">1</div><div><h2>Muda de semente</h2><p>Uma jabuticabeira de semente pode levar de 8 a 15 anos para começar a produzir.</p></div></li>
+    <li><div class="n">2</div><div><h2>Adubo só de folha</h2><p>Nitrogênio demais faz a planta crescer o tempo todo e “esquecer” de florir.</p></div></li>
+    <li><div class="n">3</div><div><h2>Pedra no fundo do vaso</h2><p>Em vez de drenar, a camada de pedra segura água na terra, bem onde está a raiz.</p></div></li>
+  </ol>
+  <div class="faixa">
+    <div><strong>Os 7 erros e como corrigir</strong><span>Guia Sua Frutífera Vai Dar Fruto · com fontes da Embrapa</span></div>
+    <div class="preco">R$ 20</div>
+  </div>
+</section>
+
+</body>
+</html>
