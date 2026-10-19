@@ -261,5 +261,6 @@ No próximo capítulo você prepara o que vai dentro do vaso: o substrato.
   planta servem de criadouro para o mosquito da dengue*, 20/04/2024, com
   base no guia da Secretaria Estadual da Saúde de SP.
   [Link](https://www.saopaulo.sp.leg.br/blog/pratos-e-vasos-de-planta-servem-de-criadouro-para-o-mosquito-da-dengue-conheca-medidas-para-combater-a-doenca/)
-- **6 horas de sol direto:** referência prática usada por viveiros e guias
-  de jardinagem, e não um número de pesquisa (veja o Capítulo 1).
+- **6 horas de sol direto:** referência prática de viveiros e guias de
+  jardinagem; para a acerola em quintal, é a recomendação da Embrapa (veja o
+  Capítulo 1).

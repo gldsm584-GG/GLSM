@@ -95,7 +95,7 @@ Pesquisa de mercado feita em 2026-10-18.
 - Controle natural e quando usar produto de loja
 
 **Cap. 11 — Fichas de 12 frutíferas que dão bem em vaso** (1 página cada)
-- Sugestão: jabuticaba híbrida, acerola, pitanga, limão, laranja kinkan, amora, romã, figo, goiaba, morango, cereja-do-rio-grande, mexerica
+- Escritas (2026-10-18): jabuticaba, acerola, pitanga, limão 'Tahiti', tangerina, amora-preta, romã, figo, goiaba, morango, maracujá, mirtilo (maracujá entrou pela pesquisa de público; mirtilo por ter mais dados de vaso; kinkan e cereja-do-rio-grande foram para o Bônus 4)
 - Cada ficha: vaso mínimo, sol, rega, adubo, tempo até o 1º fruto (muda enxertada), época de flor e fruto, dica de ouro
 
 **Cap. 12 — Problemas e soluções (consulta rápida)**
@@ -138,7 +138,7 @@ Pesquisa de mercado feita em 2026-10-18.
 
 ## 7. Próximos passos
 
-- [ ] Escolher o título
+- [ ] Escolher o título (provisório no `00-introducao.md`: *Sua Frutífera Vai Dar Fruto*)
 - [x] Escrever o Cap. 1 (diagnóstico) e o checklist do Bônus 1 (2026-10-18, com fontes conferidas:
   `cap-01-diagnostico.md` e `bonus-01-checklist.md`)
 - [x] Escrever o Cap. 2 (escolhendo a muda) (2026-10-18, com fontes conferidas: `cap-02-escolhendo-a-muda.md`)
@@ -147,7 +147,10 @@ Pesquisa de mercado feita em 2026-10-18.
 - [x] Escrever o Cap. 5 (plantio) (2026-10-18, com fontes conferidas: `cap-05-plantio.md`)
 - [x] Escrever o Cap. 6 (rega) (2026-10-18, com fontes conferidas: `cap-06-rega.md`)
 - [x] Escrever o Cap. 7 (adubação) (2026-10-18, com fontes conferidas: `cap-07-adubacao.md`)
-- [ ] Escrever o resto dos capítulos e as 12 fichas
+- [x] Escrever o Cap. 8 (poda, copa e tutor) (2026-10-18, com fontes conferidas: `cap-08-poda.md`)
+- [x] Escrever os caps. 9 a 12, a introdução e os bônus 2, 3 e 4 (2026-10-18, com fontes conferidas:
+  `cap-09` a `cap-12`, `00-introducao.md`, `bonus-02` a `bonus-04`). Texto do ebook completo
+- [ ] Revisar o texto inteiro (tom, repetições, números) antes de diagramar
 - [ ] Diagramar o PDF (Canva grátis)
 - [ ] Criar a conta na Kiwify e o produto
 - [ ] Fazer a página de venda

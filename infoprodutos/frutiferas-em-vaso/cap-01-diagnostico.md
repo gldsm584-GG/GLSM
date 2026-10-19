@@ -95,9 +95,10 @@ do sol. A maioria das frutíferas é planta de **sol pleno**: ela até
 sobrevive na meia-sombra, mas não sobra energia para florir e produzir.
 
 A referência prática que viveiristas e jardineiros usam é de **pelo menos
-6 horas de sol direto por dia** para a maioria das frutíferas. Algumas
-toleram um pouco menos, e isso está na ficha de cada espécie
-(Capítulo 11).
+6 horas de sol direto por dia** para a maioria das frutíferas. Para a
+acerola plantada em quintal, a Embrapa recomenda exatamente isso: um lugar
+com **pelo menos seis horas de sol por dia**. Algumas espécies toleram um
+pouco menos, e isso está na ficha de cada uma (Capítulo 11).
 
 E não basta o sol bater no vaso: ele precisa chegar dentro da copa. A
 Embrapa recomenda conduzir a aceroleira com a copa aberta, porque assim a
@@ -316,5 +317,7 @@ um ciclo (uma estação de flor) antes de julgar se a mudança funcionou.
   cultivares de pitaya geneticamente superiores*.
   [Link](https://www.canalrural.com.br/agricultura/agronegocio/cientistas-criam-cultivares-de-pitaya-geneticamente-superiores/)
 - **6 horas de sol direto:** referência prática usada por viveiros e guias
-  de jardinagem, e não um número de pesquisa. Por isso o texto diz
-  "referência prática".
+  de jardinagem para as frutíferas em geral. Para a acerola em quintal, a
+  Embrapa recomenda pelo menos seis horas diárias de sol: Embrapa. *Acerola*
+  (folder).
+  [PDF](https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/55860/1/FDAcerola0001.pdf)
