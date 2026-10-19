@@ -116,8 +116,8 @@ Faça antes de plantar, num balde ou no próprio vaso:
 ## 5. E o pH?
 
 O pH diz se o substrato é ácido ou alcalino, e ele aparece no rótulo. Na
-maioria dos casos, o substrato pronto já vem numa faixa adequada. Segundo a
-Embrapa:
+maioria dos casos, o substrato pronto já vem numa faixa adequada. Nos
+substratos avaliados pela Embrapa:
 
 - Substratos à base de **turfa, fibra de coco ou casca de arroz crua** têm
   pH entre **6,2 e 6,7**.

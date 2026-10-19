@@ -75,8 +75,9 @@ temperatura média de **26 °C** (Embrapa).
 
 **pH:** a Embrapa indica solos com **pH entre 5,5 e 6,5**.
 
-**Formação da copa (Embrapa):** conduza em **tronco único até 50 a 60 cm**, corte
-a ponta e deixe **3 ou 4 ramos** bem distribuídos e em alturas diferentes.
+**Formação da copa (Embrapa):** conduza em **tronco único até 50 a 60 cm** (no
+pomar; no vaso, pode ser mais baixo), corte a ponta e deixe **3 ou 4 ramos**
+bem distribuídos e em alturas diferentes.
 Depois, mantenha a copa **aberta** ("vaso aberto"), para a luz entrar e os
 frutos se formarem em toda a copa.
 

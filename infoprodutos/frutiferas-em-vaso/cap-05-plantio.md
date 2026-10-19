@@ -39,9 +39,8 @@ enxertia ainda estiver no caule, retire antes de plantar.
 
 ### Passo 1 — Regue a muda na véspera
 
-Segundo a Universidade de Nevada, a planta deve ser **bem regada um dia
-antes** do transplante. O torrão úmido sai inteiro da embalagem e a raiz
-sofre menos.
+Regue bem a muda **um dia antes** do plantio. O torrão úmido sai inteiro da
+embalagem e a raiz sofre menos.
 
 ### Passo 2 — Prepare o vaso
 
@@ -51,43 +50,38 @@ sofre menos.
 
 ### Passo 3 — Ache o colo da muda
 
-O **colo** é o ponto onde o caule encontra a raiz. Segundo a Universidade da
-Geórgia, ele fica **onde aparecem as primeiras raízes laterais**. É a
-referência de altura de todo o plantio.
+O **colo** é o ponto onde o caule encontra a raiz. Ele fica **onde aparecem
+as primeiras raízes laterais**. É a referência de altura de todo o plantio.
 
 ### Passo 4 — Acerte a altura
 
 Coloque a muda (ainda na embalagem) dentro do vaso e veja onde o colo vai
 ficar. Ajuste a camada do fundo até que:
 
-- O **colo fique no nível do substrato ou um pouco acima**. A Universidade da
-  Geórgia diz que isso vale para a maioria das plantas, e é especialmente
-  importante para árvores. No plantio de mudas frutíferas, a Embrapa deixa o
-  torrão **1 a 2 cm acima do nível do terreno**.
-- Sobre um espaço entre o substrato e a borda do vaso, para a água da rega
-  não transbordar. A Universidade de Nevada indica encher o vaso até cerca de
-  **1,3 cm da borda**.
+- O **colo fique no nível do substrato ou um pouco acima**. Isso vale para a
+  maioria das plantas e é ainda mais importante para árvores. No plantio de
+  mudas frutíferas, a Embrapa deixa o torrão **1 a 2 cm acima do nível do
+  terreno**.
+- Fique um espaço livre de cerca de **1,3 cm** entre o substrato e a borda
+  do vaso, para a água da rega não transbordar.
 
-Segundo a Universidade da Geórgia, faça um pequeno **monte de substrato no
-centro**, na altura certa, para assentar a muda e espalhar as raízes por
-cima dele.
+Faça um pequeno **monte de substrato no centro**, na altura certa, para
+assentar a muda e espalhar as raízes por cima dele.
 
 ### Passo 5 — Tire a muda da embalagem sem desmanchar o torrão
 
 - **Saquinho plástico:** corte o saco com o estilete, de cima a baixo, e
   retire. É assim que a Embrapa faz. Nunca puxe a muda pelo caule.
 - **Vaso plástico:** vire o vaso de lado e dê umas batidas firmes com a borda
-  numa superfície dura, para o torrão soltar e escorregar para fora
-  (Universidade de Nevada).
+  numa superfície dura, para o torrão soltar e escorregar para fora.
 
 ### Passo 6 — Confira a raiz e a altura em que a muda veio
 
 - **Raiz enrolada:** solte ou corte como ensina o Capítulo 3.
-- **Muda que veio enterrada demais:** segundo a Universidade Estadual do
-  Kansas, muitas mudas de vaso chegam com substrato demais por cima do colo.
-  Raspe o excesso de cima do torrão até achar o colo. Se o colo estiver
-  coberto por **mais de 5 cm** de substrato, a mesma fonte sugere pensar em
-  devolver a muda ao viveiro.
+- **Muda que veio enterrada demais:** muitas mudas de vaso chegam com
+  substrato demais por cima do colo. Raspe o excesso de cima do torrão até
+  achar o colo. Se o colo estiver coberto por **mais de 5 cm** de substrato,
+  vale pensar em devolver a muda ao viveiro.
 
 ### Passo 7 — Posicione a muda
 
@@ -100,15 +94,14 @@ cima dele.
 ### Passo 8 — Complete com substrato e firme de leve
 
 Coloque substrato pelas laterais, em volta do torrão, e **firme de leve com
-as mãos à medida que enche**, como orienta a Universidade da Geórgia. O
-objetivo é tirar os bolsões de ar, não socar. Substrato socado perde o ar que
+as mãos à medida que enche**. O objetivo é tirar os bolsões de ar, não
+socar. Substrato socado perde o ar que
 a raiz precisa (Capítulo 4).
 
 ### Passo 9 — Regue bem
 
-Regue devagar até a **água sair pelo furo de baixo**. A Embrapa faz uma rega
-caprichada logo depois do plantio. Se o substrato afundar com a água,
-complete, **sem cobrir o colo**.
+Regue devagar até a **água sair pelo furo de baixo**. Se o substrato afundar
+com a água, complete, **sem cobrir o colo**.
 
 ### Passo 10 — Cubra a superfície
 
@@ -127,9 +120,8 @@ amarrar está no Capítulo 8.
 
 ## As primeiras semanas
 
-- **Rega:** use o teste do dedo (Capítulo 6). Atenção: segundo a Universidade
-  Estadual do Kansas, o torrão da muda pode secar num ritmo diferente do
-  substrato novo em volta. Confira a umidade **no torrão e em volta dele**.
+- **Rega:** use o teste do dedo (Capítulo 6). Atenção: o torrão da muda pode
+  secar num ritmo diferente do substrato novo em volta. Confira a umidade **no torrão e em volta dele**.
 - **Adubo:** não adube logo. No pomar, a Embrapa só faz a primeira adubação
   de cobertura **60 dias depois do plantio**. No vaso, siga o mesmo princípio
   de esperar a planta pegar. Se o substrato já veio adubado, espere ainda

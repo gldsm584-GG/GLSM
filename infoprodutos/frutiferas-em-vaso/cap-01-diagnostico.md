@@ -97,8 +97,8 @@ sobrevive na meia-sombra, mas não sobra energia para florir e produzir.
 A referência prática que viveiristas e jardineiros usam é de **pelo menos
 6 horas de sol direto por dia** para a maioria das frutíferas. Para a
 acerola plantada em quintal, a Embrapa recomenda exatamente isso: um lugar
-com **pelo menos seis horas de sol por dia**. Algumas espécies toleram um
-pouco menos, e isso está na ficha de cada uma (Capítulo 11).
+com **pelo menos seis horas de sol por dia**. As 12 espécies das fichas do
+Capítulo 11 são todas de sol pleno.
 
 E não basta o sol bater no vaso: ele precisa chegar dentro da copa. A
 Embrapa recomenda conduzir a aceroleira com a copa aberta, porque assim a
@@ -111,8 +111,9 @@ na parte de fora.
   nítido).
 - No Brasil, varanda e janela voltadas para o **norte** costumam pegar mais
   sol ao longo do ano.
-- Se o lugar tem menos de 6 horas de sol, mude o vaso de lugar ou escolha
-  uma espécie que aceita meia-sombra.
+- Se o lugar tem menos de 6 horas de sol, mude o vaso de lugar. Se não
+  houver lugar melhor, pergunte no viveiro por uma espécie que aceite
+  menos sol.
 - Vaso com rodinha ajuda a "seguir o sol" quando ele muda de posição com
   as estações.
 
@@ -137,8 +138,9 @@ Já a falta de água na época da flor faz a planta "economizar": ela solta
 as flores e os frutinhos que não consegue sustentar.
 
 **O que fazer:**
-- Use o **teste do dedo**: enfie o dedo na terra até a segunda falange. Se
-  estiver úmida, não regue. Se estiver seca, regue.
+- Use o **teste do dedo**: enfie o dedo uns 5 cm na terra (mais ou menos
+  até a segunda junta do dedo). Se estiver úmida, não regue. Se estiver
+  seca, regue.
 - Quando regar, regue bem, até a água sair pelo furo de baixo. Depois,
   espere a terra secar em cima de novo. Regar "um pouquinho todo dia" é o
   jeito mais comum de errar.

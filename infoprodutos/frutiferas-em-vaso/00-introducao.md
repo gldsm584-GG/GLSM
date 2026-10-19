@@ -99,7 +99,7 @@ agronômica). Siga sempre o rótulo dos produtos que usar.
 
 ---
 
-## Fonte desta introdução
+## Fontes desta introdução
 
 - **Cultivo em vaso permite produzir em pequenas áreas, rurais ou urbanas:**
   Antunes, L. E. C. *Cultivo de mirtileiros em vasos*. Embrapa Clima

@@ -27,7 +27,7 @@ Planta: ______________________  Data: ____/____/______
 **4. Rega errada**
 - [ ] Folha amarela e mole com a terra molhada *(água demais)*
 - [ ] Terra sempre escura ou com cheiro de podre *(água demais)*
-- [ ] Rego "um pouquinho todo dia" *(água demais)*
+- [ ] Rego "um pouquinho todo dia" *(rega rasa: o fundo do vaso fica seco)*
 - [ ] Folha murcha que volta depois da rega *(água de menos)*
 - [ ] Flores e frutinhos caindo na época de calor *(água de menos)*
 

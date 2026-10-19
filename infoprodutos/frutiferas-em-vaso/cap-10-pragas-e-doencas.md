@@ -202,7 +202,8 @@ Se o controle simples não resolveu:
 4. **Respeite o intervalo de segurança** (ou período de carência): é o tempo
    entre a última aplicação e a colheita. Ele está no rótulo e existe para o
    fruto que você vai comer.
-5. **Não aplique na florada** quando houver abelhas (Capítulo 9).
+5. **Não aplique na florada** quando houver abelhas. Se precisar, aplique à
+   noite ou bem cedo (Erro 7 do Capítulo 1).
 6. **Não misture produtos** por conta própria.
 
 Agrotóxico de uso agrícola só pode ser vendido ao consumidor com **receita

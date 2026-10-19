@@ -15,18 +15,16 @@ de pedra no fundo atrapalha) e acha o lugar certo para o vaso.
 ### Por que o tamanho importa
 
 Vaso maior tem mais terra. Mais terra segura mais água e mais nutriente,
-seca mais devagar e esquenta e esfria mais devagar. Segundo a extensão da
-Universidade de Nevada, vasos grandes ficam úmidos por mais tempo e sofrem
-menos com mudanças bruscas de temperatura. Vaso pequeno seca rápido, e a
-planta passa sede entre uma rega e outra.
+seca mais devagar e sofre menos com mudanças bruscas de temperatura. Vaso
+pequeno seca rápido, e a planta passa sede entre uma rega e outra.
 
 Para ter uma ideia da escala: em pesquisas da Embrapa com **mirtilo em
 vaso** (um arbusto de raiz pouco vigorosa), foram usados vasos de **12, 18,
 30 e até 60 litros**. A própria Embrapa diz que definir o volume do vaso é
 um dos itens fundamentais para o desenvolvimento da planta. Frutíferas de
 porte maior que o mirtilo tendem a pedir o lado de cima dessa faixa quando
-adultas. O volume indicado para cada espécie está nas fichas do
-Capítulo 11.
+adultas. As fichas do Capítulo 11 trazem o volume quando a pesquisa informa
+(morango e mirtilo), e o Bônus 4 mostra o porte de 30 espécies em vaso.
 
 ### Não pule direto para o vaso gigante
 
@@ -59,7 +57,7 @@ até o vaso definitivo.
 
 ### A melhor época
 
-Segundo a UGA, a **primavera** é uma boa época para trocar de vaso, porque
+A **primavera** é uma boa época para trocar de vaso, porque
 a planta está voltando a crescer e se recupera mais rápido. No Brasil, a
 primavera vai de setembro a dezembro. Evite trocar de vaso no meio da
 florada ou com a planta cheia de fruto.
@@ -70,16 +68,15 @@ Raiz enrolada continua crescendo em círculo mesmo no vaso novo, se você não
 fizer nada. As orientações das extensões universitárias são estas:
 
 - **Raízes finas enroladas:** solte com os dedos e direcione para fora,
-  para longe do tronco (Universidade Estadual do Kansas).
+  para longe do tronco.
 - **Torrão muito enrolado:** retire cerca de **1 cm da camada de fora** do
   torrão e corte as raízes que dão a volta e as que crescem para cima.
-  Preserve o máximo possível da raiz viva (UGA).
+  Preserve o máximo possível da raiz viva.
 - **Torrão duro, todo emaranhado:** faça de **4 a 8 cortes de cima a baixo**
-  ao redor do torrão e afaste as raízes do tronco com cuidado (Kansas).
+  ao redor do torrão e afaste as raízes do tronco com cuidado.
 - **Raiz grossa abraçando o tronco:** essa é a mais perigosa. Conforme
   tronco e raiz engrossam, a raiz pode estrangular o tronco. Se ela já está
-  grossa, não dá para desenrolar. Segundo a extensão do Kansas, nesses casos
-  pode ser melhor trocar a muda.
+  grossa, não dá para desenrolar, e pode ser melhor trocar a muda.
 
 Depois da troca, regue bem. O passo a passo do plantio está no Capítulo 5.
 
@@ -92,17 +89,15 @@ Depois da troca, regue bem. O passo a passo do plantio está no Capítulo 5.
 - **A favor:** leve, barato, fácil de achar, segura a umidade por mais
   tempo.
 - **Contra:** segura umidade também quando você rega demais. E a cor faz
-  diferença: segundo a Universidade de Nevada, **vasos claros mantêm a terra
-  mais fresca que vasos escuros**.
+  diferença: **vasos claros mantêm a terra mais fresca que vasos escuros**.
 - **Dica:** no sol forte, prefira plástico claro. Vaso preto no sol pleno
   esquenta a raiz.
 
 ### Barro (terracota) e cimento
 
 - **A favor:** são pesados (o vaso não tomba com vento) e bonitos.
-- **Contra:** são porosos. Segundo a Universidade de Nevada, vasos de barro
-  sem esmalte, terracota e cimento **secam mais rápido** que a maioria dos
-  vasos, e a rega precisa ser ajustada.
+- **Contra:** são porosos. Barro sem esmalte e cimento **secam mais
+  rápido** que a maioria dos vasos, e a rega precisa ser ajustada.
 - **Dica:** bons para quem tende a regar demais. Na seca (como o inverno do
   Centro-Oeste), exigem rega mais frequente. São pesados para mudar de
   lugar.
@@ -139,9 +134,8 @@ fundo depois de cada rega.
 
 ### O furo é obrigatório
 
-Sem furo, a água não tem para onde ir e a terra encharca. A Universidade de
-Nevada é direta: os furos de drenagem são essenciais, porque sem eles a
-terra fica encharcada.
+Sem furo, a água não tem para onde ir e a terra encharca. Não existe
+exceção: vaso de frutífera precisa de furo no fundo.
 
 ### O mito da pedra no fundo
 
@@ -156,16 +150,13 @@ drenagem e deixa a camada de terra mais rasa.**
 O motivo é físico. A água não passa com facilidade de um material fino (a
 terra) para um material grosso (a pedra). Onde os dois se encontram, a
 água para e se acumula na terra logo acima da pedra, até a terra ficar
-encharcada. A Universidade Estadual do Novo México explica do mesmo jeito: o
-encontro de materiais de texturas diferentes atrapalha o movimento da água,
-e a umidade fica parada ali. Ou seja: a camada de pedra só **sobe a zona
+encharcada. Ou seja: a camada de pedra só **sobe a zona
 encharcada para mais perto da raiz**, e ainda rouba espaço de terra.
 
 ### O que fazer no lugar da pedra
 
 - Cubra o furo com um **pedaço de tela** (ou um caco de vaso) para a terra
-  não escapar. A água passa e a terra fica. É o que a Universidade de Nevada
-  recomenda.
+  não escapar. A água passa e a terra fica.
 - Encha o vaso inteiro com um **substrato que drena bem**. A receita está no
   Capítulo 4.
 - Deixe o vaso **levemente elevado** (pezinhos ou suporte), para o furo não

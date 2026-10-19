@@ -16,7 +16,7 @@ Segundo a Universidade de Nevada, **toda planta em vaso precisa de mais água
 do que uma plantada no chão**. No chão, a raiz desce e se espalha atrás de
 terra úmida. No vaso, ela só tem o que está ali dentro.
 
-A mesma fonte dá a regra de ouro: **observe a planta e confira a terra para
+A regra de ouro: **observe a planta e confira a terra para
 decidir quando e quanto regar.** Não existe "regar de 2 em 2 dias" que sirva
 para todo vaso, toda planta e toda estação.
 
@@ -27,14 +27,12 @@ para todo vaso, toda planta e toda estação.
 ### Teste do dedo
 
 Enfie o dedo uns **5 cm** na terra (mais ou menos até a segunda junta do
-dedo). A extensão da Universidade Estadual de Dakota do Norte (NDSU) orienta:
-se a terra está **úmida nesses 5 cm, espere**. Se está seca, é hora de
-regar.
+dedo). Se a terra está **úmida nesses 5 cm, espere**. Se está seca, é hora
+de regar.
 
 ### Teste do peso
 
-Segundo a Universidade de Nevada, se a terra parece úmida **ou o vaso está
-pesado**, ainda tem água. Levante o vaso logo depois de uma rega e guarde a
+Se a terra parece úmida **ou o vaso está pesado**, ainda tem água. Levante o vaso logo depois de uma rega e guarde a
 sensação de "cheio". Depois, levante de novo antes de regar: o vaso seco é
 bem mais leve. Em vaso pequeno e médio, esse teste fica rápido com a prática.
 
@@ -46,8 +44,7 @@ Use os dois juntos. Com o tempo, você acerta só de olhar e levantar.
 
 ### Regue fundo, e não um pouquinho todo dia
 
-A NDSU explica que **regar fundo, com menos frequência, é melhor** do que
-pouquinho e sempre. Regue devagar, espalhando a água por toda a superfície,
+**Regar fundo, com menos frequência, é melhor** do que pouquinho e sempre. Regue devagar, espalhando a água por toda a superfície,
 até ela **começar a sair pelo furo de baixo**. Assim a água chega na raiz do
 fundo, e não só na casca de cima.
 
@@ -63,18 +60,16 @@ perto da terra e sem jato forte.
 
 ### O melhor horário
 
-A NDSU recomenda regar **de preferência no começo da manhã**. Se não der,
-regue no fim da tarde, sempre na terra.
+Regue **de preferência no começo da manhã**. Se não der, regue no fim da
+tarde, sempre na terra.
 
 ### Não deixe o vaso secar por completo
 
-A NDSU avisa que vaso **não deve secar totalmente**. E a Universidade de
-Nevada explica o que acontece quando seca: o substrato **encolhe e se
-descola da parede do vaso**. Aí a água da rega escorre pela fresta entre o
+O vaso **não deve secar totalmente**. Quando seca, o substrato **encolhe e
+se descola da parede do vaso**. Aí a água da rega escorre pela fresta entre o
 torrão e o vaso e sai pelo furo **sem molhar a raiz**.
 
-**Como recuperar um vaso que secou demais** (Universidade de Nevada):
-coloque o vaso **até a metade dentro de um balde com água** e deixe até
+**Como recuperar um vaso que secou demais:** coloque o vaso **até a metade dentro de um balde com água** e deixe até
 **parar de subir bolha**. As bolhas são o ar saindo, e quando elas param, a
 água ocupou o substrato. Depois, tire o vaso e deixe escorrer bem.
 
@@ -87,24 +82,23 @@ teste do dedo, mas espere estas diferenças:
 
 | Situação | O que esperar |
 |---|---|
-| **Dias quentes** | Segundo a Universidade de Nevada, espere regar a maioria das plantas **todos os dias**. Confira de manhã |
+| **Dias quentes** | Espere regar a maioria das plantas **todos os dias**. Confira de manhã |
 | **Vento, sol forte, seca** | O vaso seca mais rápido. Na seca do Centro-Oeste, confira com mais frequência |
 | **Brotação, flor e fruto novo** | É a fase de **mais sede**. A Embrapa registra, em citros, que na brotação, nos botões de flor, na frutificação e no começo do fruto a planta é **muito sensível à falta de água**, e que a irrigação garante boa florada e pegamento dos frutos |
-| **Planta crescendo rápido** | Mais crescimento, mais água (Universidade de Nevada) |
-| **Frio** | A planta bebe menos e o vaso demora mais para secar. Regue menos, mas **não esqueça o vaso no inverno** (Universidade de Nevada) |
+| **Planta crescendo rápido** | Mais crescimento, mais água |
+| **Frio** | A planta bebe menos e o vaso demora mais para secar. Regue menos, mas **não esqueça o vaso no inverno** |
 | **Frutíferas que perdem as folhas no frio** | Mirtilo, figo, pêssego e uva podem perder as folhas no outono e no inverno (a Embrapa descreve isso no mirtilo em vaso). Sem folhas, a planta quase não gasta água: regue bem menos, mas sem deixar o substrato secar por completo |
 
 E lembre do material e do tamanho do vaso (Capítulo 3): **barro e cimento
-secam mais rápido**, e **vasos rasos encharcam com facilidade**. Segundo a
-Universidade de Nevada, vasos mais fundos drenam melhor e erram menos para
-mais ou para menos.
+secam mais rápido**, e **vasos rasos encharcam com facilidade**. Vasos mais
+fundos drenam melhor e perdoam mais os erros de rega.
 
 ---
 
 ## 5. Água demais ou de menos? Os sinais
 
-O detalhe que confunde todo mundo: segundo a NDSU, **folha murcha é sinal
-clássico tanto de água demais quanto de água de menos**. Por isso, nunca
+O detalhe que confunde todo mundo: **folha murcha é sinal clássico tanto de
+água demais quanto de água de menos**. Por isso, nunca
 regue só porque a planta murchou. **Confira a terra primeiro.**
 
 | Sinal | Água demais | Água de menos |
@@ -116,8 +110,8 @@ regue só porque a planta murchou. **Confira a terra primeiro.**
 | Flores e frutinhos | Podem cair | **Caem** (a planta solta o que não consegue sustentar) |
 | Raiz (se tirar do vaso) | Escura, mole, que solta a casca | Seca e quebradiça |
 
-**Por que água demais é tão grave:** segundo a Universidade da Geórgia, o
-excesso de água **corta o ar da raiz**, pode matar os microrganismos bons do
+**Por que água demais é tão grave:** o excesso de água **corta o ar da
+raiz**, pode matar os microrganismos bons do
 substrato, leva ao **apodrecimento da raiz** e causa mau cheiro por causa de
 bactérias que vivem sem ar. Poucas plantas aguentam raiz encharcada por muito
 tempo.

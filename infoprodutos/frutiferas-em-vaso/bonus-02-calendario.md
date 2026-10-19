@@ -76,5 +76,5 @@ todo. As fichas do Capítulo 11 trazem os detalhes de cada espécie.
 
 ---
 
-*As recomendações deste calendário resumem os Capítulos 5 a 10, onde estão as
+*As recomendações deste calendário resumem os Capítulos 3 a 10, onde estão as
 fontes de cada uma.*

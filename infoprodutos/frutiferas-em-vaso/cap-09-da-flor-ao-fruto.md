@@ -67,16 +67,18 @@ fecunda a mesma flor nem as outras flores da mesma planta**. Sem outra planta
 e sem polinizador, ele floresce e não produz. A Embrapa Cerrados ensina a
 polinização manual assim:
 
-1. **Espere a hora certa.** As flores do maracujá-azedo abrem à tarde. Nos
-   períodos quentes, a partir das 13 h no horário de verão, mas o melhor
-   momento é a partir das **15 h**. Em Brasília, nas noites frias de junho a
-   agosto, elas abrem a partir das 14 h e ficam no ponto a partir das
-   **15h30**.
+1. **Espere a hora certa.** As flores do maracujá-azedo abrem à tarde. No
+   estudo da Embrapa, em Brasília, nos períodos quentes elas começavam a
+   abrir por volta das 13 h do horário de verão (que não existe mais: hoje,
+   seria por volta do meio-dia), e o melhor momento era a partir das
+   **15 h**. Nas noites frias de junho a agosto, abriam a partir das 14 h e
+   ficavam no ponto a partir das **15h30**. Use esses horários como
+   referência e observe as suas flores.
 2. **Polinize só flores no ponto:** com os **estiletes** (as três "hastes" do
    centro da flor) **totalmente ou parcialmente curvados** para baixo.
 3. **Pegue o pólen:** toque os dedos nas **anteras** (as partes que soltam o
    pó amarelo) até ficarem cobertos de pólen.
-4. **Passe o pólen para OUTRA flor:** toque de leve nos **três estigmas** (as
+4. **Passe o pólen para OUTRA planta:** toque de leve nos **três estigmas** (as
    pontas dos estiletes) de uma flor de **outra planta**.
 5. **Nunca** deixe o pólen de uma flor tocar o estigma dela mesma: além de não
    fecundar, ele ocupa o lugar do pólen que funcionaria.

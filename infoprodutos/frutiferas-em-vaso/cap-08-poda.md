@@ -92,8 +92,7 @@ Pode ser feita em qualquer época. Tire:
 - **Corte logo acima de uma gema** (um "olhinho" de onde sai broto),
   **virada para fora** da copa, como na figueira. O broto novo vai crescer
   para o lado da gema.
-- **Nunca deixe toco.** Um artigo arquivado pela Universidade Estadual de
-  Michigan explica que toco grande facilita o apodrecimento.
+- **Nunca deixe toco.** Toco grande facilita o apodrecimento.
 - **Não corte o "colar".** O colar é o calombo onde o galho encontra o tronco.
   Cortar dentro dele aumenta o tamanho da ferida. Corte rente ao colar, sem
   passar dele.
@@ -105,9 +104,9 @@ As fontes não concordam, e vale saber das duas:
 
 - Em pomares comerciais de manga, a Embrapa trata os cortes com **pasta à
   base de cobre**.
-- O artigo arquivado pela Universidade de Michigan diz que pesquisas mostraram que
-  **pastas cicatrizantes geralmente não evitam o apodrecimento**, e que
-  camada grossa pode **reter umidade** e até piorar.
+- Um artigo técnico do arquivo da Universidade Estadual de Michigan diz que
+  pesquisas mostraram que **pastas cicatrizantes geralmente não evitam o
+  apodrecimento**, e que camada grossa pode **reter umidade** e até piorar.
 
 Na prática: corte fino não precisa de nada. Em corte grosso, se usar pasta,
 use **camada fina**.
