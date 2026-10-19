@@ -25,9 +25,14 @@ Em 2026-10-18 entrou uma frente própria, fora dos clientes: infoprodutos,
 como aposta pra começar a vender agora, em paralelo à prospecção. Nicho
 escolhido: frutíferas em vaso (demanda confirmada por anúncios ativos, pouca
 concorrência, sem risco de política de anúncio). Preço R$ 20 (mudado de R$ 27 em 2026-10-18). Prontos:
-estrutura e pesquisa de concorrentes (`estrutura.md`), Cap. 1 e Bônus 1 com
-fontes conferidas. Falta escrever o resto, diagramar, criar a conta na Kiwify
-e a página de venda — ver `infoprodutos/frutiferas-em-vaso/estrutura.md`.
+estrutura e pesquisa de concorrentes (`estrutura.md`), pesquisa de público
+(`pesquisa-video-naturando.md`) e o TEXTO COMPLETO do ebook (2026-10-18):
+introdução, caps. 1 a 12 (incluindo 12 fichas de frutíferas) e os 4 bônus,
+com fontes conferidas (Embrapa, universidades) no fim de cada capítulo.
+Título provisório: "Sua Frutífera Vai Dar Fruto". Falta: escolher o título,
+revisar o texto, diagramar o PDF (com fotos), criar a conta e o produto na
+Kiwify (só o Gustavo pode criar a conta), fazer a página de venda e os
+criativos — ver `infoprodutos/frutiferas-em-vaso/estrutura.md`.
 
 ## Prioridade principal
 

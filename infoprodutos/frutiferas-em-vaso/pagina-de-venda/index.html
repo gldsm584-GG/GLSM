@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Rascunho: tirar o noindex quando a página for ao ar de verdade -->
+<meta name="robots" content="noindex, nofollow">
+<title>Sua Frutífera Vai Dar Fruto | Guia de frutíferas em vaso</title>
+<meta name="description" content="O guia que mostra os 7 erros que impedem sua frutífera em vaso de dar fruto, e como corrigir cada um. Mesmo em apartamento. Com fontes da Embrapa e de universidades.">
+<style>
+  :root {
+    --verde: #2f6b3a;
+    --verde-escuro: #1f4a28;
+    --verde-claro: #e8f2e3;
+    --laranja: #e8862a;
+    --laranja-escuro: #c96d14;
+    --texto: #1f2a22;
+    --texto-suave: #4d5a50;
+    --fundo: #fffdf8;
+    --borda: #dfe7da;
+    --raio: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--texto);
+    background: var(--fundo);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0; }
+  h1, h2, h3 { line-height: 1.25; margin: 0 0 16px; }
+  h1 { font-size: clamp(28px, 6vw, 42px); }
+  h2 { font-size: clamp(24px, 4.5vw, 32px); }
+  h3 { font-size: 19px; }
+  p { margin: 0 0 16px; }
+  .suave { color: var(--texto-suave); }
+  .centro { text-align: center; }
+
+  /* Topo */
+  .topo {
+    background: linear-gradient(180deg, var(--verde-claro) 0%, var(--fundo) 100%);
+    padding: 48px 0 40px;
+    text-align: center;
+  }
+  .selo {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid var(--borda);
+    color: var(--verde);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .topo .sub { font-size: 19px; color: var(--texto-suave); max-width: 600px; margin: 0 auto 28px; }
+
+  /* Capa do ebook (desenho simples, sem foto) */
+  .capa {
+    width: 220px; height: 300px; margin: 0 auto 28px;
+    background: var(--verde);
+    border-radius: 6px 14px 14px 6px;
+    box-shadow: 0 18px 40px rgba(31,74,40,.25), inset 8px 0 0 rgba(0,0,0,.12);
+    color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+    padding: 26px 22px; text-align: left;
+  }
+  .capa .titulo { font-size: 24px; font-weight: 800; line-height: 1.15; }
+  .capa .linha { font-size: 13px; opacity: .9; }
+  .capa svg { align-self: center; }
+
+  /* Botão */
+  .botao {
+    display: inline-block;
+    background: var(--laranja);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 19px;
+    padding: 16px 32px;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(232,134,42,.35);
+    transition: background .2s, transform .2s;
+  }
+  .botao:hover, .botao:focus-visible { background: var(--laranja-escuro); transform: translateY(-1px); }
+  .botao:focus-visible { outline: 3px solid var(--verde-escuro); outline-offset: 3px; }
+  .abaixo-botao { font-size: 14px; color: var(--texto-suave); margin-top: 12px; }
+
+  /* Dor */
+  .dor { background: #fff; border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); }
+  .lista-x, .lista-check { list-style: none; padding: 0; margin: 0 0 16px; }
+  .lista-x li, .lista-check li { padding-left: 34px; position: relative; margin-bottom: 12px; }
+  .lista-x li::before { content: "✕"; position: absolute; left: 0; top: 0; color: #b8492f; font-weight: 700; }
+  .lista-check li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--verde); font-weight: 700; }
+
+  /* Cartões */
+  .grade { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .grade.duas { grid-template-columns: 1fr 1fr; } }
+  .cartao {
+    background: #fff; border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 20px;
+  }
+  .cartao h3 { margin-bottom: 8px; color: var(--verde-escuro); }
+  .cartao p { margin: 0; color: var(--texto-suave); font-size: 16px; }
+  .numero {
+    display: inline-flex; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--verde-claro); color: var(--verde-escuro);
+    align-items: center; justify-content: center; font-weight: 700; font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  /* Mitos */
+  .mito { border-left: 4px solid var(--laranja); }
+  .mito .rotulo { font-size: 13px; font-weight: 700; color: var(--laranja-escuro); text-transform: uppercase; letter-spacing: .04em; }
+
+  /* Sumário */
+  .sumario { counter-reset: cap; list-style: none; padding: 0; margin: 0; }
+  .sumario li {
+    counter-increment: cap; padding: 12px 0 12px 48px; position: relative;
+    border-bottom: 1px solid var(--borda);
+  }
+  .sumario li::before {
+    content: counter(cap); position: absolute; left: 0; top: 10px;
+    width: 32px; height: 32px; border-radius: 8px; background: var(--verde); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;
+  }
+  .sumario strong { display: block; }
+  .sumario span { color: var(--texto-suave); font-size: 15px; }
+
+  /* Bônus */
+  .bonus { background: var(--verde-claro); }
+  .bonus .cartao { border-color: #cfe0c7; }
+
+  /* Fontes */
+  .fontes { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 8px; }
+  .fontes span {
+    background: #fff; border: 1px solid var(--borda); border-radius: 999px;
+    padding: 6px 14px; font-size: 14px; color: var(--texto-suave);
+  }
+
+  /* Oferta */
+  .oferta {
+    background: #fff; border: 2px solid var(--verde); border-radius: 20px;
+    padding: 32px 24px; text-align: center; max-width: 520px; margin: 0 auto;
+    box-shadow: 0 14px 34px rgba(31,74,40,.12);
+  }
+  .preco { font-size: 52px; font-weight: 800; color: var(--verde-escuro); line-height: 1; margin: 12px 0 4px; }
+  .preco small { font-size: 22px; font-weight: 700; vertical-align: top; }
+  .oferta ul { text-align: left; margin: 20px 0 24px; }
+
+  /* Garantia */
+  .garantia { display: flex; gap: 18px; align-items: flex-start; }
+  .garantia svg { flex: 0 0 auto; }
+
+  /* Depoimentos (só depois das primeiras vendas) */
+  .aviso-rascunho {
+    border: 2px dashed #c9b27a; background: #fff8e6; color: #6b5317;
+    border-radius: var(--raio); padding: 16px 18px; font-size: 15px;
+  }
+
+  /* FAQ */
+  details {
+    background: #fff; border: 1px solid var(--borda); border-radius: var(--raio);
+    padding: 16px 18px; margin-bottom: 12px;
+  }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { margin: 12px 0 0; color: var(--texto-suave); }
+
+  /* Rodapé */
+  footer { background: var(--verde-escuro); color: #dfe9dc; padding: 32px 0; font-size: 14px; text-align: center; }
+  footer a { color: #fff; }
+
+  /* Botão fixo no celular */
+  .barra-fixa {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+    background: rgba(255,253,248,.97); border-top: 1px solid var(--borda);
+    padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .barra-fixa .valor { font-weight: 800; color: var(--verde-escuro); font-size: 20px; }
+  .barra-fixa .botao { font-size: 16px; padding: 12px 22px; }
+  @media (min-width: 760px) { .barra-fixa { display: none; } }
+  body { padding-bottom: 72px; }
+  @media (min-width: 760px) { body { padding-bottom: 0; } }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<!-- ============ TOPO ============ -->
+<header class="topo">
+  <div class="container">
+    <span class="selo">Guia em PDF · Frutíferas em vaso</span>
+    <h1>Sua planta cresce, fica bonita… e não dá um fruto?</h1>
+    <p class="sub">O guia que mostra os <strong>7 erros</strong> que impedem a frutífera em vaso de produzir, e como corrigir cada um. Mesmo em apartamento.</p>
+
+    <div class="capa" role="img" aria-label="Capa do ebook Sua Frutífera Vai Dar Fruto">
+      <div class="titulo">Sua Frutífera Vai Dar Fruto</div>
+      <svg width="110" height="110" viewBox="0 0 110 110" aria-hidden="true">
+        <circle cx="55" cy="38" r="30" fill="#4f9a5c"/>
+        <circle cx="40" cy="32" r="6" fill="#f2a33a"/>
+        <circle cx="66" cy="28" r="6" fill="#f2a33a"/>
+        <circle cx="58" cy="48" r="6" fill="#f2a33a"/>
+        <rect x="52" y="60" width="6" height="18" fill="#7a5233"/>
+        <path d="M30 76 h50 l-6 28 h-38 z" fill="#c8794a"/>
+      </svg>
+      <div class="linha">Do vaso à colheita, mesmo em apartamento</div>
+    </div>
+
+    <a class="botao" href="#oferta">Quero o guia por R$ 20</a>
+    <p class="abaixo-botao">Pagamento único · Acesso imediato · Garantia de 7 dias</p>
+  </div>
+</header>
+
+<!-- ============ DOR ============ -->
+<section class="dor">
+  <div class="container">
+    <h2>Se você já passou por isso, este guia é para você</h2>
+    <ul class="lista-x">
+      <li>Comprou a muda, cuidou com carinho, e anos depois <strong>nenhuma flor</strong>.</li>
+      <li>A planta enche de flor, mas <strong>a flor cai</strong> sem virar fruto.</li>
+      <li>As folhas amarelam e você não sabe se é <strong>água demais ou de menos</strong>.</li>
+      <li>Quer ter um pé de fruta, mas <strong>não tem quintal</strong>, ou mora de aluguel.</li>
+      <li>Já assistiu a vários vídeos, e cada um <strong>diz uma coisa diferente</strong>.</li>
+    </ul>
+    <p>Quase sempre, o motivo é um destes <strong>7 erros</strong>, e todos têm solução:</p>
+    <div class="grade duas">
+      <div class="cartao"><span class="numero">1</span><h3>A muda errada</h3><p>Muda de semente pode levar anos para dar a primeira flor.</p></div>
+      <div class="cartao"><span class="numero">2</span><h3>O vaso errado</h3><p>Pequeno demais, grande demais ou sem drenagem.</p></div>
+      <div class="cartao"><span class="numero">3</span><h3>Pouco sol</h3><p>Sem luz, não sobra energia para florir.</p></div>
+      <div class="cartao"><span class="numero">4</span><h3>Rega errada</h3><p>Raiz encharcada não respira. Raiz com sede solta as flores.</p></div>
+      <div class="cartao"><span class="numero">5</span><h3>Adubo que só faz folha</h3><p>Planta linda, verde-escura… e sem fruto.</p></div>
+      <div class="cartao"><span class="numero">6</span><h3>Poda na hora errada</h3><p>Cada espécie dá fruto num lugar diferente.</p></div>
+      <div class="cartao"><span class="numero">7</span><h3>Falta de polinização</h3><p>Em apartamento quase não tem abelha, e algumas espécies precisam de duas plantas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MITOS ============ -->
+<section>
+  <div class="container">
+    <h2>3 coisas que quase todo mundo faz errado</h2>
+    <div class="grade">
+      <div class="cartao mito">
+        <div class="rotulo">Mito</div>
+        <h3>"Pedra no fundo do vaso ajuda a drenar"</h3>
+        <p>Extensões de universidades mostram o contrário: a camada de pedra, brita ou argila <strong>atrapalha a drenagem</strong> e deixa a zona encharcada mais perto da raiz. No guia, você vê o que fazer no lugar.</p>
+      </div>
+      <div class="cartao mito">
+        <div class="rotulo">Mito</div>
+        <h3>"Qualquer muda serve, é só ter paciência"</h3>
+        <p>Uma jabuticabeira de semente leva de <strong>8 a 15 anos</strong> para começar a produzir. O guia mostra qual muda comprar e como reconhecer uma boa na hora da compra.</p>
+      </div>
+      <div class="cartao mito">
+        <div class="rotulo">Mito</div>
+        <h3>"Se a flor caiu, a planta está doente"</h3>
+        <p>Muitas frutíferas dão bem mais flor do que conseguem segurar. Em citros, com florada excessiva, <strong>menos de 2% das flores viram fruto</strong>. O guia ensina a separar a queda normal do problema.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAL ============ -->
+<section class="dor">
+  <div class="container centro">
+    <h2>Tudo conferido em fonte confiável</h2>
+    <p class="suave">Chega de "dica milagrosa". Os números, prazos e recomendações do guia foram conferidos em publicações técnicas, e cada capítulo traz a lista de fontes, com link. Quando um número não existe, o guia diz isso, em vez de inventar.</p>
+    <div class="fontes">
+      <span>Embrapa</span>
+      <span>Universidades brasileiras</span>
+      <span>Extensão de universidades dos EUA</span>
+      <span>Revistas científicas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE TEM ============ -->
+<section>
+  <div class="container">
+    <h2>O que você vai encontrar</h2>
+    <p class="suave">12 capítulos em linguagem simples, passo a passo, do jeito de quem nunca plantou nada.</p>
+    <ol class="sumario">
+      <li><strong>Diagnóstico: por que minha planta não dá fruto?</strong><span>Os 7 erros, o sinal de cada um na planta e como corrigir.</span></li>
+      <li><strong>Escolhendo a muda certa</strong><span>Semente, enxertada ou alporquia, o exame de 2 minutos e as 6 perguntas para o viveiro.</span></li>
+      <li><strong>O vaso</strong><span>Tamanho, quando trocar, material, drenagem e o lugar certo.</span></li>
+      <li><strong>Substrato</strong><span>Por que a terra do quintal não serve, e duas receitas testadas.</span></li>
+      <li><strong>Plantio passo a passo</strong><span>11 passos e um checklist para o dia do plantio.</span></li>
+      <li><strong>Rega</strong><span>Teste do dedo, rega ao longo do ano e como saber se é água demais ou de menos.</span></li>
+      <li><strong>Adubação</strong><span>Como ler o NPK, o que dar em cada fase e o calendário do ano.</span></li>
+      <li><strong>Poda, copa e tutor</strong><span>Como manter a planta pequena, cheia de luz e no ponto de florir.</span></li>
+      <li><strong>Da flor ao fruto</strong><span>Polinização com pincel, o passo a passo do maracujá e o raleio.</span></li>
+      <li><strong>Pragas e doenças</strong><span>Como reconhecer e controlar do jeito mais simples primeiro.</span></li>
+      <li><strong>Fichas de 12 frutíferas</strong><span>Jabuticaba, acerola, pitanga, limão, tangerina, amora-preta, romã, figo, goiaba, morango, maracujá e mirtilo.</span></li>
+      <li><strong>Problemas e soluções</strong><span>Consulta rápida: o que você vê, a causa e onde resolver.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ BÔNUS ============ -->
+<section class="bonus">
+  <div class="container">
+    <h2>E ainda leva 4 bônus para imprimir</h2>
+    <div class="grade duas">
+      <div class="cartao"><h3>Checklist "Minha planta não dá fruto"</h3><p>25 itens para marcar na frente da planta e achar o erro em minutos.</p></div>
+      <div class="cartao"><h3>Calendário de cuidados</h3><p>Rega, adubo, poda, flor e pragas em cada estação do ano.</p></div>
+      <div class="cartao"><h3>Ficha de acompanhamento do vaso</h3><p>Para anotar adubo, poda, flor e colheita, e acertar mais a cada ano.</p></div>
+      <div class="cartao"><h3>Tabela de 30 frutíferas para vaso</h3><p>Porte, clima e dicas para escolher a próxima planta.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM ============ -->
+<section>
+  <div class="container">
+    <h2>Para quem é este guia</h2>
+    <ul class="lista-check">
+      <li>Quem mora em <strong>apartamento</strong> ou em casa <strong>sem quintal</strong>.</li>
+      <li>Quem mora de <strong>aluguel</strong>: o vaso vai junto na mudança.</li>
+      <li><strong>Iniciantes</strong> que querem começar do jeito certo.</li>
+      <li>Quem já tem uma frutífera em vaso que <strong>não produz</strong>.</li>
+    </ul>
+    <p class="suave">Não é para quem quer fruto em uma semana. O guia é honesto sobre os prazos: a muda certa encurta muito o caminho, mas cada planta tem o seu tempo.</p>
+  </div>
+</section>
+
+<!-- ============ OFERTA ============ -->
+<section id="oferta" class="dor">
+  <div class="container">
+    <div class="oferta">
+      <h2>Sua Frutífera Vai Dar Fruto</h2>
+      <p class="suave">Ebook completo + 4 bônus para imprimir</p>
+      <div class="preco"><small>R$</small>20</div>
+      <p class="suave">pagamento único</p>
+      <ul class="lista-check">
+        <li>12 capítulos com fontes conferidas</li>
+        <li>12 fichas de frutíferas para vaso</li>
+        <li>4 bônus para imprimir</li>
+        <li>Acesso imediato, por e-mail, em PDF</li>
+        <li>Garantia de 7 dias</li>
+      </ul>
+      <!-- TODO: trocar "#" pelo link de checkout da Kiwify quando o produto estiver criado -->
+      <a class="botao" href="#" data-checkout>Quero meu guia agora</a>
+      <p class="abaixo-botao">Pagamento seguro pela Kiwify · Pix ou cartão</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GARANTIA ============ -->
+<section>
+  <div class="container">
+    <div class="garantia">
+      <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 4 L56 14 V32 C56 46 45 56 32 60 C19 56 8 46 8 32 V14 Z" fill="#e8f2e3" stroke="#2f6b3a" stroke-width="3"/>
+        <path d="M21 32 l8 8 l15 -16" fill="none" stroke="#2f6b3a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h2>Garantia de 7 dias</h2>
+        <p class="suave">Leia o guia com calma. Se em até 7 dias você achar que não valeu, peça o reembolso pela própria plataforma e recebe 100% do valor de volta, sem perguntas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="dor">
+  <div class="container">
+    <h2>O que os leitores dizem</h2>
+    <!-- RASCUNHO: só colocar depoimentos REAIS de quem leu o ebook, com autorização.
+         Nunca usar comentários de vídeos ou de outros produtos. -->
+    <div class="aviso-rascunho">
+      <strong>Espaço reservado.</strong> Depoimentos reais entram aqui depois das primeiras vendas (por exemplo, dando o guia a 5 ou 10 pessoas em troca de uma avaliação sincera). Até lá, esta seção fica fora do ar.
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="container">
+    <h2>Perguntas frequentes</h2>
+    <details>
+      <summary>Como eu recebo o guia?</summary>
+      <p>Logo depois da confirmação do pagamento, você recebe o acesso por e-mail e baixa o PDF. Dá para ler no celular, no computador ou imprimir.</p>
+    </details>
+    <details>
+      <summary>Serve para apartamento?</summary>
+      <p>Sim. O guia foi feito pensando em vaso: varanda, janela, área de serviço, qualquer lugar com sol. O Capítulo 3 ensina a escolher o lugar certo.</p>
+    </details>
+    <details>
+      <summary>Nunca plantei nada. Vou conseguir?</summary>
+      <p>Vai. O texto é simples, passo a passo, e explica cada termo técnico. Comece pelo Capítulo 1 e pelo checklist.</p>
+    </details>
+    <details>
+      <summary>Tem vídeo-aula?</summary>
+      <p>Não. É um ebook em PDF, para ler e consultar quando precisar, com bônus para imprimir.</p>
+    </details>
+    <details>
+      <summary>Funciona na minha região?</summary>
+      <p>As regras do guia valem para todo o Brasil. As fichas e a tabela de 30 frutíferas indicam o clima de cada espécie, para você escolher a que combina com a sua região.</p>
+    </details>
+    <details>
+      <summary>Em quanto tempo minha planta vai dar fruto?</summary>
+      <p>Depende da espécie e da muda. O guia não promete prazo mágico: ele mostra o que as pesquisas dizem sobre cada espécie e o que fazer para não atrasar a produção.</p>
+    </details>
+    <details>
+      <summary>E se eu não gostar?</summary>
+      <p>Você tem 7 dias de garantia. Peça o reembolso pela plataforma e recebe o valor de volta.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ CHAMADA FINAL ============ -->
+<section class="bonus">
+  <div class="container centro">
+    <h2>Seu pé de fruta pode estar a um vaso de distância</h2>
+    <p class="suave">Descubra o que está impedindo a sua planta de produzir e comece do jeito certo.</p>
+    <a class="botao" href="#oferta">Quero o guia por R$ 20</a>
+    <p class="abaixo-botao">Pagamento único · Acesso imediato · Garantia de 7 dias</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <!-- TODO: nome do vendedor, contato de suporte e link da política de privacidade -->
+    <p>Sua Frutífera Vai Dar Fruto · Guia de orientação para cultivo doméstico. Não substitui a avaliação de um engenheiro agrônomo.</p>
+    <p>Suporte: <a href="mailto:contato@exemplo.com">contato@exemplo.com</a></p>
+  </div>
+</footer>
+
+<div class="barra-fixa">
+  <span class="valor">R$ 20</span>
+  <a class="botao" href="#oferta">Quero o guia</a>
+</div>
+
+</body>
+</html>

@@ -153,5 +153,6 @@ Pesquisa de mercado feita em 2026-10-18.
 - [ ] Revisar o texto inteiro (tom, repetições, números) antes de diagramar
 - [ ] Diagramar o PDF (Canva grátis)
 - [ ] Criar a conta na Kiwify e o produto
-- [ ] Fazer a página de venda
+- [ ] Fazer a página de venda (rascunho em `pagina-de-venda/index.html`, 2026-10-18; faltam o link
+  da Kiwify, o contato de suporte, a política de privacidade, fotos reais e depoimentos reais)
 - [ ] Criar 3 criativos com o gancho "cresce mas não dá fruto" e testar no Meta
