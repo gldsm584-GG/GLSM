@@ -145,6 +145,8 @@ Pesquisa de mercado feita em 2026-10-18.
 - [x] Escrever o Cap. 3 (o vaso) (2026-10-18, com fontes conferidas: `cap-03-o-vaso.md`)
 - [x] Escrever o Cap. 4 (substrato) (2026-10-18, com fontes conferidas: `cap-04-substrato.md`)
 - [x] Escrever o Cap. 5 (plantio) (2026-10-18, com fontes conferidas: `cap-05-plantio.md`)
+- [x] Escrever o Cap. 6 (rega) (2026-10-18, com fontes conferidas: `cap-06-rega.md`)
+- [x] Escrever o Cap. 7 (adubação) (2026-10-18, com fontes conferidas: `cap-07-adubacao.md`)
 - [ ] Escrever o resto dos capítulos e as 12 fichas
 - [ ] Diagramar o PDF (Canva grátis)
 - [ ] Criar a conta na Kiwify e o produto
