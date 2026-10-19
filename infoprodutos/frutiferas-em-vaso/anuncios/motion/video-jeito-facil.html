@@ -13,7 +13,8 @@
   - Gerar o MP4: node render.mjs (dentro desta pasta).
 
   Tudo é cronometrado pela tabela T (começo de cada cena, em segundos). Os efeitos sonoros
-  usam a mesma tabela, então mudar um tempo ali mexe na imagem e no som juntos.
+  e a narração usam a mesma tabela, então mudar um tempo ali mexe na imagem e no som juntos.
+  Narração: textos no narrar.py (python narrar.py gera a pasta voz/).
   Os números na tela vêm do ebook (caps. 1, 3, 5 e 6), com fonte. Não troque nenhum.
 -->
 <style>
@@ -375,11 +376,24 @@
   <span id="relogio">0.0 s</span>
 </div>
 
+<!-- Narração (gerada pelo narrar.py). Sem ela, ou com ?semvoz no endereço, o vídeo sai só com efeitos e música. -->
+<script src="voz/voz.js"></script>
 <script>
 // ===================== TEMPO =====================
-// Começo de cada cena (segundos). Imagem e som leem daqui.
-const T = { gancho: 0, p1: 2.8, p2: 6.4, p3: 10.4, p4: 13.6, p5: 16.8, fim: 19.8, cta: 22.6 };
-const TOTAL = 27.2;
+// Cada cena dura o mínimo que a animação dela pede ou, com narração, o que a fala pedir.
+// T guarda o começo de cada cena (segundos). Imagem, som e voz leem daqui.
+const ORDEM = ["gancho", "p1", "p2", "p3", "p4", "p5", "fim", "cta"];
+const MINIMO = { gancho: 2.8, p1: 3.6, p2: 4.0, p3: 3.2, p4: 3.2, p5: 3.0, fim: 2.8, cta: 4.6 };
+const VOZ = new URLSearchParams(location.search).has("semvoz") ? null : window.VOZ || null;
+const ATRASO_VOZ = .15; // a fala começa logo depois da cena entrar
+const T = {};
+let TOTAL = 0;
+for (const cena of ORDEM) {
+  T[cena] = TOTAL;
+  const folga = cena === "cta" ? 1.2 : .3; // no fim, sobra tempo para o acorde final
+  TOTAL += Math.max(MINIMO[cena], VOZ ? ATRASO_VOZ + VOZ[cena].dur + folga : 0);
+}
+TOTAL = Math.round(TOTAL * 10) / 10;
 
 const NS = "http://www.w3.org/2000/svg";
 const EASE = {
@@ -724,7 +738,7 @@ function musica(m, t0) {
   const acordes = [[60, 64, 67, 72], [59, 62, 67, 71], [60, 64, 69, 72], [60, 65, 69, 72]];
   const baixos = [48, 43, 45, 41];
   const desenho = [0, 1, 2, 3, 2, 1, 2, 3];
-  const fimMusica = T.cta + 3.4;
+  const fimMusica = TOTAL - 1.4;
   for (let k = 0; ; k++) {
     const t = k * .25; if (t >= fimMusica - .01) break;
     const compasso = Math.floor(k / 8), ac = acordes[compasso % 4], at = t0 + t;
@@ -836,7 +850,11 @@ function ajustarTela() {
 }
 window.addEventListener("resize", ajustarTela);
 
-let audio = null, inicioAudio = 0;
+let audio = null, inicioAudio = 0, falas = [];
+function pararFalas() {
+  falas.forEach((f) => { clearTimeout(f.espera); f.el.pause(); });
+  falas = [];
+}
 const barra = document.getElementById("barra"), relogio = document.getElementById("relogio");
 function mostrar(t) {
   seek(t);
@@ -845,9 +863,14 @@ function mostrar(t) {
 }
 document.getElementById("tocar").addEventListener("click", () => {
   if (audio) audio.close();
+  pararFalas();
   audio = new AudioContext();
   inicioAudio = audio.currentTime + .15;
   sons(audio, montarMixer(audio), inicioAudio);
+  for (const f of linhaDaVoz()) {
+    const el = new Audio("voz/" + f.arquivo);
+    falas.push({ el, espera: setTimeout(() => el.play(), (f.inicio + .15) * 1000) });
+  }
   const quadro = () => {
     if (!audio) return;
     const t = audio.currentTime - inicioAudio;
@@ -858,10 +881,17 @@ document.getElementById("tocar").addEventListener("click", () => {
 });
 barra.addEventListener("input", () => {
   if (audio) { audio.close(); audio = null; }
+  pararFalas();
   mostrar((barra.value / 1000) * TOTAL);
 });
 
+// Quando cada fala começa (o render.mjs mistura a voz com os efeitos no ffmpeg)
+function linhaDaVoz() {
+  return VOZ ? ORDEM.map((cena) => ({ arquivo: VOZ[cena].arquivo, inicio: T[cena] + ATRASO_VOZ })) : [];
+}
+
 window.TOTAL = TOTAL;
+window.linhaDaVoz = linhaDaVoz;
 window.seek = seek;
 window.gerarAudioWav = gerarAudioWav;
 iniciar();
