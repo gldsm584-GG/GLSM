@@ -179,8 +179,12 @@ Pesquisa de mercado feita em 2026-10-18.
   Gustavo já montou 1 vídeo (fora do git). Dá para começar com 2 imagens + 1 vídeo)
 - [x] Página no Facebook "Sua Frutífera Vai Dar Fruto" criada (2026-10-20), categoria Site de
   educação, com capa e foto de `facebook/`
-- [ ] **Onde parou (2026-10-20), em partes:** Parte 2: conta de anúncios e forma de pagamento no
-  Meta (Gerenciador de Negócios); Parte 3: Pixel da Meta na página de venda e na Kiwify; Parte 4:
+- [x] Pixel da Meta criado (2026-10-21), ID 1762012128208646, conta de anúncios act=1318830253601896.
+  Instalado na página de venda e na política (PageView conferido) e na Kiwify (Produto →
+  Configurações → Pixels de conversão; "Purchase ao gerar pix/boleto" desligados, só conta compra
+  paga). Conferir InitiateCheckout e Purchase no Gerenciador de Eventos na primeira compra (teste)
+- [ ] **Onde parou (2026-10-21), em partes:** Parte 2: forma de pagamento na conta de anúncios do
+  Meta; Parte 4:
   campanha de Vendas com os 3 criativos e o texto da `anuncios/legenda.md`. Antes de gastar: postar
   o conteúdo de graça (Instagram, grupos de Facebook) e combinar um limite de perda (ex.: R$ 100);
   cada venda deixa cerca de R$ 15,71 depois da taxa da Kiwify
