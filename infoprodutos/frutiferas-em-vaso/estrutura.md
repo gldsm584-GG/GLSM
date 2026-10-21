@@ -164,15 +164,16 @@ Pesquisa de mercado feita em 2026-10-18.
   anti-pirataria com marca d'água e bloqueio de Ctrl+C (impressão e senha desligadas, porque os
   bônus são para imprimir); e-mail de suporte frutiferanovasos2@gmail.com. Textos e imagens em
   `kiwify/`. Pendências: apagar o módulo de exemplo "Organizando o Conteúdo", escolher a
-  categoria "Animais e Plantas", fazer o teste como aluno, pegar o link de checkout e pôr no botão
-  `data-checkout` da página de venda. O card "Meus Cursos" do painel do aluno mostra a capa padrão
+  categoria "Animais e Plantas" e fazer o teste como aluno. Checkout: https://pay.kiwify.com.br/8Z4rg6S
+  (no botão `data-checkout` da página de venda desde 2026-10-21). O card "Meus Cursos" do painel do aluno mostra a capa padrão
   mesmo com a imagem do produto enviada (trocar pela `capa-produto-300x250.png` não resolveu):
   perguntar ao suporte da Kiwify; não atrapalha a venda
 - [ ] Fazer a página de venda (`pagina-de-venda/index.html`). Publicada em 2026-10-19 em
   sua-frutifera-vai-dar-fruto.vercel.app (com noindex até ter domínio próprio); projeto Vercel SEM
   GitHub conectado: republicar com `npx vercel deploy --prod --scope glsmteste` de dentro de
   `pagina-de-venda/`. Suporte (frutiferanovasos2@gmail.com) e política de privacidade no ar em
-  2026-10-20. Faltam o link da Kiwify, o nome completo do vendedor, fotos reais e depoimentos reais
+  2026-10-20; botão de compra ligado ao checkout da Kiwify em 2026-10-21. Faltam o nome completo do
+  vendedor, fotos reais e depoimentos reais
 - [ ] Criar os criativos com o gancho "cresce mas não dá fruto" e testar no Meta (2026-10-18: 2 imagens
   prontas, roteiros dos 3 vídeos, passo a passo grátis e texto dos anúncios em `anuncios/`; o
   Gustavo já montou 1 vídeo (fora do git). Dá para começar com 2 imagens + 1 vídeo)
