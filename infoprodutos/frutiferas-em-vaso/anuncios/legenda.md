@@ -19,7 +19,7 @@ adubo só de folha, poda na hora errada ou falta de polinização.
 O guia *Sua Frutífera Vai Dar Fruto* mostra como reconhecer cada erro na sua planta e como
 corrigir. Tem fichas de 12 frutíferas, como jabuticaba, limão e acerola, e 4 bônus para imprimir.
 
-Guia em PDF por R$ 20. Você recebe na hora, no seu e-mail.
+Guia em PDF por R$ 20. O acesso chega na hora, no seu e-mail.
 
 **Versão B (o mito)**
 
@@ -50,5 +50,5 @@ PDF por R$ 20, com 4 bônus para imprimir.
 
 ---
 
-Antes de publicar: confirme na Kiwify como a entrega acontece (e-mail, área de membros) e ajuste
-a frase "Você recebe na hora, no seu e-mail" se for diferente.
+Entrega pela área de membros da Kiwify: o comprador recebe o acesso por e-mail e baixa o PDF lá.
+Se mudar a forma de entrega, ajuste a frase "O acesso chega na hora, no seu e-mail".

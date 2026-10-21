@@ -159,9 +159,27 @@ Pesquisa de mercado feita em 2026-10-18.
   Rodar `node montar-pdf.mjs` dentro de `diagramacao/` depois de editar os .md. A pasta `ebook/`
   está no .gitignore (o repositório do GitHub é público)
 - [ ] Fotos reais e capa definitiva no PDF
-- [ ] Criar a conta na Kiwify e o produto
-- [ ] Fazer a página de venda (rascunho em `pagina-de-venda/index.html`, 2026-10-18; faltam o link
-  da Kiwify, o contato de suporte, a política de privacidade, fotos reais e depoimentos reais)
+- [x] Criar a conta na Kiwify e o produto (2026-10-20): produto "Sua Frutífera Vai Dar Fruto" ativo,
+  R$ 20, área de membros Lite com o módulo "Seu guia" e a aula "Baixe o seu ebook" (PDF anexado);
+  anti-pirataria com marca d'água e bloqueio de Ctrl+C (impressão e senha desligadas, porque os
+  bônus são para imprimir); e-mail de suporte frutiferanovasos2@gmail.com. Textos e imagens em
+  `kiwify/`. Pendências: apagar o módulo de exemplo "Organizando o Conteúdo", escolher a
+  categoria "Animais e Plantas", fazer o teste como aluno, pegar o link de checkout e pôr no botão
+  `data-checkout` da página de venda. O card "Meus Cursos" do painel do aluno mostra a capa padrão
+  mesmo com a imagem do produto enviada (trocar pela `capa-produto-300x250.png` não resolveu):
+  perguntar ao suporte da Kiwify; não atrapalha a venda
+- [ ] Fazer a página de venda (`pagina-de-venda/index.html`). Publicada em 2026-10-19 em
+  sua-frutifera-vai-dar-fruto.vercel.app (com noindex até ter domínio próprio); projeto Vercel SEM
+  GitHub conectado: republicar com `npx vercel deploy --prod --scope glsmteste` de dentro de
+  `pagina-de-venda/`. Suporte (frutiferanovasos2@gmail.com) e política de privacidade no ar em
+  2026-10-20. Faltam o link da Kiwify, o nome completo do vendedor, fotos reais e depoimentos reais
 - [ ] Criar os criativos com o gancho "cresce mas não dá fruto" e testar no Meta (2026-10-18: 2 imagens
-  prontas, roteiros dos 3 vídeos, passo a passo grátis e texto dos anúncios em `anuncios/`; falta
-  montar os vídeos no CapCut e subir no Meta depois da Kiwify)
+  prontas, roteiros dos 3 vídeos, passo a passo grátis e texto dos anúncios em `anuncios/`; o
+  Gustavo já montou 1 vídeo (fora do git). Dá para começar com 2 imagens + 1 vídeo)
+- [x] Página no Facebook "Sua Frutífera Vai Dar Fruto" criada (2026-10-20), categoria Site de
+  educação, com capa e foto de `facebook/`
+- [ ] **Onde parou (2026-10-20), em partes:** Parte 2: conta de anúncios e forma de pagamento no
+  Meta (Gerenciador de Negócios); Parte 3: Pixel da Meta na página de venda e na Kiwify; Parte 4:
+  campanha de Vendas com os 3 criativos e o texto da `anuncios/legenda.md`. Antes de gastar: postar
+  o conteúdo de graça (Instagram, grupos de Facebook) e combinar um limite de perda (ex.: R$ 100);
+  cada venda deixa cerca de R$ 15,71 depois da taxa da Kiwify
