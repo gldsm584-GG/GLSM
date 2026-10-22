@@ -1,7 +1,11 @@
 # Texto dos anúncios (Meta)
 
-Use o mesmo texto nos 7 criativos (5 vídeos, contando as duas versões do vídeo 4, e 2 imagens).
-No Meta dá para cadastrar até 5 versões de cada campo; cadastre as duas abaixo e ele testa sozinho.
+Use as versões A e B nos criativos 1 a 3 e nas 2 imagens. No Meta dá para cadastrar até 5 versões
+de cada campo; cadastre as duas e ele testa sozinho.
+
+O **vídeo 4** (com e sem voz) usa a **Versão C**: ele termina numa curiosidade ("E os outros 3
+erros?") e não fala o preço. As versões A e B entregam a resposta (a A lista os 7 erros), então
+não use as duas nele.
 
 Sem hashtag: em anúncio, hashtag é um link que tira a pessoa do anúncio.
 
@@ -33,6 +37,16 @@ adubo e poda, com a fonte de cada informação (Embrapa e universidades).
 
 PDF por R$ 20, com 4 bônus para imprimir.
 
+**Versão C (a curiosidade, só para o vídeo 4, sem preço)**
+
+Muda de semente, vaso errado, pouco sol e rega errada: o vídeo mostrou 4 dos 7 erros que fazem a
+frutífera em vaso crescer bonita e não dar fruto.
+
+Os outros 3 aparecem depois do plantio, quando a planta já parece saudável.
+
+Estão no guia *Sua Frutífera Vai Dar Fruto*, com o sinal de cada erro na planta, o que fazer e a
+fonte de cada informação (Embrapa e universidades). Toque em Saiba mais.
+
 ---
 
 ## Título (até 40 caracteres)
@@ -42,7 +56,8 @@ PDF por R$ 20, com 4 bônus para imprimir.
 
 ## Descrição
 
-- Guia em PDF · R$ 20
+- Guia em PDF · R$ 20 (versões A e B)
+- Guia em PDF · os 7 erros e como corrigir (Versão C, sem preço)
 
 ## Botão
 

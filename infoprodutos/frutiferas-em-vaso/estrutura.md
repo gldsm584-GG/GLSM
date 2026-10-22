@@ -166,4 +166,5 @@ Pesquisa de mercado feita em 2026-10-18.
   prontas, roteiros dos 3 vídeos, passo a passo grátis e texto dos anúncios em `anuncios/`; falta
   montar os vídeos no CapCut e subir no Meta depois da Kiwify. 2026-10-19: vídeo 4 "O jeito fácil" pronto,
   animado em código com efeitos sonoros, com e sem narração (voz feminina), em `anuncios/videos/`; fonte em
-  `anuncios/motion/`)
+  `anuncios/motion/`. 2026-10-22: o final deixou de falar o preço e termina na curiosidade dos 3 erros que
+  faltam; usa a Versão C da `legenda.md`)

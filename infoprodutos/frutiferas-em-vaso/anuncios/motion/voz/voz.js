@@ -32,12 +32,12 @@ window.VOZ = {
   },
   "fim": {
     "arquivo": "fim.wav",
-    "dur": 1.941,
-    "texto": "Começou certo? Agora é só cuidar."
+    "dur": 3.755,
+    "texto": "Começou certo? Agora é cuidar. Mas tem erro que só aparece depois."
   },
   "cta": {
     "arquivo": "cta.wav",
-    "dur": 5.461,
-    "texto": "O passo a passo completo está no guia Sua Frutífera Vai Dar Fruto. Só vinte reais. Toque em saiba mais."
+    "dur": 5.269,
+    "texto": "Você viu quatro dos sete erros que impedem o fruto. Quer saber os outros três? Toque em saiba mais."
   }
 };

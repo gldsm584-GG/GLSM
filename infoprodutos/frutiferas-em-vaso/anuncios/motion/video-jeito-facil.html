@@ -68,28 +68,27 @@
   }
   .cta .chamada .w { display: inline-block; }
   .cta .chamada .destaque { color: var(--laranja); }
-  .livro {
-    position: absolute; left: 96px; top: 490px; width: 360px; height: 510px;
-    background: var(--verde); color: #fff; border-radius: 6px 14px 14px 6px; padding: 40px 28px;
-    text-align: center; display: flex; flex-direction: column; align-items: center;
-    box-shadow: -12px 0 0 #163a1e, 0 40px 70px rgba(0,0,0,.4);
+  /* Lista dos 7 erros do cap. 1: os 4 que o vídeo mostrou e os 3 trancados (a curiosidade do final) */
+  .erros { position: absolute; left: 90px; right: 90px; top: 470px; list-style: none; padding: 0; }
+  .erros li {
+    display: flex; align-items: center; gap: 24px; height: 72px; margin-bottom: 10px; padding: 0 28px;
+    border-radius: 18px; background: rgba(255,255,255,.09); font-size: 38px; font-weight: 800;
   }
-  .livro small { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; font-weight: 700; }
-  .livro b { font-size: 44px; line-height: 1.04; font-weight: 900; margin: 22px 0 14px; letter-spacing: -.02em; }
-  .livro i { font-style: normal; font-size: 17px; opacity: .95; }
-  .livro svg { margin-top: auto; }
-  .lista { position: absolute; left: 510px; right: 70px; top: 520px; list-style: none; padding: 0; }
-  .lista li {
-    font-size: 36px; line-height: 1.18; font-weight: 700; padding: 0 0 30px 52px; position: relative;
+  .erros .n {
+    flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--laranja); color: #1f2a22; font-size: 26px; font-weight: 900;
   }
-  .lista li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--laranja); font-weight: 900; }
-  .preco {
-    position: absolute; left: 0; right: 0; top: 1062px; text-align: center; font-size: 40px; font-weight: 700;
-    color: var(--texto-claro);
+  .erros .ok { margin-left: auto; color: var(--laranja); font-weight: 900; }
+  .erros .trancado { background: rgba(0,0,0,.2); }
+  .erros .trancado .n { background: rgba(255,255,255,.16); color: #fff; }
+  .erros .borrao { height: 22px; border-radius: 11px; background: rgba(255,255,255,.2); }
+  .erros .cadeado { margin-left: auto; }
+  .pergunta {
+    position: absolute; left: 0; right: 0; top: 1066px; text-align: center; font-size: 84px;
+    font-weight: 900; letter-spacing: -.03em; color: var(--laranja);
   }
-  .preco b { display: inline-block; font-size: 104px; font-weight: 900; color: var(--laranja); letter-spacing: -.03em; margin-left: 14px; vertical-align: -10px; }
   .botao {
-    position: absolute; left: 190px; right: 190px; top: 1218px; padding: 30px 0; border-radius: 999px;
+    position: absolute; left: 190px; right: 190px; top: 1190px; padding: 30px 0; border-radius: 999px;
     background: var(--laranja); color: #1f2a22; text-align: center; font-size: 40px; font-weight: 900;
     box-shadow: 0 18px 40px rgba(0,0,0,.3);
   }
@@ -121,7 +120,6 @@
   @keyframes nasce { from { opacity: 0; transform: translateY(160px) scale(.5); } to { opacity: 1; transform: none; } }
   @keyframes pulso { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
   @keyframes brilho { 0% { opacity: 0; transform: scale(0) rotate(0); } 40% { opacity: 1; transform: scale(1.15) rotate(45deg); } 100% { opacity: 0; transform: scale(0) rotate(90deg); } }
-  @keyframes livroEntra { from { opacity: 0; transform: translateY(420px) rotate(-16deg) scale(.8); } to { opacity: 1; transform: rotate(-4deg); } }
   @keyframes flutua { from { transform: translate(0, 0) rotate(0deg); } to { transform: translate(-120px, -2300px) rotate(260deg); } }
   @keyframes balanca { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 
@@ -343,30 +341,23 @@
 
   <section class="cena" data-anim="cenaSai .35 cta-.35 in">
     <h1 class="titulo palavras" data-t="fim+.12">Começou certo. <em>Agora é cuidar.</em></h1>
-    <p class="sub" data-anim="sobe .5 fim+.8">Adubo, poda e da flor ao fruto: o passo a passo está no guia.</p>
+    <p class="sub" data-anim="sobe .5 fim+.8">Mas tem erro que só aparece depois.</p>
   </section>
 
+  <!-- Fechamento: sem preço. Os 3 erros que o vídeo não mostrou ficam trancados (estão no cap. 1 do ebook) -->
   <section class="cena cta">
-    <h1 class="chamada palavras" data-t="cta+.1">O guia completo <em>em PDF</em></h1>
-    <div class="livro" data-anim="livroEntra .7 cta+.25 back">
-      <small>Guia prático de frutíferas em vaso</small>
-      <b>Sua Frutífera Vai Dar Fruto</b>
-      <i>Do vaso à colheita, mesmo em apartamento</i>
-      <svg width="104" height="158" viewBox="0 0 120 180" aria-hidden="true">
-        <circle cx="60" cy="56" r="48" fill="#4f9a5a"/>
-        <circle cx="44" cy="44" r="9" fill="#f2a33a"/><circle cx="78" cy="40" r="9" fill="#f2a33a"/><circle cx="62" cy="72" r="9" fill="#f2a33a"/>
-        <rect x="56" y="100" width="8" height="26" fill="#7a5a34"/>
-        <path d="M24 124 H96 L88 172 H32 Z" fill="#c8691c"/>
-      </svg>
-    </div>
-    <ul class="lista">
-      <li data-anim="sobe .4 cta+1.0">Os 7 erros que impedem o fruto</li>
-      <li data-anim="sobe .4 cta+1.25">Fichas de 12 frutíferas</li>
-      <li data-anim="sobe .4 cta+1.5">4 bônus para imprimir</li>
-      <li data-anim="sobe .4 cta+1.75">Fontes: Embrapa e universidades</li>
-    </ul>
-    <div class="preco" data-anim="pop .5 cta+2.1 back">Por <b>R$ 20</b></div>
-    <div class="botao" data-anim="sobe .45 cta+2.6; pulso 1.1 cta+3.1 inout inf">Toque em Saiba mais</div>
+    <h1 class="chamada palavras" data-t="cta+.1">Você viu 4 dos <em>7 erros</em> que impedem o fruto</h1>
+    <ol class="erros">
+      <li data-anim="sobe .4 cta+0.55"><span class="n">1</span>Muda de semente<span class="ok">✓</span></li>
+      <li data-anim="sobe .4 cta+0.73"><span class="n">2</span>Vaso errado<span class="ok">✓</span></li>
+      <li data-anim="sobe .4 cta+0.91"><span class="n">3</span>Pouco sol<span class="ok">✓</span></li>
+      <li data-anim="sobe .4 cta+1.09"><span class="n">4</span>Rega errada<span class="ok">✓</span></li>
+      <li class="trancado" data-anim="sobe .4 cta+1.40"><span class="n">5</span><span class="borrao" style="width:380px"></span><svg class="cadeado" width="34" height="40" viewBox="0 0 34 40" aria-hidden="true"><path d="M8 18 V12 A9 9 0 0 1 26 12 V18" stroke="#f2a33a" stroke-width="5" fill="none"/><rect x="2" y="17" width="30" height="22" rx="6" fill="#f2a33a"/></svg></li>
+      <li class="trancado" data-anim="sobe .4 cta+1.58"><span class="n">6</span><span class="borrao" style="width:300px"></span><svg class="cadeado" width="34" height="40" viewBox="0 0 34 40" aria-hidden="true"><path d="M8 18 V12 A9 9 0 0 1 26 12 V18" stroke="#f2a33a" stroke-width="5" fill="none"/><rect x="2" y="17" width="30" height="22" rx="6" fill="#f2a33a"/></svg></li>
+      <li class="trancado" data-anim="sobe .4 cta+1.76"><span class="n">7</span><span class="borrao" style="width:420px"></span><svg class="cadeado" width="34" height="40" viewBox="0 0 34 40" aria-hidden="true"><path d="M8 18 V12 A9 9 0 0 1 26 12 V18" stroke="#f2a33a" stroke-width="5" fill="none"/><rect x="2" y="17" width="30" height="22" rx="6" fill="#f2a33a"/></svg></li>
+    </ol>
+    <div class="pergunta" data-anim="pop .5 cta+2.25 back">E os outros 3?</div>
+    <div class="botao" data-anim="sobe .45 cta+2.8; pulso 1.1 cta+3.3 inout inf">Toque em Saiba mais</div>
   </section>
 </div>
 
@@ -719,6 +710,22 @@ const SOM = {
       ligar(m, o.connect(g), m.sfx, .5);
     });
   },
+  // Cadeado fechando: estalo curto e grave
+  trava(m, at, vol = .5) {
+    const s = ruido(m, at, .05), bp = m.ctx.createBiquadFilter(), g = m.ctx.createGain();
+    bp.type = "bandpass"; bp.frequency.value = 1300; bp.Q.value = 4;
+    envelope(g.gain, at, vol, .001, .04);
+    ligar(m, s.connect(bp).connect(g), m.sfx, .1);
+    const o = osc(m, "sine", 260, at, .12), g2 = m.ctx.createGain();
+    o.frequency.exponentialRampToValueAtTime(140, at + .08);
+    envelope(g2.gain, at, vol * .8, .002, .09);
+    ligar(m, o.connect(g2), m.sfx);
+  },
+  // "Hum?": sobe e termina num toque no ar, sem resolver
+  duvida(m, at) {
+    SOM.subida(m, at, .32, 392, 740, .14);
+    SOM.ding(m, at + .3, 1108.7, .22, 1.3);
+  },
   subida(m, at, dur = .8, de = 220, ate = 880, vol = .16) {
     const o = osc(m, "triangle", de, at, dur), g = m.ctx.createGain(), lfo = osc(m, "sine", 9, at, dur), lg = m.ctx.createGain();
     o.frequency.exponentialRampToValueAtTime(ate, at + dur);
@@ -806,10 +813,10 @@ function sons(ctx, m, t0) {
   SOM.brilho(m, em("fim+1.9"));
   // Fechamento
   SOM.whoosh(m, em("cta-.4"), .55, .38);
-  SOM.baque(m, em("cta+.8"), .6);
-  for (let i = 0; i < 4; i++) SOM.pop(m, em(`cta+${1.02 + i * .25}`), 660 + i * 90, .26);
-  SOM.brilho(m, em("cta+2.1"), .16); SOM.ding(m, em("cta+2.15"), 1318.5, .26); SOM.ding(m, em("cta+2.25"), 1760, .22);
-  SOM.pop(m, em("cta+2.62"), 520, .3);
+  for (let i = 0; i < 4; i++) SOM.pop(m, em(`cta+${.6 + i * .18}`), 660 + i * 90, .24);
+  for (let i = 0; i < 3; i++) SOM.trava(m, em(`cta+${1.45 + i * .18}`));
+  SOM.duvida(m, em("cta+2.25"));
+  SOM.pop(m, em("cta+2.82"), 520, .3);
 }
 
 // Gera a trilha inteira (para o render.mjs) e devolve um WAV 16 bits em base64

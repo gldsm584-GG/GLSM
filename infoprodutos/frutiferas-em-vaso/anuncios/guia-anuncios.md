@@ -104,10 +104,16 @@ testar uma contra a outra no Meta:
 | Passo 3 | **Colo no nível da terra** · muda desce no vaso, linha do colo e destaque do enxerto acima da terra | Deixe o colo no nível da terra, com o enxerto sempre de fora. | Whoosh descendo, baque, pops, "certo" |
 | Passo 4 | **Regue até a água sair pelo furo** + teste do dedo (5 cm) · regador, terra escurecendo, água pingando do furo | Então, regue até a água sair pelo furo. Depois, use o teste do dedo. | Água e gotas, "certo" |
 | Passo 5 | **No mínimo 6 horas de sol direto** · sol nasce, contador vai de 0 a 6 h | E no mínimo seis horas de sol direto por dia. | Subida, tiques do contador, "certo" |
-| Resultado | **Começou certo. Agora é cuidar.** · a muda vira árvore com frutos | Começou certo? Agora é só cuidar. | Subida, pops dos frutos, brilho |
-| Fechamento | **O guia completo em PDF** · capa, 4 itens, "Por R$ 20", "Toque em Saiba mais" | O passo a passo completo está no guia Sua Frutífera Vai Dar Fruto. Só vinte reais. Toque em saiba mais. | Whoosh, baque, pops, "ka-ching" |
+| Resultado | **Começou certo. Agora é cuidar.** + "Mas tem erro que só aparece depois." · a muda vira árvore com frutos | Começou certo? Agora é cuidar. Mas tem erro que só aparece depois. | Subida, pops dos frutos, brilho |
+| Fechamento (sem preço) | **Você viu 4 dos 7 erros que impedem o fruto** · lista dos 7 erros do cap. 1: os 4 do vídeo com ✓ e os 3 últimos trancados com cadeado; "E os outros 3?"; "Toque em Saiba mais" | Você viu quatro dos sete erros que impedem o fruto. Quer saber os outros três? Toque em saiba mais. | Pops, cadeados fechando, "hum?" sem resolver |
 
 Fundo musical leve (marimba, baixo e batida, 120 BPM), também gerado no código.
+
+**Por que o final não fala o preço (mudado em 2026-10-22):** o vídeo termina numa curiosidade de
+verdade em vez de vender. Ele mostra 4 dos 7 erros do cap. 1 (muda, vaso, sol e rega) e tranca os
+outros 3 (adubo, poda e polinização), que estão no ebook. Quem clica vai por vontade própria, e o
+preço aparece na página de venda. Para não estragar a surpresa, use neste vídeo a **Versão C** da
+`legenda.md`: a Versão A lista os 7 erros.
 
 Números do vídeo e de onde vêm no ebook: 8 a 15 anos da jabuticabeira de semente (cap. 1), pedra no
 fundo atrapalha a drenagem (cap. 3), colo no nível da terra e enxerto acima, regar até sair água pelo

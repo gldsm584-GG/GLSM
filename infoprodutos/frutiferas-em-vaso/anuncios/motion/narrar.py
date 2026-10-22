@@ -24,8 +24,8 @@ FALAS = {
     "p3": "Deixe o colo no nível da terra, com o enxerto sempre de fora.",
     "p4": "Então, regue até a água sair pelo furo. Depois, use o teste do dedo.",
     "p5": "E no mínimo seis horas de sol direto por dia.",
-    "fim": "Começou certo? Agora é só cuidar.",
-    "cta": "O passo a passo completo está no guia Sua Frutífera Vai Dar Fruto. Só vinte reais. Toque em saiba mais.",
+    "fim": "Começou certo? Agora é cuidar. Mas tem erro que só aparece depois.",
+    "cta": "Você viu quatro dos sete erros que impedem o fruto. Quer saber os outros três? Toque em saiba mais.",
 }
 VOZ = "pf_dora"
 VELOCIDADE = 1.15
