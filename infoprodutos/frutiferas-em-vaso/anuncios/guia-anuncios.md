@@ -73,13 +73,13 @@ Os números saem do ebook, com fonte (não troque nenhum).
 | 24–30 s | Tela: bônus (checklist e calendário) | 4 bônus para imprimir | E 4 bônus para imprimir: checklist, calendário mês a mês, ficha do vaso e uma tabela com 30 frutíferas. |
 | 30–35 s | `imagens/imagem-2.png` parada | Com fontes da Embrapa · R$ 20 | Tudo conferido em fontes como a Embrapa. PDF por 20 reais. Toque em Saiba mais. |
 
-### Vídeo 4 — "O jeito fácil" (PRONTO, animado em código) · 35 s narrado / 27 s sem voz
+### Vídeo 4 — "O jeito fácil" (PRONTO, animado em código) · 36 s narrado / 27 s sem voz
 
 Feito em 2026-10-19 sem CapCut e sem banco de imagem: ilustração em SVG, animação e efeitos sonoros
 gerados por código (som sintetizado, então não tem problema de licença). Tem duas versões, boas para
 testar uma contra a outra no Meta:
 
-- **Narrado (voz feminina):** `videos/video-4-jeito-facil-narrado.mp4` (1080x1920, 30 fps, 35 s).
+- **Narrado (voz feminina):** `videos/video-4-jeito-facil-narrado.mp4` (1080x1920, 30 fps, 36 s).
   Voz "Dora" do Kokoro, um modelo de voz aberto (licença Apache 2.0, pode usar em anúncio). Cada cena
   dura o tempo da fala dela, e os efeitos e a música abaixam sozinhos enquanto a voz fala.
 - **Sem voz:** `videos/video-4-jeito-facil.mp4` (27 s). O texto na tela carrega a mensagem.
