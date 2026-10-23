@@ -1,21 +1,27 @@
-// Gera o vídeo a partir de video-jeito-facil.html (1080x1920, 30 fps, com som) em ../videos/:
-//   video-4-jeito-facil-narrado.mp4  com a narração da pasta voz/ (gerada pelo narrar.py)
-//   video-4-jeito-facil.mp4          com --sem-voz (só efeitos e música)
-// Uso: node render.mjs [--sem-voz]   (dentro desta pasta)
+// Gera o MP4 de um vídeo a partir do video.html da pasta dele (1080x1920, 30 fps, com som) em ../videos/:
+//   <pasta>-narrado.mp4  com a narração de <pasta>/voz/ (gerada pelo narrar.py)
+//   <pasta>.mp4          com --sem-voz (só efeitos e música)
+// Uso: node render.mjs video-4-jeito-facil [--sem-voz]   (dentro desta pasta)
 // Precisa do Playwright (npm i -g playwright && npx playwright install chromium) e do ffmpeg no PATH.
 // Com --prints 3,8.5,20 ele só salva prints desses segundos (para conferir sem gerar o vídeo).
 import { spawn, execSync, execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import { once } from "node:events";
 import { mkdirSync, writeFileSync, rmSync, mkdtempSync, existsSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { join, dirname, basename } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { tmpdir } from "node:os";
 
 const AQUI = dirname(fileURLToPath(import.meta.url));
-const HTML = join(AQUI, "video-jeito-facil.html");
-const COM_VOZ = !process.argv.includes("--sem-voz") && existsSync(join(AQUI, "voz", "voz.js"));
-const SAIDA = join(AQUI, "..", "videos", COM_VOZ ? "video-4-jeito-facil-narrado.mp4" : "video-4-jeito-facil.mp4");
+const PASTA = process.argv[2] && !process.argv[2].startsWith("--") ? join(AQUI, process.argv[2]) : null;
+if (!PASTA || !existsSync(join(PASTA, "video.html"))) {
+  console.error("Uso: node render.mjs <pasta-do-video> [--sem-voz]   ex.: node render.mjs video-4-jeito-facil");
+  process.exit(1);
+}
+const HTML = join(PASTA, "video.html");
+const COM_VOZ = !process.argv.includes("--sem-voz") && existsSync(join(PASTA, "voz", "voz.js"));
+const NOME = basename(PASTA);
+const SAIDA = join(AQUI, "..", "videos", COM_VOZ ? `${NOME}-narrado.mp4` : `${NOME}.mp4`);
 const FPS = 30;
 
 // Acha o Playwright instalado na pasta ou globalmente
@@ -37,7 +43,7 @@ const iPrints = process.argv.indexOf("--prints");
 if (iPrints > 0) {
   for (const s of process.argv[iPrints + 1].split(",").map(Number)) {
     await page.evaluate((t) => window.seek(t), s);
-    const png = join(AQUI, `print-${s}.png`);
+    const png = join(PASTA, `print-${s}.png`);
     await page.screenshot({ path: png });
     console.log("Print:", png);
   }
@@ -55,7 +61,7 @@ console.log(`Som pronto (${TOTAL} s, pico antes de normalizar: ${pico.toFixed(2)
 // 1b. Narração: cada fala entra no seu tempo e a trilha abaixa enquanto ela fala
 if (COM_VOZ) {
   const falas = await page.evaluate(() => window.linhaDaVoz());
-  const entradas = falas.flatMap((f) => ["-i", join(AQUI, "voz", f.arquivo)]);
+  const entradas = falas.flatMap((f) => ["-i", join(PASTA, "voz", f.arquivo)]);
   const atrasos = falas.map((f, i) => {
     const ms = Math.round(f.inicio * 1000);
     return `[${i + 1}:a]aresample=48000,aformat=channel_layouts=stereo,adelay=${ms}|${ms}[f${i}]`;
