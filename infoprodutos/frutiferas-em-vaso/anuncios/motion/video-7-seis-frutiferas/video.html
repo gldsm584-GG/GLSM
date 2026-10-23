@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Vídeo 7: seis frutíferas</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../motor.css">
+<!--
+  Vídeo 7 do ebook (9:16, 1080x1920): 6 frutíferas que dão certo no vaso e o "segredo" de cada
+  uma, cada fruta com a sua cor de fundo. Termina nas 12 fichas do guia, 6 delas trancadas.
+  Motor em ../motor.js.
+
+  - Ver no navegador: abra este arquivo e clique em "Tocar".
+  - Narração: falas.json (python ../narrar.py video-7-seis-frutiferas).
+  - MP4: node ../render.mjs video-7-seis-frutiferas
+  Fontes no ebook (cap. 11, fichas e quadro geral): morango em vaso de 8 L (Embrapa/UFPel),
+  limão 'Tahiti' o mais precoce dos citros (Embrapa), jabuticaba dá fruto no tronco, figo nos
+  ramos do ano com poda forte no inverno, maracujá precisa de outra planta (Embrapa Cerrados),
+  mirtilo com pH 4,5 a 5,5 (Embrapa). Não troque nenhum dado sem conferir.
+-->
+<style>
+  .fundo { position: absolute; inset: 0; }
+  #arte { position: absolute; inset: 0; }
+  .gancho { padding-top: 350px; }
+  .gancho .titulo { font-size: 90px; }
+  .titulo.nome { font-size: 110px; }
+  .sub b { color: #ffe08a; } /* o laranja some em alguns fundos coloridos */
+  .cta .titulo { font-size: 76px; }
+  .grade { position: absolute; left: 153px; top: 540px; width: 774px; display: grid; grid-template-columns: repeat(4, 180px); gap: 18px; }
+  .grade div { height: 180px; border-radius: 26px; position: relative; overflow: hidden; }
+  .grade svg { position: absolute; inset: 0; }
+  .grade .fechada { background: rgba(0,0,0,.28); display: grid; place-items: center; }
+  .pergunta { position: absolute; left: 0; right: 0; top: 1120px; text-align: center; font-size: 70px; font-weight: 900; letter-spacing: -.03em; color: var(--laranja); }
+  .botao { top: 1240px; }
+
+  @keyframes popFruta { 0% { opacity: 0; transform: scale(0) rotate(-30deg); } 70% { opacity: 1; transform: scale(1.08) rotate(4deg); } 100% { opacity: 1; transform: scale(1) rotate(0); } }
+  @keyframes neve { from { transform: translateY(0) rotate(0); } to { transform: translateY(1000px) rotate(180deg); } }
+  @keyframes orbita { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div id="palco-video">
+  <!-- Cor de fundo de cada fruta (a de cima cobre a de baixo) -->
+  <div class="fundo" style="background:radial-gradient(110% 70% at 50% 55%, #c6394a 0%, #9c2534 70%, #7a1b28 100%)" data-anim="fade .4 f1-.2"></div>
+  <div class="fundo" style="background:radial-gradient(110% 70% at 50% 55%, #5a9a33 0%, #3f7d24 70%, #2f611a 100%)" data-anim="fade .4 f2-.2"></div>
+  <div class="fundo" style="background:radial-gradient(110% 70% at 50% 55%, #5a2c56 0%, #42203f 70%, #2e152c 100%)" data-anim="fade .4 f3-.2"></div>
+  <div class="fundo" style="background:radial-gradient(110% 70% at 50% 55%, #3a6f93 0%, #2b5675 70%, #1d3d55 100%)" data-anim="fade .4 f4-.2"></div>
+  <div class="fundo" style="background:radial-gradient(110% 70% at 50% 55%, #2a8273 0%, #1f6b5e 70%, #154c43 100%)" data-anim="fade .4 f5-.2"></div>
+  <div class="fundo" style="background:radial-gradient(110% 70% at 50% 55%, #3d439a 0%, #2b2f6e 70%, #1e2150 100%)" data-anim="fade .4 f6-.2"></div>
+  <div class="fundo" style="background:radial-gradient(120% 70% at 50% 58%, #2e6c3b 0%, #1f4a28 55%, #163720 100%)" data-anim="fade .4 cta-.2"></div>
+
+  <svg id="arte" viewBox="0 0 1080 1920" aria-hidden="true">
+    <defs>
+      <!-- Cada fruta desenhada em volta do (0, 0), com uns 400 de largura -->
+      <g id="art-morango">
+        <path d="M-12 -112 C-30 -150 -10 -175 8 -180" stroke="#2f7d32" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <path d="M0 230 C-150 140 -200 -60 -110 -110 C-60 -135 60 -135 110 -110 C200 -60 150 140 0 230 Z" fill="#ef4152"/>
+        <path d="M0 230 C80 150 140 20 110 -110 C190 -60 150 140 0 230 Z" fill="#c92a3a" opacity=".55"/>
+        <ellipse cx="-70" cy="-30" rx="24" ry="52" fill="#ff9aa3" opacity=".45" transform="rotate(20 -70 -30)"/>
+        <g id="sementes"></g>
+        <g fill="#3f9a46" id="calice"></g>
+      </g>
+      <g id="art-limao">
+        <path d="M60 -120 C110 -200 220 -200 250 -150 C190 -110 110 -100 60 -120 Z" fill="#2f7d32"/>
+        <path d="M70 -122 C130 -150 190 -160 240 -152" stroke="#1f5c22" stroke-width="4" fill="none"/>
+        <ellipse rx="185" ry="145" fill="#5ea532" transform="rotate(-18)"/>
+        <ellipse rx="175" ry="135" fill="#7fc246" transform="rotate(-18)"/>
+        <ellipse cx="-60" cy="-55" rx="70" ry="34" fill="#c5ec8f" opacity=".55" transform="rotate(-30 -60 -55)"/>
+        <ellipse cx="172" cy="-58" rx="18" ry="14" fill="#5ea532" transform="rotate(-18 172 -58)"/>
+        <g id="poros"></g>
+      </g>
+      <g id="art-jabuticaba">
+        <path d="M-60 240 C-70 100 -80 -60 -50 -240 L70 -240 C60 -60 80 100 75 240 Z" fill="#8a6a4a"/>
+        <path d="M50 -150 C120 -190 170 -230 230 -250 L240 -215 C170 -195 120 -160 70 -110 Z" fill="#8a6a4a"/>
+        <g fill="#a98a69"><ellipse cx="-20" cy="-150" rx="16" ry="34"/><ellipse cx="30" cy="40" rx="14" ry="40"/><ellipse cx="-30" cy="160" rx="16" ry="30"/></g>
+        <g id="bagas"></g>
+      </g>
+      <g id="art-figo">
+        <g transform="translate(-85 10) scale(.9)">
+          <path d="M-14 -190 L-10 -230 L10 -230 L14 -190 Z" fill="#5d7a2e"/>
+          <path d="M-40 -175 Q0 -205 40 -175 C120 -70 170 40 130 120 C100 185 40 205 0 205 C-40 205 -100 185 -130 120 C-170 40 -120 -70 -40 -175 Z" fill="#7b3f6e"/>
+          <path d="M40 -175 C120 -70 170 40 130 120 C100 185 40 205 0 205 C70 160 110 40 40 -175 Z" fill="#5e2c55" opacity=".7"/>
+          <ellipse cx="-60" cy="0" rx="22" ry="60" fill="#b07aa5" opacity=".45"/>
+        </g>
+        <g transform="translate(140 70) scale(.62)">
+          <path d="M-40 -175 Q0 -205 40 -175 C120 -70 170 40 130 120 C100 185 40 205 0 205 C-40 205 -100 185 -130 120 C-170 40 -120 -70 -40 -175 Z" fill="#7b3f6e"/>
+          <path d="M-28 -150 Q0 -172 28 -150 C100 -60 140 40 110 110 C85 165 35 180 0 180 C-35 180 -85 165 -110 110 C-140 40 -100 -60 -28 -150 Z" fill="#f7e2c8"/>
+          <path d="M-14 -110 C60 -40 90 40 70 95 C55 135 25 145 0 145 C-25 145 -55 135 -70 95 C-90 40 -60 -40 -14 -110 Z" fill="#ef6f86"/>
+          <g id="sementes-figo"></g>
+        </g>
+      </g>
+      <g id="art-maracuja">
+        <path d="M-50 -110 C-48 -140 -40 -160 -20 -175" stroke="#5d7a2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <circle cx="-50" cy="40" r="150" fill="#e8b425"/>
+        <circle cx="-50" cy="40" r="140" fill="#f6c93a"/>
+        <ellipse cx="-100" cy="-20" rx="44" ry="28" fill="#fde69a" opacity=".6" transform="rotate(-30 -100 -20)"/>
+        <g id="pintas"></g>
+        <g transform="translate(135 -120)" id="flor-maracuja"></g>
+      </g>
+      <g id="art-mirtilo">
+        <path d="M-40 -60 C-120 -170 -230 -150 -250 -110 C-170 -70 -100 -60 -40 -60 Z" fill="#2f7d32"/>
+        <path d="M30 -70 C90 -190 200 -200 230 -160 C160 -110 90 -80 30 -70 Z" fill="#3f9a46"/>
+        <g id="bagas-mirtilo"></g>
+      </g>
+      <path id="folha-g" d="M0 0 C30 -26 80 -26 112 0 C80 26 30 26 0 0 Z"/>
+    </defs>
+
+    <!-- Abertura: as 6 frutas girando em roda -->
+    <g transform="translate(540 1040)">
+      <g class="fb" data-anim="orbita 24 0 linear inf; sai .35 f1-.4">
+        <circle r="330" fill="none"/>
+        <g id="roda"></g>
+      </g>
+    </g>
+
+    <!-- As 6 frutas grandes (cada uma com o seu "segredo" ao lado) -->
+    <g id="frutas"></g>
+
+    <!-- Figo: neve caindo (a poda é no inverno) -->
+    <g data-anim="fade .4 f4+.3; sai .3 f5-.35"><g id="neve"></g></g>
+  </svg>
+
+  <!-- ===================== TEXTOS ===================== -->
+  <section class="cena gancho" data-anim="cenaSai .35 f1-.35 in">
+    <div class="kicker" data-anim="sobe .5 .05">Frutífera em vaso</div>
+    <h1 class="titulo palavras" data-t=".2">6 frutíferas pro vaso <em>e o segredo de cada uma</em></h1>
+  </section>
+  <div id="textos"></div>
+
+  <section class="cena cta">
+    <h1 class="titulo palavras" data-t="cta+.1">Essas são <em>6 das 12 fichas</em> do guia</h1>
+    <div class="grade" id="grade"></div>
+    <div class="pergunta" data-anim="pop .5 cta+2.3 back">Quer ver as outras 6?</div>
+    <div class="botao" data-anim="sobe .45 cta+2.8; pulso 1.1 cta+3.3 inout inf">Toque em Saiba mais</div>
+  </section>
+</div>
+
+<script src="voz/voz.js"></script>
+<script src="../motor.js"></script>
+<script>
+// [cena, arte, nome, segredo, cor da miniatura]
+const FRUTAS = [
+  ["f1", "morango", "Morango", "O que menos espaço pede: <b>vaso de 8 litros</b> já serve.", "#c6394a"],
+  ["f2", "limao", "Limão Tahiti", "Entre os citros, é o que <b>começa a produzir mais cedo</b>.", "#5a9a33"],
+  ["f3", "jabuticaba", "Jabuticaba", "O fruto nasce no tronco: <b>nunca corte galho grosso</b>.", "#5a2c56"],
+  ["f4", "figo", "Figo", "Dá fruto nos ramos do ano: <b>poda forte no inverno</b>.", "#3a6f93"],
+  ["f5", "maracuja", "Maracujá", "Precisa do pólen de <b>outra planta</b>. Ou de você, com um pincel.", "#2a8273"],
+  ["f6", "mirtilo", "Mirtilo", "Gosta de terra ácida: <b>pH entre 4,5 e 5,5</b>.", "#3d439a"],
+];
+const SEGUINTE = { f1: "f2", f2: "f3", f3: "f4", f4: "f5", f5: "f6", f6: "cta" };
+
+definirCenas(
+  ["gancho", "f1", "f2", "f3", "f4", "f5", "f6", "cta"],
+  { gancho: 2.8, f1: 3.4, f2: 3.4, f3: 3.4, f4: 3.4, f5: 3.4, f6: 3.4, cta: 4.6 },
+  { f1: .45, f2: .45, f3: .45, f4: .45, f5: .45, f6: .45 },
+);
+
+// Selo do "segredo" de cada fruta, desenhado em volta do (0, 0)
+const SELOS = {
+  morango: (g) => { // vaso de 8 litros
+    svg("path", { d: "M-80 -60 H80 L62 80 H-62 Z", fill: "#d0702a" }, g);
+    svg("rect", { x: -92, y: -78, width: 184, height: 30, rx: 10, fill: "#e48b40" }, g);
+    svg("text", { y: 38, "font-size": 64, "font-weight": 900, fill: "#fff", "text-anchor": "middle" }, g).textContent = "8 L";
+  },
+  limao: (g) => { // medalha de 1º
+    svg("path", { d: "M-40 30 L-70 140 L-30 120 L-10 160 L10 60 Z", fill: "#e5484d" }, g);
+    svg("path", { d: "M40 30 L70 140 L30 120 L10 160 L-10 60 Z", fill: "#c43b40" }, g);
+    svg("circle", { r: 78, fill: "#e8b425" }, g);
+    svg("circle", { r: 62, fill: "#f6c93a" }, g);
+    svg("text", { y: 26, "font-size": 70, "font-weight": 900, fill: "#5a3b00", "text-anchor": "middle" }, g).textContent = "1º";
+  },
+  jabuticaba: (g) => { // proibido cortar galho grosso
+    svg("rect", { x: -90, y: -22, width: 180, height: 44, rx: 18, fill: "#8a6a4a" }, g);
+    svg("path", { d: "M-30 -70 L30 70 M30 -70 L-30 70", stroke: "#e9edef", "stroke-width": 12, "stroke-linecap": "round" }, g);
+    svg("circle", { cx: -36, cy: 82, r: 18, fill: "none", stroke: "#e9edef", "stroke-width": 9 }, g);
+    svg("circle", { cx: 36, cy: 82, r: 18, fill: "none", stroke: "#e9edef", "stroke-width": 9 }, g);
+    svg("circle", { r: 108, fill: "none", stroke: "#e5484d", "stroke-width": 16 }, g);
+    svg("path", { d: "M-76 -76 L76 76", stroke: "#e5484d", "stroke-width": 16 }, g);
+  },
+  figo: (g) => { // floco de neve: poda no inverno
+    for (let i = 0; i < 6; i++) {
+      svg("path", { d: "M0 0 V-90 M0 -55 L-22 -75 M0 -55 L22 -75 M0 -25 L-16 -40 M0 -25 L16 -40", stroke: "#fff", "stroke-width": 10, "stroke-linecap": "round", fill: "none", transform: `rotate(${i * 60})` }, g);
+    }
+  },
+  maracuja: (g) => { // pincel e pólen
+    const p = svg("g", { transform: "rotate(-35)" }, g);
+    svg("rect", { x: -11, y: -200, width: 22, height: 150, rx: 9, fill: "#c08a50" }, p);
+    svg("rect", { x: -13, y: -62, width: 26, height: 36, rx: 4, fill: "#b9c2c8" }, p);
+    svg("path", { d: "M-13 -28 Q-14 0 0 10 Q14 0 13 -28 Z", fill: "#3a2a1a" }, p);
+    [[24, 20], [44, -6], [10, 40], [52, 28]].forEach(([x, y]) => svg("circle", { cx: x, cy: y, r: 8, fill: "#ffcf3d" }, g));
+  },
+  mirtilo: (g) => { // fita de pH
+    svg("rect", { x: -160, y: -62, width: 320, height: 124, rx: 26, fill: "#fff" }, g);
+    svg("text", { y: 2, "font-size": 50, "font-weight": 900, fill: "#2b2f6e", "text-anchor": "middle" }, g).textContent = "pH 4,5–5,5";
+    ["#e5484d", "#f2a33a", "#f6c93a", "#7fc246", "#3a6f93"].forEach((c, i) => svg("rect", { x: -130 + i * 52, y: 22, width: 52, height: 16, fill: c }, g));
+  },
+};
+// Onde fica o selo de cada fruta
+const POS_SELO = { morango: [810, 1210], limao: [830, 800], jabuticaba: [830, 1200], figo: [840, 790], maracuja: [860, 1210], mirtilo: [760, 1250] };
+
+function desenhar() {
+  const r = sorteio(21);
+
+  // Detalhes das artes
+  const sementes = document.getElementById("sementes");
+  for (let y = -80; y <= 170; y += 42) {
+    const meia = 130 * Math.sqrt(Math.max(0, 1 - Math.pow((y - 20) / 230, 2))) - 20;
+    for (let x = -meia + ((y / 42) % 2 ? 20 : 0); x <= meia; x += 46) {
+      svg("ellipse", { cx: x, cy: y, rx: 5, ry: 8, fill: "#ffd968" }, sementes);
+    }
+  }
+  const calice = document.getElementById("calice");
+  for (let i = 0; i < 7; i++) {
+    const g = svg("g", { transform: `translate(0 -112) rotate(${-90 + (i - 3) * 32})` }, calice);
+    usar("folha-g", { transform: "scale(.7 .5)" }, g);
+  }
+  const poros = document.getElementById("poros");
+  for (let i = 0; i < 40; i++) {
+    const a = r() * Math.PI * 2, d = Math.sqrt(r()) * 150;
+    svg("circle", { cx: Math.cos(a) * d * 1.1, cy: Math.sin(a) * d * .85, r: 2.5, fill: "#5ea532", opacity: .6 }, poros);
+  }
+  const bagas = document.getElementById("bagas");
+  [[-70, -190], [-80, -120], [70, -170], [80, -100], [-75, -40], [75, -20], [-85, 40], [80, 60], [-70, 120], [75, 140], [-60, 200], [65, 210], [0, -60], [5, 100]]
+    .forEach(([x, y]) => {
+      svg("circle", { cx: x, cy: y, r: 30, fill: "#2a1530" }, bagas);
+      svg("circle", { cx: x - 9, cy: y - 10, r: 8, fill: "#7a5a88", opacity: .8 }, bagas);
+    });
+  const sementesFigo = document.getElementById("sementes-figo");
+  for (let i = 0; i < 26; i++) {
+    svg("ellipse", { cx: (r() - .5) * 110, cy: -60 + r() * 180, rx: 4, ry: 6, fill: "#fff3c4" }, sementesFigo);
+  }
+  const pintas = document.getElementById("pintas");
+  for (let i = 0; i < 30; i++) {
+    const a = r() * Math.PI * 2, d = Math.sqrt(r()) * 125;
+    svg("circle", { cx: -50 + Math.cos(a) * d, cy: 40 + Math.sin(a) * d, r: 3, fill: "#d9a51f" }, pintas);
+  }
+  const flor = document.getElementById("flor-maracuja");
+  for (let i = 0; i < 10; i++) svg("ellipse", { cx: 0, cy: -58, rx: 20, ry: 52, fill: "#f6f0ff", transform: `rotate(${i * 36})` }, flor);
+  for (let i = 0; i < 36; i++) {
+    svg("path", { d: "M0 -14 V-62", stroke: i % 2 ? "#6b3fa0" : "#fff", "stroke-width": 4, transform: `rotate(${i * 10})` }, flor);
+  }
+  svg("circle", { r: 22, fill: "#9bc46a" }, flor);
+  svg("path", { d: "M0 -10 L-14 -30 M0 -10 L14 -30 M0 -10 L0 -34", stroke: "#6b3fa0", "stroke-width": 5, "stroke-linecap": "round" }, flor);
+  const bagasMirtilo = document.getElementById("bagas-mirtilo");
+  [[-90, 20, 74], [60, 0, 78], [-20, 120, 76], [130, 110, 66], [-150, 130, 60], [10, -80, 64]].forEach(([x, y, raio]) => {
+    svg("circle", { cx: x, cy: y, r: raio, fill: "#4f61c4" }, bagasMirtilo);
+    svg("path", { d: `M${x - raio} ${y} A${raio} ${raio} 0 0 1 ${x + raio} ${y} Z`, fill: "#93a6ee", opacity: .35 }, bagasMirtilo);
+    svg("path", { d: `M${x} ${y - raio + 8} l6 12 l12 -4 l-6 12 l8 8 l-14 0 l-6 12 l-6 -12 l-14 0 l8 -8 l-6 -12 l12 4 Z`, fill: "#222653" }, bagasMirtilo);
+  });
+
+  // Abertura: miniaturas em roda
+  const roda = document.getElementById("roda");
+  FRUTAS.forEach(([, arte], i) => {
+    const a = (i / 6) * Math.PI * 2 - Math.PI / 2;
+    const pos = svg("g", { transform: `translate(${Math.cos(a) * 280} ${Math.sin(a) * 280})` }, roda);
+    const g = svg("g", { class: "fb" }, pos);
+    usar("art-" + arte, { transform: "scale(.42)" }, g);
+    animar(g, `pop .4 ${(.3 + i * .12).toFixed(2)} back`);
+  });
+
+  // As frutas grandes, os selos e os textos
+  const frutas = document.getElementById("frutas");
+  const textos = document.getElementById("textos");
+  FRUTAS.forEach(([cena, arte, nome, segredo], i) => {
+    const fim = SEGUINTE[cena];
+    const pos = svg("g", { transform: "translate(540 1000)" }, frutas);
+    const g = svg("g", { class: "fb" }, pos);
+    animar(g, `popFruta .7 ${cena}+.1 out; sai .3 ${fim}-.35`);
+    const balanco = svg("g", { class: "fb" }, g);
+    animar(balanco, `balanca 2.4 ${cena}+.8 inout inf`);
+    usar("art-" + arte, { transform: "scale(1.1)" }, balanco);
+
+    const [sx, sy] = POS_SELO[arte];
+    const selo = svg("g", { class: "fb" }, svg("g", { transform: `translate(${sx} ${sy})` }, frutas));
+    SELOS[arte](selo);
+    animar(selo, `pop .45 ${cena}+1.4 back; sai .3 ${fim}-.35`);
+
+    const sec = document.createElement("section");
+    sec.className = "cena";
+    sec.dataset.anim = `cenaSai .35 ${fim}-.35 in`;
+    sec.innerHTML = `<div class="passo" data-anim="pop .45 ${cena}+.02 back">${i + 1}/6</div>
+      <h1 class="titulo nome palavras" data-t="${cena}+.12">${nome}</h1>
+      <p class="sub" data-anim="sobe .5 ${cena}+.6">${segredo}</p>`;
+    textos.appendChild(sec);
+  });
+
+  // Neve do figo
+  const neve = document.getElementById("neve");
+  for (let i = 0; i < 14; i++) {
+    const pos = svg("g", { transform: `translate(${60 + r() * 960} ${700 + r() * 120}) scale(${.15 + r() * .15})` }, neve);
+    const f = svg("g", {}, pos);
+    SELOS.figo(f);
+    f.setAttribute("opacity", .6);
+    animar(f, `neve ${(3 + r() * 2).toFixed(1)} f4-${(r() * 3).toFixed(1)} linear inf`);
+  }
+
+  // Fechamento: as 12 fichas, 6 trancadas
+  const grade = document.getElementById("grade");
+  for (let i = 0; i < 12; i++) {
+    const d = document.createElement("div");
+    if (i < 6) {
+      d.style.background = FRUTAS[i][4];
+      d.innerHTML = `<svg viewBox="-260 -260 520 520"><use href="#art-${FRUTAS[i][1]}" transform="scale(.82)"/></svg>`;
+      d.dataset.anim = `pop .4 cta+${(.5 + i * .12).toFixed(2)} back`;
+    } else {
+      d.className = "fechada";
+      d.innerHTML = '<svg viewBox="0 0 34 40" style="position:static;width:64px;height:76px"><path d="M8 18 V12 A9 9 0 0 1 26 12 V18" stroke="#f2a33a" stroke-width="5" fill="none"/><rect x="2" y="17" width="30" height="22" rx="6" fill="#f2a33a"/></svg>';
+      d.dataset.anim = `pop .4 cta+${(1.35 + (i - 6) * .12).toFixed(2)} back`;
+    }
+    grade.appendChild(d);
+  }
+}
+
+function sons(ctx, m, t0) {
+  const em = (expr) => t0 + tempo(expr);
+  musica(m, t0, { batidaDesde: T.f1 });
+  // Abertura: miniaturas aparecendo
+  SOM.whoosh(m, em(".05"), .4, .3);
+  for (let i = 0; i < 6; i++) SOM.pop(m, em(`${.32 + i * .12}`), [523, 659, 784, 880, 1047, 1319][i], .26);
+  SOM.brilho(m, em("1.1"));
+  // Cada fruta: entra, balança e mostra o segredo
+  FRUTAS.forEach(([cena, arte]) => {
+    SOM.whoosh(m, em(`${cena}-.38`), .45, .32);
+    SOM.boing(m, em(`${cena}+.12`), .18);
+    if (arte === "jabuticaba") SOM.errado(m, em(`${cena}+1.45`));
+    else if (arte === "figo") { SOM.pop(m, em(`${cena}+1.42`), 700, .3); SOM.brilho(m, em(`${cena}+1.5`), .12); }
+    else SOM.certo(m, em(`${cena}+1.45`));
+  });
+  // Fechamento: 6 fichas abertas e 6 trancadas
+  SOM.whoosh(m, em("cta-.4"), .55, .38);
+  for (let i = 0; i < 6; i++) SOM.pop(m, em(`cta+${.52 + i * .12}`), 620 + i * 70, .22);
+  for (let i = 0; i < 6; i++) SOM.trava(m, em(`cta+${1.37 + i * .12}`), .4);
+  SOM.duvida(m, em("cta+2.3"));
+  SOM.pop(m, em("cta+2.82"), 520, .3);
+}
+
+iniciarVideo({ desenhar, sons });
+</script>
+</body>
+</html>

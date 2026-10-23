@@ -167,4 +167,6 @@ Pesquisa de mercado feita em 2026-10-18.
   montar os vídeos no CapCut e subir no Meta depois da Kiwify. 2026-10-19: vídeo 4 "O jeito fácil" pronto,
   animado em código com efeitos sonoros, com e sem narração (voz feminina), em `anuncios/videos/`; fonte em
   `anuncios/motion/`. 2026-10-22: o final deixou de falar o preço e termina na curiosidade dos 3 erros que
-  faltam; usa a Versão C da `legenda.md`)
+  faltam; usa a Versão C da `legenda.md`. 2026-10-23: mais 3 vídeos narrados em código, cada um num
+  formato: 5 "Mito ou verdade", 6 "A planta fala" (o vaso é a personagem) e 7 "6 frutíferas"; tudo
+  sobre os vídeos 4 a 7 em `anuncios/videos-em-codigo.md`)

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Vídeo 5: mito ou verdade</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../motor.css">
+<!--
+  Vídeo 5 do ebook (9:16, 1080x1920): jogo de "mito ou verdade" com 4 afirmações. Cada
+  rodada tem a pergunta (com contagem) e o veredito (carimbo + motivo). Motor em ../motor.js.
+
+  - Ver no navegador: abra este arquivo e clique em "Tocar".
+  - Narração: falas.json (python ../narrar.py video-5-mito-ou-verdade).
+  - MP4: node ../render.mjs video-5-mito-ou-verdade
+  Fontes no ebook: pedra no fundo (cap. 3), regar fundo (cap. 6), nitrogênio e folha (cap. 1,
+  erro 5), 6 horas de sol direto (cap. 1, erro 3). Não troque nenhum dado sem conferir.
+-->
+<style>
+  #palco-video { background: radial-gradient(90% 60% at 50% 45%, #2f6d3c 0%, #1d4526 60%, #132f19 100%); }
+  #raios { position: absolute; left: -860px; top: -610px; width: 2800px; height: 2800px; } /* centro em (540, 790) */
+
+  .cabeca {
+    position: absolute; left: 90px; top: 280px; padding: 12px 26px; border-radius: 999px;
+    border: 3px solid var(--laranja); color: var(--laranja); font-size: 28px; font-weight: 900;
+    letter-spacing: .14em; text-transform: uppercase;
+  }
+  #rodada { position: absolute; right: 90px; top: 284px; font-size: 40px; font-weight: 900; color: #fff; }
+
+  /* Cartas com a afirmação */
+  .carta { position: absolute; left: 90px; top: 440px; width: 900px; height: 700px; }
+  .carta-dentro {
+    position: absolute; inset: 0; border-radius: 44px; background: #fffdf8; color: #1f4a28;
+    box-shadow: 0 40px 80px rgba(0,0,0,.35);
+  }
+  .carta .icone { position: absolute; left: 150px; top: 70px; width: 600px; height: 330px; }
+  .carta .frase {
+    position: absolute; left: 60px; right: 60px; top: 420px; text-align: center;
+    font-size: 60px; line-height: 1.08; font-weight: 900; letter-spacing: -.03em;
+  }
+  .duvida-selo { position: absolute; left: 390px; top: -64px; width: 120px; height: 120px; }
+  .carimbo {
+    position: absolute; left: 0; right: 0; top: 150px; margin: auto; width: max-content;
+    padding: 6px 44px; border: 12px solid currentColor; border-radius: 26px; font-size: 128px; font-weight: 900;
+    letter-spacing: .04em; background: rgba(255,253,248,.88);
+  }
+  .carimbo.mito { color: #e5484d; transform: rotate(-9deg); }
+  .carimbo.verdade { color: #2e9d55; transform: rotate(7deg); font-size: 104px; }
+  .motivo {
+    position: absolute; left: 90px; right: 90px; top: 1180px; text-align: center; font-size: 44px;
+    line-height: 1.22; font-weight: 800;
+  }
+  .motivo b { color: var(--laranja); }
+
+  /* Abertura */
+  .gancho .selo-grande {
+    position: absolute; left: 0; right: 0; margin: auto; width: max-content; padding: 10px 60px;
+    border: 16px solid currentColor; border-radius: 34px; font-size: 170px; font-weight: 900; letter-spacing: .03em;
+  }
+  .gancho .ou { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-size: 64px; font-weight: 800; color: rgba(255,255,255,.85); }
+  .gancho .chamada { position: absolute; left: 90px; right: 90px; top: 1190px; text-align: center; font-size: 48px; line-height: 1.2; font-weight: 800; }
+
+  /* Fechamento */
+  .cta .titulo { position: absolute; left: 90px; right: 90px; top: 290px; font-size: 92px; }
+  .placar { position: absolute; left: 90px; right: 90px; top: 520px; list-style: none; padding: 0; }
+  .placar li {
+    display: flex; align-items: center; gap: 24px; min-height: 108px; margin-bottom: 14px; padding: 16px 28px;
+    border-radius: 22px; background: rgba(255,255,255,.09); font-size: 34px; line-height: 1.15; font-weight: 700;
+  }
+  .placar .chip { margin-left: auto; flex: none; padding: 8px 18px; border-radius: 12px; font-size: 26px; font-weight: 900; letter-spacing: .06em; color: #fff; }
+  .placar .chip.mito { background: #e5484d; }
+  .placar .chip.verdade { background: #2e9d55; }
+  .cta .sub { position: absolute; left: 90px; right: 90px; top: 1030px; margin: 0; text-align: center; }
+  .cta .botao { top: 1220px; }
+
+  @keyframes entraCarta { from { opacity: 0; transform: translateX(1100px) rotate(10deg); } to { opacity: 1; transform: none; } }
+  @keyframes saiCarta { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(-1100px) rotate(-10deg); } }
+  @keyframes tremer {
+    0%, 100% { transform: none; } 15% { transform: translate(-18px, 6px) rotate(-1deg); } 35% { transform: translate(14px, -4px) rotate(.8deg); }
+    55% { transform: translate(-9px, 3px); } 75% { transform: translate(5px, -2px); }
+  }
+  @keyframes bate {
+    0% { opacity: 0; transform: scale(3) rotate(var(--giro)); }
+    60% { opacity: 1; transform: scale(.92) rotate(var(--giro)); }
+    100% { opacity: 1; transform: scale(1) rotate(var(--giro)); }
+  }
+  @keyframes pulsoGiro { 0%, 100% { transform: rotate(var(--giro)) scale(1); } 50% { transform: rotate(var(--giro)) scale(1.07); } }
+  @keyframes esvaziar { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 333; } }
+  @keyframes girarDevagar { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div id="palco-video">
+  <!-- Raios de luz girando atrás (clima de programa de auditório) -->
+  <svg id="raios" viewBox="-1400 -1400 2800 2800" aria-hidden="true">
+    <g class="fb" data-anim="girarDevagar 40 0 linear inf"><g id="fachos"></g></g>
+  </svg>
+
+  <div class="cabeca" data-anim="sobe .5 .05; sai .3 cta-.4">Frutífera em vaso</div>
+  <div id="rodada"></div>
+
+  <!-- ===================== ABERTURA ===================== -->
+  <section class="cena gancho" data-anim="cenaSai .35 r1-.35 in">
+    <div class="selo-grande" style="top:470px;color:#e5484d;--giro:-8deg;transform:rotate(-8deg)" data-anim="bate .45 .25 out; pulsoGiro .6 1.6 inout">MITO</div>
+    <div class="ou" data-anim="pop .3 .7 back">ou</div>
+    <div class="selo-grande" style="top:930px;color:#3fbf6a;--giro:6deg;transform:rotate(6deg);font-size:124px" data-anim="bate .45 .95 out; pulsoGiro .6 2.1 inout">VERDADE?</div>
+    <p class="chamada palavras" data-t="1.5">4 afirmações. <em>Quantas você acerta?</em></p>
+  </section>
+
+  <!-- ===================== RODADAS ===================== -->
+  <!-- Cada carta: entra na pergunta (rN), leva o carimbo no veredito (rNv) e sai antes da próxima -->
+  <div class="carta" data-anim="entraCarta .55 r1 out; saiCarta .4 r2-.4 in">
+    <div class="carta-dentro" data-anim="tremer .4 r1v+.12 linear">
+      <svg class="icone" viewBox="0 0 600 330" aria-hidden="true">
+        <!-- Vaso em corte com pedras no fundo e água parada em cima delas -->
+        <path d="M150 40 H450 L415 300 H185 Z" fill="#d0702a"/>
+        <path d="M172 40 H428 L398 284 H202 Z" fill="#5e2d0f"/>
+        <rect x="140" y="30" width="320" height="34" rx="10" fill="#e48b40"/>
+        <path d="M178 120 H422 L402 284 H198 Z" fill="#5b3a22"/>
+        <g fill="#9aa3a8"><ellipse cx="236" cy="262" rx="26" ry="17"/><ellipse cx="290" cy="266" rx="28" ry="17"/><ellipse cx="346" cy="262" rx="26" ry="17"/><ellipse cx="262" cy="236" rx="24" ry="15" fill="#7d878d"/><ellipse cx="318" cy="236" rx="26" ry="15" fill="#7d878d"/></g>
+        <rect x="196" y="204" width="208" height="16" rx="8" fill="#5fb7e8" opacity=".8"/>
+        <g fill="#8fd6ff"><path d="M520 70 c8 12 12 18 12 24 a12 12 0 0 1 -24 0 c0 -6 4 -12 12 -24z"/><path d="M80 110 c7 10 10 15 10 20 a10 10 0 0 1 -20 0 c0 -5 3 -10 10 -20z"/></g>
+      </svg>
+      <div class="frase">Pedra no fundo do vaso ajuda a drenar</div>
+      <div class="carimbo mito" style="--giro:-9deg" data-anim="bate .3 r1v+.05 out">MITO</div>
+    </div>
+    <svg class="duvida-selo" viewBox="0 0 120 120" data-anim="pop .4 r1+.35 back; sai .2 r1v" aria-hidden="true">
+      <circle cx="60" cy="60" r="56" fill="#f2a33a"/>
+      <circle cx="60" cy="60" r="53" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="333" transform="rotate(-90 60 60)" data-anim="esvaziar .95 r1v-.95 linear"/>
+      <text x="60" y="84" font-size="70" font-weight="900" fill="#1f2a22" text-anchor="middle">?</text>
+    </svg>
+  </div>
+  <p class="motivo" data-anim="sobe .4 r1v+.35; sai .3 r2-.4">A água para em cima da pedra e <b>encharca a raiz</b>.</p>
+
+  <div class="carta" data-anim="entraCarta .55 r2 out; saiCarta .4 r3-.4 in">
+    <div class="carta-dentro" data-anim="tremer .4 r2v+.12 linear">
+      <svg class="icone" viewBox="0 0 600 330" aria-hidden="true">
+        <!-- Regador pingando e um calendário "todo dia" -->
+        <g transform="rotate(-18 250 190)">
+          <path d="M210 130 C210 60 330 60 334 150" stroke="#2f73ad" stroke-width="18" fill="none" stroke-linecap="round"/>
+          <path d="M190 220 L96 150" stroke="#3f8fd0" stroke-width="22" stroke-linecap="round"/>
+          <ellipse cx="88" cy="144" rx="17" ry="26" fill="#2f73ad" transform="rotate(-37 88 144)"/>
+          <rect x="180" y="120" width="170" height="140" rx="24" fill="#3f8fd0"/>
+          <rect x="180" y="208" width="170" height="13" fill="#2f73ad"/>
+        </g>
+        <path d="M66 230 c5 8 8 12 8 16 a8 8 0 0 1 -16 0 c0 -4 3 -8 8 -16z" fill="#8fd6ff"/>
+        <rect x="400" y="70" width="170" height="190" rx="18" fill="#fff" stroke="#1f4a28" stroke-width="6"/>
+        <rect x="400" y="70" width="170" height="54" rx="18" fill="#e5484d"/>
+        <rect x="400" y="104" width="170" height="20" fill="#e5484d"/>
+        <text x="485" y="108" font-size="30" font-weight="900" fill="#fff" text-anchor="middle">TODO</text>
+        <text x="485" y="214" font-size="66" font-weight="900" fill="#1f4a28" text-anchor="middle">DIA</text>
+      </svg>
+      <div class="frase">Regar um pouquinho todo dia é o ideal</div>
+      <div class="carimbo mito" style="--giro:-9deg" data-anim="bate .3 r2v+.05 out">MITO</div>
+    </div>
+    <svg class="duvida-selo" viewBox="0 0 120 120" data-anim="pop .4 r2+.35 back; sai .2 r2v" aria-hidden="true">
+      <circle cx="60" cy="60" r="56" fill="#f2a33a"/>
+      <circle cx="60" cy="60" r="53" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="333" transform="rotate(-90 60 60)" data-anim="esvaziar .95 r2v-.95 linear"/>
+      <text x="60" y="84" font-size="70" font-weight="900" fill="#1f2a22" text-anchor="middle">?</text>
+    </svg>
+  </div>
+  <p class="motivo" data-anim="sobe .4 r2v+.35; sai .3 r3-.4">Regue <b>fundo, até sair pelo furo</b>, e espere secar em cima.</p>
+
+  <div class="carta" data-anim="entraCarta .55 r3 out; saiCarta .4 r4-.4 in">
+    <div class="carta-dentro" data-anim="tremer .4 r3v+.12 linear">
+      <svg class="icone" viewBox="0 0 600 330" aria-hidden="true">
+        <!-- Saco de adubo "folhagem" e uma planta só de folha -->
+        <path d="M150 60 L330 60 L346 300 L134 300 Z" fill="#e8dcc0"/>
+        <path d="M150 60 L170 30 L310 30 L330 60 Z" fill="#d6c7a3"/>
+        <rect x="160" y="110" width="160" height="44" rx="8" fill="#2f6b3a"/>
+        <text x="240" y="142" font-size="26" font-weight="900" fill="#fff" text-anchor="middle">FOLHAGEM</text>
+        <g transform="translate(240 230) rotate(-30)"><path d="M-50 0 C-30 -30 30 -30 50 0 C30 30 -30 30 -50 0 Z" fill="#4a9a51"/><path d="M-44 0 H44" stroke="#2f6b3a" stroke-width="4"/></g>
+        <path d="M470 300 C468 230 474 170 470 110" stroke="#6d5a2e" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <g fill="#3f8a47">
+          <path d="M470 260 c-30 -24 -70 -20 -90 0 c30 18 64 16 90 0z"/><path d="M470 230 c30 -24 70 -20 90 0 c-30 18 -64 16 -90 0z"/>
+          <path d="M470 196 c-30 -24 -70 -20 -90 0 c30 18 64 16 90 0z"/><path d="M470 164 c30 -24 70 -20 90 0 c-30 18 -64 16 -90 0z"/>
+          <path d="M470 132 c-26 -22 -60 -18 -78 0 c26 16 56 14 78 0z"/><path d="M470 112 c26 -22 60 -18 78 0 c-26 16 -56 14 -78 0z"/>
+        </g>
+      </svg>
+      <div class="frase">Adubo de folhagem faz a planta dar mais fruto</div>
+      <div class="carimbo mito" style="--giro:-9deg" data-anim="bate .3 r3v+.05 out">MITO</div>
+    </div>
+    <svg class="duvida-selo" viewBox="0 0 120 120" data-anim="pop .4 r3+.35 back; sai .2 r3v" aria-hidden="true">
+      <circle cx="60" cy="60" r="56" fill="#f2a33a"/>
+      <circle cx="60" cy="60" r="53" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="333" transform="rotate(-90 60 60)" data-anim="esvaziar .95 r3v-.95 linear"/>
+      <text x="60" y="84" font-size="70" font-weight="900" fill="#1f2a22" text-anchor="middle">?</text>
+    </svg>
+  </div>
+  <p class="motivo" data-anim="sobe .4 r3v+.35; sai .3 r4-.4">Nitrogênio demais faz a planta <b>só dar folha</b>.</p>
+
+  <div class="carta" data-anim="entraCarta .55 r4 out; saiCarta .4 cta-.4 in">
+    <div class="carta-dentro" data-anim="tremer .4 r4v+.12 linear">
+      <svg class="icone" viewBox="0 0 600 330" aria-hidden="true">
+        <!-- Prédio com uma frutífera no vaso da varanda e o sol -->
+        <circle cx="520" cy="70" r="44" fill="#ffcc3d"/>
+        <g stroke="#ffcc3d" stroke-width="9" stroke-linecap="round"><path d="M520 6 V-10"/><path d="M584 70 H600"/><path d="M565 25 L577 13"/><path d="M565 115 L577 127"/><path d="M475 25 L463 13"/></g>
+        <rect x="120" y="20" width="300" height="310" rx="10" fill="#c9d6c4"/>
+        <g fill="#8fb3c9">
+          <rect x="150" y="50" width="70" height="60" rx="6"/><rect x="240" y="50" width="70" height="60" rx="6"/><rect x="330" y="50" width="70" height="60" rx="6"/>
+          <rect x="150" y="140" width="70" height="60" rx="6"/><rect x="330" y="140" width="70" height="60" rx="6"/>
+          <rect x="150" y="230" width="70" height="60" rx="6"/><rect x="240" y="230" width="70" height="60" rx="6"/><rect x="330" y="230" width="70" height="60" rx="6"/>
+        </g>
+        <rect x="226" y="198" width="98" height="12" rx="4" fill="#7d878d"/>
+        <path d="M254 198 H296 L290 168 H260 Z" fill="#d0702a"/>
+        <rect x="272" y="128" width="6" height="42" fill="#7a5a34"/>
+        <circle cx="275" cy="118" r="34" fill="#4a9a51"/>
+        <g fill="#f2a33a"><circle cx="262" cy="110" r="7"/><circle cx="288" cy="104" r="7"/><circle cx="280" cy="128" r="7"/></g>
+      </svg>
+      <div class="frase">Dá pra ter pé de fruta em apartamento</div>
+      <div class="carimbo verdade" style="--giro:7deg" data-anim="bate .3 r4v+.05 out">VERDADE</div>
+    </div>
+    <svg class="duvida-selo" viewBox="0 0 120 120" data-anim="pop .4 r4+.35 back; sai .2 r4v" aria-hidden="true">
+      <circle cx="60" cy="60" r="56" fill="#f2a33a"/>
+      <circle cx="60" cy="60" r="53" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="333" transform="rotate(-90 60 60)" data-anim="esvaziar .95 r4v-.95 linear"/>
+      <text x="60" y="84" font-size="70" font-weight="900" fill="#1f2a22" text-anchor="middle">?</text>
+    </svg>
+  </div>
+  <p class="motivo" data-anim="sobe .4 r4v+.35; sai .3 cta-.4">Com <b>no mínimo 6 horas de sol direto</b> no vaso.</p>
+
+  <!-- ===================== FECHAMENTO ===================== -->
+  <section class="cena cta">
+    <h1 class="titulo palavras" data-t="cta+.1">Quantas você <em>acertou?</em></h1>
+    <ol class="placar">
+      <li data-anim="sobe .4 cta+.6">Pedra no fundo ajuda a drenar<span class="chip mito">MITO</span></li>
+      <li data-anim="sobe .4 cta+.8">Regar um pouquinho todo dia<span class="chip mito">MITO</span></li>
+      <li data-anim="sobe .4 cta+1.0">Adubo de folhagem dá mais fruto<span class="chip mito">MITO</span></li>
+      <li data-anim="sobe .4 cta+1.2">Pé de fruta em apartamento<span class="chip verdade">VERDADE</span></li>
+    </ol>
+    <p class="sub" data-anim="sobe .5 cta+1.7">O guia <b>Sua Frutífera Vai Dar Fruto</b> derruba esses e outros mitos, com a fonte de cada informação.</p>
+    <div class="botao" data-anim="sobe .45 cta+2.4; pulso 1.1 cta+2.9 inout inf">Toque em Saiba mais</div>
+  </section>
+</div>
+
+<script src="voz/voz.js"></script>
+<script src="../motor.js"></script>
+<script>
+const RODADAS = ["r1", "r2", "r3", "r4"];
+definirCenas(
+  ["gancho", "r1", "r1v", "r2", "r2v", "r3", "r3v", "r4", "r4v", "cta"],
+  { gancho: 2.8, r1: 2.6, r1v: 2.4, r2: 2.6, r2v: 2.4, r3: 2.6, r3v: 2.4, r4: 2.6, r4v: 2.4, cta: 4.6 },
+  // Depois da pergunta sobra quase 1 s de contagem antes do veredito
+  { r1: .95, r2: .95, r3: .95, r4: .95, r1v: .35, r2v: .35, r3v: .35, r4v: .35 },
+);
+
+function desenhar() {
+  // Fachos de luz do fundo
+  const fachos = document.getElementById("fachos");
+  for (let i = 0; i < 12; i++) {
+    svg("path", { d: "M0 0 L-90 -1400 L90 -1400 Z", fill: "#fff", opacity: .035, transform: `rotate(${i * 30})` }, fachos);
+  }
+}
+
+// Número da rodada no canto ("1/4")
+function aoBuscar(t) {
+  const atual = RODADAS.filter((r) => t >= T[r] - .2 && t < T.cta - .4).length;
+  document.getElementById("rodada").textContent = atual ? `${atual}/4` : "";
+}
+
+function sons(ctx, m, t0) {
+  const em = (expr) => t0 + tempo(expr);
+  musica(m, t0, {
+    bpm: 128, batidaDesde: T.r1,
+    acordes: [[57, 60, 64, 69], [53, 57, 60, 65], [55, 59, 62, 67], [52, 56, 59, 64]],
+    baixos: [45, 41, 43, 40], final: [45, 57, 60, 64, 69, 72],
+  });
+  // Abertura: os dois carimbos
+  SOM.whoosh(m, em(".05"), .35, .3);
+  SOM.baque(m, em(".33"), .7); SOM.pedras(m, em(".33"), 6, .08);
+  SOM.pop(m, em(".72"), 440, .25);
+  SOM.baque(m, em("1.03"), .7); SOM.pedras(m, em("1.03"), 6, .08);
+  SOM.brilho(m, em("1.6"));
+  for (const r of RODADAS) {
+    SOM.whoosh(m, em(`${r}-.1`), .5, .32);
+    SOM.pop(m, em(`${r}+.4`), 660, .26);
+    // Contagem: 3 tiques e o carimbo
+    for (let i = 0; i < 3; i++) SOM.tique(m, em(`${r}v-${(.95 - i * .32).toFixed(2)}`), 1300 + i * 200, .24);
+    SOM.baque(m, em(`${r}v+.12`), .8); SOM.pedras(m, em(`${r}v+.12`), 8, .08);
+    if (r === "r4") { SOM.certo(m, em(`${r}v+.18`)); SOM.brilho(m, em(`${r}v+.3`)); }
+    else SOM.errado(m, em(`${r}v+.18`));
+  }
+  // Fechamento
+  SOM.whoosh(m, em("cta-.4"), .55, .38);
+  for (let i = 0; i < 4; i++) SOM.pop(m, em(`cta+${.62 + i * .2}`), 620 + i * 90, .24);
+  SOM.pop(m, em("cta+2.42"), 520, .3);
+  SOM.brilho(m, em("cta+2.5"), .12);
+}
+
+iniciarVideo({ desenhar, sons, aoBuscar });
+</script>
+</body>
+</html>

@@ -44,11 +44,12 @@ function tempo(expr) {
 }
 
 // data-anim="pop .5 p1+.3 back; sai .3 p2" -> animation CSS com atraso absoluto.
+// Depois do ease pode vir quantas vezes repete ("3", ou "inf" para sempre).
 // A 1ª animação preenche antes e depois (both); as seguintes só depois (forwards).
 function animar(el, spec) {
   el.style.animation = spec.split(";").map((s) => s.trim()).filter(Boolean).map((parte, i) => {
     const [nome, dur, quando, ease = "out", rep] = parte.split(/\s+/);
-    return `${nome} ${dur}s ${EASE[ease]} ${tempo(quando)}s ${rep === "inf" ? "infinite" : 1} ${i === 0 ? "both" : "forwards"}`;
+    return `${nome} ${dur}s ${EASE[ease]} ${tempo(quando)}s ${rep === "inf" ? "infinite" : rep || 1} ${i === 0 ? "both" : "forwards"}`;
   }).join(", ");
 }
 
@@ -263,6 +264,22 @@ const SOM = {
   duvida(m, at) {
     SOM.subida(m, at, .32, 392, 740, .14);
     SOM.ding(m, at + .3, 1108.7, .22, 1.3);
+  },
+  // Mola: sobe e fica tremendo (personagem pulando)
+  boing(m, at, vol = .3) {
+    const o = osc(m, "sine", 160, at, .7), g = m.ctx.createGain(), lfo = osc(m, "sine", 13, at, .7), lg = m.ctx.createGain();
+    o.frequency.exponentialRampToValueAtTime(520, at + .12);
+    lg.gain.setValueAtTime(110, at + .1); lg.gain.exponentialRampToValueAtTime(1, at + .65);
+    lfo.connect(lg).connect(o.frequency);
+    envelope(g.gain, at, vol, .01, .6);
+    ligar(m, o.connect(g), m.sfx, .2);
+  },
+  // Assobio descendo (algo caindo)
+  queda(m, at, vol = .08) {
+    const o = osc(m, "sine", 1500, at, .55), g = m.ctx.createGain();
+    o.frequency.exponentialRampToValueAtTime(480, at + .5);
+    envelope(g.gain, at, vol, .02, .5);
+    ligar(m, o.connect(g), m.sfx, .3);
   },
   subida(m, at, dur = .8, de = 220, ate = 880, vol = .16) {
     const o = osc(m, "triangle", de, at, dur), g = m.ctx.createGain(), lfo = osc(m, "sine", 9, at, dur), lg = m.ctx.createGain();

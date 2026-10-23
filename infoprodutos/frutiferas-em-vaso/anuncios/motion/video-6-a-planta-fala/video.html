@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Vídeo 6: a planta fala</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../motor.css">
+<!--
+  Vídeo 6 do ebook (9:16, 1080x1920): a própria frutífera (um vaso com rosto) conta, em primeira
+  pessoa, 3 sinais de que algo está errado. A boca mexe com o volume da narração (env do voz.js).
+  Motor em ../motor.js.
+
+  - Ver no navegador: abra este arquivo e clique em "Tocar".
+  - Narração: falas.json (python ../narrar.py video-6-a-planta-fala).
+  - MP4: node ../render.mjs video-6-a-planta-fala
+  Fontes no ebook (cap. 1): galho esticado e 6 h de sol (erro 3), folha sem flor e nitrogênio
+  (erro 5), flor que cai e polinização com pincel (erro 7, que lembra que pode ser outra causa).
+-->
+<style>
+  :root { --texto-escuro: #1f4a28; --laranja-escuro: #c96d14; }
+  #palco-video { background: linear-gradient(180deg, #f7f0e1 0%, #f3e9d6 76%, #e4d3b4 76%, #dcc8a5 100%); color: var(--texto-escuro); }
+  #cenario { position: absolute; inset: 0; }
+  .titulo .destaque { color: #d9771f; }
+  .sub { color: #3b4a3e; }
+  .sub b { color: var(--laranja-escuro); }
+  .kicker { color: var(--laranja-escuro); }
+  .botao { color: #1f2a22; }
+
+  @keyframes pula {
+    0% { opacity: 0; transform: translateY(760px) scaleY(1.1); animation-timing-function: cubic-bezier(.2,.7,.4,1); }
+    55% { opacity: 1; transform: translateY(-60px) scaleY(1.04); animation-timing-function: cubic-bezier(.6,0,.8,.4); }
+    78% { transform: translateY(0) scale(1.08, .9); }
+    100% { opacity: 1; transform: none; }
+  }
+  @keyframes respira { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.012, .988); } }
+  @keyframes acenar { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-28deg); } 75% { transform: rotate(16deg); } }
+  @keyframes inclina { from { transform: none; } to { transform: rotate(-18deg) scale(.9, 1.08); } }
+  @keyframes endireita { from { transform: rotate(-18deg) scale(.9, 1.08); } to { transform: none; } }
+  @keyframes encolhe { from { transform: none; } to { transform: scale(.8); } }
+  @keyframes requebra { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(6deg); } }
+  @keyframes caiFlor { from { opacity: 1; transform: none; } 20% { opacity: 1; } to { opacity: 0; transform: translate(-40px, 430px) rotate(200deg); } }
+  @keyframes pincelar {
+    0% { opacity: 0; transform: translate(1180px, 720px) rotate(-35deg); }
+    12% { opacity: 1; }
+    22% { transform: translate(650px, 960px) rotate(-35deg); }
+    42% { transform: translate(520px, 820px) rotate(-35deg); }
+    62% { transform: translate(470px, 900px) rotate(-35deg); }
+    80% { opacity: 1; transform: translate(500px, 1040px) rotate(-35deg); }
+    100% { opacity: 0; transform: translate(1180px, 1000px) rotate(-35deg); }
+  }
+</style>
+</head>
+<body>
+<div id="palco-video">
+  <svg id="cenario" viewBox="0 0 1080 1920" aria-hidden="true">
+    <defs>
+      <path id="folha" d="M0 0 C30 -26 80 -26 112 0 C80 26 30 26 0 0 Z"/>
+      <g id="flor">
+        <g fill="#fff"><ellipse cx="0" cy="-17" rx="11" ry="17"/><ellipse cx="0" cy="-17" rx="11" ry="17" transform="rotate(72)"/><ellipse cx="0" cy="-17" rx="11" ry="17" transform="rotate(144)"/><ellipse cx="0" cy="-17" rx="11" ry="17" transform="rotate(216)"/><ellipse cx="0" cy="-17" rx="11" ry="17" transform="rotate(288)"/></g>
+        <circle r="9" fill="#ffcf3d"/>
+      </g>
+    </defs>
+
+    <!-- Sinal 1: a janela e a luz que entra por ela -->
+    <g data-anim="fade .4 s1+.2; sai .3 s2-.3">
+      <polygon points="300,770 300,1050 560,1180 640,880" fill="#fff3c4" opacity=".55"/>
+      <rect x="70" y="740" width="240" height="320" rx="10" fill="#bfe6ff" stroke="#c9b99a" stroke-width="16"/>
+      <circle cx="120" cy="800" r="30" fill="#ffd968"/>
+      <path d="M190 740 V1060 M70 900 H310" stroke="#c9b99a" stroke-width="10"/>
+    </g>
+
+    <!-- Sinal 2: saco de adubo com muito N -->
+    <g transform="translate(870 1320)">
+      <g class="base" data-anim="pop .45 s2+.7 back; requebra .5 s2+1.3 inout 3; sai .3 s3-.3">
+        <path d="M-95 -150 L95 -150 L108 140 L-108 140 Z" fill="#e8dcc0"/>
+        <path d="M-95 -150 L-78 -178 L78 -178 L95 -150 Z" fill="#d6c7a3"/>
+        <text y="40" font-size="170" font-weight="900" fill="#2f6b3a" text-anchor="middle">N</text>
+        <text y="100" font-size="24" font-weight="900" fill="#2f6b3a" text-anchor="middle">NITROGÊNIO</text>
+      </g>
+    </g>
+
+    <!-- A personagem: vaso com rosto e a planta em cima -->
+    <g class="base" data-anim="pula .9 .05; encolhe .5 cta+.1 inout">
+      <g class="base" data-anim="respira 2.4 1 inout inf">
+        <ellipse cx="540" cy="1476" rx="200" ry="20" fill="#000" opacity=".12"/>
+        <!-- Planta -->
+        <g id="planta" class="base" data-anim="inclina .8 s1+.5 inout; endireita .5 s2-.3 inout">
+          <path d="M540 1152 C534 1040 548 920 540 780" stroke="#6d5a2e" stroke-width="16" fill="none" stroke-linecap="round"/>
+          <g id="folhas"></g>
+          <g id="folhas-extras"></g>
+          <g id="flores"></g>
+        </g>
+        <!-- Vaso (corpo) -->
+        <path d="M380 1200 L700 1200 L662 1462 L418 1462 Z" fill="#d0702a"/>
+        <path d="M630 1200 L700 1200 L662 1462 L612 1462 Z" fill="#b95f1f" opacity=".6"/>
+        <rect x="356" y="1146" width="368" height="66" rx="18" fill="#e48b40"/>
+        <rect x="356" y="1146" width="368" height="14" rx="7" fill="#f0a35c"/>
+        <!-- Rosto -->
+        <ellipse cx="452" cy="1352" rx="30" ry="16" fill="#f29a8a" opacity=".55"/>
+        <ellipse cx="628" cy="1352" rx="30" ry="16" fill="#f29a8a" opacity=".55"/>
+        <g id="olho-e"><ellipse cx="482" cy="1292" rx="30" ry="36" fill="#fff"/><circle cx="488" cy="1298" r="17" fill="#2a1a10"/><circle cx="494" cy="1290" r="6" fill="#fff"/></g>
+        <g id="olho-d"><ellipse cx="598" cy="1292" rx="30" ry="36" fill="#fff"/><circle cx="604" cy="1298" r="17" fill="#2a1a10"/><circle cx="610" cy="1290" r="6" fill="#fff"/></g>
+        <path id="sorriso" d="M512 1356 Q540 1384 568 1356" stroke="#5a1e14" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <g id="boca">
+          <ellipse id="boca-fora" cx="540" cy="1372" rx="30" ry="10" fill="#5a1e14"/>
+          <ellipse id="lingua" cx="540" cy="1380" rx="16" ry="6" fill="#e8706a"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Sinal 3: pincel levando pólen de flor em flor -->
+    <g data-anim="pincelar 2.6 s3+3.3 linear">
+      <rect x="-9" y="-190" width="18" height="140" rx="8" fill="#c08a50"/>
+      <rect x="-11" y="-62" width="22" height="34" rx="4" fill="#b9c2c8"/>
+      <path d="M-11 -30 Q-12 -6 0 2 Q12 -6 11 -30 Z" fill="#3a2a1a"/>
+    </g>
+    <g id="polen"></g>
+  </svg>
+
+  <!-- ===================== TEXTOS ===================== -->
+  <section class="cena" data-anim="cenaSai .35 s1-.35 in">
+    <div class="kicker" data-anim="sobe .5 .3">Sua frutífera quer falar</div>
+    <h1 class="titulo palavras" data-t=".5">Oi! Presta atenção nos <em>meus sinais</em></h1>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 s2-.35 in">
+    <div class="passo" data-anim="pop .45 s1+.02 back">Sinal 1</div>
+    <h1 class="titulo palavras" data-t="s1+.12">Galho esticado <em>pra janela?</em></h1>
+    <p class="sub" data-anim="sobe .5 s1+.8">É falta de sol. Preciso de <b>no mínimo 6 horas de sol direto</b>.</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 s3-.35 in">
+    <div class="passo" data-anim="pop .45 s2+.02 back">Sinal 2</div>
+    <h1 class="titulo palavras" data-t="s2+.12">Muita folha e <em>nenhuma flor?</em></h1>
+    <p class="sub" data-anim="sobe .5 s2+.8">É adubo com <b>nitrogênio demais</b> (o N do NPK).</p>
+  </section>
+
+  <section class="cena" data-anim="cenaSai .35 cta-.35 in">
+    <div class="passo" data-anim="pop .45 s3+.02 back">Sinal 3</div>
+    <h1 class="titulo palavras" data-t="s3+.12">Flor que cai sem <em>virar fruto?</em></h1>
+    <p class="sub" data-anim="sobe .5 s3+.8">Pode ser falta de polinização. <b>Pincel macio, de flor em flor.</b></p>
+  </section>
+
+  <section class="cena">
+    <h1 class="titulo palavras" data-t="cta+.12">Eu tenho <em>outros sinais...</em></h1>
+    <p class="sub" data-anim="sobe .5 cta+.8">No guia: cada sinal e o que fazer em cada um.</p>
+    <div class="botao" style="top:690px" data-anim="sobe .45 cta+1.6; pulso 1.1 cta+2.1 inout inf">Toque em Saiba mais</div>
+  </section>
+</div>
+
+<script src="voz/voz.js"></script>
+<script src="../motor.js"></script>
+<script>
+definirCenas(
+  ["oi", "s1", "s2", "s3", "cta"],
+  { oi: 3.5, s1: 3.6, s2: 3.4, s3: 6.2, cta: 4.6 },
+);
+
+// Flores: [x, y, cai?]. As que ficam recebem o pincel; TOQUE é quando (fração da passada do pincel)
+const FLORES = [[470, 900, 0], [612, 880, 1], [520, 820, 0], [430, 985, 1], [650, 960, 0], [560, 940, 1], [500, 1040, 0]];
+const TOQUE = { 4: .22, 2: .42, 0: .62, 6: .8 };
+
+function desenhar() {
+  const r = sorteio(11);
+  // Folha presa em (x, y). Devolve o grupo do meio, que gira em volta da base da folha.
+  const folha = (pai, x, y, ang, lado, esc, cor) => {
+    const meio = svg("g", {}, svg("g", { transform: `translate(${x} ${y})` }, pai));
+    const g = svg("g", { transform: `scale(${lado * esc} ${esc}) rotate(${ang})` }, meio);
+    usar("folha", { fill: cor }, g);
+    svg("path", { d: "M6 0 H100", stroke: "#2f6b3a", "stroke-width": 3, opacity: .6 }, g);
+    return meio;
+  };
+  // Folhas da planta: [y no caule, ângulo, lado, tamanho]
+  const folhas = document.getElementById("folhas");
+  [[1090, -18, -1, 1.45], [1070, -18, 1, 1.45], [1010, -24, -1, 1.35], [990, -24, 1, 1.35],
+   [930, -30, -1, 1.25], [910, -30, 1, 1.2], [850, -40, -1, 1.05], [835, -40, 1, 1.05], [790, -75, -1, .9], [786, -75, 1, .9]]
+    .forEach(([y, ang, lado, esc], i) => {
+      const f = folha(folhas, 540, y, ang, lado, esc, i % 2 ? "#3f8a47" : "#5aa85b");
+      if (i === 0) animar(f, "acenar .5 oi+.9 inout 3"); // a folha de baixo acena no "Oi!"
+    });
+
+  // Sinal 2: a planta enche de folha
+  const extras = document.getElementById("folhas-extras");
+  for (let i = 0; i < 16; i++) {
+    const lado = i % 2 ? 1 : -1;
+    const f = folha(extras, 540 + lado * (10 + r() * 30), 800 + r() * 300, -10 - r() * 50, lado, 1 + r() * .5, i % 3 ? "#2f6b3a" : "#3f8a47");
+    f.setAttribute("class", "fb");
+    animar(f, `pop .3 s2+${(.4 + i * .07).toFixed(2)} back; sai .3 s3-.3`);
+  }
+
+  // Sinal 3: flores aparecem; metade cai, e o pincel passa nas que ficaram
+  const flores = document.getElementById("flores");
+  const polen = document.getElementById("polen");
+  FLORES.forEach(([x, y, cai], i) => {
+    const f = usar("flor", { class: "fb" }, svg("g", { transform: `translate(${x} ${y})` }, flores));
+    const abre = `pop .35 s3+${(.5 + i * .12).toFixed(2)} back`;
+    if (cai) { animar(f, `${abre}; caiFlor 1.2 s3+${(2.0 + (i % 4) * .2).toFixed(2)} in`); return; }
+    animar(f, `${abre}; sai .3 cta-.35`);
+    for (let j = 0; j < 5; j++) {
+      const p = svg("circle", { cx: x + (r() - .5) * 50, cy: y + (r() - .5) * 50, r: 4 + r() * 3, fill: "#ffcf3d", class: "fb" }, polen);
+      animar(p, `brilho .7 s3+${(3.3 + 2.6 * TOQUE[i] + j * .03).toFixed(2)} out`);
+    }
+  });
+}
+
+// Boca no ritmo da fala, piscadas e a piscadinha do final
+function aoBuscar(t) {
+  const v = nivelDaVoz(t);
+  const falando = v > .06;
+  document.getElementById("sorriso").style.opacity = falando ? 0 : 1;
+  document.getElementById("boca").style.opacity = falando ? 1 : 0;
+  const boca = document.getElementById("boca-fora");
+  boca.setAttribute("ry", (6 + v * 30).toFixed(1));
+  boca.setAttribute("rx", (26 + v * 10).toFixed(1));
+  document.getElementById("lingua").setAttribute("cy", (1376 + v * 16).toFixed(1));
+
+  const piscando = (t % 3.3) > 3.16;
+  const piscadinha = t > T.cta + .9 && t < T.cta + 1.5;
+  const olho = (id, fechado) => document.getElementById(id)
+    .setAttribute("transform", fechado ? `translate(0 ${1292 * .9}) scale(1 .1)` : "");
+  olho("olho-e", piscando);
+  olho("olho-d", piscando || piscadinha);
+}
+
+function sons(ctx, m, t0) {
+  const em = (expr) => t0 + tempo(expr);
+  musica(m, t0, {
+    bpm: 104, batidaDesde: T.s1, volume: .18,
+    acordes: [[60, 64, 67, 72], [57, 60, 64, 69], [53, 57, 60, 65], [55, 59, 62, 67]],
+    baixos: [48, 45, 41, 43],
+  });
+  // Oi: ela pula para dentro e acena
+  SOM.whoosh(m, em(".05"), .4, .28);
+  SOM.boing(m, em(".55"));
+  for (let i = 0; i < 3; i++) SOM.pop(m, em(`oi+${.95 + i * .5}`), 880 + i * 110, .16);
+  // Sinal 1: a janela e a planta se esticando
+  ["s1", "s2", "s3", "cta"].forEach((c) => SOM.whoosh(m, em(`${c}-.38`), .45, .3));
+  SOM.pop(m, em("s1+.25"), 600, .26);
+  SOM.subida(m, em("s1+.5"), .8, 180, 520, .14);
+  // Sinal 2: folhas brotando sem parar e o saco de adubo
+  for (let i = 0; i < 16; i++) SOM.pop(m, em(`s2+${.42 + i * .07}`), 500 + (i % 8) * 60, .14);
+  SOM.baque(m, em("s2+.75"), .6);
+  SOM.errado(m, em("s2+1.5"));
+  // Sinal 3: flores abrem, algumas caem, o pincel passa
+  for (let i = 0; i < 7; i++) SOM.ding(m, em(`s3+${.52 + i * .12}`), [1568, 1760, 1976, 2093, 2349, 2637, 2794][i], .07, .5);
+  for (let i = 0; i < 3; i++) SOM.queda(m, em(`s3+${2.05 + i * .2}`));
+  SOM.whoosh(m, em("s3+3.3"), .5, .2);
+  [.22, .42, .62, .8].forEach((q, i) => SOM.brilho(m, em(`s3+${3.3 + 2.6 * q}`), .09 + i * .01));
+  // Fechamento: piscadinha e botão
+  SOM.ding(m, em("cta+.95"), 1318.5, .2, .8);
+  SOM.pop(m, em("cta+1.62"), 520, .3);
+}
+
+iniciarVideo({ desenhar, sons, aoBuscar });
+</script>
+</body>
+</html>
