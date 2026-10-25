@@ -8,7 +8,7 @@ e música são gerados por código, então não tem problema de licença. A narr
 |---|---|---|---|---|
 | 4 — O jeito fácil | Tutorial em 5 passos | 36 s (27 s sem voz) | `video-4-jeito-facil-narrado.mp4` e `video-4-jeito-facil.mp4` | Versão C |
 | 5 — Mito ou verdade | Jogo com 4 afirmações | 37 s | `video-5-mito-ou-verdade-narrado.mp4` | Versão D |
-| 6 — A planta fala | Personagem (o vaso fala) | 28 s | `video-6-a-planta-fala-narrado.mp4` | Versão A |
+| 6 — A planta fala | A planta conta os próprios sinais | 28 s | `video-6-a-planta-fala-narrado.mp4` | Versão A |
 | 7 — 6 frutíferas | Lista, uma fruta por vez | 36 s | `video-7-seis-frutiferas-narrado.mp4` | Versão E |
 
 Todos em 1080x1920, 30 fps, com som em -16 LUFS. Os quatro terminam sem falar o preço, numa
@@ -86,9 +86,9 @@ Música em lá menor, 128 BPM.
 
 ## Vídeo 6 — "A planta fala" · 28 s
 
-A própria frutífera é a personagem: um vaso com olhos, bochechas e boca, que pula para dentro da
-cena, acena com uma folha e fala em primeira pessoa. A boca abre e fecha no ritmo da voz, ela pisca
-e dá uma piscadinha no final. Fundo claro (parede e chão), diferente dos outros vídeos.
+A narração fala como se fosse a própria frutífera, em primeira pessoa, e a planta mostra cada sinal:
+o vaso pula para dentro da cena e uma folha acena. Fundo claro (parede e chão), diferente dos outros
+vídeos. Em 2026-10-25 o rosto do vaso (olhos e boca falando) saiu, a pedido do Gustavo.
 
 | Cena | O que acontece | Narração |
 |---|---|---|
@@ -96,7 +96,7 @@ e dá uma piscadinha no final. Fundo claro (parede e chão), diferente dos outro
 | Sinal 1 | Aparece uma janela; a planta se inclina e se estica para ela · **Galho esticado pra janela?** | Se eu estico os galhos pra janela, é falta de sol. Eu preciso de no mínimo seis horas de sol direto. |
 | Sinal 2 | A planta enche de folha escura e entra um saco de adubo com um N enorme · **Muita folha e nenhuma flor?** | Se eu fico linda, cheia de folha, e nenhuma flor, é o adubo com nitrogênio demais. |
 | Sinal 3 | Abrem 7 flores, 3 caem girando, e um pincel passa nas que ficaram, soltando pólen · **Flor que cai sem virar fruto?** | E se eu encho de flor e elas caem sem virar fruto, pode ser falta de polinização. Um pincel macio, de flor em flor, ajuda. |
-| Fechamento | Piscadinha · **Eu tenho outros sinais...** + botão | Eu tenho outros sinais. E no guia tem o que fazer em cada um. Toque em saiba mais! |
+| Fechamento | **Eu tenho outros sinais...** + botão | Eu tenho outros sinais. E no guia tem o que fazer em cada um. Toque em saiba mais! |
 
 Efeitos: mola no pulo, folhas brotando, "errado" no adubo, flores tilintando, assobio das flores
 caindo, brilho do pólen. Música em dó maior, 104 BPM.

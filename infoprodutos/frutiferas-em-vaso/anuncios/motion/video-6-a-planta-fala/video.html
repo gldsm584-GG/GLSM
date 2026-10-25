@@ -6,8 +6,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../motor.css">
 <!--
-  Vídeo 6 do ebook (9:16, 1080x1920): a própria frutífera (um vaso com rosto) conta, em primeira
-  pessoa, 3 sinais de que algo está errado. A boca mexe com o volume da narração (env do voz.js).
+  Vídeo 6 do ebook (9:16, 1080x1920): a própria frutífera conta, em primeira pessoa (na narração),
+  3 sinais de que algo está errado, e a planta mostra cada um.
   Motor em ../motor.js.
 
   - Ver no navegador: abra este arquivo e clique em "Tocar".
@@ -79,7 +79,7 @@
       </g>
     </g>
 
-    <!-- A personagem: vaso com rosto e a planta em cima -->
+    <!-- A frutífera: vaso e a planta em cima -->
     <g class="base" data-anim="pula .9 .05; encolhe .5 cta+.1 inout">
       <g class="base" data-anim="respira 2.4 1 inout inf">
         <ellipse cx="540" cy="1476" rx="200" ry="20" fill="#000" opacity=".12"/>
@@ -95,16 +95,6 @@
         <path d="M630 1200 L700 1200 L662 1462 L612 1462 Z" fill="#b95f1f" opacity=".6"/>
         <rect x="356" y="1146" width="368" height="66" rx="18" fill="#e48b40"/>
         <rect x="356" y="1146" width="368" height="14" rx="7" fill="#f0a35c"/>
-        <!-- Rosto -->
-        <ellipse cx="452" cy="1352" rx="30" ry="16" fill="#f29a8a" opacity=".55"/>
-        <ellipse cx="628" cy="1352" rx="30" ry="16" fill="#f29a8a" opacity=".55"/>
-        <g id="olho-e"><ellipse cx="482" cy="1292" rx="30" ry="36" fill="#fff"/><circle cx="488" cy="1298" r="17" fill="#2a1a10"/><circle cx="494" cy="1290" r="6" fill="#fff"/></g>
-        <g id="olho-d"><ellipse cx="598" cy="1292" rx="30" ry="36" fill="#fff"/><circle cx="604" cy="1298" r="17" fill="#2a1a10"/><circle cx="610" cy="1290" r="6" fill="#fff"/></g>
-        <path id="sorriso" d="M512 1356 Q540 1384 568 1356" stroke="#5a1e14" stroke-width="8" fill="none" stroke-linecap="round"/>
-        <g id="boca">
-          <ellipse id="boca-fora" cx="540" cy="1372" rx="30" ry="10" fill="#5a1e14"/>
-          <ellipse id="lingua" cx="540" cy="1380" rx="16" ry="6" fill="#e8706a"/>
-        </g>
       </g>
     </g>
 
@@ -203,25 +193,6 @@ function desenhar() {
   });
 }
 
-// Boca no ritmo da fala, piscadas e a piscadinha do final
-function aoBuscar(t) {
-  const v = nivelDaVoz(t);
-  const falando = v > .06;
-  document.getElementById("sorriso").style.opacity = falando ? 0 : 1;
-  document.getElementById("boca").style.opacity = falando ? 1 : 0;
-  const boca = document.getElementById("boca-fora");
-  boca.setAttribute("ry", (6 + v * 30).toFixed(1));
-  boca.setAttribute("rx", (26 + v * 10).toFixed(1));
-  document.getElementById("lingua").setAttribute("cy", (1376 + v * 16).toFixed(1));
-
-  const piscando = (t % 3.3) > 3.16;
-  const piscadinha = t > T.cta + .9 && t < T.cta + 1.5;
-  const olho = (id, fechado) => document.getElementById(id)
-    .setAttribute("transform", fechado ? `translate(0 ${1292 * .9}) scale(1 .1)` : "");
-  olho("olho-e", piscando);
-  olho("olho-d", piscando || piscadinha);
-}
-
 function sons(ctx, m, t0) {
   const em = (expr) => t0 + tempo(expr);
   musica(m, t0, {
@@ -246,12 +217,11 @@ function sons(ctx, m, t0) {
   for (let i = 0; i < 3; i++) SOM.queda(m, em(`s3+${2.05 + i * .2}`));
   SOM.whoosh(m, em("s3+3.3"), .5, .2);
   [.22, .42, .62, .8].forEach((q, i) => SOM.brilho(m, em(`s3+${3.3 + 2.6 * q}`), .09 + i * .01));
-  // Fechamento: piscadinha e botão
-  SOM.ding(m, em("cta+.95"), 1318.5, .2, .8);
+  // Fechamento: botão
   SOM.pop(m, em("cta+1.62"), 520, .3);
 }
 
-iniciarVideo({ desenhar, sons, aoBuscar });
+iniciarVideo({ desenhar, sons });
 </script>
 </body>
 </html>
