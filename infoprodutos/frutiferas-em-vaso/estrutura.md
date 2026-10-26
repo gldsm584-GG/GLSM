@@ -183,7 +183,13 @@ Pesquisa de mercado feita em 2026-10-18.
   Instalado na página de venda e na política (PageView conferido) e na Kiwify (Produto →
   Configurações → Pixels de conversão; "Purchase ao gerar pix/boleto" desligados, só conta compra
   paga). Conferir InitiateCheckout e Purchase no Gerenciador de Eventos na primeira compra (teste)
-- [ ] **Onde parou (2026-10-21), em partes:** Parte 2: forma de pagamento na conta de anúncios do
+- [x] 1ª campanha no Meta publicada (2026-10-25), programada para começar em 2026-10-26 às 8h:
+  Vendas, evento Comprar, orçamento de campanha R$ 20/dia, sem data de término, cartão de crédito
+  com R$ 130 de limite; 2 imagens + 1 vídeo; textos A, B e C da `anuncios/legenda.md`; CTA
+  "Saiba mais". Sem compra de teste: confirmar InitiateCheckout no Gerenciador de Eventos com os
+  primeiros cliques e Purchase na primeira venda. Olhar CTR, CPC e custo por compra com ~R$ 60
+  gastos (3 dias); só subir orçamento se a venda sair abaixo de R$ 15,71, de 20% a 30% por vez
+- [x] **Plano que guiou o lançamento (2026-10-21):** Parte 2: forma de pagamento na conta de anúncios do
   Meta; Parte 4:
   campanha de Vendas com os 3 criativos e o texto da `anuncios/legenda.md`. Antes de gastar: postar
   o conteúdo de graça (Instagram, grupos de Facebook) e combinar um limite de perda (ex.: R$ 100);
