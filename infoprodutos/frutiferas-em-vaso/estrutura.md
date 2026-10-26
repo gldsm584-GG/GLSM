@@ -171,10 +171,11 @@ Pesquisa de mercado feita em 2026-10-18.
 - [ ] Fazer a página de venda (`pagina-de-venda/index.html`). Publicada em 2026-10-19 em
   sua-frutifera-vai-dar-fruto.vercel.app (com noindex até ter domínio próprio); projeto Vercel SEM
   GitHub conectado: republicar com `npx vercel deploy --prod --scope glsmteste` de dentro de
-  `pagina-de-venda/`. **Só publicar nesse projeto a partir de `pagina-de-venda/`**: em 2026-10-25
-  dois deploys de produção feitos de outro lugar (19h04 e 22h12, provavelmente a sessão do vídeo 4,
-  branch `ccr-259aab7e-97iv09`) deixaram o site em 404 no 1º dia da campanha. Republicado em
-  2026-10-26 às 18h. Prévia de vídeo/teste vai em outro projeto Vercel ou em `--target preview`. Suporte (frutiferanovasos2@gmail.com) e política de privacidade no ar em
+  `pagina-de-venda/`. **O site ficou em 404 de 2026-10-21 (20h11) a 2026-10-26 (18h20), inclusive
+  no 1º dia da campanha**: o `vercel link` tinha ligado o projeto ao GitHub, e cada push no `main`
+  publicava a raiz do repositório (sem `index.html`). GitHub desligado do projeto em 2026-10-26
+  (`vercel git disconnect`). Nunca usar `vercel link`/`vercel git connect` nesses projetos; depois
+  de publicar, conferir com `curl -s -o /dev/null -w '%{http_code}' <url>`. Suporte (frutiferanovasos2@gmail.com) e política de privacidade no ar em
   2026-10-20; botão de compra ligado ao checkout da Kiwify em 2026-10-21. Faltam o nome completo do
   vendedor, fotos reais e depoimentos reais
 - [ ] Criar os criativos com o gancho "cresce mas não dá fruto" e testar no Meta (2026-10-18: 2 imagens
