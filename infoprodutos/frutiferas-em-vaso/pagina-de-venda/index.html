@@ -3,10 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Rascunho: tirar o noindex quando a página for ao ar de verdade -->
+<!-- noindex enquanto está no endereço provisório da Vercel: tirar quando tiver domínio próprio -->
 <meta name="robots" content="noindex, nofollow">
 <title>Sua Frutífera Vai Dar Fruto | Guia de frutíferas em vaso</title>
 <meta name="description" content="O guia que mostra os 7 erros que impedem sua frutífera em vaso de dar fruto, e como corrigir cada um. Mesmo em apartamento. Com fontes da Embrapa e de universidades.">
+<!-- Meta Pixel (o checkout da Kiwify dispara InitiateCheckout e Purchase com o mesmo ID) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1762012128208646');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1762012128208646&ev=PageView&noscript=1"></noscript>
 <style>
   :root {
     --verde: #2f6b3a;
@@ -155,12 +166,6 @@
   .garantia { display: flex; gap: 18px; align-items: flex-start; }
   .garantia svg { flex: 0 0 auto; }
 
-  /* Depoimentos (só depois das primeiras vendas) */
-  .aviso-rascunho {
-    border: 2px dashed #c9b27a; background: #fff8e6; color: #6b5317;
-    border-radius: var(--raio); padding: 16px 18px; font-size: 15px;
-  }
-
   /* FAQ */
   details {
     background: #fff; border: 1px solid var(--borda); border-radius: var(--raio);
@@ -274,7 +279,7 @@
       <li><strong>Diagnóstico: por que minha planta não dá fruto?</strong><span>Os 7 erros, o sinal de cada um na planta e como corrigir.</span></li>
       <li><strong>Escolhendo a muda certa</strong><span>Semente, enxertada ou alporquia, o exame de 2 minutos e as 6 perguntas para o viveiro.</span></li>
       <li><strong>O vaso</strong><span>Tamanho, quando trocar, material, drenagem e o lugar certo.</span></li>
-      <li><strong>Substrato</strong><span>Por que a terra do quintal não serve, e duas receitas testadas.</span></li>
+      <li><strong>Substrato</strong><span>Por que a terra do quintal não serve, duas receitas e um teste simples para saber se acertou.</span></li>
       <li><strong>Plantio passo a passo</strong><span>11 passos e um checklist para o dia do plantio.</span></li>
       <li><strong>Rega</strong><span>Teste do dedo, rega ao longo do ano e como saber se é água demais ou de menos.</span></li>
       <li><strong>Adubação</strong><span>Como ler o NPK, o que dar em cada fase e o calendário do ano.</span></li>
@@ -329,8 +334,8 @@
         <li>Acesso imediato, por e-mail, em PDF</li>
         <li>Garantia de 7 dias</li>
       </ul>
-      <!-- TODO: trocar "#" pelo link de checkout da Kiwify quando o produto estiver criado -->
-      <a class="botao" href="#" data-checkout>Quero meu guia agora</a>
+      <!-- Checkout da Kiwify: aba "Links" do produto -->
+      <a class="botao" href="https://pay.kiwify.com.br/8Z4rg6S" data-checkout>Quero meu guia agora</a>
       <p class="abaixo-botao">Pagamento seguro pela Kiwify · Pix ou cartão</p>
     </div>
   </div>
@@ -352,17 +357,9 @@
   </div>
 </section>
 
-<!-- ============ DEPOIMENTOS ============ -->
-<section class="dor">
-  <div class="container">
-    <h2>O que os leitores dizem</h2>
-    <!-- RASCUNHO: só colocar depoimentos REAIS de quem leu o ebook, com autorização.
-         Nunca usar comentários de vídeos ou de outros produtos. -->
-    <div class="aviso-rascunho">
-      <strong>Espaço reservado.</strong> Depoimentos reais entram aqui depois das primeiras vendas (por exemplo, dando o guia a 5 ou 10 pessoas em troca de uma avaliação sincera). Até lá, esta seção fica fora do ar.
-    </div>
-  </div>
-</section>
+<!-- DEPOIMENTOS: a seção entra aqui depois das primeiras vendas, só com depoimentos REAIS de quem
+     leu o ebook, com autorização (ex.: dar o guia a 5 ou 10 pessoas em troca de uma avaliação
+     sincera). Nunca usar comentários de vídeos ou de outros produtos. -->
 
 <!-- ============ FAQ ============ -->
 <section>
@@ -411,9 +408,9 @@
 
 <footer>
   <div class="container">
-    <!-- TODO: nome do vendedor, contato de suporte e link da política de privacidade -->
+    <!-- TODO: nome completo do vendedor (e CNPJ, se abrir MEI) -->
     <p>Sua Frutífera Vai Dar Fruto · Guia de orientação para cultivo doméstico. Não substitui a avaliação de um engenheiro agrônomo.</p>
-    <p>Suporte: <a href="mailto:contato@exemplo.com">contato@exemplo.com</a></p>
+    <p>Suporte: <a href="mailto:frutiferanovasos2@gmail.com">frutiferanovasos2@gmail.com</a> · <a href="politica-de-privacidade.html">Política de privacidade</a></p>
   </div>
 </footer>
 

@@ -6,10 +6,10 @@ e música são gerados por código, então não tem problema de licença. A narr
 
 | Vídeo | Formato | Duração | Arquivo (em `videos/`) | Texto do anúncio (`legenda.md`) |
 |---|---|---|---|---|
-| 4 — O jeito fácil | Tutorial em 5 passos | 36 s (27 s sem voz) | `video-4-jeito-facil-narrado.mp4` e `video-4-jeito-facil.mp4` | Versão C |
-| 5 — Mito ou verdade | Jogo com 4 afirmações | 37 s | `video-5-mito-ou-verdade-narrado.mp4` | Versão D |
+| 4 — O jeito fácil | Tutorial em 5 passos | 36 s (27 s sem voz) | `video-4-jeito-facil-narrado.mp4` e `video-4-jeito-facil.mp4` | Versão D |
+| 5 — Mito ou verdade | Jogo com 4 afirmações | 37 s | `video-5-mito-ou-verdade-narrado.mp4` | Versão E |
 | 6 — A planta fala | A planta conta os próprios sinais | 28 s | `video-6-a-planta-fala-narrado.mp4` | Versão A |
-| 7 — 6 frutíferas | Lista, uma fruta por vez | 36 s | `video-7-seis-frutiferas-narrado.mp4` | Versão E |
+| 7 — 6 frutíferas | Lista, uma fruta por vez | 36 s | `video-7-seis-frutiferas-narrado.mp4` | Versão F |
 
 Todos em 1080x1920, 30 fps, com som em -16 LUFS. Os quatro terminam sem falar o preço, numa
 curiosidade ("E os outros 3?", "Eu tenho outros sinais", "Quer ver as outras 6?"); o preço fica no
@@ -63,8 +63,8 @@ Os 5 passos do plantio, com o vaso em corte. Tem duas versões, boas para testar
 **Por que o final não fala o preço (mudado em 2026-10-22):** o vídeo termina numa curiosidade de
 verdade em vez de vender. Ele mostra 4 dos 7 erros do cap. 1 (muda, vaso, sol e rega) e tranca os
 outros 3 (adubo, poda e polinização), que estão no ebook. Quem clica vai por vontade própria, e o
-preço aparece na página de venda. Para não estragar a surpresa, use neste vídeo a **Versão C** da
-`legenda.md`: a Versão A lista os 7 erros.
+preço aparece na página de venda. Para não estragar a surpresa, use neste vídeo a **Versão D** da
+`legenda.md`: as versões A e C listam os 7 erros.
 
 ## Vídeo 5 — "Mito ou verdade?" · 37 s
 

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Capa do produto na Kiwify</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Imagem do produto: o tamanho sai da janela do Chrome (1080x900 = proporção 300x250 da Kiwify). Gerar: ver kiwify/textos.md */
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    width: 100vw; height: 100vh; font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: radial-gradient(circle at 50% 40%, #e8f2e3 0%, #cfe0c7 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Mesmo livro dos anúncios (anuncios/imagens/anuncios.html), maior */
+  .livro {
+    width: 560px; height: 794px; background: #2f6b3a; color: #fff; border-radius: 8px 18px 18px 8px;
+    padding: 70px 50px; text-align: center; display: flex; flex-direction: column; align-items: center;
+    box-shadow: -20px 0 0 #1f4a28, 0 50px 90px rgba(31,74,40,.35);
+  }
+  .livro small { font-size: 17px; letter-spacing: .12em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+  .livro b { font-size: 68px; line-height: 1.04; font-weight: 900; margin: 32px 0 20px; letter-spacing: -.02em; }
+  .livro i { font-style: normal; font-size: 24px; opacity: .95; }
+  .livro svg { margin-top: auto; }
+  .livro p { font-size: 17px; opacity: .85; margin-top: 30px; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <div class="livro">
+    <small>Guia prático de frutíferas em vaso</small>
+    <b>Sua Frutífera Vai Dar Fruto</b>
+    <i>Do vaso à colheita, mesmo em apartamento</i>
+    <svg viewBox="0 0 110 110" width="220" height="220" aria-hidden="true">
+      <circle cx="55" cy="38" r="30" fill="#4f9a5c"/><circle cx="40" cy="32" r="6" fill="#f2a33a"/>
+      <circle cx="66" cy="28" r="6" fill="#f2a33a"/><circle cx="58" cy="48" r="6" fill="#f2a33a"/>
+      <rect x="51" y="62" width="8" height="18" fill="#8a5a3b"/><path d="M30 80h50l-6 26H36z" fill="#c96d14"/>
+    </svg>
+    <p>12 capítulos · 12 fichas · 4 bônus para imprimir</p>
+  </div>
+</body>
+</html>

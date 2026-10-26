@@ -159,14 +159,42 @@ Pesquisa de mercado feita em 2026-10-18.
   Rodar `node montar-pdf.mjs` dentro de `diagramacao/` depois de editar os .md. A pasta `ebook/`
   está no .gitignore (o repositório do GitHub é público)
 - [ ] Fotos reais e capa definitiva no PDF
-- [ ] Criar a conta na Kiwify e o produto
-- [ ] Fazer a página de venda (rascunho em `pagina-de-venda/index.html`, 2026-10-18; faltam o link
-  da Kiwify, o contato de suporte, a política de privacidade, fotos reais e depoimentos reais)
+- [x] Criar a conta na Kiwify e o produto (2026-10-20): produto "Sua Frutífera Vai Dar Fruto" ativo,
+  R$ 20, área de membros Lite com o módulo "Seu guia" e a aula "Baixe o seu ebook" (PDF anexado);
+  anti-pirataria com marca d'água e bloqueio de Ctrl+C (impressão e senha desligadas, porque os
+  bônus são para imprimir); e-mail de suporte frutiferanovasos2@gmail.com. Textos e imagens em
+  `kiwify/`. Pendências: apagar o módulo de exemplo "Organizando o Conteúdo", escolher a
+  categoria "Animais e Plantas" e fazer o teste como aluno. Checkout: https://pay.kiwify.com.br/8Z4rg6S
+  (no botão `data-checkout` da página de venda desde 2026-10-21). O card "Meus Cursos" do painel do aluno mostra a capa padrão
+  mesmo com a imagem do produto enviada (trocar pela `capa-produto-300x250.png` não resolveu):
+  perguntar ao suporte da Kiwify; não atrapalha a venda
+- [ ] Fazer a página de venda (`pagina-de-venda/index.html`). Publicada em 2026-10-19 em
+  sua-frutifera-vai-dar-fruto.vercel.app (com noindex até ter domínio próprio); projeto Vercel SEM
+  GitHub conectado: republicar com `npx vercel deploy --prod --scope glsmteste` de dentro de
+  `pagina-de-venda/`. Suporte (frutiferanovasos2@gmail.com) e política de privacidade no ar em
+  2026-10-20; botão de compra ligado ao checkout da Kiwify em 2026-10-21. Faltam o nome completo do
+  vendedor, fotos reais e depoimentos reais
 - [ ] Criar os criativos com o gancho "cresce mas não dá fruto" e testar no Meta (2026-10-18: 2 imagens
-  prontas, roteiros dos 3 vídeos, passo a passo grátis e texto dos anúncios em `anuncios/`; falta
-  montar os vídeos no CapCut e subir no Meta depois da Kiwify. 2026-10-19: vídeo 4 "O jeito fácil" pronto,
-  animado em código com efeitos sonoros, com e sem narração (voz feminina), em `anuncios/videos/`; fonte em
-  `anuncios/motion/`. 2026-10-22: o final deixou de falar o preço e termina na curiosidade dos 3 erros que
-  faltam; usa a Versão C da `legenda.md`. 2026-10-23: mais 3 vídeos narrados em código, cada um num
-  formato: 5 "Mito ou verdade", 6 "A planta fala" (a planta conta os próprios sinais) e 7 "6 frutíferas"; tudo
-  sobre os vídeos 4 a 7 em `anuncios/videos-em-codigo.md`)
+  prontas, roteiros dos 3 vídeos, passo a passo grátis e texto dos anúncios em `anuncios/`; o
+  Gustavo já montou 1 vídeo (fora do git). Dá para começar com 2 imagens + 1 vídeo. Além desses, os
+  vídeos 4 a 7 estão prontos, feitos em código e narrados (voz feminina): 4 "O jeito fácil" (2026-10-19,
+  com e sem narração, final sem preço na curiosidade dos 3 erros que faltam), 5 "Mito ou verdade",
+  6 "A planta fala" (a planta conta os próprios sinais) e 7 "6 frutíferas" (2026-10-23); MP4 em
+  `anuncios/videos/` (fora do git), fonte em `anuncios/motion/`, tudo em `anuncios/videos-em-codigo.md`)
+- [x] Página no Facebook "Sua Frutífera Vai Dar Fruto" criada (2026-10-20), categoria Site de
+  educação, com capa e foto de `facebook/`
+- [x] Pixel da Meta criado (2026-10-21), ID 1762012128208646, conta de anúncios act=1318830253601896.
+  Instalado na página de venda e na política (PageView conferido) e na Kiwify (Produto →
+  Configurações → Pixels de conversão; "Purchase ao gerar pix/boleto" desligados, só conta compra
+  paga). Conferir InitiateCheckout e Purchase no Gerenciador de Eventos na primeira compra (teste)
+- [x] 1ª campanha no Meta publicada (2026-10-25), programada para começar em 2026-10-26 às 8h:
+  Vendas, evento Comprar, orçamento de campanha R$ 20/dia, sem data de término, cartão de crédito
+  com R$ 130 de limite; 2 imagens + 1 vídeo; textos A, B e C da `anuncios/legenda.md`; CTA
+  "Saiba mais". Sem compra de teste: confirmar InitiateCheckout no Gerenciador de Eventos com os
+  primeiros cliques e Purchase na primeira venda. Olhar CTR, CPC e custo por compra com ~R$ 60
+  gastos (3 dias); só subir orçamento se a venda sair abaixo de R$ 15,71, de 20% a 30% por vez
+- [x] **Plano que guiou o lançamento (2026-10-21):** Parte 2: forma de pagamento na conta de anúncios do
+  Meta; Parte 4:
+  campanha de Vendas com os 3 criativos e o texto da `anuncios/legenda.md`. Antes de gastar: postar
+  o conteúdo de graça (Instagram, grupos de Facebook) e combinar um limite de perda (ex.: R$ 100);
+  cada venda deixa cerca de R$ 15,71 depois da taxa da Kiwify
