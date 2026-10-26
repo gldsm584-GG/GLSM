@@ -22,6 +22,7 @@ infoprodutos/*/ebook/
 
 # Vídeos de anúncio e cenas baixadas (pesados demais para o git)
 infoprodutos/*/anuncios/videos/
+infoprodutos/*/facebook/videos/
 
 # Arquivos temporários
 *.log
