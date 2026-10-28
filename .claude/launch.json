@@ -88,6 +88,19 @@
         "dev"
       ],
       "port": 3100
+    },
+    {
+      "name": "frutiferas-pagina-de-venda",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "infoprodutos/frutiferas-em-vaso/pagina-de-venda",
+        "-l",
+        "4324",
+        "--no-clipboard"
+      ],
+      "port": 4324
     }
   ]
 }

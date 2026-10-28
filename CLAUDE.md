@@ -134,6 +134,8 @@ prospecção do Gustavo.
 - `dados/` — arquivos a analisar
 - `infoprodutos/` — meus produtos digitais (ebooks), uma subpasta por
   produto (ex: `infoprodutos/frutiferas-em-vaso/`)
+- `equipe/` — equipe de agentes do Maestri (texto dos papéis e conexão
+  com o WanGP)
 
 **Quem sou:** Gustavo, freelancer criando sites profissionais pra
 qualquer tipo de comércio. Ainda sem nicho fechado.
@@ -205,3 +207,33 @@ Primeiro em construção desde 2026-10-18: frutíferas em vaso
 - Logo e identidade visual de um cliente ficam dentro da pasta do
   próprio cliente, não em `identidade/` (essa é reservada pra marca
   pessoal do Gustavo)
+
+## Equipe de agentes (Maestri)
+
+Desde 2026-10-27 os infoprodutos são feitos por uma equipe no Maestri
+(workspace "meta 10k"). O texto de cada papel e o passo a passo pra
+montar a equipe estão em `equipe/papeis.md`.
+
+- **Operação** é o terminal Maestro. Se você é o Maestro, você é a
+  Operação: recebe o pedido do Gustavo, divide em etapas, mantém a nota
+  "quadro" no canvas (etapa, dono, status), passa as tarefas e revisa
+  antes de devolver. Só ela atualiza `_memoria/` e este `CLAUDE.md`.
+- **Raiz (Produto):** estrutura, capítulos, bônus e PDF do ebook.
+- **Verbo (Copy):** título, `copy-pagina.md`, textos da Kiwify e dos anúncios.
+- **Prumo (Site):** `pagina-de-venda/` e, quando pedido, sites de clientes.
+- **Lente (Mídia):** vídeos e imagens no WanGP (`anuncios/imagens`,
+  `facebook/videos`, `facebook/fotos`).
+
+Regras da equipe:
+- A ordem é Produto, depois Copy, depois Site e Mídia ao mesmo tempo, e
+  no fim a revisão da Operação antes de ir pro Gustavo.
+- Cada agente só edita a própria área. Se precisar de mudança na área de
+  outro, pede pra Operação.
+- Toda tarefa passada termina pedindo retorno com `maestri ask`.
+- Antes de devolver, a Operação confere a fonte no fim de cada capítulo,
+  se a copy não promete além do ebook, se a página responde 200 com
+  noindex e se os criativos estão em 1080x1350 e 1080x1920.
+- Conta, dinheiro e publicação (Kiwify, anúncios no Meta, mensagens) são
+  sempre do Gustavo.
+- A Mídia só funciona com o WanGP aberto pelo `Abrir WanGP.bat`, que já
+  liga o MCP em http://127.0.0.1:8000/mcp.
