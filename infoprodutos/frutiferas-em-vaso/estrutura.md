@@ -193,6 +193,16 @@ Pesquisa de mercado feita em 2026-10-18.
   "Saiba mais". Sem compra de teste: confirmar InitiateCheckout no Gerenciador de Eventos com os
   primeiros cliques e Purchase na primeira venda. Olhar CTR, CPC e custo por compra com ~R$ 60
   gastos (3 dias); só subir orçamento se a venda sair abaixo de R$ 15,71, de 20% a 30% por vez
+- [x] **1ª venda (2026-10-28, Pix):** o Purchase chegou no Pixel (só pelo navegador, via
+  `pixels.kiwify.com.br`), mas a campanha mostrou 0 compras com R$ 42,80 gastos: o Meta não ligou a
+  compra a um clique no anúncio. Correções no mesmo dia: o botão da página passou a repassar
+  `fbclid` e `utm_*` para o checkout da Kiwify; os anúncios ganharam os parâmetros de URL
+  `utm_source=facebook&utm_medium=paid&utm_campaign={{campaign.name}}&utm_term={{adset.name}}&utm_content={{ad.name}}`
+  (5 de 6: o C3 com "Erro de configuração", imagem indisponível, ficou sem, e é o de CPM mais alto).
+  Falta o Gustavo gerar o token da API de Conversões no Gerenciador de Eventos (Configurações) e
+  colar na Kiwify (Pixel → engrenagem → Token da API de Conversão → Salvar alterações → Salvar
+  produto). Não adicionar só o domínio da Vercel na lista de permissões do Pixel: bloquearia os
+  eventos da Kiwify
 - [x] **Plano que guiou o lançamento (2026-10-21):** Parte 2: forma de pagamento na conta de anúncios do
   Meta; Parte 4:
   campanha de Vendas com os 3 criativos e o texto da `anuncios/legenda.md`. Antes de gastar: postar

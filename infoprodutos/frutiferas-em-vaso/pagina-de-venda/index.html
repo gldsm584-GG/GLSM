@@ -352,6 +352,13 @@ fbq('track', 'PageView');
     zoom.scrollTo(0, 0);
   }));
   zoom.addEventListener('click', e => { if (e.target === zoom) zoom.close(); });
+
+  // Leva fbclid e utm_* do anúncio para o checkout: o Meta liga a compra ao clique e a Kiwify mostra a origem da venda.
+  document.querySelectorAll('[data-checkout]').forEach(a => {
+    const url = new URL(a.href);
+    new URLSearchParams(location.search).forEach((v, k) => url.searchParams.set(k, v));
+    a.href = url;
+  });
 </script>
 
 </body>
