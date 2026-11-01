@@ -123,16 +123,29 @@ o material até chegarem depoimentos reais.
 
 ## 6. O que falta para lançar (2026-11-01)
 
-1. [ ] **Gustavo:** criar o produto na Wiapy (Natal Mágico, R$ 19,90, os
-   3 PDFs de `entregaveis/`, capa, garantia de 7 dias) e mandar o link de
-   venda do checkout
-2. [ ] **Claude:** pôr o link no botão `data-checkout` da oferta (o script
-   da página já repassa `fbclid` e `utm_*`), o Meta Pixel (mesmo bloco da
-   página de frutíferas) e o rodapé com o nome do vendedor e a política
-   de privacidade
-3. [ ] **Claude, com OK do Gustavo:** publicar `pagina-de-venda/` na
-   Vercel com `noindex`, igual à frutíferas (`npx vercel deploy --prod
-   --scope glsmteste` de dentro da pasta, sem `vercel link`)
+1. [x] **Produto na Wiapy** (2026-11-01). Conta ativa (pessoa física,
+   Nubank 260, agência 0001). *Conteúdo entregável* "Natal Mágico" (E-book,
+   categoria Educacional, capa `capa-wiapy-1080x1920.jpg`, os 3 PDFs) e
+   *produto* "Natal Mágico" (pagamento único, Pix + cartão, R$ 19,90, 1x,
+   suporte gldsm584@gmail.com, nome de exibição "Natal Mágico", tema Light,
+   thumb `thumb-wiapy-800x800.jpg`). Checkout:
+   **https://pay.wiapy.com/6ae7abc92da3da6ee2ed677b**. Na ativação, o
+   Complemento do endereço é obrigatório mesmo sem asterisco.
+   - [x] E-mail de suporte confirmado em 2026-11-01; checkout aberto
+     (R$ 19,90 à vista, Pix, cartão e Google Pay)
+   - [ ] Garantia de 7 dias: não apareceu no formulário do produto; conferir
+     na Wiapy
+2. [ ] **Claude:** link do checkout no botão `data-checkout` da oferta
+   (feito em 2026-11-01; o script da página repassa `fbclid` e `utm_*`).
+   Faltam o Meta Pixel (mesmo bloco da página de frutíferas) e o rodapé com
+   o nome do vendedor e a política de privacidade
+3. [x] **Claude, com OK do Gustavo:** publicar `pagina-de-venda/` na
+   Vercel com `noindex`. No ar desde 2026-11-01 em
+   https://natal-magico-gamma.vercel.app (projeto `natal-magico`, o nome
+   `natal-magico.vercel.app` já era de outro). O 1º deploy ligou o GitHub
+   sozinho; desligado com `npx vercel git disconnect --yes --scope
+   glsmteste`. Republicar com `npx vercel deploy --prod --scope glsmteste`
+   de dentro da pasta e conferir com `curl`
 4. [ ] **Gustavo:** ligar o Pixel no checkout da Wiapy
 5. [ ] **Gustavo:** compra de teste do começo ao fim (página, checkout,
    e-mail com os PDFs, `Purchase` no Gerenciador de Eventos)
