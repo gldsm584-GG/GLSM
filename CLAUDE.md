@@ -145,6 +145,9 @@ qualquer tipo de comércio. Ainda sem nicho fechado.
 **Infoprodutos:** ebooks baratos (R$ 20–30) de problema do dia a dia.
 Primeiro em construção desde 2026-10-18: frutíferas em vaso
 (`infoprodutos/frutiferas-em-vaso/`).
+Segundo: Natal Mágico (`infoprodutos/atividades-natal-colorir/`), kit pra
+família com 15 desenhos + 20 moldes + 10 atividades, R$ 19,90, vendido
+pela Wiapy (desde 2026-11-01; os outros continuam na Kiwify).
 
 **Clientes ativos:**
 - Plavii (em prospecção — loja Next.js funcional em
@@ -233,7 +236,7 @@ Regras da equipe:
 - Antes de devolver, a Operação confere a fonte no fim de cada capítulo,
   se a copy não promete além do ebook, se a página responde 200 com
   noindex e se os criativos estão em 1080x1350 e 1080x1920.
-- Conta, dinheiro e publicação (Kiwify, anúncios no Meta, mensagens) são
+- Conta, dinheiro e publicação (Kiwify, Wiapy, anúncios no Meta, mensagens) são
   sempre do Gustavo.
 - A Mídia só funciona com o WanGP aberto pelo `Abrir WanGP.bat`, que já
   liga o MCP em http://127.0.0.1:8000/mcp.

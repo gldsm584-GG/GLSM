@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Natal Mágico · Atividades</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Nunito, sans-serif; color: #222; background: #fff; }
+  .pag { width: 210mm; height: 297mm; padding: 12mm 14mm 8mm; display: flex; flex-direction: column; break-after: page; overflow: hidden; }
+  .rotulo { margin: 0; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #888; }
+  h1 { font: 600 32px/1.15 Fredoka, sans-serif; text-align: center; margin: 1mm 0 2mm; }
+  .inst { text-align: center; font-size: 16px; font-weight: 600; margin: 0 0 6mm; }
+  .corpo { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8mm; min-height: 0; }
+  .rodape { margin: 0; text-align: center; font-size: 11px; color: #aaa; }
+  img { display: block; object-fit: contain; }
+
+  .caca { border-collapse: collapse; border: 2.5px solid #222; }
+  .caca td { width: 15mm; height: 15mm; border: 1px solid #bbb; text-align: center; font: 600 26px Fredoka, sans-serif; }
+  .lista { display: grid; grid-template-columns: repeat(4, auto); gap: 4mm 9mm; }
+  .lista span { display: flex; align-items: center; gap: 2mm; font: 600 18px Fredoka, sans-serif; letter-spacing: .06em; }
+
+  .lab svg line { stroke: #222; stroke-width: 2.2; stroke-linecap: round; }
+  .lab { display: grid; grid-template-columns: auto; justify-items: start; }
+  .lab .fim { justify-self: end; }
+
+  .sombras { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 40mm; }
+  .sombras div { display: flex; align-items: center; gap: 5mm; height: 38mm; }
+  .sombras div:nth-child(even) { flex-direction: row-reverse; }
+  .ponto { width: 4mm; height: 4mm; border-radius: 50%; background: #222; flex: 0 0 auto; }
+
+  .conta { position: relative; width: 182mm; height: 128mm; border: 2.5px solid #222; border-radius: 6mm; }
+  .conta img { position: absolute; width: 22mm; height: 22mm; }
+  .respostas { display: flex; justify-content: space-between; width: 170mm; }
+  .respostas div { display: flex; align-items: center; justify-content: center; gap: 3mm; font: 600 28px Fredoka, sans-serif; }
+  .caixa { width: 15mm; height: 15mm; border: 2.5px solid #222; border-radius: 3mm; }
+
+  .sudoku { display: grid; grid-template-columns: repeat(4, 34mm); border: 3px solid #222; }
+  .sudoku div { height: 34mm; border: 1px solid #999; display: flex; align-items: center; justify-content: center; }
+  .sudoku div:nth-child(4n+2) { border-right: 3px solid #222; }
+  .sudoku div:nth-child(n+5):nth-child(-n+8) { border-bottom: 3px solid #222; }
+  .recortar { display: grid; grid-template-columns: repeat(8, 21mm); border-top: 1.5px dashed #555; border-left: 1.5px dashed #555; }
+  .recortar div { height: 21mm; border-right: 1.5px dashed #555; border-bottom: 1.5px dashed #555; display: flex; align-items: center; justify-content: center; }
+
+  .cartas { display: grid; grid-template-columns: repeat(4, 44mm); border-top: 1.5px dashed #555; border-left: 1.5px dashed #555; }
+  .cartas div { height: 37mm; border-right: 1.5px dashed #555; border-bottom: 1.5px dashed #555; display: flex; align-items: center; justify-content: center; }
+
+  .cartelas { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm 10mm; }
+  .cartela { border: 2.5px solid #222; border-radius: 4mm; padding: 3mm; }
+  .cartela p { margin: 0 0 2mm; text-align: center; font: 600 22px Fredoka, sans-serif; letter-spacing: .3em; }
+  .cartela .g { display: grid; grid-template-columns: repeat(3, 26mm); border-top: 1px solid #999; border-left: 1px solid #999; }
+  .cartela .g div { height: 26mm; border-right: 1px solid #999; border-bottom: 1px solid #999; display: flex; align-items: center; justify-content: center; }
+  .fichas { display: grid; grid-template-columns: repeat(5, 34mm); border-top: 1.5px dashed #555; border-left: 1.5px dashed #555; }
+  .fichas div { height: 34mm; border-right: 1.5px dashed #555; border-bottom: 1.5px dashed #555; display: flex; align-items: center; justify-content: center; }
+
+  .enfeites { display: grid; grid-template-columns: repeat(4, 43mm); grid-auto-rows: 43mm; gap: 2mm; }
+  .enfeites img { width: 100%; height: 100%; }
+  .metades { display: grid; grid-template-columns: repeat(2, 84mm); gap: 7mm 10mm; }
+  .metade { position: relative; height: 70mm; border: 2.5px solid #222; border-radius: 5mm; }
+  .metade::after { content: ""; position: absolute; left: 50%; top: 2mm; bottom: 2mm; border-left: 1.8px dashed #444; }
+  .corte { position: absolute; right: 50%; top: 50%; transform: translateY(-50%); overflow: hidden; }
+  .carta { width: 182mm; display: flex; flex-direction: column; gap: 5mm; font-size: 18px; font-weight: 700; }
+  .linha { border-bottom: 1.5px solid #555; height: 11mm; }
+  .desenho { height: 70mm; border: 2.5px dashed #555; border-radius: 6mm; display: flex; align-items: flex-start; justify-content: center; padding-top: 3mm; color: #777; font-size: 15px; }
+  .cantos { display: flex; justify-content: space-between; align-items: flex-end; }
+</style></head><body>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 1</p>
+  <h1>Caça-palavras de Natal</h1>
+  <p class="inst">Encontre as 8 palavras escondidas. Elas estão deitadas ou em pé.</p>
+  <div class="corpo">
+  <table class="caca"><tr><td>A</td><td>N</td><td>V</td><td>U</td><td>Z</td><td>S</td><td>P</td><td>A</td><td>Z</td><td>V</td></tr><tr><td>J</td><td>A</td><td>J</td><td>A</td><td>F</td><td>T</td><td>R</td><td>V</td><td>M</td><td>E</td></tr><tr><td>C</td><td>T</td><td>S</td><td>L</td><td>Z</td><td>T</td><td>E</td><td>E</td><td>G</td><td>G</td></tr><tr><td>P</td><td>A</td><td>I</td><td>T</td><td>E</td><td>N</td><td>S</td><td>R</td><td>V</td><td>O</td></tr><tr><td>B</td><td>L</td><td>N</td><td>M</td><td>C</td><td>V</td><td>E</td><td>E</td><td>O</td><td>R</td></tr><tr><td>N</td><td>E</td><td>O</td><td>E</td><td>G</td><td>E</td><td>N</td><td>N</td><td>D</td><td>R</td></tr><tr><td>U</td><td>H</td><td>B</td><td>I</td><td>H</td><td>L</td><td>T</td><td>A</td><td>V</td><td>O</td></tr><tr><td>T</td><td>N</td><td>E</td><td>V</td><td>E</td><td>A</td><td>E</td><td>O</td><td>R</td><td>H</td></tr><tr><td>F</td><td>E</td><td>S</td><td>T</td><td>R</td><td>E</td><td>L</td><td>A</td><td>J</td><td>E</td></tr><tr><td>B</td><td>C</td><td>Z</td><td>C</td><td>T</td><td>Z</td><td>C</td><td>D</td><td>D</td><td>G</td></tr></table>
+  <div class="lista"><span><img src="icones/f3-4.png" style="width:12mm;height:12mm" alt="">NATAL</span><span><img src="icones/g1-7.png" style="width:12mm;height:12mm" alt="">NEVE</span><span><img src="icones/g1-3.png" style="width:12mm;height:12mm" alt="">SINO</span><span><img src="icones/f3-1.png" style="width:12mm;height:12mm" alt="">RENA</span><span><img src="icones/g1-2.png" style="width:12mm;height:12mm" alt="">ESTRELA</span><span><img src="icones/f3-3.png" style="width:12mm;height:12mm" alt="">PRESENTE</span><span><img src="icones/f1-1.png" style="width:12mm;height:12mm" alt="">VELA</span><span><img src="icones/f1-5.png" style="width:12mm;height:12mm" alt="">GORRO</span></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 2</p>
+  <h1>Labirinto do Papai Noel</h1>
+  <p class="inst">Ajude o Papai Noel a chegar até o presente.</p>
+  <div class="corpo">
+  <div class="lab"><img src="icones/f3-2.png" style="width:26mm;height:26mm;margin-left:-2mm" alt=""><svg width="166mm" height="184mm" viewBox="-2 -2 166 184">
+    <line x1="18" y1="0" x2="36" y2="0"/><line x1="36" y1="0" x2="54" y2="0"/><line x1="54" y1="0" x2="72" y2="0"/><line x1="72" y1="0" x2="90" y2="0"/><line x1="90" y1="0" x2="108" y2="0"/><line x1="108" y1="0" x2="126" y2="0"/><line x1="126" y1="0" x2="144" y2="0"/><line x1="144" y1="0" x2="162" y2="0"/><line x1="0" y1="18" x2="18" y2="18"/><line x1="54" y1="18" x2="72" y2="18"/><line x1="72" y1="18" x2="90" y2="18"/><line x1="108" y1="18" x2="126" y2="18"/><line x1="54" y1="36" x2="72" y2="36"/><line x1="72" y1="36" x2="90" y2="36"/><line x1="126" y1="36" x2="144" y2="36"/><line x1="72" y1="54" x2="90" y2="54"/><line x1="90" y1="54" x2="108" y2="54"/><line x1="108" y1="54" x2="126" y2="54"/><line x1="126" y1="54" x2="144" y2="54"/><line x1="18" y1="72" x2="36" y2="72"/><line x1="90" y1="72" x2="108" y2="72"/><line x1="108" y1="72" x2="126" y2="72"/><line x1="0" y1="90" x2="18" y2="90"/><line x1="108" y1="90" x2="126" y2="90"/><line x1="18" y1="108" x2="36" y2="108"/><line x1="36" y1="108" x2="54" y2="108"/><line x1="90" y1="108" x2="108" y2="108"/><line x1="0" y1="126" x2="18" y2="126"/><line x1="18" y1="126" x2="36" y2="126"/><line x1="108" y1="126" x2="126" y2="126"/><line x1="18" y1="144" x2="36" y2="144"/><line x1="36" y1="144" x2="54" y2="144"/><line x1="90" y1="144" x2="108" y2="144"/><line x1="72" y1="162" x2="90" y2="162"/><line x1="126" y1="162" x2="144" y2="162"/><line x1="0" y1="180" x2="18" y2="180"/><line x1="18" y1="180" x2="36" y2="180"/><line x1="36" y1="180" x2="54" y2="180"/><line x1="54" y1="180" x2="72" y2="180"/><line x1="72" y1="180" x2="90" y2="180"/><line x1="90" y1="180" x2="108" y2="180"/><line x1="108" y1="180" x2="126" y2="180"/><line x1="126" y1="180" x2="144" y2="180"/><line x1="0" y1="0" x2="0" y2="18"/><line x1="36" y1="0" x2="36" y2="18"/><line x1="144" y1="0" x2="144" y2="18"/><line x1="162" y1="0" x2="162" y2="18"/><line x1="0" y1="18" x2="0" y2="36"/><line x1="18" y1="18" x2="18" y2="36"/><line x1="36" y1="18" x2="36" y2="36"/><line x1="90" y1="18" x2="90" y2="36"/><line x1="108" y1="18" x2="108" y2="36"/><line x1="144" y1="18" x2="144" y2="36"/><line x1="162" y1="18" x2="162" y2="36"/><line x1="0" y1="36" x2="0" y2="54"/><line x1="18" y1="36" x2="18" y2="54"/><line x1="36" y1="36" x2="36" y2="54"/><line x1="54" y1="36" x2="54" y2="54"/><line x1="108" y1="36" x2="108" y2="54"/><line x1="162" y1="36" x2="162" y2="54"/><line x1="0" y1="54" x2="0" y2="72"/><line x1="36" y1="54" x2="36" y2="72"/><line x1="54" y1="54" x2="54" y2="72"/><line x1="72" y1="54" x2="72" y2="72"/><line x1="144" y1="54" x2="144" y2="72"/><line x1="162" y1="54" x2="162" y2="72"/><line x1="0" y1="72" x2="0" y2="90"/><line x1="36" y1="72" x2="36" y2="90"/><line x1="54" y1="72" x2="54" y2="90"/><line x1="72" y1="72" x2="72" y2="90"/><line x1="90" y1="72" x2="90" y2="90"/><line x1="126" y1="72" x2="126" y2="90"/><line x1="144" y1="72" x2="144" y2="90"/><line x1="162" y1="72" x2="162" y2="90"/><line x1="0" y1="90" x2="0" y2="108"/><line x1="36" y1="90" x2="36" y2="108"/><line x1="54" y1="90" x2="54" y2="108"/><line x1="72" y1="90" x2="72" y2="108"/><line x1="90" y1="90" x2="90" y2="108"/><line x1="126" y1="90" x2="126" y2="108"/><line x1="144" y1="90" x2="144" y2="108"/><line x1="162" y1="90" x2="162" y2="108"/><line x1="0" y1="108" x2="0" y2="126"/><line x1="54" y1="108" x2="54" y2="126"/><line x1="72" y1="108" x2="72" y2="126"/><line x1="108" y1="108" x2="108" y2="126"/><line x1="144" y1="108" x2="144" y2="126"/><line x1="162" y1="108" x2="162" y2="126"/><line x1="0" y1="126" x2="0" y2="144"/><line x1="54" y1="126" x2="54" y2="144"/><line x1="72" y1="126" x2="72" y2="144"/><line x1="90" y1="126" x2="90" y2="144"/><line x1="126" y1="126" x2="126" y2="144"/><line x1="144" y1="126" x2="144" y2="144"/><line x1="162" y1="126" x2="162" y2="144"/><line x1="0" y1="144" x2="0" y2="162"/><line x1="18" y1="144" x2="18" y2="162"/><line x1="54" y1="144" x2="54" y2="162"/><line x1="72" y1="144" x2="72" y2="162"/><line x1="108" y1="144" x2="108" y2="162"/><line x1="126" y1="144" x2="126" y2="162"/><line x1="144" y1="144" x2="144" y2="162"/><line x1="162" y1="144" x2="162" y2="162"/><line x1="0" y1="162" x2="0" y2="180"/><line x1="36" y1="162" x2="36" y2="180"/><line x1="72" y1="162" x2="72" y2="180"/><line x1="108" y1="162" x2="108" y2="180"/><line x1="162" y1="162" x2="162" y2="180"/></svg><div class="fim"><img src="icones/f3-3.png" style="width:24mm;height:24mm;margin-right:-1mm" alt=""></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 3</p>
+  <h1>Qual é a sombra?</h1>
+  <p class="inst">Ligue cada desenho à sua sombra.</p>
+  <div class="corpo">
+  <div class="sombras">
+    <div><img src="icones/f3-4.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/f3-3-sombra.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/g1-7.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/f3-4-sombra.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/g1-9.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/f4-4-sombra.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/f3-3.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/g1-7-sombra.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/f4-4.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div>
+    <div><img src="icones/g1-9-sombra.png" style="width:34mm;height:34mm" alt=""><span class="ponto"></span></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 4</p>
+  <h1>Conte os enfeites</h1>
+  <p class="inst">Conte quantos tem de cada desenho e escreva o número na caixinha.</p>
+  <div class="corpo">
+  <div class="conta"><img src="icones/g1-2.png" style="left:93.78923889622092mm;top:36.04709494393319mm;transform:rotate(10.843933258205652deg)" alt=""><img src="icones/g1-2.png" style="left:92.12185853999108mm;top:65.50565100554377mm;transform:rotate(11.168597716838121deg)" alt=""><img src="icones/g1-2.png" style="left:8.61290334071964mm;top:68.36169324209914mm;transform:rotate(0.12400670349597931deg)" alt=""><img src="icones/g1-2.png" style="left:124.18147274199873mm;top:68.86446594027802mm;transform:rotate(10.641451936215162deg)" alt=""><img src="icones/g1-3.png" style="left:3.1930259191431105mm;top:93.92340705776587mm;transform:rotate(1.435367887839675deg)" alt=""><img src="icones/g1-3.png" style="left:4.327992606908083mm;top:3.662530685774982mm;transform:rotate(-1.545208202674985deg)" alt=""><img src="icones/g1-3.png" style="left:90.7188420407474mm;top:6.310456831008196mm;transform:rotate(-9.355143869295716deg)" alt=""><img src="icones/f3-3.png" style="left:37.00155096035451mm;top:6.415520975366235mm;transform:rotate(-2.7958579044789076deg)" alt=""><img src="icones/f3-3.png" style="left:64.54576412914321mm;top:64.09034869261086mm;transform:rotate(-8.268888708204031deg)" alt=""><img src="icones/f3-3.png" style="left:64.55889523681253mm;top:36.01590110035613mm;transform:rotate(9.286377573385835deg)" alt=""><img src="icones/f3-3.png" style="left:36.91068693622947mm;top:95.30451366584748mm;transform:rotate(-2.3320872746407986deg)" alt=""><img src="icones/f3-3.png" style="left:153.54321624943987mm;top:64.68258413253352mm;transform:rotate(-3.0156680569052696deg)" alt=""><img src="icones/f4-4.png" style="left:121.29270773287863mm;top:5.939808177296072mm;transform:rotate(-7.410187991335988deg)" alt=""><img src="icones/f4-4.png" style="left:151.75358020840213mm;top:35.14948522578925mm;transform:rotate(-10.435237051919103deg)" alt=""></div>
+  <div class="respostas"><div><img src="icones/g1-2.png" style="width:15mm;height:15mm" alt="">=<span class="caixa"></span></div><div><img src="icones/g1-3.png" style="width:15mm;height:15mm" alt="">=<span class="caixa"></span></div><div><img src="icones/f3-3.png" style="width:15mm;height:15mm" alt="">=<span class="caixa"></span></div><div><img src="icones/f4-4.png" style="width:15mm;height:15mm" alt="">=<span class="caixa"></span></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 5</p>
+  <h1>Sudoku de Natal</h1>
+  <p class="inst">Cada fileira, cada coluna e cada quadrado grande tem um de cada desenho. Recorte as figuras de baixo e cole nos espaços vazios, ou desenhe.</p>
+  <div class="corpo">
+  <div class="sudoku"><div><img src="icones/g1-2.png" style="width:26mm;height:26mm" alt=""></div><div></div><div></div><div></div><div><img src="icones/g1-3.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f3-4.png" style="width:26mm;height:26mm" alt=""></div><div></div><div></div><div><img src="icones/f3-3.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/g1-2.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f3-4.png" style="width:26mm;height:26mm" alt=""></div><div></div><div></div><div><img src="icones/g1-3.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f3-3.png" style="width:26mm;height:26mm" alt=""></div><div></div></div>
+  <div class="recortar"><div><img src="icones/f3-3.png" style="width:16mm;height:16mm" alt=""></div><div><img src="icones/g1-3.png" style="width:16mm;height:16mm" alt=""></div><div><img src="icones/f3-4.png" style="width:16mm;height:16mm" alt=""></div><div><img src="icones/g1-2.png" style="width:16mm;height:16mm" alt=""></div><div><img src="icones/f3-3.png" style="width:16mm;height:16mm" alt=""></div><div><img src="icones/g1-3.png" style="width:16mm;height:16mm" alt=""></div><div><img src="icones/f3-4.png" style="width:16mm;height:16mm" alt=""></div><div><img src="icones/g1-2.png" style="width:16mm;height:16mm" alt=""></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 6</p>
+  <h1>Jogo da memória</h1>
+  <p class="inst">Pinte as cartas, recorte na linha pontilhada e brinque de achar os pares.</p>
+  <div class="corpo">
+  <div class="cartas"><div><img src="icones/f3-4.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-3.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f4-2.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-2.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-2.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f4-2.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f4-1.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f4-1.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-3.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-9.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-4.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-1.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-5.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-7.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f4-4.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-2.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-1.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f4-4.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-3.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-9.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-3.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-5.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/f3-2.png" style="width:28mm;height:28mm" alt=""></div><div><img src="icones/g1-7.png" style="width:28mm;height:28mm" alt=""></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 7</p>
+  <h1>Bingo de Natal</h1>
+  <p class="inst">Cada um pega uma cartela. Quando o desenho sorteado sair, marque com um feijão ou pinte. Quem completar a cartela grita BINGO!</p>
+  <div class="corpo">
+  <div class="cartelas"><div class="cartela"><p>BINGO</p><div class="g"><div><img src="icones/f4-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-3.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-4.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/g1-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-4.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-5.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/g1-9.png" style="width:20mm;height:20mm" alt=""></div></div></div><div class="cartela"><p>BINGO</p><div class="g"><div><img src="icones/f3-5.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f1-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/g1-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-4.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/g1-9.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-2.png" style="width:20mm;height:20mm" alt=""></div></div></div><div class="cartela"><p>BINGO</p><div class="g"><div><img src="icones/g1-7.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/g1-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-4.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-5.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f1-5.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/g1-3.png" style="width:20mm;height:20mm" alt=""></div></div></div><div class="cartela"><p>BINGO</p><div class="g"><div><img src="icones/f3-4.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-4.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-3.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-1.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f1-5.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-5.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f3-2.png" style="width:20mm;height:20mm" alt=""></div><div><img src="icones/f4-5.png" style="width:20mm;height:20mm" alt=""></div></div></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 7</p>
+  <h1>Fichas do bingo</h1>
+  <p class="inst">Recorte as fichas, coloque num saquinho e sorteie uma de cada vez.</p>
+  <div class="corpo">
+  <div class="fichas"><div><img src="icones/f3-2.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f3-1.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/g1-7.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f4-1.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f3-4.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f3-3.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/g1-3.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/g1-2.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/g1-9.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f4-4.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f4-2.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f3-5.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f1-5.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f1-1.png" style="width:26mm;height:26mm" alt=""></div><div><img src="icones/f4-5.png" style="width:26mm;height:26mm" alt=""></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 8</p>
+  <h1>Cartinha para o Papai Noel</h1>
+  <p class="inst">Escreva ou peça ajuda para um adulto. Depois, desenhe o seu pedido.</p>
+  <div class="corpo">
+  <div class="carta">
+    <div class="cantos"><img src="icones/g1-2.png" style="width:16mm;height:16mm" alt=""><img src="icones/f3-2.png" style="width:30mm;height:30mm" alt=""><img src="icones/f3-3.png" style="width:16mm;height:16mm" alt=""></div>
+    <div>Querido Papai Noel,</div>
+    <div>Meu nome é <span style="display:inline-block;width:80mm;border-bottom:1.5px solid #555"></span> e eu tenho <span style="display:inline-block;width:14mm;border-bottom:1.5px solid #555"></span> anos.</div>
+    <div class="linha"></div><div class="linha"></div><div class="linha"></div><div class="linha"></div>
+    <div class="desenho">Desenhe aqui o que você quer ganhar</div>
+    <div>Com carinho, <span style="display:inline-block;width:100mm;border-bottom:1.5px solid #555"></span></div>
+  </div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 9</p>
+  <h1>Decore a árvore</h1>
+  <p class="inst">Pinte e recorte os enfeites da próxima página e cole na árvore. Se quiser, desenhe mais enfeites!</p>
+  <div class="corpo">
+  <img src="atividade%209/%C3%81rvore%20de%20Natal%20para%20Colorir.png" style="height:222mm;width:auto;filter:brightness(1.05)" alt=""></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 9</p>
+  <h1>Enfeites para a árvore</h1>
+  <p class="inst">Pinte os enfeites, recorte na linha pontilhada e cole na árvore.</p>
+  <div class="corpo">
+  <div class="enfeites"><img src="icones/g1-2-recorte.png" alt=""><img src="icones/g1-3-recorte.png" alt=""><img src="icones/f2-2-recorte.png" alt=""><img src="icones/f1-3-recorte.png" alt=""><img src="icones/g1-3-recorte.png" alt=""><img src="icones/g1-2-recorte.png" alt=""><img src="icones/g1-8-recorte.png" alt=""><img src="icones/g1-6-recorte.png" alt=""><img src="icones/f3-5-recorte.png" alt=""><img src="icones/f1-3-recorte.png" alt=""><img src="icones/g1-6-recorte.png" alt=""><img src="icones/g1-9-recorte.png" alt=""><img src="icones/g1-9-recorte.png" alt=""><img src="icones/g1-8-recorte.png" alt=""><img src="icones/g1-6-recorte.png" alt=""><img src="icones/f3-5-recorte.png" alt=""><img src="icones/g1-2-recorte.png" alt=""><img src="icones/f4-2-recorte.png" alt=""><img src="icones/f1-2-recorte.png" alt=""><img src="icones/g1-3-recorte.png" alt=""></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+
+<section class="pag">
+  <p class="rotulo">Atividade 10</p>
+  <h1>Complete o desenho</h1>
+  <p class="inst">Desenhe a outra metade de cada figura, do outro lado da linha pontilhada. Depois, pinte!</p>
+  <div class="corpo">
+  <div class="metades"><div class="metade"><div class="corte" style="width:27.60mm;height:56mm"><img src="icones/g1-2.png" style="width:56.00mm;height:56mm;max-width:none" alt=""></div></div><div class="metade"><div class="corte" style="width:23.53mm;height:56mm"><img src="icones/g1-1.png" style="width:46.55mm;height:56mm;max-width:none" alt=""></div></div><div class="metade"><div class="corte" style="width:24.38mm;height:56mm"><img src="icones/g1-3.png" style="width:48.57mm;height:56mm;max-width:none" alt=""></div></div><div class="metade"><div class="corte" style="width:27.50mm;height:56mm"><img src="icones/g1-6.png" style="width:55.00mm;height:56mm;max-width:none" alt=""></div></div><div class="metade"><div class="corte" style="width:28.65mm;height:56mm"><img src="icones/g1-5.png" style="width:57.12mm;height:56mm;max-width:none" alt=""></div></div><div class="metade"><div class="corte" style="width:24.14mm;height:56mm"><img src="icones/f3-5.png" style="width:47.95mm;height:56mm;max-width:none" alt=""></div></div></div></div>
+  <p class="rodape">Natal Mágico</p>
+</section>
+
+<script>
+  // previa: #p3 mostra só a página 3
+  const n = +location.hash.slice(2); if (n) document.querySelectorAll(".pag").forEach((p, k) => { if (k + 1 !== n) p.remove(); });
+</script>
+</body></html>

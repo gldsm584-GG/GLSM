@@ -1,0 +1,143 @@
+# Natal Mágico (kit de Natal para a família)
+
+Segundo infoproduto do Gustavo. Ebook digital em PDF para imprimir, para
+a família fazer com as crianças em casa: **15 desenhos para colorir + 20
+moldes natalinos + 10 atividades extras = 45 recursos**, por R$ 19,90,
+vendido pela **Wiapy** (decidido em 2026-11-01; a frutíferas continua na
+Kiwify).
+
+Começou em 2026-10-31 como *Semana de Natal Pronta*, um kit para
+professora de pré-escola com roteiro por dia e BNCC. Antes do lançamento
+o Gustavo trocou pela versão família, com a página modelada na
+[Ebook Natalino](https://ebooknatalino.lovable.app) (estrutura da página
+igual, textos, desenhos e imagens próprios). Os arquivos da versão
+professora continuam na pasta e **não fazem parte do produto**:
+`00-como-usar.md`, `dia-1` a `dia-5`, `historia-a-estrela-de-todo-mundo.md`,
+`bonus-01-registro-da-semana.md` e `lista-de-ilustracoes.md`.
+
+É produto de temporada. A janela de venda vai de ~10/11 a ~12/12. Os
+concorrentes já anunciam desde o fim de outubro.
+
+---
+
+## 1. Concorrentes (páginas abertas em 2026-10-31)
+
+| Oferta | Preço | O que entrega | Público | Sinal de venda |
+|---|---|---|---|---|
+| [Kit Natal Divertido](https://lapisdecorkids.com.br) (Lápis de Cor Kids) | R$ 19,90 | 107 páginas: 90 atividades em 8 temas (coordenação, letras, números, raciocínio, 16 desenhos de colorir, recorte, Natal cristão, Natal do Brasil) + 17 de bônus (bingo de 30 cartelas, painel da porta, cartão, certificado). PDF colorido + P&B | mãe **e** professora | 3 criativos desde 23/10. É o concorrente mais forte e mais bem feito |
+| [Natal sem Tela](https://natal-sem-tela.vercel.app) | R$ 14,90 ("de R$ 97") | 24 noites: história curta com personagens próprios + 1 atividade por noite, enfeites, certificado. Sem tema religioso | mãe, 3 a 7 anos | 2 cópias desde 30/10 |
+| [Calendário do Advento](https://calendario-advento.vercel.app) (O Clube das Atividades) | R$ 29,90 ("de R$ 89") | calendário de janelas/cartões (colorido e para colorir) + devocional de 25 dias + caderno de 17 atividades | família cristã | 4 criativos diferentes desde 31/10 |
+| [Ebook Natalino](https://ebooknatalino.lovable.app) (natalcriativo.br) | R$ 19,90 | 25 desenhos + 30 moldes + 10 atividades | mãe | 3 cópias desde 20/10 |
+| Pack Natalino | não aparece | "+100 atividades natalinas prontas" para a sala | professora | 11 cópias. A página do anúncio (renovapost.com) é um WordPress vazio |
+| Kit Natal Mágico (Professora preparada) | R$ 12 | bingo, memória, dominó, caça-palavras | professora | 3 cópias (a página não abriu) |
+| Super Kit Natal Encantado (Clubinho Kids) | R$ 9,90 | painéis, caixinhas, lembrancinhas | professora e mãe | 14 cópias |
+| Infância Católica | R$ 19,90 o livro; R$ 39,90 o combo | livros de atividades, Advento, Novena, alinhavo | família católica | 6+ criativos |
+
+---
+
+## 2. O que o kit entrega (pronto em 2026-11-01)
+
+Os 3 PDFs em `entregaveis/` são o produto:
+
+1. **`1 - Desenhos para colorir.pdf`**: 15 páginas, 15,8 MB. Um desenho
+   por página, das imagens em `desenhos/`.
+2. **`2 - Moldes para recortar.pdf`**: 4 páginas com 5 moldes cada (20
+   moldes), das folhas em `moldes/`. A folha com alça em cima dos moldes
+   foi tirada a pedido do Gustavo e está em `moldes/sem-uso/`.
+3. **`3 - Atividades.pdf`**: 12 páginas, 1,6 MB, com 10 atividades:
+   1. Caça-palavras 10×10 (NATAL, NEVE, SINO, RENA, ESTRELA, PRESENTE, VELA, GORRO)
+   2. Labirinto
+   3. Ligue cada desenho à sua sombra
+   4. Conte os enfeites
+   5. Sudoku 4×4 com figuras para recortar
+   6. Jogo da memória (12 pares)
+   7. Bingo de Natal (4 cartelas + página de fichas)
+   8. Cartinha para o Papai Noel
+   9. Decore a árvore (árvore para colorir + 20 enfeites para recortar e colar)
+   10. Complete o desenho (6 desenhos pela metade)
+
+As imagens são geradas pelo Gustavo no GPT, com prompts escritos pelo
+Claude, e salvas nas pastas. O Claude recorta, ajusta e monta os PDFs.
+
+**Como gerar os PDFs de novo** (nesta pasta; usa o Chromium do Playwright):
+
+```bash
+node montar-pdf.mjs desenhos "entregaveis/1 - Desenhos para colorir.pdf"
+node montar-pdf.mjs moldes "entregaveis/2 - Moldes para recortar.pdf"
+cd atividades && node gerar-icones.mjs && node montar.mjs
+```
+
+- `montar-pdf.mjs` põe os .png da pasta em A4, um por página (os
+  numerados primeiro), com `brightness(1.05)` para deixar o fundo branco.
+- `atividades/gerar-icones.mjs` recorta os desenhos das folhas de moldes e
+  da grade em `atividades/atividade 9/` para `atividades/icones/`
+  (traço, sombra e versão com pontilhado de recorte).
+- `atividades/montar.mjs` monta as 10 atividades, sorteia com semente fixa
+  e confere caça-palavras, labirinto, sudoku e contagem antes de gerar o
+  PDF e as prévias em `atividades/previa/`.
+
+---
+
+## 3. Página de venda
+
+`pagina-de-venda/index.html` (com `noindex`), imagens em
+`pagina-de-venda/img/` (`capa`, `mesa`, `desenhos`, `moldes`). Para ver no
+painel: servidor `natal-pagina-de-venda` do `.claude/launch.json` (porta
+4325).
+
+Ordem das seções: faixa do topo, capa com chamada, o que você vai receber
+(15/20/10), vantagens, foto da mesa, como funciona, oferta (R$ 19,90, sem
+parcelamento), galeria, perguntas frequentes e chamada final.
+
+Não usar depoimento inventado nem "de R$ 97 por R$ 19,90" se o kit nunca
+foi vendido a R$ 97 (Código de Defesa do Consumidor). A galeria mostra só
+o material até chegarem depoimentos reais.
+
+---
+
+## 4. Preço e venda
+
+- **Preço:** R$ 19,90, igual ao dos concorrentes diretos.
+- **Plataforma:** Wiapy. Pela ajuda dela, cartão custa R$ 1,49 + 4,99% por
+  venda (~R$ 2,48 nos R$ 19,90); o Pix tem faixas por valor e o saque
+  custa R$ 3,67. Conferir no painel, as páginas da Wiapy não batem entre
+  si em alguns valores.
+- **Pixel:** a Wiapy configura o Pixel do Facebook no próprio checkout. A
+  compra de teste precisa mostrar o `Purchase` no Gerenciador de Eventos.
+- **Licença:** uso pessoal da família. Pode imprimir quantas vezes quiser;
+  não pode revender nem repassar o arquivo.
+- **Garantia:** 7 dias.
+
+---
+
+## 5. Cuidados com o anúncio (política da Meta)
+
+- Não afirmar religião, idade, condição financeira ou outra
+  característica pessoal de quem lê ("Você que é cristã...").
+- Não usar foto de criança real nos criativos sem autorização dos pais.
+  Mostrar as folhas, a mesa e mãos pintando.
+- Não prometer resultado ("seu filho vai aprender..."). Falar do que o kit
+  entrega.
+
+---
+
+## 6. O que falta para lançar (2026-11-01)
+
+1. [ ] **Gustavo:** criar o produto na Wiapy (Natal Mágico, R$ 19,90, os
+   3 PDFs de `entregaveis/`, capa, garantia de 7 dias) e mandar o link de
+   venda do checkout
+2. [ ] **Claude:** pôr o link no botão `data-checkout` da oferta (o script
+   da página já repassa `fbclid` e `utm_*`), o Meta Pixel (mesmo bloco da
+   página de frutíferas) e o rodapé com o nome do vendedor e a política
+   de privacidade
+3. [ ] **Claude, com OK do Gustavo:** publicar `pagina-de-venda/` na
+   Vercel com `noindex`, igual à frutíferas (`npx vercel deploy --prod
+   --scope glsmteste` de dentro da pasta, sem `vercel link`)
+4. [ ] **Gustavo:** ligar o Pixel no checkout da Wiapy
+5. [ ] **Gustavo:** compra de teste do começo ao fim (página, checkout,
+   e-mail com os PDFs, `Purchase` no Gerenciador de Eventos)
+6. [ ] **Claude:** criativos em 1080×1350 e 1080×1920 com as fotos já
+   feitas (`Mockup do eBook Natal Mágico.png`, `Artesanato natalino para
+   colorir na mesa.png`, `Páginas Natalinas para Colorir em Madeira.png`)
+   e os textos dos anúncios. Não depende da Wiapy, pode começar já
+7. [ ] **Gustavo:** subir a campanha no Meta até ~10/11

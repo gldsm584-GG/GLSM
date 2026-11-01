@@ -19,6 +19,13 @@ node_modules/
 
 # Ebook gerado (produto pago): não vai para o GitHub. Regerar com diagramacao/montar-pdf.mjs
 infoprodutos/*/ebook/
+# Natal Mágico (produto pago, o repositório é público): PDFs e as imagens que viram o PDF ficam só no PC
+infoprodutos/atividades-natal-colorir/entregaveis/
+infoprodutos/atividades-natal-colorir/desenhos/
+infoprodutos/atividades-natal-colorir/moldes/
+infoprodutos/atividades-natal-colorir/atividades/icones/
+infoprodutos/atividades-natal-colorir/atividades/previa/
+infoprodutos/atividades-natal-colorir/atividades/atividade 9/
 
 # Vídeos de anúncio e cenas baixadas (pesados demais para o git)
 infoprodutos/*/anuncios/videos/

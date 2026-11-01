@@ -101,6 +101,19 @@
         "--no-clipboard"
       ],
       "port": 4324
+    },
+    {
+      "name": "natal-pagina-de-venda",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "infoprodutos/atividades-natal-colorir/pagina-de-venda",
+        "-l",
+        "4325",
+        "--no-clipboard"
+      ],
+      "port": 4325
     }
   ]
 }
