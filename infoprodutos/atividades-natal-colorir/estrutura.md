@@ -97,7 +97,7 @@ e sumia com partes da página. O passo a passo mostra a caixinha em 3D com a
 arte de verdade, porque a primeira versão, com desenhos simples, ficou com
 "cara de IA de 50 centavos" para o Gustavo.
 
-### Order bump 2: Kit "Papai Noel passou aqui" (em criação, 2026-11-02)
+### Order bump 2: Kit "Papai Noel passou aqui" (PDF pronto, 2026-11-02)
 
 Ideia escolhida pelo Gustavo para o segundo bump, a R$ 4,90: material para os
 pais fazerem a magia na noite de Natal. Itens propostos: carta do Papai Noel
@@ -107,14 +107,26 @@ aqui!" para a porta, certificado "Criança do Bem 2026" e etiquetas de
 presente "Do Papai Noel" (letra impressa, para a criança não reconhecer a
 letra dos pais).
 
-- [ ] **Gustavo decide:** só a carta ou o kit completo
-- [ ] **Gustavo:** gerar no GPT o prompt 1 abaixo (anexando
-  `caixinhas/arte/papai-noel.webp` como referência de estilo) e mandar a
-  imagem para o Claude. Depois vêm os prompts da bota e do selo, se for o kit
-- [ ] **Claude:** montar em código, como as caixinhas (pasta própria, arte no
-  `.gitignore`, PDF em `entregaveis/`). O texto da carta e a assinatura
-  ficam em código, nunca escritos pelo GPT
+- [x] **Gustavo decidiu:** kit completo
+- [x] **Gustavo:** gerou no GPT o prompt 1 abaixo (Papai Noel escrevendo).
+  A bota, o selo, o carimbo e as pegadas de rena acabaram desenhados em
+  código, então não precisou de mais imagem
+- [x] **Claude:** montou `entregaveis/Kit Papai Noel passou aqui.pdf`, com 8
+  páginas: capa, roteiro "Como fazer a magia na noite de Natal" (6 passos e
+  2 dicas para os adultos), carta do Papai Noel, certificado "Criança do Bem
+  2026", placa "Papai Noel, PARE AQUI!" (placa de trânsito com "Aqui mora:"
+  para a criança escrever), bilhetes de agradecimento (biscoitos e
+  cenouras), 12 etiquetas "Do Papai Noel" e molde da bota em tamanho real
+  (vira a folha para o outro pé). Os textos não têm gênero ("Olá, ___!",
+  "essa pessoa") para servir para menino ou menina
 - [ ] Criar conteúdo + orderbump na Wiapy e marcar no produto, como o 1º bump
+  (capa `capa-bump-papai-noel-1080x1920.png`, thumb `thumb-bump-papai-noel.png`)
+- [ ] **Gustavo:** imprimir a carta e o molde da bota para conferir o tamanho
+
+Para gerar de novo: `cd papai-noel-passou && node montar.mjs`. A arte fica em
+`papai-noel-passou/arte/` (fora do git) e os outros personagens vêm de
+`caixinhas/arte/`. O que as duas pastas usam em comum (cores, fundos, adesivo,
+PDF feito de imagens de 300 dpi) está em `comum.mjs`.
 
 Prompt 1 (Papai Noel escrevendo a carta, colorido):
 
@@ -224,3 +236,7 @@ o material até chegarem depoimentos reais.
    R$ 4,90". Os 2 PNGs saem do `caixinhas/montar.mjs`
    - [ ] **Gustavo:** imprimir e montar uma caixinha para conferir se fecha
      certo, e na compra de teste marcar o bump e ver se chegam os 2 PDFs
+9. [ ] **Gustavo: order bump do Kit "Papai Noel passou aqui" na Wiapy**, igual
+   ao das caixinhas: conteúdo entregável com a capa
+   `capa-bump-papai-noel-1080x1920.png` e o PDF, orderbump de R$ 4,90 com o
+   thumb `thumb-bump-papai-noel.png`, marcado no produto Natal Mágico
