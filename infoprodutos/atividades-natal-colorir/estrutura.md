@@ -221,10 +221,16 @@ o material até chegarem depoimentos reais.
 4. [ ] **Gustavo:** ligar o Pixel no checkout da Wiapy
 5. [ ] **Gustavo:** compra de teste do começo ao fim (página, checkout,
    e-mail com os PDFs, `Purchase` no Gerenciador de Eventos)
-6. [ ] **Claude:** criativos em 1080×1350 e 1080×1920 com as fotos já
-   feitas (`Mockup do eBook Natal Mágico.png`, `Artesanato natalino para
-   colorir na mesa.png`, `Páginas Natalinas para Colorir em Madeira.png`)
-   e os textos dos anúncios. Não depende da Wiapy, pode começar já
+6. [x] **Claude:** criativos e textos dos anúncios (2026-11-02). Gancho
+   único escolhido pelo Gustavo: "em casa ou na escola, é só imprimir".
+   3 criativos com fotos diferentes (ebook na mesa com a sala de aula ao
+   fundo, folhas de atividades, desenhos para colorir), cada um em feed
+   1080×1350 e stories 1080×1920: `facebook/fotos/`. Textos (versões A e
+   B, títulos, descrição, botão e o que conferir antes de subir) em
+   `facebook/textos-dos-anuncios.md`. Para mudar uma peça: editar
+   `anuncios/anuncios.html` e rodar `node render.mjs` dentro de
+   `anuncios/`. Sem vídeo por enquanto, e sem "Garantia de 7 dias" nas
+   peças até conferir na Wiapy
 7. [ ] **Gustavo:** subir a campanha no Meta até ~10/11
 8. [x] **Order bump das caixinhas na Wiapy** (2026-11-02). Conteúdo
    entregável "Caixinhas de Natal para presentear" (E-book, Hobbies, capa
