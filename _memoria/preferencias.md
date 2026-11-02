@@ -20,3 +20,4 @@ Em aberto — sem restrições fortes até o momento.
 
 - Por enquanto, preferir ferramentas e métodos gratuitos (ex.: app do Gemini/Kling em vez de API paga); só sugerir opção paga quando o volume justificar (2026-10-07).
 - Com cliente, falar "cadastro no Google Maps", não "ficha" nem "Perfil da Empresa" (2026-10-09).
+- Imagem de anúncio se faz no GPT, com o texto e o selo de preço dentro da arte: o Claude escreve o prompt (textos exatos e imagens a anexar) e depois confere o texto e ajusta o tamanho. Anúncio montado em código (HTML com foto e caixas de texto) ficou ruim (2026-11-02).
