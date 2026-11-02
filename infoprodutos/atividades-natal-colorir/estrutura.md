@@ -81,7 +81,10 @@ cd atividades && node gerar-icones.mjs && node montar.mjs
 ## 3. Página de venda
 
 `pagina-de-venda/index.html` (com `noindex`), imagens em
-`pagina-de-venda/img/` (`capa`, `mesa`, `desenhos`, `moldes`). Para ver no
+`pagina-de-venda/img/` (`capa`, `mesa`, `desenhos`, `moldes`, `atividades`;
+a `atividades` saiu do GPT com as prévias reais do caça-palavras, do
+labirinto e da sombra anexadas, original em
+`atividades/Atividades Natalinas na Mesa de Madeira.png`). Para ver no
 painel: servidor `natal-pagina-de-venda` do `.claude/launch.json` (porta
 4325).
 
