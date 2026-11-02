@@ -97,9 +97,10 @@ e sumia com partes da página. O passo a passo mostra a caixinha em 3D com a
 arte de verdade, porque a primeira versão, com desenhos simples, ficou com
 "cara de IA de 50 centavos" para o Gustavo.
 
-### Order bump 2: Kit "Papai Noel passou aqui" (PDF pronto, 2026-11-02)
+### Order bump 2: Kit "Papai Noel passou aqui" (R$ 5,80, no ar desde 2026-11-02)
 
-Ideia escolhida pelo Gustavo para o segundo bump, a R$ 4,90: material para os
+Ideia escolhida pelo Gustavo para o segundo bump (planejado a R$ 4,90, subiu a
+R$ 5,80): material para os
 pais fazerem a magia na noite de Natal. Itens propostos: carta do Papai Noel
 para a criança (com espaço para o nome), bilhete "Obrigado pelos biscoitos!",
 molde de pegadas de bota (para marcar com farinha), placa "Papai Noel, pare
@@ -119,8 +120,8 @@ letra dos pais).
   cenouras), 12 etiquetas "Do Papai Noel" e molde da bota em tamanho real
   (vira a folha para o outro pé). Os textos não têm gênero ("Olá, ___!",
   "essa pessoa") para servir para menino ou menina
-- [ ] Criar conteúdo + orderbump na Wiapy e marcar no produto, como o 1º bump
-  (capa `capa-bump-papai-noel-1080x1920.png`, thumb `thumb-bump-papai-noel.png`)
+- [x] Conteúdo + orderbump na Wiapy, marcado no produto (2026-11-02; ver o
+  item 9 da seção 6)
 - [ ] **Gustavo:** imprimir a carta e o molde da bota para conferir o tamanho
 
 Para gerar de novo: `cd papai-noel-passou && node montar.mjs`. A arte fica em
@@ -236,7 +237,13 @@ o material até chegarem depoimentos reais.
    R$ 4,90". Os 2 PNGs saem do `caixinhas/montar.mjs`
    - [ ] **Gustavo:** imprimir e montar uma caixinha para conferir se fecha
      certo, e na compra de teste marcar o bump e ver se chegam os 2 PDFs
-9. [ ] **Gustavo: order bump do Kit "Papai Noel passou aqui" na Wiapy**, igual
-   ao das caixinhas: conteúdo entregável com a capa
-   `capa-bump-papai-noel-1080x1920.png` e o PDF, orderbump de R$ 4,90 com o
-   thumb `thumb-bump-papai-noel.png`, marcado no produto Natal Mágico
+9. [x] **Order bump do Kit "Papai Noel passou aqui" na Wiapy** (2026-11-02).
+   Conteúdo entregável "Kit Papai Noel passou aqui" (E-book, Hobbies, capa
+   `capa-bump-papai-noel-1080x1920.png`, o PDF) e orderbump com thumb
+   `thumb-bump-papai-noel.png`, marcado no produto Natal Mágico junto com o
+   das caixinhas. O Gustavo definiu o preço: "De R$ 7,60 por R$ 5,80" (o kit
+   nunca foi vendido a R$ 7,60). Como o CTA dos orderbumps é um só para o
+   produto, "APROVEITE E LEVE JUNTO POR SÓ R$ 4,90" virou "APROVEITE E LEVE
+   JUNTO", sem preço. Conferido no checkout público
+   - [ ] **Gustavo:** na compra de teste, marcar os 2 bumps e ver se chegam
+     os 3 PDFs (Natal Mágico, caixinhas e kit)
