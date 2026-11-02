@@ -76,6 +76,21 @@ cd atividades && node gerar-icones.mjs && node montar.mjs
   e confere caça-palavras, labirinto, sudoku e contagem antes de gerar o
   PDF e as prévias em `atividades/previa/`.
 
+### Order bump: Caixinhas de Natal para presentear (R$ 4,90)
+
+Decidido em 2026-11-01. Retoma a ideia do Kit Natal Doce (cancelado em
+30/10), agora como extra no checkout para a família. É todo colorido:
+`entregaveis/Caixinhas de Natal para presentear.pdf`, com 6 páginas (capa,
+passo a passo ilustrado e 4 caixinhas de bombom de 5 x 5 x 5 cm com 3 tags
+do mesmo tema cada). Temas: Papai Noel, rena, boneco de neve e árvore. Em
+2026-11-02 o Gustavo tirou as faixas para barra de chocolate ("ninguém vai
+usar") e baixou o preço de R$ 6,90 para R$ 4,90.
+
+Os 4 desenhos foram feitos pelo Gustavo no GPT e estão em `caixinhas/arte/`.
+O molde da caixa (corte e dobra) é desenhado em código, não pelo GPT. Para
+gerar de novo: `cd caixinhas && node montar.mjs`. Na primeira vez o script
+tira o fundo branco dos desenhos e cria os `*-adesivo.png`.
+
 ---
 
 ## 3. Página de venda
@@ -157,3 +172,14 @@ o material até chegarem depoimentos reais.
    colorir na mesa.png`, `Páginas Natalinas para Colorir em Madeira.png`)
    e os textos dos anúncios. Não depende da Wiapy, pode começar já
 7. [ ] **Gustavo:** subir a campanha no Meta até ~10/11
+8. [x] **Order bump das caixinhas na Wiapy** (2026-11-02). Conteúdo
+   entregável "Caixinhas de Natal para presentear" (E-book, Hobbies, capa
+   `capa-bump-caixinhas-1080x1920.png`, o PDF) e orderbump de R$ 4,90 com
+   thumb `thumb-bump-caixinhas.png`, marcado no produto Natal Mágico. O
+   "valor promocional fictício" é obrigatório: o Gustavo escolheu R$ 6,00, e o
+   checkout mostra "De R$ 6,00 por R$ 4,90" (o kit nunca foi vendido a
+   R$ 6,00; ver a regra de "de/por" na seção 3). A chamada padrão da Wiapy
+   ("COM 90% DE DESCONTO") foi trocada por "APROVEITE E LEVE JUNTO POR SÓ
+   R$ 4,90". Os 2 PNGs saem do `caixinhas/montar.mjs`
+   - [ ] **Gustavo:** imprimir e montar uma caixinha para conferir se fecha
+     certo, e na compra de teste marcar o bump e ver se chegam os 2 PDFs
