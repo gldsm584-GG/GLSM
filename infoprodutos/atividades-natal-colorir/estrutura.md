@@ -91,6 +91,47 @@ O molde da caixa (corte e dobra) é desenhado em código, não pelo GPT. Para
 gerar de novo: `cd caixinhas && node montar.mjs`. Na primeira vez o script
 tira o fundo branco dos desenhos e cria os `*-adesivo.png`.
 
+O PDF é feito de imagens de 300 dpi de cada página: impresso direto em vetor,
+o leitor de PDF do app (pdf.js) não desenhava fundos com degradê/transparência
+e sumia com partes da página. O passo a passo mostra a caixinha em 3D com a
+arte de verdade, porque a primeira versão, com desenhos simples, ficou com
+"cara de IA de 50 centavos" para o Gustavo.
+
+### Order bump 2: Kit "Papai Noel passou aqui" (em criação, 2026-11-02)
+
+Ideia escolhida pelo Gustavo para o segundo bump, a R$ 4,90: material para os
+pais fazerem a magia na noite de Natal. Itens propostos: carta do Papai Noel
+para a criança (com espaço para o nome), bilhete "Obrigado pelos biscoitos!",
+molde de pegadas de bota (para marcar com farinha), placa "Papai Noel, pare
+aqui!" para a porta, certificado "Criança do Bem 2026" e etiquetas de
+presente "Do Papai Noel" (letra impressa, para a criança não reconhecer a
+letra dos pais).
+
+- [ ] **Gustavo decide:** só a carta ou o kit completo
+- [ ] **Gustavo:** gerar no GPT o prompt 1 abaixo (anexando
+  `caixinhas/arte/papai-noel.webp` como referência de estilo) e mandar a
+  imagem para o Claude. Depois vêm os prompts da bota e do selo, se for o kit
+- [ ] **Claude:** montar em código, como as caixinhas (pasta própria, arte no
+  `.gitignore`, PDF em `entregaveis/`). O texto da carta e a assinatura
+  ficam em código, nunca escritos pelo GPT
+- [ ] Criar conteúdo + orderbump na Wiapy e marcar no produto, como o 1º bump
+
+Prompt 1 (Papai Noel escrevendo a carta, colorido):
+
+```
+Crie uma ilustração de Natal no mesmo estilo da imagem anexada: mesmo contorno preto grosso, mesma pintura chapada e viva, mesmas cores e o mesmo Papai Noel fofo, com olhinhos fechados sorrindo e bochechas rosadas.
+
+O desenho: o Papai Noel sentado atrás de uma escrivaninha de madeira, visto de frente, da cintura para cima, escrevendo uma carta com uma pena dourada. Ele usa óculos redondos pequenos na ponta do nariz. Em cima da mesa há uma folha de papel comprida, um tinteiro e uma pilha de 3 envelopes vermelhos com selo dourado.
+
+Cores: vermelho (#d4332b), verde (#1d5a3c), dourado (#f5c542), branco, marrom da madeira e tom de pele claro. Pintura chapada, como adesivo.
+
+Regras:
+- Fundo totalmente branco, sem cenário e sem sombra no chão.
+- Desenho centralizado, ocupando uns 80% da imagem, sem nada encostando na borda.
+- Sem texto escrito na carta nem em lugar nenhum, sem moldura e sem linha pontilhada em volta.
+- Imagem quadrada (1:1).
+```
+
 ---
 
 ## 3. Página de venda

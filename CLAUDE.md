@@ -147,7 +147,11 @@ Primeiro em construção desde 2026-10-18: frutíferas em vaso
 (`infoprodutos/frutiferas-em-vaso/`).
 Segundo: Natal Mágico (`infoprodutos/atividades-natal-colorir/`), kit pra
 família com 15 desenhos + 20 moldes + 10 atividades, R$ 19,90, vendido
-pela Wiapy (desde 2026-11-01; os outros continuam na Kiwify).
+pela Wiapy (desde 2026-11-01; os outros continuam na Kiwify). Página em
+natal-magico-gamma.vercel.app, checkout pay.wiapy.com/6ae7abc92da3da6ee2ed677b,
+order bump "Caixinhas de Natal" R$ 4,90 no ar desde 2026-11-02 e um 2º bump
+(Kit "Papai Noel passou aqui") em criação. O que falta para lançar fica na
+seção 6 do `estrutura.md` dele.
 
 **Clientes ativos:**
 - Plavii (em prospecção — loja Next.js funcional em
