@@ -221,16 +221,16 @@ o material até chegarem depoimentos reais.
 4. [ ] **Gustavo:** ligar o Pixel no checkout da Wiapy
 5. [ ] **Gustavo:** compra de teste do começo ao fim (página, checkout,
    e-mail com os PDFs, `Purchase` no Gerenciador de Eventos)
-6. [x] **Claude:** criativos e textos dos anúncios (2026-11-02). Gancho
-   único escolhido pelo Gustavo: "em casa ou na escola, é só imprimir".
-   3 criativos com fotos diferentes (ebook na mesa com a sala de aula ao
-   fundo, folhas de atividades, desenhos para colorir), cada um em feed
-   1080×1350 e stories 1080×1920: `facebook/fotos/`. Textos (versões A e
-   B, títulos, descrição, botão e o que conferir antes de subir) em
-   `facebook/textos-dos-anuncios.md`. Para mudar uma peça: editar
-   `anuncios/anuncios.html` e rodar `node render.mjs` dentro de
-   `anuncios/`. Sem vídeo por enquanto, e sem "Garantia de 7 dias" nas
-   peças até conferir na Wiapy
+6. [x] **Criativos e textos dos anúncios** (2026-11-02). Os feitos em
+   código (HTML) ficaram ruins e foram apagados; os anúncios são feitos
+   pelo Gustavo no GPT, com prompts do Claude em `anuncios/prompts-gpt.md`.
+   5 prontos no feed 4:5 em `facebook/fotos/` (`anuncio-01` a `anuncio-05`:
+   ideia criativa, casa ou escola, kit completo, é só imprimir, moldes).
+   Textos (versões A e B, títulos, descrição, botão e o que conferir antes
+   de subir) em `facebook/textos-dos-anuncios.md`. Sem vídeo por enquanto,
+   e sem "Garantia de 7 dias" nas peças até conferir na Wiapy
+   - [ ] **Gustavo:** versões stories (9:16) no GPT, com o prompt do fim do
+     `prompts-gpt.md`
 7. [ ] **Gustavo:** subir a campanha no Meta até ~10/11
 8. [x] **Order bump das caixinhas na Wiapy** (2026-11-02). Conteúdo
    entregável "Caixinhas de Natal para presentear" (E-book, Hobbies, capa

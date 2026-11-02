@@ -1,20 +1,20 @@
 # Texto dos anúncios (Meta)
 
-Gancho único, decidido em 2026-11-02: **atividade de Natal pronta, em casa ou na escola, é só
-imprimir**. Os 3 criativos usam o mesmo gancho com fotos diferentes (o Meta trata criativo
-visualmente diferente como um teste novo).
+Os anúncios são feitos no GPT (prompts em `../anuncios/prompts-gpt.md`) e ficam em `fotos/`, todos
+no formato 4:5 do feed (1122x1402). Ainda não há versão stories (9:16): o prompt para fazer está no
+fim do `prompts-gpt.md`.
 
-| Criativo | Feed (1080x1350) | Stories/Reels (1080x1920) | Texto principal |
-|---|---|---|---|
-| 1, "Casa ou escola" (ebook na mesa, sala de aula ao fundo) | `fotos/1-casa-ou-escola-feed.png` | `fotos/1-casa-ou-escola-stories.png` | Versões A e B |
-| 2, "Atividade pronta" (caça-palavras, sombra e labirinto) | `fotos/2-atividade-pronta-feed.png` | `fotos/2-atividade-pronta-stories.png` | Versões A e B |
-| 3, "45 recursos" (desenhos para colorir, fundo verde) | `fotos/3-45-recursos-feed.png` | `fotos/3-45-recursos-stories.png` | Versões A e B |
+| Anúncio | Imagem | Texto principal |
+|---|---|---|
+| 01, "Uma ideia criativa para o Natal" | `fotos/anuncio-01-ideia-criativa.png` | Versões A e B |
+| 02, "Atividades de Natal prontas pra imprimir" (folhas de atividades) | `fotos/anuncio-02-casa-ou-escola.png` | Versões A e B |
+| 03, mesmo título do 02, mostrando o kit todo | `fotos/anuncio-03-kit-completo.png` | Versões A e B |
+| 04, "Atividade de Natal? É só imprimir!" (impressora) | `fotos/anuncio-04-so-imprimir.png` | Versões A e B |
+| 05, "Recorte e monte a magia do Natal" (20 moldes) | `fotos/anuncio-05-moldes.png` | Versões A e B |
 
-No Meta dá para cadastrar até 5 versões de cada campo: cadastre as duas e ele testa sozinho. Em
-cada anúncio, suba a versão feed e a versão stories juntas (o Meta usa cada uma no lugar certo).
-
-Para mudar uma imagem: edite `../anuncios/anuncios.html` e rode `node render.mjs` dentro de
-`anuncios/`. Os PNGs saem direto aqui em `fotos/`.
+No Meta dá para cadastrar até 5 versões de cada campo: cadastre as duas e ele testa sozinho. Quando
+houver a versão stories, suba junto com a do feed no mesmo anúncio (o Meta usa cada uma no lugar
+certo).
 
 Sem hashtag: em anúncio, hashtag é um link que tira a pessoa do anúncio.
 
