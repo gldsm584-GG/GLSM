@@ -9,6 +9,7 @@ Qual texto vai em cada criativo:
 | Vídeo 5, "Mito ou verdade" | Versão D |
 | Vídeo 6, "A planta fala" | Versão A |
 | Vídeo 7, "6 frutíferas" | Versão E |
+| Imagens 3 e 4, "Cheia de folha" (foto do limoeiro) | Versão F |
 
 O **vídeo 4** termina numa curiosidade ("E os outros 3 erros?") e não fala o preço. As versões A e
 B entregam a resposta (a A lista os 7 erros), então não use as duas nele. No **vídeo 5**, a Versão B
@@ -74,12 +75,37 @@ universidades).
 
 Guia em PDF por R$ 20, com 4 bônus para imprimir.
 
+**Versão F (cheia de folha, para as imagens 3 e 4)**
+
+Gancho copiado do texto mais duplicado do nicho na Biblioteca da Meta (ver
+`anuncios/pesquisa-criativos.md`).
+
+🌱 Sua frutífera tá cheia de folha, mas não dá flor nem fruto?
+
+A culpa não é sua. Colocar mais água ou mais adubo nem sempre resolve: adubo rico em nitrogênio,
+por exemplo, faz a planta crescer folha e não florir.
+
+Quase sempre é um destes 7 erros: muda de semente, vaso errado, pouco sol, rega errada, adubo de
+folha, poda na hora errada ou falta de polinização.
+
+📗 O guia Sua Frutífera Vai Dar Fruto mostra o sinal que cada erro deixa na planta e o que fazer
+para corrigir, com a fonte de cada informação (Embrapa e universidades).
+
+✅ Diagnóstico dos 7 erros
+✅ Fichas de 12 frutíferas: jabuticaba, limão, acerola e mais 9
+✅ 4 bônus para imprimir
+✅ Acesso na hora, no seu e-mail
+✅ Garantia de 7 dias
+
+👉 PDF por R$ 20. Toque em Saiba mais.
+
 ---
 
 ## Título (até 40 caracteres)
 
 - Sua frutífera vai dar fruto
 - Os 7 erros da frutífera em vaso
+- Muita folha e nenhum fruto? (Versão F)
 
 ## Descrição
 

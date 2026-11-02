@@ -203,6 +203,13 @@ Pesquisa de mercado feita em 2026-10-18.
   colar na Kiwify (Pixel → engrenagem → Token da API de Conversão → Salvar alterações → Salvar
   produto). Não adicionar só o domínio da Vercel na lista de permissões do Pixel: bloquearia os
   eventos da Kiwify
+- [x] **2ª venda e resultado dos 3 primeiros dias (2026-10-26 a 2026-10-28):** 2 vendas na Kiwify
+  (R$ 31,42 líquidos) com R$ 72,49 gastos: -R$ 41,07, R$ 36,25 por venda (empate R$ 15,71), ROAS
+  real 0,43. O Meta contou só 1 compra (a da 1ª venda nunca foi atribuída). Campanha ativa:
+  "Conversão-frutifera 1- $14 — segmentada" (R$ 14/dia); a "$20" ficou desligada, sem gasto.
+  Próximo: colar o token da API de Conversões, print no nível Anúncios com as colunas de clique,
+  não editar a campanha, pausar se a perda chegar a ~R$ 100 sem nova venda, estudar order bump.
+  Relatório em `anuncios/relatorios/2026-10-29-relatorio.md`
 - [x] **Plano que guiou o lançamento (2026-10-21):** Parte 2: forma de pagamento na conta de anúncios do
   Meta; Parte 4:
   campanha de Vendas com os 3 criativos e o texto da `anuncios/legenda.md`. Antes de gastar: postar

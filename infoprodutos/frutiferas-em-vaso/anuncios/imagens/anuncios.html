@@ -61,6 +61,39 @@
   #s2 .faixa strong { font-size: 34px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
   #s2 .faixa span { font-size: 22px; font-weight: 600; opacity: .9; display: block; margin-top: 6px; }
   #s2 .preco { background: var(--laranja); border-radius: 999px; padding: 18px 34px; font-size: 34px; font-weight: 900; white-space: nowrap; }
+
+  /* Imagens 3 e 4 (2026-10-28): foto do resultado + gancho em caixa de texto, jeito de post e não de banner.
+     Modelo dos anúncios mais duplicados do nicho na Biblioteca da Meta (ver ../pesquisa-criativos.md) */
+  .foto { position: absolute; inset: 0; background: url(../../pagina-de-venda/img/topo.webp) center 40% / cover; }
+  .gancho { position: absolute; left: 50px; right: 50px; text-align: center; }
+  .gancho p { font-size: 66px; font-weight: 800; letter-spacing: -.02em; line-height: 1.36; color: #111; }
+  .gancho span {
+    background: #fff; padding: 4px 22px; border-radius: 16px;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  }
+  .gancho .sub { font-size: 44px; margin-top: 20px; }
+  .gancho .sub span { background: #f2a33a; }
+  .oferta {
+    position: absolute; left: 50px; right: 50px; background: #fff; border-radius: 28px;
+    padding: 30px 34px; display: flex; gap: 30px; align-items: center; box-shadow: 0 24px 60px rgba(0,0,0,.35);
+  }
+  .oferta img { width: 150px; border-radius: 4px 10px 10px 4px; box-shadow: -6px 0 0 var(--verde-escuro), 0 10px 24px rgba(0,0,0,.3); transform: rotate(-3deg); }
+  .oferta strong { display: block; font-size: 36px; font-weight: 900; letter-spacing: -.02em; color: var(--verde-escuro); line-height: 1.12; }
+  .oferta em { display: block; font-style: normal; font-size: 26px; font-weight: 500; color: var(--suave); line-height: 1.35; margin-top: 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .chips b { font-size: 23px; font-weight: 700; padding: 8px 16px; border-radius: 999px; background: var(--verde-claro); color: var(--verde-escuro); }
+  .chips .preco { background: var(--laranja); color: #fff; font-weight: 900; }
+
+  #s3 .gancho { top: 64px; }
+  #s3 .oferta { bottom: 50px; }
+  #s3 .foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(0,0,0,.45)); }
+
+  /* Stories/Reels: foto quadrada no meio sobre a mesma foto desfocada; nada importante nos 14% de cima e nos 25% de baixo */
+  #s4 { width: 1080px; height: 1920px; }
+  #s4 .foto { filter: blur(40px) brightness(.7); transform: scale(1.2); }
+  #s4 .quadro { position: absolute; left: 0; top: 250px; width: 1080px; height: 1080px; background: url(../../pagina-de-venda/img/topo.webp) center / cover; }
+  #s4 .gancho { top: 300px; }
+  #s4 .oferta { top: 1150px; }
 </style>
 </head>
 <body>
@@ -100,6 +133,39 @@
   <div class="faixa">
     <div><strong>Os 7 erros e como corrigir</strong><span>Guia Sua Frutífera Vai Dar Fruto · com fontes da Embrapa</span></div>
     <div class="preco">R$ 20</div>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="foto"></div>
+  <div class="gancho">
+    <p><span>Sua frutífera tá cheia de folha, mas não dá fruto?</span></p>
+    <p class="sub"><span>Quase sempre é um destes 7 erros</span></p>
+  </div>
+  <div class="oferta">
+    <img src="../../pagina-de-venda/img/capa.webp" alt="">
+    <div>
+      <strong>Sua Frutífera Vai Dar Fruto</strong>
+      <em>Como reconhecer cada erro na sua planta e como corrigir</em>
+      <div class="chips"><b class="preco">PDF · R$ 20</b><b>Acesso na hora</b><b>Garantia de 7 dias</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s4" data-h="1920">
+  <div class="foto"></div>
+  <div class="quadro"></div>
+  <div class="gancho">
+    <p><span>Sua frutífera tá cheia de folha, mas não dá fruto?</span></p>
+    <p class="sub"><span>Quase sempre é um destes 7 erros</span></p>
+  </div>
+  <div class="oferta">
+    <img src="../../pagina-de-venda/img/capa.webp" alt="">
+    <div>
+      <strong>Sua Frutífera Vai Dar Fruto</strong>
+      <em>Como reconhecer cada erro na sua planta e como corrigir</em>
+      <div class="chips"><b class="preco">PDF · R$ 20</b><b>Acesso na hora</b><b>Garantia de 7 dias</b></div>
+    </div>
   </div>
 </section>
 
