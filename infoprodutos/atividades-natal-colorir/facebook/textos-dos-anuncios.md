@@ -6,11 +6,14 @@ fim do `prompts-gpt.md`.
 
 | Anúncio | Imagem | Texto principal |
 |---|---|---|
-| 01, "Uma ideia criativa para o Natal" | `fotos/anuncio-01-ideia-criativa.png` | Versões A e B |
-| 02, "Atividades de Natal prontas pra imprimir" (folhas de atividades) | `fotos/anuncio-02-casa-ou-escola.png` | Versões A e B |
-| 03, mesmo título do 02, mostrando o kit todo | `fotos/anuncio-03-kit-completo.png` | Versões A e B |
 | 04, "Atividade de Natal? É só imprimir!" (impressora) | `fotos/anuncio-04-so-imprimir.png` | Versões A e B |
-| 05, "Recorte e monte a magia do Natal" (20 moldes) | `fotos/anuncio-05-moldes.png` | Versões A e B |
+| 05, "Pinte, recorte e brinque no Natal" (as 3 partes lado a lado) | `fotos/anuncio-05-pinte-recorte-brinque.png` | Versões A e B |
+| 06, "45 recursos de Natal num ebook só" (plaquinhas de cada parte) | `fotos/anuncio-06-45-recursos.png` | Versões A e B |
+| 08, "Menos tela, mais Natal" (o kit todo na mesa, celular apagado no canto) | `fotos/anuncio-08-menos-tela.png` | Versões A e B |
+| 09, "Diversão de Natal pras férias de dezembro" (3 pilhas com fita vermelha) | `fotos/anuncio-09-ferias.png` | Versões A e B |
+
+Os primeiros 01, 02, 03 e 05 (este era o dos moldes) foram apagados em 2026-11-02 porque não
+escreviam o kit inteiro. O 07 (cartinha) foi gerado e reprovado.
 
 No Meta dá para cadastrar até 5 versões de cada campo: cadastre as duas e ele testa sozinho. Quando
 houver a versão stories, suba junto com a do feed no mesmo anúncio (o Meta usa cada uma no lugar
@@ -78,10 +81,10 @@ jogo da memória, bingo de Natal, cartinha para o Papai Noel, decore a árvore e
 
 ## Antes de subir
 
+- **Página "Natal Mágico" criada** e escolhida em Identidade no anúncio (kit em `pagina-do-facebook.md`).
 - **Pixel no checkout da Wiapy ligado** e compra de teste com o `Purchase` aparecendo no
   Gerenciador de Eventos (itens 4 e 5 da seção 6 do `estrutura.md`). A página de venda ainda não
   tem o Pixel (item 2).
-- **Página "Natal Mágico" criada** e escolhida em Identidade no anúncio (kit em `pagina-do-facebook.md`).
 - **Desmarcar a Audience Network** em Posicionamentos e desligar o "Permitir gasto limitado em
   posicionamentos excluídos". Nas frutíferas, 96% dos cliques vieram dela e não compraram (ver
   `frutiferas-em-vaso/anuncios/relatorios/2026-10-29-relatorio.md`).

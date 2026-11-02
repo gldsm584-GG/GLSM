@@ -224,8 +224,14 @@ o material até chegarem depoimentos reais.
 6. [x] **Criativos e textos dos anúncios** (2026-11-02). Os feitos em
    código (HTML) ficaram ruins e foram apagados; os anúncios são feitos
    pelo Gustavo no GPT, com prompts do Claude em `anuncios/prompts-gpt.md`.
-   5 prontos no feed 4:5 em `facebook/fotos/` (`anuncio-01` a `anuncio-05`:
-   ideia criativa, casa ou escola, kit completo, é só imprimir, moldes).
+   5 prontos no feed 4:5 em `facebook/fotos/` (`anuncio-04` é só
+   imprimir, `anuncio-05` pinte, recorte e brinque, `anuncio-06` 45
+   recursos, `anuncio-08` menos tela, `anuncio-09` férias de dezembro).
+   Os primeiros 01, 02, 03 e 05 foram
+   apagados por não escrever o kit inteiro: todo anúncio tem que mostrar
+   os 15 desenhos + 20 moldes + 10 atividades e "Tudo em PDF por
+   R$ 19,90". O 07 (cartinha) saiu e foi reprovado: a cartinha dominou a
+   cena.
    Textos (versões A e B, títulos, descrição, botão e o que conferir antes
    de subir) em `facebook/textos-dos-anuncios.md`. Sem vídeo por enquanto,
    e sem "Garantia de 7 dias" nas peças até conferir na Wiapy
