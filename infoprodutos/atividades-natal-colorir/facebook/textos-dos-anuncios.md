@@ -81,6 +81,7 @@ jogo da memória, bingo de Natal, cartinha para o Papai Noel, decore a árvore e
 - **Pixel no checkout da Wiapy ligado** e compra de teste com o `Purchase` aparecendo no
   Gerenciador de Eventos (itens 4 e 5 da seção 6 do `estrutura.md`). A página de venda ainda não
   tem o Pixel (item 2).
+- **Página "Natal Mágico" criada** e escolhida em Identidade no anúncio (kit em `pagina-do-facebook.md`).
 - **Desmarcar a Audience Network** em Posicionamentos e desligar o "Permitir gasto limitado em
   posicionamentos excluídos". Nas frutíferas, 96% dos cliques vieram dela e não compraram (ver
   `frutiferas-em-vaso/anuncios/relatorios/2026-10-29-relatorio.md`).

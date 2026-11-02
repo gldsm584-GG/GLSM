@@ -253,3 +253,11 @@ o material até chegarem depoimentos reais.
    JUNTO", sem preço. Conferido no checkout público
    - [ ] **Gustavo:** na compra de teste, marcar os 2 bumps e ver se chegam
      os 3 PDFs (Natal Mágico, caixinhas e kit)
+10. [ ] **Página no Facebook "Natal Mágico"** (kit pronto em 2026-11-02 em
+    `facebook/pagina-do-facebook.md`: nome, categoria, bio, botão, 5 posts e
+    passo a passo). Foto de perfil pronta (`facebook/foto-perfil.png`, recorte
+    da capa do ebook); as duas imagens saem do `facebook/montar-imagens.mjs`
+    - [ ] **Gustavo:** fazer a arte da capa no GPT com o prompt do kit e salvar
+      como `facebook/capa-gpt.png` (o Claude recorta em 1640x624)
+    - [ ] **Gustavo:** criar a página, pôr o botão e publicar os 5 posts antes
+      de subir a campanha (item 7)
