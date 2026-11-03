@@ -81,7 +81,8 @@ jogo da memória, bingo de Natal, cartinha para o Papai Noel, decore a árvore e
 
 ## Antes de subir
 
-- **Página "Natal Mágico" criada** e escolhida em Identidade no anúncio (kit em `pagina-do-facebook.md`).
+- **Página "Natal Mágico" criada** (2026-11-02) e escolhida em Identidade no anúncio (kit em
+  `pagina-do-facebook.md`). A configuração da campanha, campo a campo, está em `subir-campanha.md`.
 - **Pixel no checkout da Wiapy ligado** e compra de teste com o `Purchase` aparecendo no
   Gerenciador de Eventos (itens 4 e 5 da seção 6 do `estrutura.md`). A página de venda ainda não
   tem o Pixel (item 2).

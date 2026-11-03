@@ -210,6 +210,13 @@ Pesquisa de mercado feita em 2026-10-18.
   Próximo: colar o token da API de Conversões, print no nível Anúncios com as colunas de clique,
   não editar a campanha, pausar se a perda chegar a ~R$ 100 sem nova venda, estudar order bump.
   Relatório em `anuncios/relatorios/2026-10-29-relatorio.md`
+- [ ] **Conta de anúncios encerrada para reaver o saldo (2026-11-02):** sobraram R$ 43,26 de saldo
+  pré-pago na act=1318830253601896, e o saldo não passa para outra conta (o Natal Mágico tem conta
+  própria). O Gustavo pediu a desativação, que a Meta diz levar até 2 dias úteis; depois aparece o
+  botão azul "Solicitar reembolso" em Cobrança e pagamentos. O reembolso vai para conta bancária no
+  mesmo CPF da conta de anúncios. Depois de encerrada, a conta não veicula mais: para voltar a anunciar
+  as frutíferas, precisa de conta nova
+  - [ ] **Gustavo:** quando o botão aparecer, solicitar o reembolso
 - [x] **Plano que guiou o lançamento (2026-10-21):** Parte 2: forma de pagamento na conta de anúncios do
   Meta; Parte 4:
   campanha de Vendas com os 3 criativos e o texto da `anuncios/legenda.md`. Antes de gastar: postar

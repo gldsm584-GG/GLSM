@@ -1,4 +1,4 @@
-// Imagens da página do Facebook: foto de perfil (recorte da capa do ebook) e capa (recorte da arte que o Gustavo faz no GPT).
+// Capa da página do Facebook: recorte da arte que o Gustavo faz no GPT (a foto de perfil vem pronta do GPT).
 // Uso, de dentro de facebook/: node montar-imagens.mjs [deslocamento]
 // O deslocamento (em %, padrão 0) sobe (negativo) ou desce (positivo) a faixa da capa dentro da arte do GPT.
 import { foto } from "../comum.mjs";
@@ -20,9 +20,6 @@ function recortar(arquivo, [x, y, cw, ch], w, h, saida) {
   rmSync(tmp);
   console.log(saida, `${w}x${h}`);
 }
-
-// Foto de perfil: o título "Natal Mágico" da capa do livro no mockup (1254x1254). O Facebook mostra em círculo.
-recortar("../Mockup do eBook Natal Mágico.png", [155, 95, 560, 560], 720, 720, "foto-perfil.png");
 
 // Capa: 1640x624 (o celular mostra só o meio, uns 1110x624). Recorta a largura toda da arte do GPT, na faixa do meio.
 if (existsSync(join(aqui, "capa-gpt.png"))) {

@@ -218,7 +218,20 @@ o material até chegarem depoimentos reais.
    sozinho; desligado com `npx vercel git disconnect --yes --scope
    glsmteste`. Republicar com `npx vercel deploy --prod --scope glsmteste`
    de dentro da pasta e conferir com `curl`
-4. [ ] **Gustavo:** ligar o Pixel no checkout da Wiapy
+4. [ ] **Pixel na Wiapy.** Fica em Integrações → Facebook Ads (não nas
+   configurações do checkout). Detalhes nas partes 2 e 3 do
+   `facebook/subir-campanha.md`
+   - [x] Pixel novo "Natal Mágico" criado em 2026-11-02 no portfólio do
+     Natal: **ID 991211670703665** (não é o das frutíferas)
+   - [x] Pixel conectado à conta de anúncios Natal Magico e já recebendo
+     eventos (conferido na BM em 2026-11-02)
+   - [x] Integração "Pixel Natal Mágico" salva na Wiapy pelo Claude a pedido
+     do Gustavo (2026-11-02): produto Natal Mágico, Pixel 991211670703665, só
+     o evento "Pagamento aprovado"
+   - [x] Token da API de Conversões gerado e colado na integração pelo
+     Gustavo (2026-11-02; conferido pelo Claude: salvo, começa com `EAA`). No
+     Gerenciador de Eventos a API de Conversões fica "Conexão pendente" até
+     chegar o primeiro evento do servidor, que vem com a compra de teste
 5. [ ] **Gustavo:** compra de teste do começo ao fim (página, checkout,
    e-mail com os PDFs, `Purchase` no Gerenciador de Eventos)
 6. [x] **Criativos e textos dos anúncios** (2026-11-02). Os feitos em
@@ -237,7 +250,16 @@ o material até chegarem depoimentos reais.
    e sem "Garantia de 7 dias" nas peças até conferir na Wiapy
    - [ ] **Gustavo:** versões stories (9:16) no GPT, com o prompt do fim do
      `prompts-gpt.md`
-7. [ ] **Gustavo:** subir a campanha no Meta até ~10/11
+7. [ ] **Gustavo:** subir a campanha no Meta até ~10/11, seguindo
+   `facebook/subir-campanha.md` (configuração campo a campo, 5 anúncios, um
+   por imagem, e o que olhar nos primeiros dias)
+   - [x] Portfólio empresarial e conta de anúncios próprios (2026-11-02):
+     portfólio **Natal Mágico** (ID 1143226331510175; nasceu "Nalta Magico" e
+     o Claude corrigiu o nome com OK do Gustavo), conta **Natal Magico** (ID
+     1673299994454815) e página Natal Mágico (ID 1317618054778354), todas no
+     portfólio. A conta das frutíferas não é usada no Natal
+   - [ ] **Gustavo:** cadastrar o cartão na conta nova (Cobrança e
+     pagamentos; em 2026-11-02 ela não tinha nenhuma forma de pagamento)
 8. [x] **Order bump das caixinhas na Wiapy** (2026-11-02). Conteúdo
    entregável "Caixinhas de Natal para presentear" (E-book, Hobbies, capa
    `capa-bump-caixinhas-1080x1920.png`, o PDF) e orderbump de R$ 4,90 com
@@ -261,9 +283,12 @@ o material até chegarem depoimentos reais.
      os 3 PDFs (Natal Mágico, caixinhas e kit)
 10. [ ] **Página no Facebook "Natal Mágico"** (kit pronto em 2026-11-02 em
     `facebook/pagina-do-facebook.md`: nome, categoria, bio, botão, 5 posts e
-    passo a passo). Foto de perfil pronta (`facebook/foto-perfil.png`, recorte
-    da capa do ebook); as duas imagens saem do `facebook/montar-imagens.mjs`
+    passo a passo). O recorte da capa do ebook como foto de perfil foi
+    reprovado; a foto e a capa saem do GPT com os prompts do kit
+    - [ ] **Gustavo:** fazer a foto de perfil no GPT e salvar como
+      `facebook/foto-perfil.png` (o Claude confere no círculo)
     - [ ] **Gustavo:** fazer a arte da capa no GPT com o prompt do kit e salvar
       como `facebook/capa-gpt.png` (o Claude recorta em 1640x624)
-    - [ ] **Gustavo:** criar a página, pôr o botão e publicar os 5 posts antes
-      de subir a campanha (item 7)
+    - [x] **Gustavo:** página criada (2026-11-02)
+    - [ ] **Gustavo:** pôr o botão e publicar os 5 posts antes de subir a
+      campanha (item 7)

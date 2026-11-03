@@ -24,14 +24,35 @@ está aqui.
 
 ## 2. Imagens
 
-- **Foto de perfil:** `foto-perfil.png` (720x720), o título da capa do ebook. O Facebook mostra em
-  círculo e continua legível no tamanho pequeno do anúncio.
+- **Foto de perfil:** `foto-perfil.png`, feita no GPT (prompt abaixo). O recorte do título da capa do
+  ebook foi reprovado pelo Gustavo em 2026-11-02 ("horrível"): a foto precisa ser desenhada para o
+  círculo, não recortada de outra peça.
 - **Capa:** `capa-facebook.png` (1640x624), feita a partir de uma arte do GPT (prompt abaixo).
 
-Para gerar as duas de novo: `node montar-imagens.mjs` de dentro desta pasta. A foto sai do
-`../Mockup do eBook Natal Mágico.png`; a capa sai do `capa-gpt.png`, recortada na faixa do meio. Se o
-recorte cortar o título, rode com um deslocamento em % (ex.: `node montar-imagens.mjs -5` sobe a faixa,
-`5` desce).
+A capa sai do `capa-gpt.png` com `node montar-imagens.mjs` (de dentro desta pasta), recortada na faixa
+do meio. Se o recorte cortar o título, rode com um deslocamento em % (ex.: `node montar-imagens.mjs -5`
+sobe a faixa, `5` desce).
+
+### Prompt da foto de perfil (GPT)
+
+Abra uma conversa nova no GPT e anexe `../Mockup do eBook Natal Mágico.png`. Salve o resultado aqui
+como `foto-perfil.png`.
+
+```
+Crie a foto de perfil da página do Facebook do ebook "Natal Mágico", no mesmo estilo da capa do livro da imagem anexada: o mesmo Papai Noel fofo (olhinhos fechados sorrindo, bochechas rosadas, barba branca fofinha), as mesmas letras do título e as mesmas cores.
+
+O desenho: fundo verde-escuro de noite de Natal preenchendo a imagem inteira, até os cantos, com flocos de neve e estrelinhas douradas pequenas. No centro, o Papai Noel grande, do peito para cima, acenando com uma mão. Um pouco abaixo do meio, passando na frente do peito dele, a faixa vermelha com o título "Natal Mágico" escrito igual ao da capa: "Natal" em creme e "Mágico" em dourado, com um raminho de azevinho na ponta da faixa.
+
+Regras:
+- Imagem quadrada (1:1). O Facebook mostra a foto em círculo: o Papai Noel e a faixa ficam dentro de um círculo no centro, com folga, e nos cantos só o fundo.
+- O único texto é "Natal Mágico". Sem "Ebook", sem subtítulo e sem preço.
+- Formas grandes e contorno bem marcado, para reconhecer mesmo com a foto pequena.
+- Sem moldura e sem fundo branco.
+```
+
+Se o título sair torto ou com letra errada, peça: "Corrija só o texto da faixa para "Natal Mágico",
+sem mudar mais nada". Depois o Claude confere como fica no círculo, no tamanho da página e no do
+anúncio.
 
 ### Prompt da capa (GPT)
 
