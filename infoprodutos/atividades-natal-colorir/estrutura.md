@@ -176,8 +176,10 @@ o material até chegarem depoimentos reais.
   si em alguns valores.
 - **Pixel:** a Wiapy configura o Pixel do Facebook no próprio checkout. A
   compra de teste precisa mostrar o `Purchase` no Gerenciador de Eventos.
-- **Licença:** uso pessoal da família. Pode imprimir quantas vezes quiser;
-  não pode revender nem repassar o arquivo.
+- **Licença:** uso na família ou na turma de quem comprou (a professora pode
+  imprimir uma cópia para cada aluno; decidido em 2026-11-03 por causa dos
+  anúncios 15 e 29). Pode imprimir quantas vezes quiser; não pode revender
+  nem repassar o arquivo.
 - **Garantia:** 7 dias.
 
 ---
@@ -209,8 +211,14 @@ o material até chegarem depoimentos reais.
      na Wiapy
 2. [ ] **Claude:** link do checkout no botão `data-checkout` da oferta
    (feito em 2026-11-01; o script da página repassa `fbclid` e `utm_*`).
-   Faltam o Meta Pixel (mesmo bloco da página de frutíferas) e o rodapé com
-   o nome do vendedor e a política de privacidade
+   Meta Pixel "Natal Mágico" (991211670703665) colocado no `<head>` em
+   2026-11-02, com o PageView conferido no preview, e republicado na Vercel
+   com OK do Gustavo no mesmo dia (200, noindex e Pixel conferidos com
+   `curl`). Em 2026-11-03 o FAQ "Posso imprimir?" passou a dizer que vale
+   para a família ou a turma da escola, sem revender nem repassar (ver a
+   licença na seção 4), e foi republicado com OK do Gustavo (200, noindex,
+   Pixel e FAQ conferidos com `curl`). Faltam o rodapé com o nome do
+   vendedor e a política de privacidade
 3. [x] **Claude, com OK do Gustavo:** publicar `pagina-de-venda/` na
    Vercel com `noindex`. No ar desde 2026-11-01 em
    https://natal-magico-gamma.vercel.app (projeto `natal-magico`, o nome
