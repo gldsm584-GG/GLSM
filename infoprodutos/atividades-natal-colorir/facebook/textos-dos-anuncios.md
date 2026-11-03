@@ -99,8 +99,9 @@ jogo da memória, bingo de Natal, cartinha para o Papai Noel, decore a árvore e
 ## Link
 
 - https://natal-magico-gamma.vercel.app
-- Parâmetros de URL (opcional, no campo "Parâmetros de URL" do anúncio):
-  `utm_source=facebook&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{ad.name}}`.
+- Parâmetros de URL (no campo "Parâmetros de URL" do anúncio, no formato da Utmify; detalhes na
+  parte 7 do `subir-campanha.md`):
+  `utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&cid=13706891685`.
   A página repassa `utm_*` e `fbclid` para o checkout.
 
 ---
@@ -110,8 +111,10 @@ jogo da memória, bingo de Natal, cartinha para o Papai Noel, decore a árvore e
 - **Página "Natal Mágico" criada** (2026-11-02) e escolhida em Identidade no anúncio (kit em
   `pagina-do-facebook.md`). A configuração da campanha, campo a campo, está em `subir-campanha.md`.
 - **Pixel no checkout da Wiapy ligado** e compra de teste com o `Purchase` aparecendo no
-  Gerenciador de Eventos (itens 4 e 5 da seção 6 do `estrutura.md`). A página de venda ainda não
-  tem o Pixel (item 2).
+  Gerenciador de Eventos (itens 4 e 5 da seção 6 do `estrutura.md`). Pixel 991211670703665 na
+  página de venda e na Wiapy, com token, desde 2026-11-02; falta a compra de teste.
+- **Botão "Comprar agora"**, não o "Ver detalhes" que o Meta deixa como padrão: a Versão B termina
+  com "Toque em Comprar agora".
 - **Desmarcar a Audience Network** em Posicionamentos e desligar o "Permitir gasto limitado em
   posicionamentos excluídos". Nas frutíferas, 96% dos cliques vieram dela e não compraram (ver
   `frutiferas-em-vaso/anuncios/relatorios/2026-10-29-relatorio.md`).

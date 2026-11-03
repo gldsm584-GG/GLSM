@@ -241,7 +241,8 @@ o material até chegarem depoimentos reais.
      Gerenciador de Eventos a API de Conversões fica "Conexão pendente" até
      chegar o primeiro evento do servidor, que vem com a compra de teste
 5. [ ] **Gustavo:** compra de teste do começo ao fim (página, checkout,
-   e-mail com os PDFs, `Purchase` no Gerenciador de Eventos)
+   e-mail com os PDFs, `Purchase` no Gerenciador de Eventos, venda nos
+   Pedidos da Utmify)
 6. [x] **Criativos e textos dos anúncios** (2026-11-02). Os feitos em
    código (HTML) ficaram ruins e foram apagados; os anúncios são feitos
    pelo Gustavo no GPT, com prompts do Claude em `anuncios/prompts-gpt.md`.
@@ -290,8 +291,31 @@ o material até chegarem depoimentos reais.
      o Claude corrigiu o nome com OK do Gustavo), conta **Natal Magico** (ID
      1673299994454815) e página Natal Mágico (ID 1317618054778354), todas no
      portfólio. A conta das frutíferas não é usada no Natal
-   - [ ] **Gustavo:** cadastrar o cartão na conta nova (Cobrança e
-     pagamentos; em 2026-11-02 ela não tinha nenhuma forma de pagamento)
+   - [ ] Pagamento: a conta é pré-paga, com R$ 200 de saldo (Pix do Nubank
+     em 2026-11-02) e nenhum cartão em 2026-11-03. Quando o saldo acaba, os
+     anúncios pausam. A R$ 105/dia ele dura menos de 2 dias (o plano era
+     R$ 20/dia, com limite de perda de R$ 100). Orçamento e saldo são decisão
+     do Gustavo
+   - [x] **Gustavo:** montou 3 campanhas em rascunho (2026-11-03), em vez dos
+     5 anúncios do `subir-campanha.md`: `natal M 1-1-10 1`, `2` e `3`, cada
+     uma com 1 conjunto (`inteligente 1`, `2` e `3`) e 10 anúncios, um por
+     imagem (`Natal Mágico 21` a `30`, `Natal Mágico2 11` a `20` e
+     `Natal Mágico 1` a `10`; o 31 ficou de fora). Campanha de vendas
+     Advantage+, orçamento da campanha de R$ 35/dia cada (R$ 105/dia no
+     total), início em 04/11 à 00h e sem data de término. Conjuntos: Site,
+     Pixel Natal Mágico, evento **Compra**, Brasil aberto, só Facebook e
+     Instagram. Anúncios com os textos A e B, os 3 títulos, a descrição, as
+     UTMs e o botão **Comprar agora**
+   - [x] **Claude:** revisão dos rascunhos com o Gustavo (2026-11-03). O
+     Claude trocou o botão dos 30 para Comprar agora (estavam "Ver detalhes"
+     e "Saiba mais", e a Versão B manda tocar em "Comprar agora"), desligou
+     o "Permitir gasto limitado em posicionamentos excluídos" nos 3 conjuntos
+     e tirou a programação própria dos anúncios 7, 8 e 9 (começava em 03/11
+     às 11h08 e travava a publicação). O Gustavo trocou o evento de "Iniciar
+     finalização da compra" para Compra e pôs as UTMs nos anúncios 1 a 6.
+     Nada publicado
+   - [ ] **Gustavo:** compra de teste e depois "Conferir e publicar" no
+     Gerenciador
 8. [x] **Order bump das caixinhas na Wiapy** (2026-11-02). Conteúdo
    entregável "Caixinhas de Natal para presentear" (E-book, Hobbies, capa
    `capa-bump-caixinhas-1080x1920.png`, o PDF) e orderbump de R$ 4,90 com
@@ -324,3 +348,20 @@ o material até chegarem depoimentos reais.
     - [x] **Gustavo:** página criada (2026-11-02)
     - [ ] **Gustavo:** pôr o botão e publicar os 5 posts antes de subir a
       campanha (item 7)
+11. [x] **Utmify** (2026-11-03). Credencial "Wiapy Natal Mágico" criada pelo
+    Gustavo e colada na integração Utmify da Wiapy (produto Natal Mágico,
+    eventos pendente, aprovado, estornado e chargeback; token conferido
+    pelo Claude). Na Utmify, só a conta de anúncios Natal Magico ligada (o
+    Claude trocou com OK do Gustavo: estava ligada uma conta desabilitada).
+    Sem script de UTMs (a página já repassa) e sem o Pixel da Utmify (a
+    compra contaria duas vezes). Os parâmetros de URL dos anúncios mudaram
+    para o formato da Utmify, com nome, ID e o `cid` da conta. Detalhes na
+    parte 5 do `facebook/subir-campanha.md`
+    - [x] Assistente da Utmify terminado pelo Claude a pedido do Gustavo
+      (2026-11-03): script de UTMs marcado como instalado, UTMs da Meta
+      (o diagnóstico deu 0 erro porque ainda não há anúncio) e Pixel
+      pulado. O aviso "Configuração incompleta" sumiu
+    - [ ] **Gustavo:** depois de subir os anúncios, rodar de novo o
+      diagnóstico de UTMs (Integrações → UTMs da Meta) para conferir os 5
+    - [ ] **Taxas:** depois da compra de teste, ver em Pedidos se a venda
+      já vem sem a taxa da Wiapy (parte 5 do `subir-campanha.md`)

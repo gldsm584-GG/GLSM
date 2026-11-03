@@ -8,9 +8,10 @@ atribuída).
 2. Pixel novo "Natal Mágico"
 3. Pixel na Wiapy
 4. Pixel na página de venda (Claude)
-5. Compra de teste
-6. Campanha
-7. Os primeiros dias
+5. Utmify
+6. Compra de teste
+7. Campanha
+8. Os primeiros dias
 
 Conta, dinheiro e publicação são do Gustavo. Os textos e as imagens estão em `textos-dos-anuncios.md` e
 `fotos/`.
@@ -82,17 +83,51 @@ importa para a campanha é a compra.
 Com o ID, o Claude põe na `pagina-de-venda/index.html` o mesmo bloco da página das frutíferas
 (`PageView`) e republica na Vercel. A página já repassa `fbclid` e `utm_*` para o checkout.
 
-## 5. Compra de teste
+## 5. Utmify
 
-1. No celular, abra https://natal-magico-gamma.vercel.app → botão de compra → marque os 2 extras →
-   pague no Pix (R$ 30,60). O dinheiro volta para o seu saldo na Wiapy, menos a taxa.
+**Ligada em 2026-11-03.** A Utmify junta as vendas da Wiapy com o gasto do Meta e mostra o lucro de
+cada anúncio, inclusive das vendas que o Pixel não atribui (como a venda Pix perdida nas frutíferas).
+
+- **Credencial:** Utmify → Integrações → Webhooks → Credenciais de API → `Wiapy Natal Mágico`, criada
+  pelo Gustavo. O token só aparece na hora de criar; se precisar dele de novo, crie outra credencial.
+- **Na Wiapy:** Integrações → Utmify, integração `Wiapy Natal Mágico`: produto Natal Mágico, o token
+  da credencial e os eventos Pagamento pendente, aprovado, estornado e chargeback. Aqui o pendente
+  pode ficar ligado: na Utmify ele só mostra o Pix gerado e não pago, e não vai para o Meta. O Claude
+  conferiu que o token é o mesmo nas duas.
+- **Conta de anúncios:** Utmify → Integrações → Anúncios → Meta Ads, perfil Gustavo Luis: só a
+  **Natal Magico** ligada. Tinha ficado ligada uma conta "Gustavo Luis" desabilitada, e o Claude
+  trocou com OK do Gustavo. Na troca, a Natal Magico desligou sozinha uma vez, porque o plano
+  gratuito aceita só 1 conta de anúncios: depois de mexer, recarregue a página e confira.
+- **Plano:** gratuito, expira em 01/01/2027 (cobre a campanha até 24/12). Limites: 1 conta de
+  anúncios, 1 dashboard, 1 webhook e 1 Pixel. A Assinatura mostra também um "0 / 30" sem nome, que
+  pode ser um limite de vendas: conferir quando as vendas começarem.
+- **Taxas** (menu Taxas): vazio em 2026-11-03. Depois da compra de teste, veja em Pedidos se a
+  comissão já vem sem a taxa da Wiapy. Se vier com o valor cheio, adicione a taxa da Wiapy (4,99% +
+  R$ 1,49 sobre o valor de faturamento); se já vier sem, não adicione, senão a taxa conta duas vezes.
+  O imposto sobre o gasto no Meta só entra se a fatura do Meta cobrar imposto.
+- **Assistente de configuração:** terminado pelo Claude em 2026-11-03. O aviso "Configuração
+  incompleta" sumiu.
+- **Script de UTMs:** não precisa, a página já repassa `utm_*` e `fbclid` para o checkout (parte 4).
+  No assistente, ficou marcado "Já instalei o script de UTMs".
+- **Pixel da Utmify:** não usar (no assistente, ficou "Vou configurar pixels depois"). A Wiapy já manda a compra para o Meta com o
+  token da API de Conversões; um segundo Pixel contaria cada venda duas vezes.
+- **UTMs:** os parâmetros de URL dos anúncios (parte 7) levam o nome e o ID da campanha, do conjunto
+  e do anúncio, que é como a Utmify liga cada venda ao anúncio.
+
+## 6. Compra de teste
+
+1. No celular, abra https://natal-magico-gamma.vercel.app/?utm_source=FB&utm_campaign=teste|1&cid=13706891685
+   → botão de compra → marque os 2 extras → pague no Pix (R$ 30,60). O dinheiro volta para o seu saldo na
+   Wiapy, menos a taxa.
 2. Confira o e-mail: precisam chegar os 3 PDFs (Natal Mágico, caixinhas e kit do Papai Noel).
 3. Gerenciador de Eventos → Natal Mágico: precisam aparecer **PageView** e **Purchase**
    (InitiateCheckout, se aparecer, é bônus). Pode levar uns 20 minutos para aparecer na Visão geral.
+4. Utmify → **Pedidos**: a venda tem que aparecer com a campanha `teste`.
 
-Se o Purchase não aparecer, não suba a campanha: mande um print para o Claude.
+Se o Purchase não aparecer, não suba a campanha: mande um print para o Claude. Se só a Utmify falhar,
+a campanha pode subir, mas mande o print também.
 
-## 6. Campanha
+## 7. Campanha
 
 Gerenciador de Anúncios → conta **Natal Magico** (1673299994454815) → **+ Criar**.
 
@@ -141,14 +176,27 @@ Monte o primeiro, depois use **Duplicar** 4 vezes e troque só o nome e a imagem
 | Descrição | `PDF · R$ 19,90 · chega no e-mail` |
 | Chamada para ação | **Comprar agora** |
 | URL do site | `https://natal-magico-gamma.vercel.app` |
-| Parâmetros de URL | `utm_source=facebook&utm_medium=paid&utm_campaign={{campaign.name}}&utm_term={{adset.name}}&utm_content={{ad.name}}` |
+| Parâmetros de URL | o texto do bloco logo abaixo da tabela |
 | Aprimoramentos de criativo Advantage+ | **desligar os que mexem na imagem e no texto** (expandir imagem, gerar fundo, sobreposições, retoques, música, animação, ajustes de texto). As peças já têm texto e preço escritos na arte; o Meta pode cortar, redesenhar ou reescrever o texto |
 | Rastreamento | **Eventos do site** ligado, com o conjunto de dados Natal Mágico |
+
+**Parâmetros de URL** (em Rastreamento; colar inteiro, sem `?` no começo e sem mexer no que está
+entre `{{ }}`, que o Meta troca pelo nome e pelo ID reais). É o "Código de UTMs do Facebook", opção
+**Outra**, de Utmify → Integrações → UTMs, copiado em 2026-11-03; o `cid` no fim é o da conta Utmify:
+
+```
+utm_source=FB&utm_campaign={{campaign.name}}|{{campaign.id}}&utm_medium={{adset.name}}|{{adset.id}}&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}&cid=13706891685
+```
+
+É o mesmo texto nos 5 anúncios; o **Duplicar** já copia, mas confira. Na prévia, o endereço que abre
+tem que terminar com `?utm_source=FB&utm_campaign=Natal Mágico - Vendas|...`. Depois de publicar,
+rode o diagnóstico da Utmify (Integrações → UTMs, ou o passo "UTMs da Meta" do assistente, conta
+Natal Magico): ele aponta anúncio sem o código.
 
 Confira o resumo e clique em **Publicar**. O Meta revisa os anúncios antes de rodar (costuma levar de
 minutos a algumas horas).
 
-## 7. Os primeiros dias
+## 8. Os primeiros dias
 
 - **Não editar nada nos 3 primeiros dias.** Cada edição grande (orçamento, público, criativo) reinicia
   o aprendizado do Meta.
@@ -156,7 +204,8 @@ minutos a algumas horas).
   4,99%), e ~R$ 27,58 quando a pessoa leva os 2 extras. A venda empata se custar até ~R$ 17 no anúncio.
 - **Com ~R$ 60 gastos (3 dias),** mande para o Claude um print no nível **Anúncios** com as colunas
   impressões, cliques no link, CTR (link), CPC (link), CPM, finalizações de compra iniciadas, compras e
-  custo por compra, e o número de vendas da Wiapy (`/relatorio-ads`).
+  custo por compra, e o número de vendas da Wiapy (`/relatorio-ads`). Um print da Utmify no nível
+  anúncio ajuda também: ela mostra as vendas que o Pixel não atribuiu.
 - **Combine antes um limite de perda.** Nas frutíferas o plano foi de R$ 100: chegou nele sem venda,
   pausa e mexe na página ou nos criativos antes de gastar mais.
 - A campanha das frutíferas está desligada e fica em outra conta de anúncios. Se for religada e as duas

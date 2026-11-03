@@ -151,7 +151,8 @@ pela Wiapy (desde 2026-11-01; os outros continuam na Kiwify). Página em
 natal-magico-gamma.vercel.app, checkout pay.wiapy.com/6ae7abc92da3da6ee2ed677b,
 order bumps "Caixinhas de Natal" (R$ 4,90) e Kit "Papai Noel passou aqui"
 (R$ 5,80, de R$ 7,60) no ar desde 2026-11-02, com CTA "APROVEITE E LEVE
-JUNTO". O que falta para lançar fica na seção 6 do `estrutura.md` dele.
+JUNTO". Utmify ligada desde 2026-11-03 (integração nativa na Wiapy e conta
+de anúncios Natal Magico; parte 5 do `facebook/subir-campanha.md`). O que falta para lançar fica na seção 6 do `estrutura.md` dele.
 
 **Clientes ativos:**
 - Plavii (em prospecção — loja Next.js funcional em
