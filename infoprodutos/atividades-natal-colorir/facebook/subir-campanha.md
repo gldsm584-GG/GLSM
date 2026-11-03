@@ -159,11 +159,11 @@ o pior pelo nome.
 
 | Nome do anúncio | Imagem |
 |---|---|
-| `04 so imprimir` | `fotos/anuncio-04-so-imprimir.png` |
-| `05 pinte recorte brinque` | `fotos/anuncio-05-pinte-recorte-brinque.png` |
-| `06 45 recursos` | `fotos/anuncio-06-45-recursos.png` |
-| `08 menos tela` | `fotos/anuncio-08-menos-tela.png` |
-| `09 ferias` | `fotos/anuncio-09-ferias.png` |
+| `01 so imprimir` | `fotos/anuncio-01-so-imprimir.png` |
+| `02 pinte recorte brinque` | `fotos/anuncio-02-pinte-recorte-brinque.png` |
+| `03 45 recursos` | `fotos/anuncio-03-45-recursos.png` |
+| `04 menos tela` | `fotos/anuncio-04-menos-tela.png` |
+| `05 ferias` | `fotos/anuncio-05-ferias.png` |
 
 Monte o primeiro, depois use **Duplicar** 4 vezes e troque só o nome e a imagem.
 

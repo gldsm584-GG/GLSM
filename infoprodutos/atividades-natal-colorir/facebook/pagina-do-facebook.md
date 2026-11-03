@@ -57,7 +57,7 @@ anúncio.
 ### Prompt da capa (GPT)
 
 Abra uma conversa nova no GPT e anexe, nesta ordem:
-1. `fotos/anuncio-04-so-imprimir.png` (estilo)
+1. `fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `../Mockup do eBook Natal Mágico.png` (capa do ebook)
 3. `../Páginas Natalinas para Colorir em Madeira.png` (desenhos)
 4. `../Artesanato natalino para colorir na mesa.png` (moldes)

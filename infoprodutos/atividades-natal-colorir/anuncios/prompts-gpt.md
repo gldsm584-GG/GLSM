@@ -14,14 +14,14 @@ desenhos. Por isso, em **todo** anúncio:
 2. **Uma faixa escreve as 3 partes:** "15 desenhos + 20 moldes + 10 atividades".
 3. **O selo diz "Tudo em PDF por" e, maior, "R$ 19,90"**: o preço é do kit todo, e é digital.
 
-Dos anúncios já feitos, ficou só o 04 (`anuncio-04-so-imprimir.png`), que escreve o kit inteiro.
-Os primeiros 01, 02, 03 e 05 (o dos moldes) foram apagados por não escrever o kit inteiro.
+Os primeiros anúncios, que falavam de uma parte só, foram apagados. Em 2026-11-03 os que ficaram foram
+renumerados de 01 a 31, na ordem em que foram feitos; os títulos abaixo já usam os números novos.
 
 ## Como usar
 
 1. Abra uma conversa nova no GPT para cada anúncio.
 2. Anexe as imagens indicadas, **na ordem da lista** (o prompt fala em "primeira", "segunda"...).
-   A 1ª é sempre o anúncio 04, que serve de modelo de estilo.
+   A 1ª é sempre o anúncio 01 (`anuncio-01-so-imprimir.png`), que serve de modelo de estilo.
 3. Cole o prompt.
 4. Confira cada letra, a faixa do kit e o preço antes de aceitar. Se errar, peça: "Corrija só o
    texto X, sem mudar mais nada".
@@ -34,10 +34,10 @@ na Wiapy.
 
 ---
 
-## Anúncio 05: Pinte, recorte e brinque
+## Anúncio 02: Pinte, recorte e brinque
 
-Salvar como `anuncio-05-pinte-recorte-brinque.png`. Anexar:
-1. `facebook/fotos/anuncio-04-so-imprimir.png` (estilo)
+Salvar como `anuncio-02-pinte-recorte-brinque.png`. Anexar:
+1. `facebook/fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `Mockup do eBook Natal Mágico.png` (capa)
 3. `Páginas Natalinas para Colorir em Madeira.png` (desenhos)
 4. `Artesanato natalino para colorir na mesa.png` (moldes)
@@ -66,10 +66,10 @@ Regras:
 
 ---
 
-## Anúncio 06: 45 recursos num ebook só
+## Anúncio 03: 45 recursos num ebook só
 
-Salvar como `anuncio-06-45-recursos.png`. Anexar:
-1. `facebook/fotos/anuncio-04-so-imprimir.png` (estilo)
+Salvar como `anuncio-03-45-recursos.png`. Anexar:
+1. `facebook/fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `Mockup do eBook Natal Mágico.png` (capa)
 3. `Páginas Natalinas para Colorir em Madeira.png` (desenhos)
 4. `Artesanato natalino para colorir na mesa.png` (moldes)
@@ -102,13 +102,14 @@ Regras:
 
 ---
 
-## Anúncio 07: Da cartinha aos enfeites (reprovado)
+## Reprovado: Da cartinha aos enfeites
 
 Gerado em 2026-11-02 e reprovado pelo Gustavo: a cartinha ficou grande no meio da cena e os
-desenhos e moldes viraram enfeite nas bordas. Passa a ideia de "cartinha", não de kit.
+desenhos e moldes viraram enfeite nas bordas. Passa a ideia de "cartinha", não de kit. Não tem
+número nem arquivo.
 
-Salvar como `anuncio-07-cartinha.png`. Anexar:
-1. `facebook/fotos/anuncio-04-so-imprimir.png` (estilo)
+Anexar:
+1. `facebook/fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `Mockup do eBook Natal Mágico.png` (capa)
 3. `atividades/previa/p9.png` (a cartinha)
 4. `Páginas Natalinas para Colorir em Madeira.png` (desenhos)
@@ -134,10 +135,10 @@ Regras:
 
 ---
 
-## Anúncio 08: Menos tela, mais Natal
+## Anúncio 04: Menos tela, mais Natal
 
-Salvar como `anuncio-08-menos-tela.png`. Anexar:
-1. `facebook/fotos/anuncio-04-so-imprimir.png` (estilo)
+Salvar como `anuncio-04-menos-tela.png`. Anexar:
+1. `facebook/fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `Mockup do eBook Natal Mágico.png` (capa)
 3. `Páginas Natalinas para Colorir em Madeira.png` (desenhos)
 4. `Artesanato natalino para colorir na mesa.png` (moldes)
@@ -163,10 +164,10 @@ Regras:
 
 ---
 
-## Anúncio 09: Férias de dezembro
+## Anúncio 05: Férias de dezembro
 
-Salvar como `anuncio-09-ferias.png`. Anexar:
-1. `facebook/fotos/anuncio-04-so-imprimir.png` (estilo)
+Salvar como `anuncio-05-ferias.png`. Anexar:
+1. `facebook/fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `Mockup do eBook Natal Mágico.png` (capa)
 3. `Páginas Natalinas para Colorir em Madeira.png` (desenhos)
 4. `Artesanato natalino para colorir na mesa.png` (moldes)
@@ -191,23 +192,23 @@ Regras:
 
 ---
 
-## Anúncios 10 a 19 (segunda leva)
+## Anúncios 06 a 15 (segunda leva)
 
-Pedidos em 2026-11-02. Todos anexam as mesmas 5 imagens, nesta ordem (o 13 anexa mais 2):
-1. `facebook/fotos/anuncio-04-so-imprimir.png` (estilo)
+Pedidos em 2026-11-02. Todos anexam as mesmas 5 imagens, nesta ordem (o 09 anexa mais 2):
+1. `facebook/fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `Mockup do eBook Natal Mágico.png` (capa)
 3. `Páginas Natalinas para Colorir em Madeira.png` (desenhos)
 4. `Artesanato natalino para colorir na mesa.png` (moldes)
 5. `atividades/Atividades Natalinas na Mesa de Madeira.png` (atividades)
 
-Lição do 07: nenhuma parte do kit pode dominar a cena. Por isso todos os prompts pedem as 3 partes
+Lição da cartinha reprovada: nenhuma parte do kit pode dominar a cena. Por isso todos os prompts pedem as 3 partes
 "com o mesmo destaque".
 
 ---
 
-## Anúncio 10: Choveu nas férias?
+## Anúncio 06: Choveu nas férias?
 
-Salvar como `anuncio-10-chuva.png`.
+Salvar como `anuncio-06-chuva.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -228,9 +229,9 @@ Regras:
 
 ---
 
-## Anúncio 11: Oficina de Natal em casa
+## Anúncio 07: Oficina de Natal em casa
 
-Salvar como `anuncio-11-oficina.png`.
+Salvar como `anuncio-07-oficina.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmo fundo com árvore e pisca-pisca desfocados, mesma mesa de madeira, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -252,9 +253,9 @@ Regras:
 
 ---
 
-## Anúncio 12: A árvore de folhas
+## Anúncio 08: A árvore de folhas
 
-Salvar como `anuncio-12-arvore-de-folhas.png`.
+Salvar como `anuncio-08-arvore-de-folhas.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesma mesa de madeira, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -275,9 +276,9 @@ Regras:
 
 ---
 
-## Anúncio 13: Noite de jogos de Natal
+## Anúncio 09: Noite de jogos de Natal
 
-Salvar como `anuncio-13-noite-de-jogos.png`. Anexar as 5 de sempre e mais:
+Salvar como `anuncio-09-noite-de-jogos.png`. Anexar as 5 de sempre e mais:
 6. `atividades/previa/p7.png` (bingo)
 7. `atividades/previa/p6.png` (jogo da memória)
 
@@ -300,9 +301,9 @@ Regras:
 
 ---
 
-## Anúncio 14: Do preto e branco pro colorido
+## Anúncio 10: Do preto e branco pro colorido
 
-Salvar como `anuncio-14-antes-e-depois.png`.
+Salvar como `anuncio-10-antes-e-depois.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmo fundo com árvore e pisca-pisca desfocados, mesma mesa de madeira, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -324,9 +325,9 @@ Regras:
 
 ---
 
-## Anúncio 15: Em casa ou na escola
+## Anúncio 11: Em casa ou na escola
 
-Salvar como `anuncio-15-casa-ou-escola.png`.
+Salvar como `anuncio-11-casa-ou-escola.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -348,9 +349,9 @@ Regras:
 
 ---
 
-## Anúncio 16: Decoração feita pelas crianças
+## Anúncio 12: Decoração feita pelas crianças
 
-Salvar como `anuncio-16-decoracao.png`.
+Salvar como `anuncio-12-decoracao.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -371,10 +372,10 @@ Regras:
 
 ---
 
-## Anúncio 17: Imprima quantas vezes quiser
+## Anúncio 13: Imprima quantas vezes quiser
 
-Salvar como `anuncio-17-quantas-vezes.png`. A licença deixa imprimir quantas vezes quiser (uso pessoal,
-sem revender).
+Salvar como `anuncio-13-quantas-vezes.png`. A licença deixa imprimir quantas vezes quiser (na família ou
+na turma, sem revender).
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmo fundo com árvore e pisca-pisca desfocados, mesma mesa de madeira, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -395,9 +396,9 @@ Regras:
 
 ---
 
-## Anúncio 18: Olha quanta coisa
+## Anúncio 14: Olha quanta coisa
 
-Salvar como `anuncio-18-quanta-coisa.png`.
+Salvar como `anuncio-14-quanta-coisa.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmo fundo com árvore e pisca-pisca desfocados, mesma mesa de madeira, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -418,9 +419,9 @@ Regras:
 
 ---
 
-## Anúncio 19: Enquanto a ceia não fica pronta
+## Anúncio 15: Enquanto a ceia não fica pronta
 
-Salvar como `anuncio-19-ceia.png`.
+Salvar como `anuncio-15-ceia.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -442,24 +443,24 @@ Regras:
 
 ---
 
-## Anúncios 20 a 35 (terceira leva)
+## Anúncios 16 a 31 (terceira leva)
 
 Pedidos em 2026-11-03. Todos anexam as mesmas 5 imagens, nesta ordem:
-1. `facebook/fotos/anuncio-04-so-imprimir.png` (estilo)
+1. `facebook/fotos/anuncio-01-so-imprimir.png` (estilo)
 2. `Mockup do eBook Natal Mágico.png` (capa)
 3. `Páginas Natalinas para Colorir em Madeira.png` (desenhos)
 4. `Artesanato natalino para colorir na mesa.png` (moldes)
 5. `atividades/Atividades Natalinas na Mesa de Madeira.png` (atividades)
 
-As lições das levas anteriores já estão no texto de cada prompt: as 3 partes com o mesmo destaque (07),
-capa com a faixa "Ebook" e o subtítulo (12, 13 e 15), tudo em papel impresso (13), os moldes da lista do
-kit (10 e 12) e nada que o kit não tem (11 e 18).
+As lições das levas anteriores já estão no texto de cada prompt: as 3 partes com o mesmo destaque (a
+cartinha reprovada), capa com a faixa "Ebook" e o subtítulo (08, 09 e 11), tudo em papel impresso (09),
+os moldes da lista do kit (06 e 08) e nada que o kit não tem (07 e 14).
 
 ---
 
-## Anúncio 20: Natal chegando? Já tem atividade pronta
+## Anúncio 16: Natal chegando? Já tem atividade pronta
 
-Salvar como `anuncio-20-natal-chegando.png`.
+Salvar como `anuncio-16-natal-chegando.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -481,9 +482,9 @@ Regras:
 
 ---
 
-## Anúncio 21: Mesa das crianças na festa de Natal
+## Anúncio 17: Mesa das crianças na festa de Natal
 
-Salvar como `anuncio-21-mesa-das-criancas.png`.
+Salvar como `anuncio-17-mesa-das-criancas.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -505,9 +506,9 @@ Regras:
 
 ---
 
-## Anúncio 22: Primos em casa? Tem Natal pra todo mundo
+## Anúncio 18: Primos em casa? Tem Natal pra todo mundo
 
-Salvar como `anuncio-22-primos.png`.
+Salvar como `anuncio-18-primos.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -529,9 +530,9 @@ Regras:
 
 ---
 
-## Anúncio 23: Vai viajar no Natal? Leva o kit impresso
+## Anúncio 19: Vai viajar no Natal? Leva o kit impresso
 
-Salvar como `anuncio-23-viagem.png`.
+Salvar como `anuncio-19-viagem.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -554,9 +555,9 @@ Regras:
 
 ---
 
-## Anúncio 24: 45 recursos de Natal por menos de R$ 20
+## Anúncio 20: 45 recursos de Natal por menos de R$ 20
 
-Salvar como `anuncio-24-menos-de-20.png`.
+Salvar como `anuncio-20-menos-de-20.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -578,9 +579,9 @@ Regras:
 
 ---
 
-## Anúncio 25: Tudo organizado num PDF só
+## Anúncio 21: Tudo organizado num PDF só
 
-Salvar como `anuncio-25-organizado.png`.
+Salvar como `anuncio-21-organizado.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -603,9 +604,9 @@ Regras:
 
 ---
 
-## Anúncio 26: Um café em paz enquanto a criançada pinta
+## Anúncio 22: Um café em paz enquanto a criançada pinta
 
-Salvar como `anuncio-26-cafe-em-paz.png`.
+Salvar como `anuncio-22-cafe-em-paz.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -627,9 +628,9 @@ Regras:
 
 ---
 
-## Anúncio 27: Manhã de Natal com mais brincadeira
+## Anúncio 23: Manhã de Natal com mais brincadeira
 
-Salvar como `anuncio-27-manha-de-natal.png`.
+Salvar como `anuncio-23-manha-de-natal.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -651,9 +652,9 @@ Regras:
 
 ---
 
-## Anúncio 28: Calorão de dezembro? Diversão de Natal na sombra
+## Anúncio 24: Calorão de dezembro? Diversão de Natal na sombra
 
-Salvar como `anuncio-28-calor.png`.
+Salvar como `anuncio-24-calor.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -675,9 +676,9 @@ Regras:
 
 ---
 
-## Anúncio 29: Festa de Natal da turma com atividade pronta
+## Anúncio 25: Festa de Natal da turma com atividade pronta
 
-Salvar como `anuncio-29-festa-da-turma.png`.
+Salvar como `anuncio-25-festa-da-turma.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -700,9 +701,9 @@ Regras:
 
 ---
 
-## Anúncio 30: Chega no e-mail, você imprime em casa
+## Anúncio 26: Chega no e-mail, você imprime em casa
 
-Salvar como `anuncio-30-chega-no-email.png`.
+Salvar como `anuncio-26-chega-no-email.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -725,9 +726,9 @@ Regras:
 
 ---
 
-## Anúncio 31: Uma folha por dia até o Natal chegar
+## Anúncio 27: Uma folha por dia até o Natal chegar
 
-Salvar como `anuncio-31-uma-por-dia.png`.
+Salvar como `anuncio-27-uma-por-dia.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -750,9 +751,9 @@ Regras:
 
 ---
 
-## Anúncio 32: A geladeira mais enfeitada do Natal
+## Anúncio 28: A geladeira mais enfeitada do Natal
 
-Salvar como `anuncio-32-geladeira.png`.
+Salvar como `anuncio-28-geladeira.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -775,9 +776,9 @@ Regras:
 
 ---
 
-## Anúncio 33: Cabana de Natal com atividade pra imprimir
+## Anúncio 29: Cabana de Natal com atividade pra imprimir
 
-Salvar como `anuncio-33-cabaninha.png`.
+Salvar como `anuncio-29-cabaninha.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -799,9 +800,9 @@ Regras:
 
 ---
 
-## Anúncio 34: Papai Noel, rena, pinguim e muito mais
+## Anúncio 30: Papai Noel, rena, pinguim e muito mais
 
-Salvar como `anuncio-34-personagens.png`.
+Salvar como `anuncio-30-personagens.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -823,9 +824,9 @@ Regras:
 
 ---
 
-## Anúncio 35: Acabaram as aulas? A diversão de Natal continua
+## Anúncio 31: Acabaram as aulas? A diversão de Natal continua
 
-Salvar como `anuncio-35-acabaram-as-aulas.png`.
+Salvar como `anuncio-31-acabaram-as-aulas.png`.
 
 ```
 Crie um anúncio de Instagram no mesmo estilo da primeira imagem anexada: mesma luz quente de Natal, mesmas letras grossas e arredondadas em verde-escuro e vermelho, mesma faixa clara com borda pontilhada dourada e o mesmo selo vermelho de preço com borda pontilhada.
@@ -851,7 +852,7 @@ Regras:
 ## Versão stories (9:16) de cada anúncio
 
 Depois de aprovar a versão do feed, na **mesma conversa** do GPT (ou anexando a imagem do feed numa
-conversa nova). Salvar com `-stories` no fim do nome (ex.: `anuncio-05-pinte-recorte-brinque-stories.png`).
+conversa nova). Salvar com `-stories` no fim do nome (ex.: `anuncio-02-pinte-recorte-brinque-stories.png`).
 
 ```
 Refaça este anúncio no formato vertical 9:16, para stories, com a mesma cena, os mesmos textos escritos exatamente igual, a mesma faixa com "15 desenhos + 20 moldes + 10 atividades" e o mesmo selo de preço. Deixe livres uns 15% no alto e uns 25% embaixo, só com o fundo da cena (sem texto e sem o selo nessas faixas), porque o Instagram cobre essas partes da tela.
