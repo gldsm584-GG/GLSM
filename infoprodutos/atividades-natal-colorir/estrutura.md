@@ -157,6 +157,11 @@ labirinto e da sombra anexadas, original em
 painel: servidor `natal-pagina-de-venda` do `.claude/launch.json` (porta
 4325).
 
+Favicon (2026-11-03): o rosto do Papai Noel dos order bumps sobre um
+quadrado verde, em `favicon.ico` (16, 32 e 48 px), `favicon.png` (192 px)
+e `apple-touch-icon.png` (180 px) dentro de `pagina-de-venda/`. Para gerar
+de novo: `node favicon.mjs` nesta pasta (usa `caixinhas/arte/`).
+
 Ordem das seções: faixa do topo, capa com chamada, o que você vai receber
 (15/20/10), vantagens, foto da mesa, como funciona, oferta (R$ 19,90, sem
 parcelamento), galeria, perguntas frequentes e chamada final.
