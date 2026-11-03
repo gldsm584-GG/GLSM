@@ -245,14 +245,38 @@ o material até chegarem depoimentos reais.
 6. [x] **Criativos e textos dos anúncios** (2026-11-02). Os feitos em
    código (HTML) ficaram ruins e foram apagados; os anúncios são feitos
    pelo Gustavo no GPT, com prompts do Claude em `anuncios/prompts-gpt.md`.
-   5 prontos no feed 4:5 em `facebook/fotos/` (`anuncio-04` é só
+   31 prontos no feed 4:5 em `facebook/fotos/` (`anuncio-04` é só
    imprimir, `anuncio-05` pinte, recorte e brinque, `anuncio-06` 45
-   recursos, `anuncio-08` menos tela, `anuncio-09` férias de dezembro).
+   recursos, `anuncio-08` menos tela, `anuncio-09` férias de dezembro,
+   `anuncio-10` chuva, `anuncio-11` oficina, `anuncio-12` árvore de
+   folhas, `anuncio-13` noite de jogos, `anuncio-14` antes e depois,
+   `anuncio-15` casa ou escola, `anuncio-16` decoração, `anuncio-17`
+   quantas vezes quiser, `anuncio-18` quanta coisa, `anuncio-19` ceia,
+   `anuncio-20` Natal chegando, `anuncio-21` mesa das crianças,
+   `anuncio-22` primos, `anuncio-23` viagem, `anuncio-24` menos de
+   R$ 20, `anuncio-25` organizado, `anuncio-26` café em paz,
+   `anuncio-27` manhã de Natal, `anuncio-28` calor, `anuncio-29` festa da
+   turma, `anuncio-30` chega no e-mail, `anuncio-31` uma por dia,
+   `anuncio-32` geladeira, `anuncio-33` cabaninha, `anuncio-34`
+   personagens, `anuncio-35` acabaram as aulas). As 3 levas de prompts
+   (05 a 35) estão completas. O título do 25 ("num PDF só") e o do 12 ("num PDF")
+   não são exatos: o kit chega em 3 PDFs (desenhos, moldes, atividades).
+   O título do 23 ("Leva o kit impresso") pode dar a ideia de que o kit
+   chega impresso; o 31 tem uma igrejinha, e o kit não tem desenho
+   religioso. Os quatro dá para corrigir no GPT pedindo a troca só daquilo
+   O GPT tende a trocar a capa e a desenhar os jogos como peças de
+   papelão colorido: conferir que é a capa real e que tudo é papel
+   impresso. Conferir se o GPT não inventa item que o kit não tem (no 1º 11
+   apareceu um quebra-cabeça; no 1º 18, máscara de rena e caixinha para
+   montar, que é o order bump vendido à parte)
    Os primeiros 01, 02, 03 e 05 foram
    apagados por não escrever o kit inteiro: todo anúncio tem que mostrar
    os 15 desenhos + 20 moldes + 10 atividades e "Tudo em PDF por
    R$ 19,90". O 07 (cartinha) saiu e foi reprovado: a cartinha dominou a
    cena.
+   Vídeo: em 2026-11-03 um vídeo narrado de 15 s, feito em Remotion porque
+   o GPT não faz mais vídeo (a OpenAI encerrou o Sora), ficou ruim e foi
+   apagado. Os anúncios ficam só nas imagens
    Textos (versões A e B, títulos, descrição, botão e o que conferir antes
    de subir) em `facebook/textos-dos-anuncios.md`. Sem vídeo por enquanto,
    e sem "Garantia de 7 dias" nas peças até conferir na Wiapy
