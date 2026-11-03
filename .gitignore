@@ -42,3 +42,6 @@ infoprodutos/*/facebook/videos/
 # Drop zone do usuário (só o README vai versionado)
 dados/*
 !dados/README.md
+
+# Vídeo feito de um áudio de WhatsApp de outra pessoa (voz e fala dela): fica só no PC
+saidas/outros/video-metodo-campanha/
