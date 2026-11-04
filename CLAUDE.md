@@ -134,8 +134,7 @@ prospecção do Gustavo.
 - `dados/` — arquivos a analisar
 - `infoprodutos/` — meus produtos digitais (ebooks), uma subpasta por
   produto (ex: `infoprodutos/frutiferas-em-vaso/`)
-- `equipe/` — equipe de agentes do Maestri (texto dos papéis e conexão
-  com o WanGP)
+- `equipe/` — equipe de agentes do Maestri (texto dos papéis)
 
 **Quem sou:** Gustavo, freelancer criando sites profissionais pra
 qualquer tipo de comércio. Ainda sem nicho fechado.
@@ -229,8 +228,8 @@ montar a equipe estão em `equipe/papeis.md`.
 - **Raiz (Produto):** estrutura, capítulos, bônus e PDF do ebook.
 - **Verbo (Copy):** título, `copy-pagina.md`, textos da Kiwify e dos anúncios.
 - **Prumo (Site):** `pagina-de-venda/` e, quando pedido, sites de clientes.
-- **Lente (Mídia):** vídeos e imagens no WanGP (`anuncios/imagens`,
-  `facebook/videos`, `facebook/fotos`).
+- **Lente (Mídia):** prompts das imagens pro GPT e acabamento do que o
+  Gustavo gera (`anuncios/imagens`, `facebook/fotos`).
 
 Regras da equipe:
 - A ordem é Produto, depois Copy, depois Site e Mídia ao mesmo tempo, e
@@ -243,5 +242,6 @@ Regras da equipe:
   noindex e se os criativos estão em 1080x1350 e 1080x1920.
 - Conta, dinheiro e publicação (Kiwify, Wiapy, anúncios no Meta, mensagens) são
   sempre do Gustavo.
-- A Mídia só funciona com o WanGP aberto pelo `Abrir WanGP.bat`, que já
-  liga o MCP em http://127.0.0.1:8000/mcp.
+- A Mídia não gera imagem: escreve o prompt em `anuncios/prompts-gpt.md`,
+  o Gustavo gera no GPT e ela confere texto e preço e ajusta o tamanho.
+  WanGP desinstalado em 2026-11-03.
