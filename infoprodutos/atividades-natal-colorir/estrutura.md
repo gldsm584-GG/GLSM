@@ -222,8 +222,13 @@ o material até chegarem depoimentos reais.
    `curl`). Em 2026-11-03 o FAQ "Posso imprimir?" passou a dizer que vale
    para a família ou a turma da escola, sem revender nem repassar (ver a
    licença na seção 4), e foi republicado com OK do Gustavo (200, noindex,
-   Pixel e FAQ conferidos com `curl`). Faltam o rodapé com o nome do
-   vendedor e a política de privacidade
+   Pixel e FAQ conferidos com `curl`). Em 2026-11-04 os 4 botões de compra
+   passaram a mandar `InitiateCheckout` (R$ 19,90 BRL) ao Pixel no clique,
+   porque a Wiapy só manda a compra aprovada e a coluna "Finalizações de
+   compra iniciadas" do Gerenciador ficava sempre em "—". Republicado com OK
+   do Gustavo (200, noindex e Pixel conferidos com `curl`; o evento saiu
+   para `facebook.com/tr` no clique, conferido no navegador). Faltam o
+   rodapé com o nome do vendedor e a política de privacidade
 3. [x] **Claude, com OK do Gustavo:** publicar `pagina-de-venda/` na
    Vercel com `noindex`. No ar desde 2026-11-01 em
    https://natal-magico-gamma.vercel.app (projeto `natal-magico`, o nome
@@ -245,9 +250,12 @@ o material até chegarem depoimentos reais.
      Gustavo (2026-11-02; conferido pelo Claude: salvo, começa com `EAA`). No
      Gerenciador de Eventos a API de Conversões fica "Conexão pendente" até
      chegar o primeiro evento do servidor, que vem com a compra de teste
-5. [ ] **Gustavo:** compra de teste do começo ao fim (página, checkout,
-   e-mail com os PDFs, `Purchase` no Gerenciador de Eventos, venda nos
-   Pedidos da Utmify)
+5. [ ] **Compra de teste: o Gustavo decidiu não fazer** (2026-11-03). A
+   primeira venda de verdade vale como teste. Conferir na Wiapy que ela saiu
+   paga e com os PDFs entregues, que o `Purchase` aparece no Gerenciador de
+   Eventos em até ~30 min e que a venda aparece nos Pedidos da Utmify. Se o
+   `Purchase` não chegar, mandar print para o Claude: sem ele o Meta
+   otimiza as campanhas no escuro
 6. [x] **Criativos e textos dos anúncios** (2026-11-02). Os feitos em
    código (HTML) ficaram ruins e foram apagados; os anúncios são feitos
    pelo Gustavo no GPT, com prompts do Claude em `anuncios/prompts-gpt.md`.
@@ -288,7 +296,7 @@ o material até chegarem depoimentos reais.
    e sem "Garantia de 7 dias" nas peças até conferir na Wiapy
    - [ ] **Gustavo:** versões stories (9:16) no GPT, com o prompt do fim do
      `prompts-gpt.md`
-7. [ ] **Gustavo:** subir a campanha no Meta até ~10/11, seguindo
+7. [x] **Gustavo:** subir a campanha no Meta até ~10/11, seguindo
    `facebook/subir-campanha.md` (configuração campo a campo, 5 anúncios, um
    por imagem, e o que olhar nos primeiros dias)
    - [x] Portfólio empresarial e conta de anúncios próprios (2026-11-02):
@@ -319,8 +327,14 @@ o material até chegarem depoimentos reais.
      às 11h08 e travava a publicação). O Gustavo trocou o evento de "Iniciar
      finalização da compra" para Compra e pôs as UTMs nos anúncios 1 a 6.
      Nada publicado
-   - [ ] **Gustavo:** compra de teste e depois "Conferir e publicar" no
-     Gerenciador
+   - [x] **Gustavo:** publicou as 3 campanhas em 2026-11-03, sem a compra de
+     teste (ver o item 5). Conferido pelo Claude logo depois: as campanhas
+     estão como "Programado", não sobrou nenhum rascunho e os 30 anúncios
+     estão "Em análise" ou "Em processamento", sem nenhum reprovado. Rodam a
+     partir de 04/11 à 00h
+   - [ ] Nos 3 primeiros dias, não mexer em orçamento, público nem anúncios.
+     Com ~R$ 60 gastos, mandar ao Claude o print no nível Anúncios
+     (`/relatorio-ads`; colunas na parte 7 do `subir-campanha.md`)
 8. [x] **Order bump das caixinhas na Wiapy** (2026-11-02). Conteúdo
    entregável "Caixinhas de Natal para presentear" (E-book, Hobbies, capa
    `capa-bump-caixinhas-1080x1920.png`, o PDF) e orderbump de R$ 4,90 com

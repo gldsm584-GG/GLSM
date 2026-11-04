@@ -397,6 +397,10 @@ fbq('track', 'PageView');
     const url = new URL(a.href);
     new URLSearchParams(location.search).forEach((v, k) => url.searchParams.set(k, v));
     a.href = url;
+    // Avisa o Meta que a pessoa clicou em comprar (a Wiapy só manda a compra aprovada).
+    a.addEventListener('click', () => {
+      if (window.fbq) fbq('track', 'InitiateCheckout', { value: 19.90, currency: 'BRL' });
+    });
   });
 </script>
 

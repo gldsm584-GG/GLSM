@@ -198,6 +198,8 @@ minutos a algumas horas).
 
 ## 8. Os primeiros dias
 
+- **Números zerados?** Confira o período no canto de cima, à direita. "Últimos 30 dias" (e "Últimos 7
+  dias") param em ontem e não mostram o dia de hoje; use **Hoje** ou **Máximo**.
 - **Não editar nada nos 3 primeiros dias.** Cada edição grande (orçamento, público, criativo) reinicia
   o aprendizado do Meta.
 - **Conta do empate:** no cartão sobram ~R$ 17,42 de cada venda de R$ 19,90 (taxa da Wiapy de R$ 1,49 +
