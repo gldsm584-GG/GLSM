@@ -213,7 +213,9 @@ o material até chegarem depoimentos reais.
    - [x] E-mail de suporte confirmado em 2026-11-01; checkout aberto
      (R$ 19,90 à vista, Pix, cartão e Google Pay)
    - [ ] Garantia de 7 dias: não apareceu no formulário do produto; conferir
-     na Wiapy
+     na Wiapy. Desde 2026-11-05 o checkout mostra o selo "Garantia de 7
+     dias" (item 7), então todo pedido de reembolso em até 7 dias tem que
+     ser atendido (o CDC, art. 49, já garante isso na compra pela internet)
 2. [ ] **Claude:** link do checkout no botão `data-checkout` da oferta
    (feito em 2026-11-01; o script da página repassa `fbclid` e `utm_*`).
    Meta Pixel "Natal Mágico" (991211670703665) colocado no `<head>` em
@@ -340,6 +342,39 @@ o material até chegarem depoimentos reais.
    - [ ] Nos 3 primeiros dias, não mexer em orçamento, público nem anúncios.
      Com ~R$ 60 gastos, mandar ao Claude o print no nível Anúncios
      (`/relatorio-ads`; colunas na parte 7 do `subir-campanha.md`)
+   - [x] **Pausadas as 3 campanhas** em 2026-11-05 pelo Claude, com OK do
+     Gustavo, por passar o limite de perda. Em 04–05/11: R$ 123,52 gastos,
+     41 visitas (R$ 3,01 cada), 9 IC (R$ 13,72 cada, contra a meta de 10%
+     do preço = R$ 1,99), 1 venda, -R$ 105,12 reais. A página converte bem
+     (22% das visitas clicam em comprar); a visita é cara e quase ninguém
+     passa do checkout
+   - [ ] **Checkout da Wiapy** (olhado no celular pelo Claude em
+     2026-11-05): fora o teste do Gustavo, ninguém chegou a digitar nada
+     (Checkouts Abandonados só tem o teste dele), então a desistência é na
+     primeira olhada. Abre direto em "Resumo do pedido", sem cabeçalho nem
+     a arte do kit, tema branco liso; pede nome, e-mail, CPF e WhatsApp
+     (área não editável); o botão "Finalizar pagamento" fica a ~3 telas,
+     depois do passo a passo do Pix e dos 2 bumps; logo acima dele apareceu
+     a caixa do Cloudflare "Confirme que é humano" (no navegador do Claude;
+     falta ver se aparece no celular de verdade, abrindo pelo Instagram).
+     O editor (Produtos → Natal Mágico → Editar visual checkout) aceita
+     banner no cabeçalho, selo de garantia, depoimento, cronômetro e prova
+     social. Nome de exibição "Natal Mágico": a Wiapy diz que tem que ser o
+     nome do titular (pessoa física: primeiro e último nome), sob risco de
+     desativar o checkout
+     - [x] **Banner e selo no checkout** (2026-11-05, pelo Claude com OK do
+       Gustavo). Cabeçalho: elemento Imagem com
+       `https://natal-magico-gamma.vercel.app/img/banner-checkout.webp`
+       (capa do kit + "Natal Mágico, 15 desenhos, 20 moldes, 10
+       atividades", sai do `banner-checkout.mjs`), cantos de 12 px e Link
+       vazio, para o clique não tirar a pessoa do checkout. A imagem foi
+       publicada na Vercel junto da página (o `index.html` não mudou).
+       Rodapé: elemento Garantia padrão ("Garantia de 7 dias. Se você não
+       ficar satisfeito, devolvemos 100% do seu dinheiro."), que no celular
+       cai logo abaixo do botão "Finalizar pagamento". Conferido no checkout
+       publicado, no tamanho de celular
+     - [ ] Gustavo: abrir o checkout no próprio celular pelo Instagram e ver
+       se a caixa do Cloudflare aparece
 8. [x] **Order bump das caixinhas na Wiapy** (2026-11-02). Conteúdo
    entregável "Caixinhas de Natal para presentear" (E-book, Hobbies, capa
    `capa-bump-caixinhas-1080x1920.png`, o PDF) e orderbump de R$ 4,90 com
