@@ -101,10 +101,18 @@ cada anúncio, inclusive das vendas que o Pixel não atribui (como a venda Pix p
 - **Plano:** gratuito, expira em 01/01/2027 (cobre a campanha até 24/12). Limites: 1 conta de
   anúncios, 1 dashboard, 1 webhook e 1 Pixel. A Assinatura mostra também um "0 / 30" sem nome, que
   pode ser um limite de vendas: conferir quando as vendas começarem.
-- **Taxas** (menu Taxas): vazio em 2026-11-03. Depois da compra de teste, veja em Pedidos se a
-  comissão já vem sem a taxa da Wiapy. Se vier com o valor cheio, adicione a taxa da Wiapy (4,99% +
-  R$ 1,49 sobre o valor de faturamento); se já vier sem, não adicione, senão a taxa conta duas vezes.
-  O imposto sobre o gasto no Meta só entra se a fatura do Meta cobrar imposto.
+- **Taxas** (menu Taxas): **deixar vazio.** Conferido na 1ª venda (2026-11-05, Pix): a Wiapy já
+  manda para a Utmify o valor sem a taxa (R$ 18,40 de uma venda de R$ 19,90), e a venda caiu na
+  campanha certa. Pôr a taxa da Wiapy aqui contaria a taxa duas vezes. O imposto sobre o gasto no
+  Meta só entra se a fatura do Meta cobrar imposto.
+- **Valor no Meta é o cheio:** a Wiapy manda ao Pixel o preço pago (R$ 19,90), não o que sobra. O
+  formulário da integração (Integrações → Facebook Ads) não tem opção de valor. Por isso o lucro de
+  verdade se lê na Utmify; no Meta, a coluna "Valor de conversão da compra" fica com a taxa dentro.
+  A métrica personalizada **grana no bolso** (do Gustavo, só ele vê) foi ajustada pelo Claude em
+  2026-11-05, com OK dele: `Valor de conversão da compra − Valor gasto − (Compras × 1.5)`. É exata
+  para venda no Pix de R$ 19,90; venda no cartão (taxa ~R$ 2,48) sai ~R$ 0,98 acima do real. Se a
+  taxa da Wiapy mudar, trocar o 1.5 (Personalizar colunas → Mais → Personalizado → passar o mouse
+  em "grana no bolso" → Editar).
 - **Assistente de configuração:** terminado pelo Claude em 2026-11-03. O aviso "Configuração
   incompleta" sumiu.
 - **Script de UTMs:** não precisa, a página já repassa `utm_*` e `fbclid` para o checkout (parte 4).
@@ -203,7 +211,9 @@ minutos a algumas horas).
 - **Não editar nada nos 3 primeiros dias.** Cada edição grande (orçamento, público, criativo) reinicia
   o aprendizado do Meta.
 - **Conta do empate:** no cartão sobram ~R$ 17,42 de cada venda de R$ 19,90 (taxa da Wiapy de R$ 1,49 +
-  4,99%), e ~R$ 27,58 quando a pessoa leva os 2 extras. A venda empata se custar até ~R$ 17 no anúncio.
+  4,99%), e ~R$ 27,58 quando a pessoa leva os 2 extras. No Pix sobram R$ 18,40 (taxa de R$ 1,50,
+  conferida na 1ª venda em 2026-11-05). A venda empata se custar até ~R$ 17 no anúncio. Como o Meta
+  conta o valor cheio, o ROAS de compras do Meta só empata em ~1,08 (Pix) ou ~1,14 (cartão), não em 1,0.
 - **Com ~R$ 60 gastos (3 dias),** mande para o Claude um print no nível **Anúncios** com as colunas
   impressões, cliques no link, CTR (link), CPC (link), CPM, finalizações de compra iniciadas, compras e
   custo por compra, e o número de vendas da Wiapy (`/relatorio-ads`). Um print da Utmify no nível

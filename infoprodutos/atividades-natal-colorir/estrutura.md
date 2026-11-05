@@ -256,6 +256,11 @@ o material até chegarem depoimentos reais.
    Eventos em até ~30 min e que a venda aparece nos Pedidos da Utmify. Se o
    `Purchase` não chegar, mandar print para o Claude: sem ele o Meta
    otimiza as campanhas no escuro
+   - [x] 1ª venda em 2026-11-05 às 06:56, Pix, sem order bump: paga na
+     Wiapy (R$ 18,40 líquidos), `Purchase` enviado às 07:52 (log 200) e
+     contado no Meta na campanha `natal M 1-1-10 3` (valor R$ 19,90), e
+     nos Pedidos da Utmify na mesma campanha. Entrega dos PDFs não
+     conferida
 6. [x] **Criativos e textos dos anúncios** (2026-11-02). Os feitos em
    código (HTML) ficaram ruins e foram apagados; os anúncios são feitos
    pelo Gustavo no GPT, com prompts do Claude em `anuncios/prompts-gpt.md`.
@@ -382,5 +387,7 @@ o material até chegarem depoimentos reais.
       pulado. O aviso "Configuração incompleta" sumiu
     - [ ] **Gustavo:** depois de subir os anúncios, rodar de novo o
       diagnóstico de UTMs (Integrações → UTMs da Meta) para conferir os 5
-    - [ ] **Taxas:** depois da compra de teste, ver em Pedidos se a venda
-      já vem sem a taxa da Wiapy (parte 5 do `subir-campanha.md`)
+    - [x] **Taxas** (2026-11-05): a 1ª venda chegou na Utmify já sem a
+      taxa da Wiapy (R$ 18,40) e na campanha certa; o menu Taxas fica vazio.
+      O Meta recebe o valor cheio (R$ 19,90) e a Wiapy não tem opção para
+      mudar (parte 5 do `subir-campanha.md`)
